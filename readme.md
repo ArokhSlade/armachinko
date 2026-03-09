@@ -12,9 +12,9 @@ As a Team of 8 we built a quirky pinball spin-off, where players take direct con
 
 ## Learnings
 
-Working on a team.
-Godot. Scrum.
-Managing a project and a team.
+Working on a team.  
+Godot. Scrum.  
+Managing a project and a team.  
 
 ## Team
 
