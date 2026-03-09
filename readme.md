@@ -7,7 +7,7 @@ As a Team of 8 we built a quirky pinball spin-off, where players take direct con
 ## Work
 | | | | | |
 | :----: | :----: | :----: | :----: | :----: |
-| **Programming** | Architecture | Movement | Camera | Explosions |
+| **Programming** | Architecture | Movement | Camera | Interactions |
 | **Production** | Backlog | Meetings | Coordination | 1on1s |
 
 ## Learnings
