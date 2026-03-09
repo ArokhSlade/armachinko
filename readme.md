@@ -5,10 +5,10 @@ My first semester project at S4G Berlin.
 As a Team of 8 we built a quirky pinball spin-off, where players take direct control of the ball \- in the shape of a shotgun-wielding armadillo chasing the highest ~~score~~ bounty in the wild west.
 
 ## Work
-| | | | | |
-| :----: | :----: | :----: | :----: | :----: |
-| **Programming** | Architecture | Movement | Camera | Interactions |
-| **Production** | Backlog | Meetings | Coordination | 1on1s |
+| | | | | | |
+| :----: | :----: | :----: | :----: | :----: | :----: |
+| **Programming** | Architecture | Movement | Camera | Interactions | UI |
+| **Production/Lead** | Backlog | Meetings | Coordination | 1on1s | Mentoring |
 
 ## Learnings
 
