@@ -1,0 +1,388 @@
+[gd_scene load_steps=30 format=3 uid="uid://c2grir31catpo"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://404c3ueq1xfu" path="res://features/player/player_settings/phymat_player.tres" id="1_t01mc"]
+[ext_resource type="Script" path="res://features/player/player.gd" id="2_rgtc7"]
+[ext_resource type="Material" uid="uid://dv03r3oyjdohg" path="res://assets/2d/materials/player/material_player_sprite_sheet.tres" id="3_da7ln"]
+[ext_resource type="Texture2D" uid="uid://bh5o0vx57vwgw" path="res://assets/2d/spritesheets/armadillo/armadillo_spritesheet.png" id="4_eo450"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail.gdshader" id="5_h2fj5"]
+[ext_resource type="Shader" path="res://addons/GPUTrail-main/shaders/trail_draw_pass.gdshader" id="6_ftql6"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrail-main/defaults/texture.tres" id="7_n6cgw"]
+[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://addons/GPUTrail-main/defaults/curve.tres" id="8_mkymu"]
+[ext_resource type="Texture2D" uid="uid://c1jwevy2nqx8d" path="res://assets/2d/textures/trails/flow.png" id="9_qqsn1"]
+[ext_resource type="Script" path="res://addons/GPUTrail-main/GPUTrail3D.gd" id="10_fxoo4"]
+[ext_resource type="Texture2D" uid="uid://bwxtdunod54r3" path="res://assets/2d/spritesheets/armadillo/arm_spritesheet.png" id="11_xaakw"]
+[ext_resource type="Texture2D" uid="uid://bhoat8dp1yhvj" path="res://assets/2d/spritesheets/armadillo/arm_spritesheet_n.png" id="12_l830o"]
+[ext_resource type="PackedScene" uid="uid://yk21jkon3epe" path="res://features/player/shotgun/shotgun.tscn" id="13_3drju"]
+[ext_resource type="PackedScene" uid="uid://do27uuxrbj736" path="res://features/effects/score_keeper.tscn" id="14_hksub"]
+[ext_resource type="Material" uid="uid://bdeivm8wtbhaw" path="res://assets/2d/materials/player/material_player_sprite_sheet_stunned.tres" id="15_b8d4e"]
+[ext_resource type="Texture2D" uid="uid://c6sty2s858cd0" path="res://assets/2d/spritesheets/vfx/vfx_sand_spritesheet.png" id="16_d5wd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5do7"]
+shader = ExtResource("5_h2fj5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5oiw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ftql6")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 46
+shader_parameter/tex = ExtResource("9_qqsn1")
+shader_parameter/color_ramp = ExtResource("7_n6cgw")
+shader_parameter/curve = ExtResource("8_mkymu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6f4ss"]
+material = SubResource("ShaderMaterial_s5oiw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdl5b"]
+transparency = 4
+albedo_texture = ExtResource("11_xaakw")
+normal_enabled = true
+normal_texture = ExtResource("12_l830o")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qh6nw"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_gt0ok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armadillo:material_overlay")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armadillo:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_da7ln")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shotgun:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armadillo:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShotgunTransform")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.172515, -0.480952, 1.09097)
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armadillo/Hand:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.127287)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armadillo/Hand:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.997142, -0.130342, 0.00999999)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armadillo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.05312e-05, 0.579214, 1.09047)]
+}
+
+[sub_resource type="Animation" id="Animation_x5mi8"]
+resource_name = "Shot__reaction"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShotgunTransform")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.173, 0, 1.091, 0.133333, 1, 0.173, -0.481, 1.091)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armadillo/Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.367758), Vector3(0, 0, 0.127287)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armadillo/Hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.16723, 0.127932, 0.00999999), Vector3(0.997142, -0.130342, 0.00999999)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armadillo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(4.05312e-05, 0.579214, 1.09047), Vector3(4.05312e-05, 0.675256, 1.09047), Vector3(4.05312e-05, 0.579214, 1.09047)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armadillo:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_7ycku"]
+resource_name = "bounce"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23333, 1.3, 1.36667, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 1, 5, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_0we02"]
+resource_name = "flow"
+
+[sub_resource type="Animation" id="Animation_mxhgk"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.3, 3.6, 3.66667, 3.73333, 3.8, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 4, 0, 0, 4, 5, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_y0q7q"]
+resource_name = "roll_on_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_0r34n"]
+resource_name = "stun"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armadillo:material_overlay")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_b8d4e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armadillo:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_b8d4e")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shotgun:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gj8tu"]
+_data = {
+"RESET": SubResource("Animation_gt0ok"),
+"Shot__reaction": SubResource("Animation_x5mi8"),
+"bounce": SubResource("Animation_7ycku"),
+"flow": SubResource("Animation_0we02"),
+"idle": SubResource("Animation_mxhgk"),
+"roll_on_wall": SubResource("Animation_y0q7q"),
+"stun": SubResource("Animation_0r34n")
+}
+
+[node name="Player" type="RigidBody3D" groups=["Players"]]
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+physics_material_override = ExtResource("1_t01mc")
+can_sleep = false
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 5.0
+script = ExtResource("2_rgtc7")
+gun_mode = 1
+is_rotated_by_environment = true
+min_rotation_acceleration = 30.0
+
+[node name="Armadillo" type="Sprite3D" parent="."]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 4.05312e-05, 0.579214, 1.09047)
+sorting_offset = 1.0
+material_override = ExtResource("3_da7ln")
+pixel_size = 0.015
+texture = ExtResource("4_eo450")
+hframes = 6
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="Armadillo"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.581523, 0.0507467, -0.498453)
+amount = 25
+lifetime = 25.0
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_k5do7")
+draw_pass_1 = SubResource("QuadMesh_6f4ss")
+script = ExtResource("10_fxoo4")
+length = -9223372036854775808
+length_seconds = inf_neg
+texture = ExtResource("9_qqsn1")
+color_ramp = ExtResource("7_n6cgw")
+curve = ExtResource("8_mkymu")
+use_red_as_alpha = true
+billboard = true
+_defaults_have_been_set = true
+
+[node name="Hand" type="Sprite3D" parent="Armadillo"]
+transform = Transform3D(1.41701, -0.181347, 0, 0.181347, 1.41701, 0, 0, 0, 1.42857, 0.997142, -0.130342, 0.00999999)
+sorting_offset = 3.0
+material_override = SubResource("StandardMaterial3D_gdl5b")
+cast_shadow = 0
+texture = ExtResource("11_xaakw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.699995, 0)
+shape = SubResource("SphereShape3D_qh6nw")
+
+[node name="Shotgun" parent="." instance=ExtResource("13_3drju")]
+transform = Transform3D(1.05013, -0.101227, 0, 0.101227, 1.05013, 0, 0, 0, 1.055, 0.172515, -0.480952, 1.09097)
+
+[node name="ShotgunTransform" type="RemoteTransform3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172515, -0.480952, 1.09097)
+remote_path = NodePath("../Shotgun")
+update_rotation = false
+update_scale = false
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="ScoreKeeper" parent="Effects" instance=ExtResource("14_hksub")]
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj8tu")
+}
+next/stun = &"RESET"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj8tu")
+}
+next/stun = &"RESET"
+
+[node name="SandVfx" type="Sprite3D" parent="."]
+transform = Transform3D(0.0236122, -0.999721, 0, 0.999721, 0.0236122, 0, 0, 0, 1, 0.95389, 2.00236, 0)
+visible = false
+texture = ExtResource("16_d5wd6")
+hframes = 10
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="score_updated" from="Effects/ScoreKeeper" to="." method="_on_score_keeper_score_updated"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

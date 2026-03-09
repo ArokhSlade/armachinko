@@ -1,0 +1,126 @@
+[gd_scene load_steps=16 format=3 uid="uid://by5x5mof5c8kt"]
+
+[ext_resource type="Script" path="res://features/player/vfx/alligator_impact_vfx.gd" id="1_eoa5s"]
+[ext_resource type="Shader" uid="uid://csa1ngv86saay" path="res://assets/shader/s_impact_particle.tres" id="1_hny6d"]
+[ext_resource type="Texture2D" uid="uid://d2ydjg4bskffy" path="res://assets/2d/textures/stun_spin/impact_texture.png" id="2_fwr3h"]
+
+[sub_resource type="Animation" id="Animation_d24g1"]
+resource_name = "Impact"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImpactParticle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ImpactParticle:material_override:shader_parameter/ColorParameter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(47.85, 0, 10.484, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bqe4w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImpactParticle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ImpactParticle:material_override:shader_parameter/ColorParameter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(8, 0, 2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jexx4"]
+_data = {
+"Impact": SubResource("Animation_d24g1"),
+"RESET": SubResource("Animation_bqe4w")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyg33"]
+render_priority = 2
+shader = ExtResource("1_hny6d")
+shader_parameter/ColorParameter = Color(8, 0, 2, 1)
+shader_parameter/Hit_Texture = ExtResource("2_fwr3h")
+
+[sub_resource type="Curve" id="Curve_3gfjs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvh2w"]
+curve = SubResource("Curve_3gfjs")
+
+[sub_resource type="Gradient" id="Gradient_gg3hp"]
+offsets = PackedFloat32Array(0.00464037, 1)
+colors = PackedColorArray(1, 1, 1, 1, 8, 0.8, 0.5, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7rhn1"]
+gradient = SubResource("Gradient_gg3hp")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_5b3is"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lfrra"]
+curve = SubResource("Curve_5b3is")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efoxf"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 15.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_lfrra")
+color_ramp = SubResource("GradientTexture1D_7rhn1")
+alpha_curve = SubResource("CurveTexture_rvh2w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7hsn0"]
+
+[node name="AlligatorImpactVFX" type="Node3D"]
+script = ExtResource("1_eoa5s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jexx4")
+}
+autoplay = "Impact"
+
+[node name="ImpactParticle" type="GPUParticles3D" parent="."]
+sorting_offset = 3.0
+material_override = SubResource("ShaderMaterial_iyg33")
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 0.25
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_efoxf")
+draw_pass_1 = SubResource("QuadMesh_7hsn0")

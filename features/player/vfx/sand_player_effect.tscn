@@ -1,0 +1,181 @@
+[gd_scene load_steps=12 format=3 uid="uid://d00aadv0qli8m"]
+
+[ext_resource type="Texture2D" uid="uid://c6sty2s858cd0" path="res://assets/2d/spritesheets/vfx/vfx_sand_spritesheet.png" id="1_fo5oo"]
+[ext_resource type="Script" path="res://features/player/vfx/sand_player_effect.gd" id="1_ssa2y"]
+[ext_resource type="Shader" uid="uid://ci6ynxxd2catr" path="res://assets/shader/s_3d_spritesheet.tres" id="2_q01qd"]
+[ext_resource type="ArrayMesh" uid="uid://d3ccy5dwh76up" path="res://assets/3d/vfx/sand_donut.obj" id="3_8ckxu"]
+[ext_resource type="Texture2D" uid="uid://bb8pmlxpudffw" path="res://assets/2d/spritesheets/vfx/sand_impact_spritesheet_2.png" id="4_8luj0"]
+
+[sub_resource type="Animation" id="Animation_qjq6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SandDonut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SandDonut:instance_shader_parameters/Frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SandDonut:material_override:shader_parameter/ColorParameter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.905551, 0.5816, 0.208001, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dfovw"]
+resource_name = "sand_swirling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SandDonut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SandDonut:instance_shader_parameters/Frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.166667, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SandDonut:material_override:shader_parameter/ColorParameter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.968317, 0.637778, 0.326145, 1), Color(0.995982, 0.74416, 0.524452, 1), Color(0.976415, 0.617459, 0.377117, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fludb"]
+_data = {
+"RESET": SubResource("Animation_qjq6r"),
+"sand_swirling": SubResource("Animation_dfovw")
+}
+
+[sub_resource type="Gradient" id="Gradient_ahnii"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0db7r"]
+gradient = SubResource("Gradient_ahnii")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwbht"]
+render_priority = 0
+shader = ExtResource("2_q01qd")
+shader_parameter/Shape_Distortion_Speed = null
+shader_parameter/Shape_Distortion_Intensity = 0.0
+shader_parameter/ColorParameter = Color(0.905551, 0.5816, 0.208001, 1)
+shader_parameter/Spritesheet_Frames = Vector2(9, 1)
+shader_parameter/Roughness = 0.0
+shader_parameter/Emission_Color = Color(0, 0, 0, 1)
+shader_parameter/Emission = 1.0
+shader_parameter/EmissionPanningSpeed = null
+shader_parameter/Shape_Distortion_Texture = SubResource("GradientTexture1D_0db7r")
+shader_parameter/Alpha_Texture = ExtResource("4_8luj0")
+
+[node name="SandPlayerEffect" type="Node3D"]
+script = ExtResource("1_ssa2y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fludb")
+}
+autoplay = "sand_swirling"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("1_fo5oo")
+hframes = 10
+
+[node name="SandDonut" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_mwbht")
+instance_shader_parameters/Frame = 0
+mesh = ExtResource("3_8ckxu")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

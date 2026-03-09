@@ -1,0 +1,437 @@
+[gd_scene load_steps=35 format=3 uid="uid://bi0n8bhybxesp"]
+
+[ext_resource type="Texture2D" uid="uid://0wnkw2tixqf2" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_rope.png" id="1_avlcf"]
+[ext_resource type="Script" path="res://features/ui/highscore_popup/game_over_screen.gd" id="1_i0dpp"]
+[ext_resource type="Texture2D" uid="uid://dtffwn5h7le2p" path="res://assets/2d/sprites/ui/2d_sprites/ui_game_over_popup.png" id="1_lcmmw"]
+[ext_resource type="Texture2D" uid="uid://ciat25qa4k3eh" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_pop_up.png" id="2_3hpb4"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="4_jkpkh"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="5_tlh2n"]
+[ext_resource type="Texture2D" uid="uid://b57c76mehhila" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover.png" id="6_aw3nf"]
+[ext_resource type="Texture2D" uid="uid://cg0pwab4kec5m" path="res://assets/2d/sprites/ui/2d_sprites/ui_settings_salon_list_3.png" id="6_qd07b"]
+[ext_resource type="PackedScene" uid="uid://dkilh0042mped" path="res://features/ui/highscore_popup/highscore_list_header.tscn" id="6_wg8f6"]
+[ext_resource type="Texture2D" uid="uid://bjdiofjsvnc0c" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed.png" id="7_qqxrs"]
+[ext_resource type="Texture2D" uid="uid://b2wgwwd1djuuv" path="res://assets/2d/sprites/ui/buttons/ui_button_start.png" id="8_7jxqs"]
+[ext_resource type="PackedScene" path="res://features/ui/highscore_popup/gameover_highscore_entry.tscn" id="8_h7l14"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="9_b4mno"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="10_ef6xh"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="10_pox15"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="11_msvku"]
+[ext_resource type="Texture2D" uid="uid://drp1ickf3uh20" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_banner.png" id="12_5xf58"]
+[ext_resource type="AudioStream" uid="uid://xb5fyghtkmju" path="res://assets/music/highscore_screen.mp3" id="14_mxedn"]
+[ext_resource type="Script" path="res://features/save_and_load/highscore_table.gd" id="16_ih3vy"]
+
+[sub_resource type="Theme" id="Theme_1r0cr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea7xc"]
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_aw3nf")
+region_rect = Rect2(178.5, 81, 755.872, 336)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksno2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwort"]
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_aw3nf")
+region_rect = Rect2(178.5, 81, 755.872, 336)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8st5h"]
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("7_qqxrs")
+region_rect = Rect2(178.5, 81, 755.872, 336)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ilbjt"]
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("8_7jxqs")
+region_rect = Rect2(178.5, 81, 755.872, 336)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xl1lk"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_b4mno")
+region_rect = Rect2(156.5, 85, 744, 333)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g8ix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khks3"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_b4mno")
+region_rect = Rect2(156.5, 85, 744, 333)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrqsn"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("10_ef6xh")
+region_rect = Rect2(156.5, 85, 744, 333)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdlg1"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("11_msvku")
+region_rect = Rect2(156.5, 85, 744, 333)
+
+[sub_resource type="Animation" id="Animation_100oi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverSign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, -635.119), Vector2(-2, -635.119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HighscoreList:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(673, -464)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UiHighscoreListRope:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(740.5, -523.313)]
+}
+
+[sub_resource type="Animation" id="Animation_opopq"]
+resource_name = "slide_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverSign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -635.119), Vector2(-2, -635.119), Vector2(-2, -31.2523)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HighscoreList:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(601, -442.313), Vector2(597, 175.375)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UiHighscoreListRope:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(667, -526), Vector2(661, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_jglb7"]
+resource_name = "target_position"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverSign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -1.11904)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HighscoreList:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(673, 170)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HighscoreList:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0130957]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameOverSign:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0129285]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HighscoreList:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(301, 362)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameOverSign:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(919, 579)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6q8s0"]
+_data = {
+"RESET": SubResource("Animation_100oi"),
+"slide_down": SubResource("Animation_opopq"),
+"target_position": SubResource("Animation_jglb7")
+}
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 162.0
+offset_top = -3.0
+offset_right = 162.0
+offset_bottom = 80.0
+script = ExtResource("1_i0dpp")
+
+[node name="UiHighscoreListRope" type="Sprite2D" parent="."]
+position = Vector2(740.5, -523.313)
+scale = Vector2(0.219753, 0.224604)
+texture = ExtResource("1_avlcf")
+
+[node name="UiHighscoreListRope2" type="Sprite2D" parent="UiHighscoreListRope"]
+position = Vector2(835.988, 90.2988)
+scale = Vector2(1.00649, 1.17659)
+texture = ExtResource("1_avlcf")
+
+[node name="HighscoreList" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 673.0
+offset_top = -464.0
+offset_right = 974.0
+offset_bottom = -102.0
+rotation = -0.0130957
+texture = ExtResource("2_3hpb4")
+expand_mode = 1
+
+[node name="UiHighscoreBanner" type="Sprite2D" parent="HighscoreList"]
+position = Vector2(151.625, 105.995)
+rotation = 0.0130957
+scale = Vector2(0.262489, 0.253985)
+texture = ExtResource("12_5xf58")
+
+[node name="Header" parent="HighscoreList/UiHighscoreBanner" instance=ExtResource("6_wg8f6")]
+offset_left = -251.438
+offset_top = -59.0599
+offset_right = 318.562
+offset_bottom = 71.9401
+rotation = 0.004407
+scale = Vector2(0.898077, 1.03081)
+
+[node name="UiHighscoreListTags" type="Sprite2D" parent="HighscoreList"]
+position = Vector2(145.985, 213.43)
+rotation = 0.0130957
+scale = Vector2(0.346415, 0.373069)
+texture = ExtResource("6_qd07b")
+
+[node name="HighscoreTable" type="Control" parent="HighscoreList/UiHighscoreListTags"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.929
+offset_top = -231.318
+offset_right = 96.929
+offset_bottom = -154.318
+script = ExtResource("16_ih3vy")
+
+[node name="HBoxContainer" parent="HighscoreList/UiHighscoreListTags/HighscoreTable" instance=ExtResource("8_h7l14")]
+layout_mode = 1
+offset_left = -234.82
+offset_top = 59.1586
+offset_right = 65.1804
+offset_bottom = 98.1206
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="HBoxContainer2" parent="HighscoreList/UiHighscoreListTags/HighscoreTable" instance=ExtResource("8_h7l14")]
+layout_mode = 1
+offset_left = -234.82
+offset_top = 171.738
+offset_right = 65.1804
+offset_bottom = 210.7
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="HBoxContainer3" parent="HighscoreList/UiHighscoreListTags/HighscoreTable" instance=ExtResource("8_h7l14")]
+layout_mode = 1
+offset_left = -234.82
+offset_top = 281.638
+offset_right = 65.1804
+offset_bottom = 320.6
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameOverSign" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -635.119
+offset_right = 700.0
+offset_bottom = -16.1187
+rotation = -0.0129285
+scale = Vector2(0.92425, 1.03427)
+texture = ExtResource("1_lcmmw")
+expand_mode = 1
+
+[node name="Bounty" type="Label" parent="GameOverSign"]
+layout_mode = 0
+offset_left = 243.938
+offset_top = 191.373
+offset_right = 450.938
+offset_bottom = 251.373
+rotation = 0.0635027
+scale = Vector2(1.14424, 1.09079)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("10_pox15")
+theme_override_font_sizes/font_size = 50
+text = "Bounty"
+horizontal_alignment = 1
+
+[node name="PlayerName" type="Label" parent="GameOverSign"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 324.0
+offset_right = 490.0
+offset_bottom = 353.0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_jkpkh")
+theme_override_font_sizes/font_size = 25
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="ScoreNumber" type="Label" parent="GameOverSign"]
+layout_mode = 0
+offset_left = 227.597
+offset_top = 423.366
+offset_right = 494.597
+offset_bottom = 507.366
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_jkpkh")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="GameOverSign"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.9991
+offset_top = 35.7505
+offset_right = -1.99908
+offset_bottom = 35.7505
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackToMenuButton" type="Button" parent="GameOverSign/Buttons"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 493.0
+offset_right = 626.0
+offset_bottom = 570.0
+rotation = 0.188038
+scale = Vector2(1.02976, 0.890916)
+focus_neighbor_left = NodePath("../RetryButton")
+focus_previous = NodePath("../RetryButton")
+theme = SubResource("Theme_1r0cr")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_jkpkh")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_ea7xc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksno2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bwort")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8st5h")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ilbjt")
+text = "Menu"
+
+[node name="RetryButton" type="Button" parent="GameOverSign/Buttons"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 520.0
+offset_right = 428.0
+offset_bottom = 593.0
+rotation = -0.159497
+scale = Vector2(1.04765, 0.940272)
+focus_neighbor_right = NodePath("../BackToMenuButton")
+focus_previous = NodePath("../BackToMenuButton")
+theme = ExtResource("5_tlh2n")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_xl1lk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3g8ix")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khks3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xrqsn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pdlg1")
+text = "Retry"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6q8s0")
+}
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_mxedn")
+
+[connection signal="mouse_entered" from="GameOverSign/Buttons/BackToMenuButton" to="GameOverSign/Buttons/BackToMenuButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="GameOverSign/Buttons/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="mouse_entered" from="GameOverSign/Buttons/RetryButton" to="GameOverSign/Buttons/RetryButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="GameOverSign/Buttons/RetryButton" to="." method="_on_retry_button_pressed"]

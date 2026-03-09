@@ -1,0 +1,251 @@
+[gd_scene load_steps=20 format=3 uid="uid://c7niyrc73df5h"]
+
+[ext_resource type="Environment" uid="uid://bjeu3ab23vnsx" path="res://assets/resources/level_environment.tres" id="1_6vk3m"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bx1wvqvoxxrkn" path="res://assets/resources/level_camera_attributes.tres" id="2_imvbp"]
+[ext_resource type="Script" path="res://features/level/level.gd" id="3_g5t2d"]
+[ext_resource type="PackedScene" uid="uid://cf2w6s1ltc7oh" path="res://features/player/test_player_gerald.tscn" id="4_wt6kd"]
+[ext_resource type="Texture2D" uid="uid://dkdmtxm7muols" path="res://assets/2d/textures/sand_texture.jpg" id="6_yu871"]
+[ext_resource type="PackedScene" uid="uid://dxofcgkakgq6j" path="res://assets/3d/asset scene files/fences/gerald/18_36_left_inner_circle.tscn" id="7_msl2r"]
+[ext_resource type="PackedScene" uid="uid://dv6ul3myu5dqw" path="res://assets/3d/asset scene files/fences/gerald/18_36_right_inner_circle.tscn" id="8_j0rwe"]
+[ext_resource type="PackedScene" uid="uid://c6x8aip21ckh0" path="res://features/enemy/enemy.tscn" id="9_o6yuy"]
+[ext_resource type="PackedScene" uid="uid://ci5foahxc6vqn" path="res://features/pins/explosion_pin.tscn" id="9_x275w"]
+[ext_resource type="PackedScene" uid="uid://dt64owefeldvj" path="res://features/pins/silver_coin_barrel_pin.tscn" id="9_xm0km"]
+[ext_resource type="PackedScene" uid="uid://cirg2cmfv1x7k" path="res://features/pins/copper_coin_barrel_pin.tscn" id="10_2suju"]
+[ext_resource type="PackedScene" uid="uid://4s6lre3ye66l" path="res://features/pins/gold_coin.tscn" id="10_edby6"]
+[ext_resource type="PackedScene" uid="uid://desp22rsq3u2c" path="res://features/pins/gold_coin_barrel_pin.tscn" id="11_5hi5s"]
+[ext_resource type="PackedScene" uid="uid://cx72luthjp2a6" path="res://features/pins/silver_coin.tscn" id="11_wjarw"]
+[ext_resource type="PackedScene" uid="uid://wtx31fa8b33i" path="res://features/pins/copper_coin.tscn" id="12_hemj0"]
+[ext_resource type="PackedScene" uid="uid://cmckhrlvylkfb" path="res://features/pins/bumpers/cactus_bumper.tscn" id="13_fgy1e"]
+[ext_resource type="PackedScene" uid="uid://kmk4i81uayf1" path="res://features/pins/bumpers/sheep_bumper.tscn" id="14_7hs8n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arrv0"]
+albedo_texture = ExtResource("6_yu871")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+
+[sub_resource type="Curve3D" id="Curve3D_jt0wj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.19384, 1.09273, 0, 0, 0, 0, 0, 0, 0, 3.08494, 0.947945, 0, 0, 0, 0, 0, 0, 0, -3.19384, 1.09273, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="EagleTestLevel" type="WorldEnvironment"]
+environment = ExtResource("1_6vk3m")
+camera_attributes = ExtResource("2_imvbp")
+script = ExtResource("3_g5t2d")
+
+[node name="PinkSunChanged" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.376642, -0.339161, 0.862038, 0.483744, -0.865619, -0.129212, 0.79002, 0.368339, 0.490096, 0.459306, 3.15608, 23)
+light_color = Color(0.580077, 0.710305, 0.947228, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 3.0
+shadow_opacity = 0.9
+shadow_blur = 1.4
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.536
+directional_shadow_split_2 = 0.0
+directional_shadow_max_distance = 232.0
+
+[node name="YellowSunChanged" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.147238, -0.659084, 0.737516, 0.677669, -0.610357, -0.410158, 0.720476, 0.4394, 0.536509, 0, 0, 0)
+light_color = Color(0.99091, 0.871115, 0.707903, 1)
+light_energy = 1.8
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 3.0
+shadow_opacity = 0.8
+shadow_blur = 1.4
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.536
+directional_shadow_split_2 = 0.0
+directional_shadow_max_distance = 232.2
+
+[node name="Player2" parent="." instance=ExtResource("4_wt6kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -6.9368, 0)
+dash_style = 1
+
+[node name="CameraRemote" type="RemoteTransform3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.75471, 0, 0.75471, 0.656059, 0, 0, 0)
+remote_path = NodePath("../../CameraPivot")
+update_rotation = false
+update_scale = false
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.754709, 0, 0.754709, 0.656059, -14, -6.9368, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -2.287, 121.858)
+fov = 26.0
+size = 22.707
+
+[node name="Background" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+size = Vector3(546.322, 1529.9, 1)
+material = SubResource("StandardMaterial3D_arrv0")
+
+[node name="18_36LeftInnerCircle" parent="." instance=ExtResource("7_msl2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -38, 0)
+
+[node name="18_36RightInnerCircle" parent="." instance=ExtResource("8_j0rwe")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -19, -38, 6)
+
+[node name="18_36LeftInnerCircle2" parent="." instance=ExtResource("7_msl2r")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -19, 32, 0)
+
+[node name="18_36RightInnerCircle2" parent="." instance=ExtResource("8_j0rwe")]
+transform = Transform3D(1, 8.74228e-08, -1.50996e-07, 8.74228e-08, -1, -1.32005e-14, -1.50996e-07, 0, -1, 17, 32, 6)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+depth = 20.0
+polygon = PackedVector2Array(-6, -42, -5, -50, 31.3937, -45.0297, 27.8579, 40.1385, -3.4777, 40.2753, -0.740961, 32.6125, 6.51138, 29.8757, 11.5744, 23.4444, 14.7216, 15.7816, 17.0478, 4.83461, 17.5952, -4.47029, 16.09, -15.1436, 13.3532, -24.859, 9.9134, -31.2694, 6.08197, -36.0587, -0.212521, -38.5217, -4.31762, -37.9744)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -9, 0)
+depth = 20.0
+polygon = PackedVector2Array(-6, -42, -5, -50, 31.3937, -45.0297, 27.8579, 40.1385, -3.4777, 40.2753, 0, 30, 6, 29, 11.5744, 23.4444, 15, 18, 18, 7, 20, -4, 19, -16, 15, -29, 11, -36, 6, -40, 0, -42, -4, -40)
+
+[node name="StaticExplosionPin" parent="." instance=ExtResource("9_x275w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.159, -0.258, 0)
+
+[node name="RespawnTimer" parent="StaticExplosionPin" index="7"]
+wait_time = 5.0
+
+[node name="StaticExplosionPin2" parent="." instance=ExtResource("9_x275w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.841, -2.258, 0)
+
+[node name="RespawnTimer" parent="StaticExplosionPin2" index="7"]
+wait_time = 5.0
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13031, 4.63704, 4)
+curve = SubResource("Curve3D_jt0wj")
+metadata/_edit_group_ = true
+
+[node name="Enemy" parent="Path3D" instance=ExtResource("9_o6yuy")]
+transform = Transform3D(-4.37114e-08, 0.0230526, -0.999706, 0, 0.999706, 0.0230526, 1, 1.00766e-09, -4.36985e-08, -3.19384, 1.09273, 0)
+
+[node name="AnimatedSprite3D" parent="Path3D/Enemy" index="0"]
+animation = &"walk_r"
+
+[node name="RespawnTimer" parent="Path3D/Enemy" index="4"]
+wait_time = 6.0
+
+[node name="Coins" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 0)
+
+[node name="GoldCoin" parent="Coins" instance=ExtResource("10_edby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -25, 0)
+
+[node name="Model" parent="Coins/GoldCoin" index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+
+[node name="RespawnTimer" parent="Coins/GoldCoin" index="5"]
+wait_time = 5.0
+
+[node name="GoldCoin2" parent="Coins" instance=ExtResource("10_edby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -21, 0)
+
+[node name="Model" parent="Coins/GoldCoin2" index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+
+[node name="RespawnTimer" parent="Coins/GoldCoin2" index="5"]
+wait_time = 5.0
+
+[node name="GoldCoin3" parent="Coins" instance=ExtResource("10_edby6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -16, 0)
+
+[node name="Model" parent="Coins/GoldCoin3" index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+
+[node name="RespawnTimer" parent="Coins/GoldCoin3" index="5"]
+wait_time = 5.0
+
+[node name="SilverCoin" parent="Coins" instance=ExtResource("11_wjarw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -20, 0)
+
+[node name="Model" parent="Coins/SilverCoin" index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+
+[node name="RespawnTimer" parent="Coins/SilverCoin" index="5"]
+wait_time = 5.0
+
+[node name="CopperCoin" parent="Coins" instance=ExtResource("12_hemj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -20, 0)
+
+[node name="Model" parent="Coins/CopperCoin" index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+
+[node name="RespawnTimer" parent="Coins/CopperCoin" index="5"]
+wait_time = 5.0
+
+[node name="Bumpers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 4, 0)
+
+[node name="Bumper" parent="Bumpers" instance=ExtResource("13_fgy1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -23, 0)
+
+[node name="Bumper2" parent="Bumpers" instance=ExtResource("13_fgy1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -12, 0)
+
+[node name="Bumper3" parent="Bumpers" instance=ExtResource("13_fgy1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -12, 0)
+
+[node name="Bumper4" parent="Bumpers" instance=ExtResource("13_fgy1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -26, 0)
+
+[node name="SheepBumper" parent="Bumpers" instance=ExtResource("14_7hs8n")]
+transform = Transform3D(-0.258819, -0.965926, 0, 0.965926, -0.258819, 0, 0, 0, 1, 7, -9, 0)
+
+[node name="SheepBumper2" parent="Bumpers" instance=ExtResource("14_7hs8n")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -20, -24, 0)
+
+[node name="Pins" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1725, -14.9593, -3.8147e-06)
+
+[node name="CopperPin" parent="Pins" instance=ExtResource("10_2suju")]
+
+[node name="RespawnTimer" parent="Pins/CopperPin" index="7"]
+wait_time = 6.0
+
+[node name="GoldPin" parent="Pins" instance=ExtResource("11_5hi5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -10, 0)
+
+[node name="AnimationPlayer" parent="Pins/GoldPin" index="4"]
+speed_scale = 0.649
+
+[node name="RespawnTimer" parent="Pins/GoldPin" index="7"]
+wait_time = 6.0
+
+[node name="SilverPin" parent="Pins" instance=ExtResource("9_xm0km")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -10, 0)
+
+[node name="RespawnTimer" parent="Pins/SilverPin" index="7"]
+wait_time = 6.0
+
+[node name="CopperPin2" parent="Pins" instance=ExtResource("10_2suju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -10, 0)
+
+[node name="RespawnTimer" parent="Pins/CopperPin2" index="7"]
+wait_time = 6.0
+
+[editable path="StaticExplosionPin"]
+[editable path="StaticExplosionPin/ExplosionBarrel"]
+[editable path="StaticExplosionPin2"]
+[editable path="StaticExplosionPin2/ExplosionBarrel"]
+[editable path="Path3D/Enemy"]
+[editable path="Coins/GoldCoin"]
+[editable path="Coins/GoldCoin2"]
+[editable path="Coins/GoldCoin3"]
+[editable path="Coins/SilverCoin"]
+[editable path="Coins/CopperCoin"]
+[editable path="Pins/CopperPin"]
+[editable path="Pins/GoldPin"]
+[editable path="Pins/GoldPin/Model"]
+[editable path="Pins/SilverPin"]
+[editable path="Pins/SilverPin/Model"]
+[editable path="Pins/CopperPin2"]
+[editable path="Pins/CopperPin2/Model"]

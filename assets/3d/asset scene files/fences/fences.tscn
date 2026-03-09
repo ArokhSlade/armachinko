@@ -1,0 +1,86 @@
+[gd_scene load_steps=26 format=3 uid="uid://dwd65agr0nyht"]
+
+[ext_resource type="PackedScene" uid="uid://c41ucqkhcnxqe" path="res://assets/3d/fence/models/right/12-24_right_curve.glb" id="1_obphh"]
+[ext_resource type="PackedScene" uid="uid://cqbojak2xirvx" path="res://assets/3d/fence/models/right/12-24_right_inner_circle.glb" id="2_r6xrj"]
+[ext_resource type="PackedScene" uid="uid://chfwbfmpuw7ex" path="res://assets/3d/fence/models/right/18-36_right_circle.glb" id="3_xgufw"]
+[ext_resource type="PackedScene" uid="uid://dq6qrffpdh2c6" path="res://assets/3d/fence/models/right/18-36_right_inner_circle.glb" id="4_vxjw3"]
+[ext_resource type="PackedScene" uid="uid://bl53unt60bsjs" path="res://assets/3d/fence/models/right/18-72_right_circle.glb" id="5_qd5c7"]
+[ext_resource type="PackedScene" uid="uid://cb47ps5lm3ql5" path="res://assets/3d/fence/models/right/24-48_right_curve.glb" id="6_ti4ro"]
+[ext_resource type="PackedScene" uid="uid://bpiivvxi4ty4t" path="res://assets/3d/fence/models/right/24-96_right_inner_circle.glb" id="7_yel3p"]
+[ext_resource type="PackedScene" uid="uid://ffvwxjodebw4" path="res://assets/3d/fence/models/right/24_48_right_circle.glb" id="8_56ncp"]
+[ext_resource type="PackedScene" uid="uid://brdxsiwo2uxo" path="res://assets/3d/fence/models/right/36-72_right_curve.glb" id="9_nhlax"]
+[ext_resource type="PackedScene" uid="uid://bewaoqkkp66h2" path="res://assets/3d/fence/models/right/48-96_right_curve.glb" id="10_l0wjv"]
+[ext_resource type="PackedScene" uid="uid://c7agarqwr0qk5" path="res://assets/3d/fence/models/left/12-24_left_curve.glb" id="11_6n0c5"]
+[ext_resource type="PackedScene" uid="uid://mx10xf3duvq5" path="res://assets/3d/fence/models/left/12-24_left_inner_circle.glb" id="12_7qssd"]
+[ext_resource type="PackedScene" uid="uid://b40hb41jhhpvd" path="res://assets/3d/fence/models/left/18-36_left_circle.glb" id="13_b874f"]
+[ext_resource type="PackedScene" uid="uid://c1ceub2h3ibny" path="res://assets/3d/fence/models/left/18-36_left_inner_circle.glb" id="14_3umpd"]
+[ext_resource type="PackedScene" uid="uid://djef54g5kd63b" path="res://assets/3d/fence/models/left/18-72_left_circle.glb" id="15_4hg32"]
+[ext_resource type="PackedScene" uid="uid://clxncc2jvcat6" path="res://assets/3d/fence/models/left/24-48_left_curve.glb" id="16_3ueyl"]
+[ext_resource type="PackedScene" uid="uid://donfrm2seurm5" path="res://assets/3d/fence/models/left/24-96_left_inner_circle.glb" id="17_r1d8p"]
+[ext_resource type="PackedScene" uid="uid://csy7ckxhm6gdq" path="res://assets/3d/fence/models/left/24_48_left_circle.glb" id="18_0ade6"]
+[ext_resource type="PackedScene" uid="uid://6o425xyuw1ph" path="res://assets/3d/fence/models/left/36-72_left_curve.glb" id="19_1vv8d"]
+[ext_resource type="PackedScene" uid="uid://bgpf73ud8yu7g" path="res://assets/3d/fence/models/left/48-96_left_curve.glb" id="20_blexg"]
+[ext_resource type="PackedScene" uid="uid://dccnrhhrv4grw" path="res://assets/3d/fence/models/right/12_circle.glb" id="21_07axi"]
+[ext_resource type="PackedScene" uid="uid://dmtitl6ee1m3n" path="res://assets/3d/fence/models/right/12_inner_circle.glb" id="22_e0n78"]
+[ext_resource type="PackedScene" uid="uid://dhy642hu7lsd1" path="res://assets/3d/fence/models/right/24_circle.glb" id="23_8nwmr"]
+[ext_resource type="PackedScene" uid="uid://c06x547vyjkd0" path="res://assets/3d/fence/models/right/36_circle.glb" id="24_w0bcf"]
+[ext_resource type="PackedScene" uid="uid://dlv1omkuk6hxa" path="res://assets/3d/fence/models/right/48_inner_circle.glb" id="25_x78ab"]
+
+[node name="fences" type="Node3D"]
+
+[node name="right" type="Node3D" parent="."]
+
+[node name="12-24_right_curve" parent="right" instance=ExtResource("1_obphh")]
+
+[node name="12-24_right_inner_circle" parent="right" instance=ExtResource("2_r6xrj")]
+
+[node name="18-36_right_circle" parent="right" instance=ExtResource("3_xgufw")]
+
+[node name="18-36_right_inner_circle" parent="right" instance=ExtResource("4_vxjw3")]
+
+[node name="18-72_right_circle" parent="right" instance=ExtResource("5_qd5c7")]
+
+[node name="24-48_right_curve" parent="right" instance=ExtResource("6_ti4ro")]
+
+[node name="24-96_right_inner_circle" parent="right" instance=ExtResource("7_yel3p")]
+
+[node name="24_48_right_circle" parent="right" instance=ExtResource("8_56ncp")]
+
+[node name="36-72_right_curve" parent="right" instance=ExtResource("9_nhlax")]
+
+[node name="48-96_right_curve" parent="right" instance=ExtResource("10_l0wjv")]
+
+[node name="left" type="Node3D" parent="."]
+visible = false
+
+[node name="12-24_left_curve" parent="left" instance=ExtResource("11_6n0c5")]
+
+[node name="12-24_left_inner_circle" parent="left" instance=ExtResource("12_7qssd")]
+
+[node name="18-36_left_circle" parent="left" instance=ExtResource("13_b874f")]
+
+[node name="18-36_left_inner_circle" parent="left" instance=ExtResource("14_3umpd")]
+
+[node name="18-72_left_circle" parent="left" instance=ExtResource("15_4hg32")]
+
+[node name="24-48_left_curve" parent="left" instance=ExtResource("16_3ueyl")]
+
+[node name="24-96_left_inner_circle" parent="left" instance=ExtResource("17_r1d8p")]
+
+[node name="24_48_left_circle" parent="left" instance=ExtResource("18_0ade6")]
+
+[node name="36-72_left_curve" parent="left" instance=ExtResource("19_1vv8d")]
+
+[node name="48-96_left_curve" parent="left" instance=ExtResource("20_blexg")]
+
+[node name="uni" type="Node3D" parent="."]
+
+[node name="12_circle" parent="uni" instance=ExtResource("21_07axi")]
+
+[node name="12_inner_circle" parent="uni" instance=ExtResource("22_e0n78")]
+
+[node name="24_circle" parent="uni" instance=ExtResource("23_8nwmr")]
+
+[node name="36_circle" parent="uni" instance=ExtResource("24_w0bcf")]
+
+[node name="48_inner_circle" parent="uni" instance=ExtResource("25_x78ab")]

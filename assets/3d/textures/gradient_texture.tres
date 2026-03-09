@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cspwybnhj6vl2"]
+
+[ext_resource type="Texture2D" uid="uid://d1ww12kw5cj7q" path="res://assets/3d/textures/gradient_texture.png" id="1_v2gd6"]
+[ext_resource type="Texture2D" uid="uid://d1yydk4p1fp8g" path="res://assets/3d/textures/gradient_metalnes_texture.png" id="2_o6q7y"]
+[ext_resource type="Texture2D" uid="uid://0g5dbdd5tpd2" path="res://assets/3d/textures/gradient_roughness_texture.png" id="3_3xe3b"]
+
+[resource]
+albedo_texture = ExtResource("1_v2gd6")
+metallic = 1.0
+metallic_texture = ExtResource("2_o6q7y")
+metallic_texture_channel = 3
+roughness_texture = ExtResource("3_3xe3b")
+roughness_texture_channel = 4

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd1hrxpgcjcmf"
+path="res://.godot/imported/6-24_left_long_inner_circle.cs.obj-51aef1727251c119ca66b23e0936df6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/6-24_left_long_inner_circle.cs.obj-51aef1727251c119ca66b23e0936df6c.mesh"]
+
+source_file="res://assets/3d/fence/cs/left/6-24_left_long_inner_circle.cs.obj"
+dest_files=["res://.godot/imported/6-24_left_long_inner_circle.cs.obj-51aef1727251c119ca66b23e0936df6c.mesh", "res://.godot/imported/6-24_left_long_inner_circle.cs.obj-51aef1727251c119ca66b23e0936df6c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

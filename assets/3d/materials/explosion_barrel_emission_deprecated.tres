@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bhj18deum2rln"]
+
+[ext_resource type="Texture2D" uid="uid://brlmx55oqlca" path="res://assets/3d/textures/16bit_texture.png" id="1_50nis"]
+
+[resource]
+albedo_texture = ExtResource("1_50nis")
+emission = Color(0.835294, 0, 0, 1)
+emission_energy_multiplier = 2.8

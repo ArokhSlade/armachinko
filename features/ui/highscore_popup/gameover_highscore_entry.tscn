@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://lskspujfj2n4"]
+
+[ext_resource type="Script" path="res://features/save_and_load/score_table_entry.gd" id="1_2p6h0"]
+[ext_resource type="Theme" uid="uid://d2wm3pdu4looo" path="res://features/ui/highscore_popup/game_over_screen_theme.tres" id="3_hmlsn"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="4_ulaa5"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 77)
+anchors_preset = -1
+anchor_left = 0.135
+anchor_top = 0.269
+anchor_right = 0.877
+anchor_bottom = 0.763
+offset_left = 0.0649872
+offset_top = 0.0359955
+offset_right = -554.719
+offset_bottom = -243.076
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2p6h0")
+
+[node name="Rank" type="Label" parent="."]
+custom_minimum_size = Vector2(83.015, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = ExtResource("3_hmlsn")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ulaa5")
+theme_override_font_sizes/font_size = 40
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Name" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme = ExtResource("3_hmlsn")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ulaa5")
+theme_override_font_sizes/font_size = 40
+text = "Armadillo"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Score" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme = ExtResource("3_hmlsn")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ulaa5")
+theme_override_font_sizes/font_size = 40
+text = "1'000'000"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

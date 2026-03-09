@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://qvl7l4mssxfq"]
+
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="1_t2x73"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="2_3jpr7"]
+[ext_resource type="ArrayMesh" uid="uid://d2op76fq6q4qj" path="res://assets/3d/meshes/extracted_via_save_to_folder/round_cactus_pink_mesh.res" id="3_lcmwt"]
+
+[node name="Model" type="MeshInstance3D"]
+material_override = ExtResource("1_t2x73")
+material_overlay = ExtResource("2_3jpr7")
+mesh = ExtResource("3_lcmwt")
+blend_shapes/expansion = 0.0
+blend_shapes/idle = 0.00323672
+blend_shapes/retraction = 0.0
+blend_shapes/spike_expansion = 0.499353

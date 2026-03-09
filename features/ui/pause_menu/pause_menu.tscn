@@ -1,0 +1,558 @@
+[gd_scene load_steps=54 format=3 uid="uid://cbgfx04wplni4"]
+
+[ext_resource type="PackedScene" uid="uid://gifja01es87a" path="res://features/ui/menu/settings_tab.tscn" id="1_7io0c"]
+[ext_resource type="Texture2D" uid="uid://b7ut2y2nnd2iw" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_wooden_post.png" id="1_b55l6"]
+[ext_resource type="Script" path="res://features/ui/pause_menu/pause_menu.gd" id="1_xxddb"]
+[ext_resource type="Texture2D" uid="uid://d3x0kmfb7er5t" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_score_screen.png" id="2_meaxp"]
+[ext_resource type="Texture2D" uid="uid://bmi3gn0lqu82" path="res://assets/2d/sprites/ui/2d_sprites/nail.png" id="3_2y2gb"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="4_lxntn"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="4_qms3d"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="5_mxc8y"]
+[ext_resource type="Texture2D" uid="uid://cwbt8n1oau1l5" path="res://assets/2d/sprites/ui/buttons/ui_button_settings_hover.png" id="5_odsas"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="6_dvwww"]
+[ext_resource type="Texture2D" uid="uid://bbq8u76ssvyjk" path="res://assets/2d/sprites/ui/buttons/ui_button_settings_pressed.png" id="6_prlkq"]
+[ext_resource type="Texture2D" uid="uid://c8r4k17a5yvf6" path="res://assets/2d/sprites/ui/buttons/ui_button_settings.png" id="7_47n71"]
+[ext_resource type="Texture2D" uid="uid://b57c76mehhila" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover.png" id="7_l3d74"]
+[ext_resource type="Texture2D" uid="uid://bjdiofjsvnc0c" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed.png" id="8_06lty"]
+[ext_resource type="Texture2D" uid="uid://dxd87yma2pjf1" path="res://assets/2d/sprites/ui/buttons/ui_button_quit_hover.png" id="8_hb86a"]
+[ext_resource type="Texture2D" uid="uid://bll6yhbqk4qwh" path="res://assets/2d/sprites/ui/buttons/ui_button_quit_pressed.png" id="9_3kbr2"]
+[ext_resource type="Texture2D" uid="uid://b2wgwwd1djuuv" path="res://assets/2d/sprites/ui/buttons/ui_button_start.png" id="9_ewyr1"]
+[ext_resource type="Texture2D" uid="uid://kdcx8h0loojr" path="res://assets/2d/sprites/ui/buttons/ui_button_quit.png" id="10_y4caa"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="11_n2fuo"]
+[ext_resource type="Texture2D" uid="uid://dhw8gkrqw8elx" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_armadillo.png" id="12_7a40s"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="20_j36wy"]
+[ext_resource type="Texture2D" uid="uid://d0tc0tsrtej0r" path="res://assets/2d/sprites/ui/2d_sprites/ui_credits_sound_sign.png" id="21_k8jud"]
+[ext_resource type="Texture2D" uid="uid://dheet0n0lo63w" path="res://assets/2d/sprites/ui/buttons/ui_button_credits_hover.png" id="22_a6cgq"]
+[ext_resource type="Texture2D" uid="uid://b1gnkqr8svrvw" path="res://assets/2d/sprites/ui/buttons/ui_button_credits_pressed.png" id="23_eh6wm"]
+[ext_resource type="Texture2D" uid="uid://i3y0e535uxda" path="res://assets/2d/sprites/ui/buttons/ui_button_credits.png" id="24_ni7g4"]
+[ext_resource type="PackedScene" uid="uid://2nauafwfu4ye" path="res://features/ui/sound/button_sound_installer.tscn" id="25_l8m3p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6iq7"]
+content_margin_left = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("4_lxntn")
+region_rect = Rect2(153.5, 81.3999, 753.5, 337.6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qobsd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cu1lo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmieo"]
+content_margin_left = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("4_lxntn")
+region_rect = Rect2(153.5, 81.3999, 753.5, 337.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trkhn"]
+content_margin_left = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("5_mxc8y")
+region_rect = Rect2(153.5, 81.3999, 753.5, 337.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmk3k"]
+content_margin_left = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("6_dvwww")
+region_rect = Rect2(153.5, 81.3999, 753.5, 337.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7kb3"]
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("7_l3d74")
+region_rect = Rect2(176.6, 84, 756.8, 335)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tox4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lo7o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7fbd"]
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("8_06lty")
+region_rect = Rect2(176.6, 84, 756.8, 335)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htc8x"]
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_ewyr1")
+region_rect = Rect2(176.6, 84, 756.8, 335)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixvsm"]
+content_margin_left = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_odsas")
+region_rect = Rect2(18.4264, 62.9668, 1035.68, 351.504)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hrji"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnfhi"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+texture = ExtResource("7_47n71")
+region_rect = Rect2(18.4264, 62.9668, 1035.68, 351.504)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3ct3"]
+content_margin_left = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_prlkq")
+region_rect = Rect2(18.4264, 62.9668, 1035.68, 351.504)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xprad"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("8_hb86a")
+region_rect = Rect2(101.635, 66.4016, 853.653, 373.473)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s01ik"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqqeu"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("10_y4caa")
+region_rect = Rect2(101.635, 66.4016, 853.653, 373.473)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mcfby"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_3kbr2")
+region_rect = Rect2(101.635, 66.4016, 853.653, 373.473)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjnln"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("22_a6cgq")
+region_rect = Rect2(134.633, 105.753, 782.41, 334.4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc1m7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibth0"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("24_ni7g4")
+region_rect = Rect2(134.633, 105.753, 782.41, 334.4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnxty"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("23_eh6wm")
+region_rect = Rect2(134.633, 105.753, 782.41, 334.4)
+
+[sub_resource type="Animation" id="Animation_o7s33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreYouSureTab:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreYouSureTab:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsTab:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingsTab:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3qegp"]
+resource_name = "are_you_sure_tab"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreYouSureTab:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreYouSureTab:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_80fxi"]
+resource_name = "settings_tab"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsTab:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsTab:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vm03"]
+_data = {
+"RESET": SubResource("Animation_o7s33"),
+"are_you_sure_tab": SubResource("Animation_3qegp"),
+"settings_tab": SubResource("Animation_80fxi")
+}
+
+[node name="PauseMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xxddb")
+
+[node name="SettingsTab" parent="." instance=ExtResource("1_7io0c")]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -3.0
+offset_top = 43.0
+offset_right = 1155.0
+offset_bottom = 650.0
+pivot_offset = Vector2(582, 329)
+
+[node name="VSynncCheckbox" parent="SettingsTab/GraphicsandControls/VSync" index="0"]
+focus_neighbor_bottom = NodePath("../../MainVolume/MainVolumeSlider")
+
+[node name="MainVolume" parent="SettingsTab/GraphicsandControls" index="3"]
+text = "Main Mix"
+
+[node name="MusicSlider" parent="SettingsTab/GraphicsandControls/Music" index="1"]
+value = 0.0
+
+[node name="SFXSlider" parent="SettingsTab/GraphicsandControls/Sounds" index="1"]
+value = 0.0
+
+[node name="AreYouSureTab" type="TextureRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 171.0
+offset_top = 76.0
+offset_right = 941.0
+offset_bottom = 575.0
+pivot_offset = Vector2(389, 246)
+texture = ExtResource("2_meaxp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="AreYouSureTab"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 204.0
+offset_right = 551.0
+offset_bottom = 291.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 30
+text = "Are you sure,
+you want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="AreYouSureTab"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 390.0
+offset_right = 415.0
+offset_bottom = 470.0
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_right = NodePath("../Back")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Back")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_d6iq7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qobsd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_cu1lo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gmieo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_trkhn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tmk3k")
+text = "Quit"
+
+[node name="Back" type="Button" parent="AreYouSureTab"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 391.0
+offset_right = 612.0
+offset_bottom = 475.0
+focus_neighbor_left = NodePath("../Quit")
+focus_neighbor_right = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_x7kb3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tox4i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1lo7o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7kb3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o7fbd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_htc8x")
+text = "Back"
+
+[node name="PauseTab" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UiPauseWoodenPost" type="Sprite2D" parent="PauseTab"]
+position = Vector2(572, 397)
+rotation = -0.0336931
+scale = Vector2(0.805797, 0.881541)
+texture = ExtResource("1_b55l6")
+
+[node name="UiPauseScoreScreen" type="Sprite2D" parent="PauseTab"]
+position = Vector2(577.5, 249.5)
+scale = Vector2(0.329445, 0.349)
+texture = ExtResource("2_meaxp")
+
+[node name="Nail" type="Sprite2D" parent="PauseTab"]
+position = Vector2(587, 168)
+scale = Vector2(0.260938, 0.295)
+texture = ExtResource("3_2y2gb")
+
+[node name="UiPauseArmadillo" type="Sprite2D" parent="PauseTab"]
+position = Vector2(329.823, 386.94)
+rotation = -0.0219163
+scale = Vector2(0.772429, 0.784741)
+texture = ExtResource("12_7a40s")
+
+[node name="ContinueButton" type="Button" parent="PauseTab"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 353.0
+offset_right = 737.0
+offset_bottom = 454.0
+rotation = -0.058297
+pivot_offset = Vector2(115, 45)
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../RetryButton")
+theme = ExtResource("4_qms3d")
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="PauseTab"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 449.0
+offset_right = 689.0
+offset_bottom = 517.0
+rotation = -0.0209405
+pivot_offset = Vector2(124, 41)
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath("../RetryButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+focus_next = NodePath("../MainMenuButton")
+focus_previous = NodePath("../ContinueButton")
+theme = ExtResource("4_qms3d")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxTexture_ixvsm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1hrji")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xnfhi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e3ct3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xnfhi")
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="PauseTab"]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 512.0
+offset_right = 694.0
+offset_bottom = 597.0
+rotation = -0.0872665
+pivot_offset = Vector2(126, 44)
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../SettingsButton")
+theme = ExtResource("4_qms3d")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxTexture_xprad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s01ik")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dqqeu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mcfby")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dqqeu")
+text = "Main Menu"
+
+[node name="Pause" type="Label" parent="PauseTab"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 35.0
+offset_right = 731.0
+offset_bottom = 121.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("20_j36wy")
+theme_override_font_sizes/font_size = 70
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentBounty" type="Label" parent="PauseTab"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 187.0
+offset_right = 739.0
+offset_bottom = 273.0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 28
+text = "Current Bounty:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="PauseTab"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 250.0
+offset_right = 685.0
+offset_bottom = 303.0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 28
+text = "0$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiPauseWoodenPost2" type="Sprite2D" parent="PauseTab"]
+position = Vector2(827.517, 589.084)
+rotation = 0.0904932
+scale = Vector2(0.581519, 0.619967)
+texture = ExtResource("1_b55l6")
+
+[node name="UiCreditsSoundSign" type="Sprite2D" parent="PauseTab"]
+position = Vector2(853.517, 486.084)
+rotation = 0.203156
+scale = Vector2(0.406507, 0.460666)
+texture = ExtResource("21_k8jud")
+
+[node name="Label" type="Label" parent="PauseTab/UiCreditsSoundSign"]
+offset_left = -171.924
+offset_top = -26.3728
+offset_right = 191.076
+offset_bottom = 42.6272
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("11_n2fuo")
+theme_override_font_sizes/font_size = 60
+text = "STart Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="PauseTab"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 552.0
+offset_right = 921.0
+offset_bottom = 613.0
+rotation = 0.133852
+pivot_offset = Vector2(130, 46)
+focus_neighbor_left = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../MainMenuButton")
+theme = ExtResource("4_qms3d")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxTexture_sjnln")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fc1m7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ibth0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tnxty")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ibth0")
+text = "Retry"
+
+[node name="Nail2" type="Sprite2D" parent="PauseTab"]
+position = Vector2(865.517, 447.084)
+rotation = 0.0940971
+scale = Vector2(0.250937, 0.274375)
+texture = ExtResource("3_2y2gb")
+
+[node name="ButtonSoundInstaller" parent="." node_paths=PackedStringArray("root_node") instance=ExtResource("25_l8m3p")]
+root_node = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4vm03")
+}
+
+[connection signal="closed" from="SettingsTab" to="." method="close_settings"]
+[connection signal="mouse_entered" from="AreYouSureTab/Quit" to="AreYouSureTab/Quit" method="grab_focus" flags=3]
+[connection signal="pressed" from="AreYouSureTab/Quit" to="." method="request_quit_to_menu"]
+[connection signal="mouse_entered" from="AreYouSureTab/Back" to="AreYouSureTab/Back" method="grab_focus" flags=3]
+[connection signal="pressed" from="AreYouSureTab/Back" to="." method="close_quit_to_menu"]
+[connection signal="mouse_entered" from="PauseTab/ContinueButton" to="PauseTab/ContinueButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="PauseTab/ContinueButton" to="." method="request_continue"]
+[connection signal="mouse_entered" from="PauseTab/SettingsButton" to="PauseTab/SettingsButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="PauseTab/SettingsButton" to="." method="open_settings"]
+[connection signal="mouse_entered" from="PauseTab/MainMenuButton" to="PauseTab/MainMenuButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="PauseTab/MainMenuButton" to="." method="open_quit_to_menu"]
+[connection signal="mouse_entered" from="PauseTab/RetryButton" to="PauseTab/RetryButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="PauseTab/RetryButton" to="." method="request_retry"]
+
+[editable path="SettingsTab"]

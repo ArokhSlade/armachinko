@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://copwk2v5tqarm"]
+
+[ext_resource type="Script" path="res://features/ui/menu/volume_slider.gd" id="1_rqthr"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="2_hr8iw"]
+[ext_resource type="Texture2D" uid="uid://bfbt73dcout0c" path="res://assets/2d/sprites/ui/buttons/ui_settings_audio_grabber.png" id="2_wvybf"]
+[ext_resource type="Texture2D" uid="uid://dt512gioslphj" path="res://assets/2d/sprites/ui/buttons/ui_settings_audio_grabber_highlighted.png" id="4_kl1by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbsyl"]
+bg_color = Color(0.35757, 0.525882, 0.868446, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purrh"]
+bg_color = Color(0.0653028, 0.325271, 0.555718, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[node name="VolumeSlider" type="HSlider"]
+offset_right = 246.0
+offset_bottom = 18.0
+focus_neighbor_top = NodePath("../../../VSync/VSynncCheckbox")
+focus_neighbor_right = NodePath("../../MainVolumeCheckbox")
+focus_neighbor_bottom = NodePath("../../../Music/MusicSlider")
+theme_override_styles/slider = SubResource("StyleBoxFlat_jbsyl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_purrh")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_purrh")
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_rqthr")
+
+[node name="MotionRange" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 24.0
+offset_right = 220.0
+offset_bottom = 18.0
+mouse_filter = 2
+
+[node name="Knob" type="Control" parent="MotionRange"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KnobImageDefault" type="TextureRect" parent="MotionRange/Knob"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -48.5
+offset_right = 50.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_hr8iw")
+texture = ExtResource("2_wvybf")
+
+[node name="KnobImageHighlight" type="TextureRect" parent="MotionRange/Knob"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -48.5
+offset_right = 50.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_hr8iw")
+texture = ExtResource("4_kl1by")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

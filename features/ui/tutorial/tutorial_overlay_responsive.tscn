@@ -1,0 +1,468 @@
+[gd_scene load_steps=18 format=3 uid="uid://bedg02kxwpq2u"]
+
+[ext_resource type="Script" path="res://features/ui/tutorial/tutorial_overlay_responsive.gd" id="1_ccup4"]
+[ext_resource type="Texture2D" uid="uid://cgh5oufax4570" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_background.png" id="2_kpx3v"]
+[ext_resource type="Texture2D" uid="uid://d3e6vxgwc7vrw" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box.png" id="3_4i522"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="5_bciuw"]
+[ext_resource type="Texture2D" uid="uid://b523fltb30f11" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box_2.png" id="7_dd0if"]
+[ext_resource type="Texture2D" uid="uid://ba5u75ifsb67e" path="res://assets/2d/sprites/ui/icons/ui_armadillo_icon.png" id="8_s0a7v"]
+[ext_resource type="Texture2D" uid="uid://cv37v1nh22wkk" path="res://assets/2d/sprites/ui/icons/ui_armadillo_icon_2.png" id="9_5cg15"]
+[ext_resource type="Texture2D" uid="uid://cij4a7ldr8b74" path="res://assets/2d/sprites/ui/icons/ui_controls_button 1.png" id="10_g3et3"]
+[ext_resource type="Texture2D" uid="uid://b0nc77rydxejl" path="res://assets/2d/sprites/ui/icons/ui_controls.png" id="10_knlfb"]
+[ext_resource type="Texture2D" uid="uid://dhw8gkrqw8elx" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_armadillo.png" id="11_638pf"]
+[ext_resource type="Texture2D" uid="uid://dmwh0gadj3tti" path="res://assets/2d/sprites/ui/icons/ui_controls_2.png" id="11_yylav"]
+[ext_resource type="Texture2D" uid="uid://b7ut2y2nnd2iw" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_wooden_post.png" id="12_esrad"]
+[ext_resource type="Texture2D" uid="uid://d3x0kmfb7er5t" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_score_screen.png" id="13_yeouf"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="14_syhfk"]
+[ext_resource type="Texture2D" uid="uid://bmi3gn0lqu82" path="res://assets/2d/sprites/ui/2d_sprites/nail.png" id="15_8gry0"]
+[ext_resource type="Texture2D" uid="uid://c3vxmdf5djit5" path="res://assets/2d/sprites/ui/icons/ui_controls_controller.png" id="16_5a8ns"]
+[ext_resource type="Texture2D" uid="uid://qenc8dujkdsp" path="res://assets/2d/sprites/ui/icons/ui_controls_controller_2.png" id="17_qwimo"]
+
+[node name="TutorialOverlayResponsive" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccup4")
+
+[node name="UiTutorialBackground" type="Sprite2D" parent="."]
+position = Vector2(577, 324.375)
+scale = Vector2(0.583006, 0.639244)
+texture = ExtResource("2_kpx3v")
+
+[node name="Armadillo" type="Sprite2D" parent="."]
+position = Vector2(689.713, 407.888)
+rotation = -0.0650732
+scale = Vector2(0.653858, 0.663253)
+texture = ExtResource("11_638pf")
+
+[node name="WoodenPost" type="Sprite2D" parent="."]
+position = Vector2(165.792, 492.82)
+rotation = -0.0604326
+scale = Vector2(0.762228, 0.989687)
+texture = ExtResource("12_esrad")
+
+[node name="UiTutorialSign" type="Sprite2D" parent="WoodenPost"]
+position = Vector2(31.5059, -98.219)
+rotation = -0.0111317
+scale = Vector2(0.345183, 0.29803)
+skew = -0.00763369
+texture = ExtResource("13_yeouf")
+
+[node name="Label" type="Label" parent="WoodenPost/UiTutorialSign"]
+offset_left = -326.269
+offset_top = -118.49
+offset_right = 387.731
+offset_bottom = 89.5095
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 150
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nail" type="Sprite2D" parent="."]
+position = Vector2(200.4, 312.34)
+rotation = 0.00892636
+scale = Vector2(0.355, 0.434375)
+texture = ExtResource("15_8gry0")
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_left = 93.0
+offset_top = 501.0
+offset_right = 295.0
+offset_bottom = 583.0
+rotation = 0.0704772
+scale = Vector2(1.02779, 1.06909)
+pivot_offset = Vector2(115, 45)
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("14_syhfk")
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 25
+text = "COntinue"
+
+[node name="Nail2" type="Sprite2D" parent="."]
+position = Vector2(196.688, 504.798)
+rotation = 0.0874024
+scale = Vector2(0.2325, 0.259688)
+texture = ExtResource("15_8gry0")
+
+[node name="KeyboardTutorialContents" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 274.0
+offset_top = 278.0
+offset_right = 314.0
+offset_bottom = 318.0
+
+[node name="UiTutorialKeyboard" type="Sprite2D" parent="KeyboardTutorialContents"]
+position = Vector2(178, -62)
+scale = Vector2(0.764187, 0.828877)
+texture = ExtResource("3_4i522")
+flip_h = true
+
+[node name="KeyboardAandD" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+position = Vector2(-70.9341, -40.9771)
+scale = Vector2(1.0592, 0.938792)
+texture = ExtResource("10_knlfb")
+
+[node name="Rotate" type="Label" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+anchors_preset = -1
+anchor_left = -0.329383
+anchor_top = -0.268756
+anchor_right = -0.329383
+anchor_bottom = -0.268756
+offset_left = 133.372
+offset_top = 42.5716
+offset_right = 246.372
+offset_bottom = 77.5716
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 30
+text = "Rotate
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Rotate2" type="Label" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+anchors_preset = -1
+anchor_left = -0.329383
+anchor_top = -0.268756
+anchor_right = -0.329383
+anchor_bottom = -0.268756
+offset_left = 131.703
+offset_top = 107.576
+offset_right = 244.703
+offset_bottom = 142.576
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 30
+text = "Shoot
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="A" type="Label" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+offset_left = -112.478
+offset_top = -47.4287
+offset_right = -87.478
+offset_bottom = -22.4287
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 15
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="D" type="Label" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+offset_left = -47.7881
+offset_top = -47.4287
+offset_right = -22.7881
+offset_bottom = -22.4287
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 15
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SpaceGraphic" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+position = Vector2(-63.0093, 16.1952)
+scale = Vector2(1.16715, 0.960017)
+texture = ExtResource("11_yylav")
+
+[node name="A2" type="Label" parent="KeyboardTutorialContents/UiTutorialKeyboard"]
+anchors_preset = -1
+anchor_left = -0.00039732
+anchor_top = -0.00117594
+anchor_right = 0.00960268
+anchor_bottom = -0.00117594
+offset_left = -85.8411
+offset_top = 3.47038
+offset_right = -41.8411
+offset_bottom = 28.4704
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 14
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UiTutorialTextKeyboard2" type="Sprite2D" parent="KeyboardTutorialContents"]
+position = Vector2(678, -83)
+rotation = 0.0247031
+scale = Vector2(0.923081, 0.91258)
+texture = ExtResource("7_dd0if")
+flip_h = true
+
+[node name="UiArmadilloIcon(1)" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(-56.7296, -59.8723)
+scale = Vector2(0.756072, 0.785944)
+texture = ExtResource("8_s0a7v")
+
+[node name="UiArmadilloIcon(1)2" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(44.5594, -64.3855)
+scale = Vector2(0.756072, 0.785944)
+texture = ExtResource("8_s0a7v")
+flip_h = true
+
+[node name="UiArmadilloIcon2(1)" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(-24.6765, 9.19414)
+rotation = 0.0833541
+scale = Vector2(0.924985, 0.857328)
+texture = ExtResource("9_5cg15")
+
+[node name="Label" type="Label" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+offset_left = -141.0
+offset_top = -70.0
+offset_right = -103.0
+offset_bottom = -36.0
+
+[node name="UiControllsButton1" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(-119.26, -52.1916)
+scale = Vector2(0.590791, 0.582815)
+texture = ExtResource("10_g3et3")
+
+[node name="A" type="Label" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2/UiControllsButton1"]
+anchors_preset = -1
+anchor_left = -0.000250855
+anchor_top = -0.169921
+anchor_right = 0.174748
+anchor_bottom = 7.87735e-05
+offset_left = -29.249
+offset_top = -5.82892
+offset_right = -4.24879
+offset_bottom = 19.1711
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 25
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UiControllsButton2" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(114.816, -55.8198)
+scale = Vector2(0.590791, 0.582815)
+texture = ExtResource("10_g3et3")
+
+[node name="D" type="Label" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2/UiControllsButton2"]
+anchors_preset = -1
+anchor_left = -0.000250855
+anchor_top = -0.169921
+anchor_right = 0.174748
+anchor_bottom = 7.87735e-05
+offset_left = -29.2491
+offset_top = -5.82892
+offset_right = -4.24886
+offset_bottom = 19.1711
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 25
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SpaceGraphic2" type="Sprite2D" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+position = Vector2(-4.49921, 58.782)
+rotation = -0.0242717
+scale = Vector2(1.19363, 1.05658)
+skew = -0.000870347
+texture = ExtResource("11_yylav")
+
+[node name="Space" type="Label" parent="KeyboardTutorialContents/UiTutorialTextKeyboard2"]
+anchors_preset = -1
+anchor_left = -0.000556278
+anchor_top = -0.169814
+anchor_right = 0.173194
+anchor_bottom = -0.00481449
+offset_left = -53.7775
+offset_top = 79.9258
+offset_right = -24.2775
+offset_bottom = 104.926
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 15
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ControllerTutorialContents" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 274.0
+offset_top = 278.0
+offset_right = 314.0
+offset_bottom = 318.0
+
+[node name="UiTutorialController" type="Sprite2D" parent="ControllerTutorialContents"]
+position = Vector2(178, -62)
+scale = Vector2(0.764187, 0.828877)
+texture = ExtResource("3_4i522")
+flip_h = true
+
+[node name="Rotate" type="Label" parent="ControllerTutorialContents/UiTutorialController"]
+anchors_preset = -1
+anchor_left = -0.329383
+anchor_top = -0.268756
+anchor_right = -0.329383
+anchor_bottom = -0.268756
+offset_left = 130.445
+offset_top = 41.1476
+offset_right = 243.445
+offset_bottom = 76.1476
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 30
+text = "Rotate
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shoot" type="Label" parent="ControllerTutorialContents/UiTutorialController"]
+anchors_preset = -1
+anchor_left = -0.329383
+anchor_top = -0.268756
+anchor_right = -0.329383
+anchor_bottom = -0.268756
+offset_left = 130.445
+offset_top = 100.264
+offset_right = 243.445
+offset_bottom = 135.264
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 30
+text = "Shoot
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="UiControlsController" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController"]
+position = Vector2(-69.3548, -59.1161)
+scale = Vector2(0.526703, 0.470516)
+texture = ExtResource("16_5a8ns")
+
+[node name="Label" type="Label" parent="ControllerTutorialContents/UiTutorialController/UiControlsController"]
+offset_left = -27.0
+offset_top = -31.0
+offset_right = 23.0
+offset_bottom = 25.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 30
+text = "L/R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiControlsController2" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController"]
+position = Vector2(-74.5891, 14.4774)
+rotation = 3.13139
+scale = Vector2(0.534882, 0.493137)
+texture = ExtResource("17_qwimo")
+
+[node name="Label" type="Label" parent="ControllerTutorialContents/UiTutorialController"]
+offset_left = -78.5148
+offset_top = 24.129
+offset_right = -64.5148
+offset_bottom = 47.129
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 15
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiTutorialController2" type="Sprite2D" parent="ControllerTutorialContents"]
+position = Vector2(678, -83)
+rotation = 0.0247031
+scale = Vector2(0.923081, 0.91258)
+texture = ExtResource("7_dd0if")
+flip_h = true
+
+[node name="UiArmadilloIcon(1)" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(-56.7296, -59.8723)
+scale = Vector2(0.756072, 0.785944)
+texture = ExtResource("8_s0a7v")
+
+[node name="UiArmadilloIcon(1)2" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(44.5594, -64.3855)
+scale = Vector2(0.756072, 0.785944)
+texture = ExtResource("8_s0a7v")
+flip_h = true
+
+[node name="UiArmadilloIcon2(1)" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(-24.6765, 9.19414)
+rotation = 0.0833541
+scale = Vector2(0.924985, 0.857328)
+texture = ExtResource("9_5cg15")
+
+[node name="UiControlsController3" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(-119.465, -55.1091)
+rotation = -0.0249872
+scale = Vector2(0.342605, 0.33578)
+skew = 0.000565052
+texture = ExtResource("16_5a8ns")
+
+[node name="Label" type="Label" parent="ControllerTutorialContents/UiTutorialController2/UiControlsController3"]
+offset_left = -27.0
+offset_top = -31.0
+offset_right = 23.0
+offset_bottom = 25.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 35
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiControlsController5" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(111.267, -58.6834)
+rotation = -0.0249872
+scale = Vector2(0.342605, 0.33578)
+skew = 0.000565052
+texture = ExtResource("16_5a8ns")
+
+[node name="Label" type="Label" parent="ControllerTutorialContents/UiTutorialController2/UiControlsController5"]
+offset_left = -27.0
+offset_top = -31.0
+offset_right = 23.0
+offset_bottom = 25.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 35
+text = "R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiControlsController4" type="Sprite2D" parent="ControllerTutorialContents/UiTutorialController2"]
+position = Vector2(-10.9273, 62.2866)
+rotation = 3.10541
+scale = Vector2(0.445556, 0.450662)
+skew = 0.00245953
+texture = ExtResource("17_qwimo")
+
+[node name="Label2" type="Label" parent="ControllerTutorialContents/UiTutorialController2"]
+offset_left = -14.5591
+offset_top = 69.42
+offset_right = -0.559142
+offset_bottom = 92.42
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_bciuw")
+theme_override_font_sizes/font_size = 15
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="ContinueButton" to="ContinueButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

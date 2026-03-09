@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b18jaqpw103tq"]
+
+[ext_resource type="PackedScene" uid="uid://dwmymhx8t26a" path="res://assets/3d/moneybag.glb" id="1_aik3c"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_ak5i2"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_oprgr"]
+
+[node name="moneybag" instance=ExtResource("1_aik3c")]
+
+[node name="money_bag" parent="." index="0"]
+material_override = ExtResource("2_ak5i2")
+material_overlay = ExtResource("3_oprgr")

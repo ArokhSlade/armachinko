@@ -1,0 +1,756 @@
+[gd_scene load_steps=46 format=3 uid="uid://da83k310qw2pn"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://404c3ueq1xfu" path="res://features/player/player_settings/phymat_player.tres" id="1_6halm"]
+[ext_resource type="Script" path="res://features/player/player.gd" id="2_1t7k4"]
+[ext_resource type="Material" uid="uid://dv03r3oyjdohg" path="res://assets/2d/materials/player/material_player_sprite_sheet.tres" id="3_0s0yu"]
+[ext_resource type="Curve" uid="uid://bkkau1yllgxod" path="res://features/player/player_settings/player_gravity_speed_scaling.tres" id="3_agw65"]
+[ext_resource type="Script" path="res://features/player/player_camera_align.gd" id="3_cmwtd"]
+[ext_resource type="Curve" uid="uid://hfg8dc23olxi" path="res://features/player/player_settings/player_gravity_direction_scaling.tres" id="4_k6kdv"]
+[ext_resource type="Texture2D" uid="uid://bh5o0vx57vwgw" path="res://assets/2d/spritesheets/armadillo/armadillo_spritesheet.png" id="4_oadf0"]
+[ext_resource type="PackedScene" uid="uid://yk21jkon3epe" path="res://features/player/shotgun/shotgun.tscn" id="11_6mr6u"]
+[ext_resource type="Texture2D" uid="uid://bwxtdunod54r3" path="res://assets/2d/spritesheets/armadillo/arm_spritesheet.png" id="12_482g4"]
+[ext_resource type="Texture2D" uid="uid://bhoat8dp1yhvj" path="res://assets/2d/spritesheets/armadillo/arm_spritesheet_n.png" id="13_dokka"]
+[ext_resource type="PackedScene" uid="uid://do27uuxrbj736" path="res://features/effects/score_keeper.tscn" id="14_31jrf"]
+[ext_resource type="Texture2D" uid="uid://tpafoixfo3ia" path="res://assets/2d/spritesheets/armadillo/arm_spritesheet_xray.png" id="14_vp7mj"]
+[ext_resource type="PackedScene" uid="uid://c104k7wmgxsj" path="res://features/player/vfx/impact_vfx_spawner.tscn" id="17_4ja2v"]
+[ext_resource type="Texture2D" uid="uid://ignnns1rajfk" path="res://assets/2d/sprites/gun/shotgun_1.png" id="18_f20ux"]
+[ext_resource type="Script" path="res://features/player/vfx/immediate_mesh.gd" id="19_xk7ll"]
+[ext_resource type="Texture2D" uid="uid://37pa1xcc1wro" path="res://assets/2d/textures/stun_spin/stun_spin_highlight_1.png" id="21_38y8d"]
+[ext_resource type="Texture2D" uid="uid://5ehhk0gtk1v1" path="res://assets/2d/textures/stun_spin/stun_spin_base.png" id="22_jk21h"]
+[ext_resource type="PackedScene" uid="uid://bixw55rwiqywu" path="res://features/player/speed_aura.tscn" id="22_toy3d"]
+[ext_resource type="Texture2D" uid="uid://1qltlqipx0jv" path="res://assets/2d/textures/stun_spin/stun_spin_emission.png" id="23_n8ipk"]
+[ext_resource type="PackedScene" uid="uid://cxrdlyxbxuj3" path="res://features/player/player_debug_hud.tscn" id="24_3vs1r"]
+[ext_resource type="Texture2D" uid="uid://dyy22fycj5ybb" path="res://assets/2d/textures/stun_spin/stun_spin_frame.png" id="24_256qj"]
+[ext_resource type="AudioStream" uid="uid://c3rbcsdyrd70p" path="res://assets/sound/ui/menu_highlight.mp3" id="24_mi6c1"]
+[ext_resource type="PackedScene" uid="uid://c130m7eh1s378" path="res://features/player/vfx/alligator_vfx_spawner.tscn" id="24_rykva"]
+[ext_resource type="PackedScene" uid="uid://mwyr1vyo06ss" path="res://features/player/vfx/eagle_vfx_spawner.tscn" id="25_ksy0t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fjc8h"]
+radius = 1.14716
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx0i6"]
+render_priority = -2
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+no_depth_test = true
+albedo_texture = ExtResource("12_482g4")
+emission_enabled = true
+emission_texture = ExtResource("14_vp7mj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdl5b"]
+next_pass = SubResource("StandardMaterial3D_bx0i6")
+transparency = 4
+albedo_texture = ExtResource("12_482g4")
+emission = Color(0.537, 0, 0, 1)
+normal_enabled = true
+normal_texture = ExtResource("13_dokka")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyymk"]
+render_priority = 3
+transparency = 1
+albedo_texture = ExtResource("21_38y8d")
+emission_enabled = true
+emission = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq5o2"]
+render_priority = -2
+transparency = 1
+no_depth_test = true
+albedo_texture = ExtResource("22_jk21h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbeqr"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_iq5o2")
+transparency = 1
+albedo_texture = ExtResource("22_jk21h")
+emission = Color(0.70132, 0.82758, 0.754503, 1)
+emission_energy_multiplier = 4.5
+emission_texture = ExtResource("23_n8ipk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p6lb"]
+render_priority = 2
+transparency = 1
+albedo_texture = ExtResource("24_256qj")
+emission_enabled = true
+emission_texture = ExtResource("24_256qj")
+
+[sub_resource type="Animation" id="Animation_gt0ok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.274, -0.289, 0.02)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 7.45058e-09)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.071, -1.452, 0.01)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FakeShadowPivot/ShotgunShadowCasterCanGetDeletedWhenGeraldWantsTo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.438, -1.566, 0.05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0366519)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ArmadilloPivot/Armadillo/Vfx/HighlightNoSpin:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ArmadilloPivot/Armadillo:transparency")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:transparency")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun/StunSpin:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:material_override:emission_energy_multiplier")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.5]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:material_override:emission_enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:material_override:emission")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:material_override:emission_energy_multiplier")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_x5mi8"]
+resource_name = "Shot__reaction"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.414, 0.001, 0.02), Vector3(0.274, -0.289, 0.02)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.760964), Vector3(0, 0, 7.45058e-09)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.069, -1.052, 0), Vector3(-0.071, -1.452, 0.01)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FakeShadowPivot/ShotgunShadowCasterCanGetDeletedWhenGeraldWantsTo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.438, -1.075, 0), Vector3(0.438, -1.566, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0593412), Vector3(0, 0, 0.0366519)]
+}
+
+[sub_resource type="Animation" id="Animation_7ycku"]
+resource_name = "bounce"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.36667, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 5, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.414, -0.239, 0.02)]
+}
+
+[sub_resource type="Animation" id="Animation_0we02"]
+resource_name = "flow"
+
+[sub_resource type="Animation" id="Animation_mxhgk"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.3, 3.6, 3.66667, 3.73333, 3.8, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 4, 0, 0, 4, 5, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_y0q7q"]
+resource_name = "roll_on_wall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_0r34n"]
+resource_name = "stun"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmadilloPivot/Armadillo/Vfx/HighlightNoSpin:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmadilloPivot/Armadillo:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.575, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArmadilloPivot/Armadillo/Arm/Hand:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.575, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArmadilloPivot/Armadillo/Arm/Shotgun/StunSpin:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:material_override:emission_energy_multiplier")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.5, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ArmadilloPivot/Armadillo/Vfx/BaseSpin:material_override:emission_enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:material_override:emission_energy_multiplier")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.66, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ArmadilloPivot/Armadillo/Vfx/EmissionSpin:material_override:emission")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(4.032, 61.291, 11.022, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gj8tu"]
+_data = {
+"RESET": SubResource("Animation_gt0ok"),
+"Shot__reaction": SubResource("Animation_x5mi8"),
+"bounce": SubResource("Animation_7ycku"),
+"flow": SubResource("Animation_0we02"),
+"idle": SubResource("Animation_mxhgk"),
+"roll_on_wall": SubResource("Animation_y0q7q"),
+"stun": SubResource("Animation_0r34n")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7o6c"]
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("18_f20ux")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opkxo"]
+albedo_color = Color(0.136191, 0.0741453, 0.0272382, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lskbt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxou8"]
+no_depth_test = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_vju5n"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u6e1t"]
+random_pitch = 1.26
+streams_count = 1
+stream_0/stream = ExtResource("24_mi6c1")
+
+[node name="Player" type="RigidBody3D" groups=["Players"]]
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+physics_material_override = ExtResource("1_6halm")
+can_sleep = false
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 5.0
+script = ExtResource("2_1t7k4")
+dash_speed = 100.0
+max_rotation_speed = 500.0
+gravity_speed_scaling = ExtResource("3_agw65")
+gravity_direction_scaling = ExtResource("4_k6kdv")
+freeze_frame_duration = 0.0
+freeze_frame_time_scale = 0.001
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fjc8h")
+
+[node name="ArmadilloPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.656057, -0.754707, 0, 0.754707, 0.656057, 0, 0, 0)
+script = ExtResource("3_cmwtd")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="ArmadilloPivot"]
+current = true
+
+[node name="Armadillo" type="Sprite3D" parent="ArmadilloPivot"]
+transform = Transform3D(0.503007, 0.246138, 0, -0.246138, 0.503007, 0, 0, 0, 0.56, 0, 0, 4)
+material_override = ExtResource("3_0s0yu")
+cast_shadow = 0
+pixel_size = 0.0158
+texture = ExtResource("4_oadf0")
+hframes = 6
+
+[node name="Arm" type="Marker3D" parent="ArmadilloPivot/Armadillo"]
+transform = Transform3D(1.33305, -0.513604, 0, 0.513604, 1.33305, 0, 0, 0, 1.42857, 0.345966, 0.336098, 0)
+
+[node name="Shotgun" parent="ArmadilloPivot/Armadillo/Arm" node_paths=PackedStringArray("wielder") instance=ExtResource("11_6mr6u")]
+transform = Transform3D(1.38407, -0.0507515, 0, 0.0507515, 1.38407, 0, 0, 0, 1.385, -0.071, -1.452, 0.01)
+top_level = false
+wielder = NodePath("../../../..")
+
+[node name="Hand" type="Sprite3D" parent="ArmadilloPivot/Armadillo/Arm"]
+transform = Transform3D(1, -7.45058e-09, 0, 7.45058e-09, 1, 0, 0, 0, 1, 0.274, -0.289, 0.02)
+sorting_offset = 3.0
+material_override = SubResource("StandardMaterial3D_gdl5b")
+cast_shadow = 0
+pixel_size = 0.0105
+texture = ExtResource("12_482g4")
+
+[node name="Vfx" type="Node3D" parent="ArmadilloPivot/Armadillo"]
+transform = Transform3D(1.78571, 0, 0, 0, 1.78572, 0, 0, 0, 1.78572, 0, 0, 0.09)
+
+[node name="HighlightNoSpin" type="Sprite3D" parent="ArmadilloPivot/Armadillo/Vfx"]
+transform = Transform3D(0.808225, 0.395945, 0, -0.395945, 0.808225, 0, 0, 0, 0.899999, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_iyymk")
+cast_shadow = 0
+texture = ExtResource("21_38y8d")
+
+[node name="BaseSpin" type="Sprite3D" parent="ArmadilloPivot/Armadillo/Vfx"]
+transform = Transform3D(0.808225, 0.395946, 0, -0.395945, 0.808226, 0, 0, 0, 0.899999, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_nbeqr")
+texture = ExtResource("22_jk21h")
+
+[node name="EmissionSpin" type="Sprite3D" parent="ArmadilloPivot/Armadillo/Vfx"]
+transform = Transform3D(0.808225, 0.395946, 0, -0.395945, 0.808226, 0, 0, 0, 0.899999, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_4p6lb")
+texture = ExtResource("23_n8ipk")
+
+[node name="SpeedAura" parent="ArmadilloPivot" instance=ExtResource("22_toy3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0578887, -0.218829, 3.518)
+
+[node name="SpeedAuraTip" type="Node3D" parent="ArmadilloPivot/SpeedAura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00167, 0.171063, -0.196785)
+
+[node name="RemoteRotation" type="Marker3D" parent="."]
+transform = Transform3D(0.933136, -0.359523, 0, 0.359523, 0.933136, 0, 0, 0, 1, 0, 0, 0)
+top_level = true
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="ScoreKeeper" parent="Effects" instance=ExtResource("14_31jrf")]
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj8tu")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gj8tu")
+}
+
+[node name="AlligatorVFXSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_rykva")]
+player = NodePath("..")
+
+[node name="EagleVFXSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("25_ksy0t")]
+player = NodePath("..")
+
+[node name="ImpactVFXSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_4ja2v")]
+player = NodePath("..")
+
+[node name="FakeShadowPivot" type="Marker3D" parent="."]
+
+[node name="Armadillo" type="Sprite3D" parent="FakeShadowPivot"]
+transform = Transform3D(0.503007, 0.246138, 0, -0.246138, 0.503007, 0, 0, 0, 0.56, 0, 0, 1)
+visible = false
+material_override = ExtResource("3_0s0yu")
+cast_shadow = 3
+pixel_size = 0.015
+texture = ExtResource("4_oadf0")
+hframes = 6
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="FakeShadowPivot"]
+cast_shadow = 3
+radius = 1.3
+
+[node name="ShotgunShadowCasterCanGetDeletedWhenGeraldWantsTo" type="Sprite3D" parent="FakeShadowPivot"]
+transform = Transform3D(-0.104529, -0.994522, 0, 0.994522, -0.104529, 0, 0, 0, 1, 0.438, -1.566, 0.05)
+visible = false
+sorting_use_aabb_center = false
+material_override = SubResource("StandardMaterial3D_j7o6c")
+cast_shadow = 2
+texture = ExtResource("18_f20ux")
+
+[node name="ShotgunShadowCaster3D" type="MeshInstance3D" parent="FakeShadowPivot"]
+transform = Transform3D(0.0758991, -0.0657404, 0.695675, 0.340055, 2.41955, -0.022499, -0.607126, 1.34699, 0.0743671, 0.201904, -1.15005, 0)
+material_override = SubResource("StandardMaterial3D_opkxo")
+cast_shadow = 3
+mesh = SubResource("CylinderMesh_lskbt")
+skeleton = NodePath("../ShotgunShadowCasterCanGetDeletedWhenGeraldWantsTo")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+top_level = true
+debug_shape_custom_color = Color(1.44392e-06, 0.766255, 0.769634, 1)
+
+[node name="ImmediateMesh" type="MeshInstance3D" parent="RayCast3D" node_paths=PackedStringArray("raycast")]
+top_level = true
+visible = false
+material_override = SubResource("StandardMaterial3D_bxou8")
+mesh = SubResource("ImmediateMesh_vju5n")
+script = ExtResource("19_xk7ll")
+raycast = NodePath("..")
+
+[node name="PlayerDebugHUD" parent="." instance=ExtResource("24_3vs1r")]
+visible = false
+
+[node name="FenceBounceSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_u6e1t")
+volume_db = -15.947
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="score_updated" from="Effects/ScoreKeeper" to="." method="_on_score_keeper_score_updated"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="animation_changed" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_changed"]
+
+[editable path="ArmadilloPivot/Armadillo/Arm/Shotgun"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3sm3too5fnow"
+path="res://.godot/imported/procedural_kidney_fence_hitbox.obj-2fe12bb597548a42602279352b501f95.mesh"
+
+[deps]
+
+files=["res://.godot/imported/procedural_kidney_fence_hitbox.obj-2fe12bb597548a42602279352b501f95.mesh"]
+
+source_file="res://features/_experimental/calais/collisionshape/procedural_kidney_fence_hitbox.obj"
+dest_files=["res://.godot/imported/procedural_kidney_fence_hitbox.obj-2fe12bb597548a42602279352b501f95.mesh", "res://.godot/imported/procedural_kidney_fence_hitbox.obj-2fe12bb597548a42602279352b501f95.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

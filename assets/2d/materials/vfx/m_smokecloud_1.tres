@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cc63xephxbevb"]
+
+[ext_resource type="Shader" uid="uid://bnc8hog0vda1l" path="res://assets/shader/s_smoke_cloud.tres" id="1_hvc6m"]
+[ext_resource type="Texture2D" uid="uid://cs22ng3hjwws2" path="res://assets/2d/spritesheets/vfx/smoke_1.png" id="2_02dvr"]
+[ext_resource type="Texture2D" uid="uid://c3irtmpys88lc" path="res://assets/2d/textures/noise/noise_5.png" id="3_fq44i"]
+[ext_resource type="Texture2D" uid="uid://bmfn2qjhixryu" path="res://assets/2d/textures/noise/noise_6.png" id="4_bunfx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hvc6m")
+shader_parameter/Shape_Distortion_Speed = Vector2(0.22, 0.18)
+shader_parameter/Shape_Distortion_Intensity = 0.15
+shader_parameter/Albedo = Color(0, 0, 0, 1)
+shader_parameter/Spritesheet_Frames = Vector2(12, 1)
+shader_parameter/Roughness = 1.0
+shader_parameter/Emission_Color = Color(0.945098, 0.25098, 0.0509804, 1)
+shader_parameter/Emission = -2.0
+shader_parameter/EmissionPanningSpeed = 0.2
+shader_parameter/Shape_Distortion_Texture = ExtResource("4_bunfx")
+shader_parameter/Alpha_Texture = ExtResource("2_02dvr")
+shader_parameter/Emission_Texture = ExtResource("3_fq44i")

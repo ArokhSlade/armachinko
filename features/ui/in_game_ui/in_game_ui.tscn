@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhvmlcxuwjy1n"]
+
+[ext_resource type="Texture2D" uid="uid://bpavt1qhq1pe5" path="res://assets/2d/sprites/ui/2d_sprites/score_background.png" id="1_vjlx2"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="2_06jbw"]
+
+[node name="InGameUI" type="CanvasLayer"]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HighscoreBackground" type="Sprite2D" parent="HUD"]
+position = Vector2(586, 50)
+scale = Vector2(0.606667, 0.51)
+texture = ExtResource("1_vjlx2")
+
+[node name="Score" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 466.0
+offset_top = 27.0
+offset_right = -434.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_06jbw")
+theme_override_font_sizes/font_size = 35
+text = "score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 87.0
+offset_right = 690.0
+offset_bottom = 129.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_06jbw")
+theme_override_font_sizes/font_size = 25
+text = "Timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="HUD/Label"]

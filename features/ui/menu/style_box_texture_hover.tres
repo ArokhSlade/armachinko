@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ycpnhy354pvl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bq4m5"]
+load_path = "res://.godot/imported/ui_button_start_hover.png-6e917620a78157dc890a78b96e15b796.ctex"
+
+[resource]
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = SubResource("CompressedTexture2D_bq4m5")
+region_rect = Rect2(175.542, 81.5902, 758.831, 347.261)

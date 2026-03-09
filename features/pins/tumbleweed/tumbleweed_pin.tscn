@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5yt85k6a7ds3"]
+
+[ext_resource type="Script" path="res://features/pins/tumbleweed/tumbleweed_pin.gd" id="1_tc6gv"]
+[ext_resource type="PackedScene" uid="uid://880ywwoxw5lx" path="res://features/effects/score_donor.tscn" id="2_783xm"]
+[ext_resource type="PackedScene" uid="uid://bkbd6abgxgafv" path="res://assets/3d/asset scene files/tumbleweed_5.tscn" id="2_beo43"]
+[ext_resource type="AudioStream" uid="uid://cxaq7k0oc77a1" path="res://assets/sound/tumbleweed_collide_dummy_250122.mp3" id="4_q1kie"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tyrkg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y47v0"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_8elb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tumbleweed_5:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tumbleweed_5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.69114)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tumbleweed_5/CPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tt86r"]
+resource_name = "destroy"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"delete_from_game"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tumbleweed_5:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.04, 0.04, 0.04)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tumbleweed_5:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.69114), Vector3(0, 0, -0.0645946)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_q1kie")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tumbleweed_5/CPUParticles3D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.9, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pltt3"]
+_data = {
+"RESET": SubResource("Animation_8elb7"),
+"destroy": SubResource("Animation_tt86r")
+}
+
+[node name="TumbleweedPin" type="RigidBody3D" groups=["Tumbleweeds"]]
+collision_layer = 8
+collision_mask = 11
+axis_lock_linear_z = true
+script = ExtResource("1_tc6gv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tyrkg")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 9
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_y47v0")
+
+[node name="tumbleweed_5" parent="." instance=ExtResource("2_beo43")]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, -3.59989e-21, -4.37114e-08, 1, -4.37114e-08, 0, 0, -1.69114)
+
+[node name="ScoreDonor" parent="." instance=ExtResource("2_783xm")]
+score_bonus = 2500
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pltt3")
+}
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
+[connection signal="bounced" from="." to="." method="despawn"]
+[connection signal="bounced_by" from="." to="ScoreDonor" method="donate_score"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="despawn"]
+
+[editable path="tumbleweed_5"]

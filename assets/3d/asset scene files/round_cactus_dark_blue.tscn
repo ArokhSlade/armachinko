@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn7jo84eu5qet"]
+
+[ext_resource type="PackedScene" uid="uid://bpyu7yl0mdbu0" path="res://assets/3d/round_cactus_dark_blue.glb" id="1_2fn3i"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_4246v"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_0saan"]
+
+[node name="round_cactus_dark_blue" instance=ExtResource("1_2fn3i")]
+
+[node name="round_cactus_dark_blue" parent="." index="0"]
+material_override = ExtResource("2_4246v")
+material_overlay = ExtResource("3_0saan")
+blend_shapes/spike_expansion = 0.5

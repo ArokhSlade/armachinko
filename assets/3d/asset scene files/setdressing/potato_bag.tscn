@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://tl6ctoa0duor"]
+
+[ext_resource type="PackedScene" uid="uid://b57flctshrqqp" path="res://assets/3d/potato_bag.glb" id="1_xd3rl"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_2yv7l"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_id5tn"]
+
+[node name="potato_bag" instance=ExtResource("1_xd3rl")]
+
+[node name="potato_bag" parent="." index="0"]
+material_override = ExtResource("2_2yv7l")
+material_overlay = ExtResource("3_id5tn")

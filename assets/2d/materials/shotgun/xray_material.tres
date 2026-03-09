@@ -1,0 +1,27 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://clqblnsitvmh8"]
+
+[ext_resource type="Texture2D" uid="uid://ignnns1rajfk" path="res://assets/2d/sprites/gun/shotgun_1.png" id="1_gxo64"]
+[ext_resource type="Texture2D" uid="uid://dlsyt4fc84pm8" path="res://assets/2d/sprites/gun/shotgun_1_xray.png" id="2_ay4n5"]
+[ext_resource type="Texture2D" uid="uid://dwx7ksp7r7wmw" path="res://assets/2d/sprites/gun/shotgun_1_n.png" id="3_yk1fs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ine6j"]
+render_priority = -3
+transparency = 2
+alpha_scissor_threshold = 0.9
+alpha_antialiasing_mode = 0
+no_depth_test = true
+albedo_texture = ExtResource("1_gxo64")
+emission_enabled = true
+emission = Color(0.472025, 0.472025, 0.472025, 1)
+emission_texture = ExtResource("2_ay4n5")
+
+[resource]
+render_priority = -1
+next_pass = SubResource("StandardMaterial3D_ine6j")
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_gxo64")
+normal_enabled = true
+normal_texture = ExtResource("3_yk1fs")
+backlight_enabled = true
+backlight = Color(0.444843, 0.444843, 0.444843, 1)

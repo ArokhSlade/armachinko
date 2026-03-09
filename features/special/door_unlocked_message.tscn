@@ -1,0 +1,362 @@
+[gd_scene load_steps=13 format=3 uid="uid://5adyfrssvibx"]
+
+[ext_resource type="Script" path="res://features/special/score_milestone_feedback_message.gd" id="1_krk5y"]
+[ext_resource type="Texture2D" uid="uid://gr8w1xnofbyr" path="res://assets/2d/sprites/vfx_particle/star_particle_orange.png" id="2_jkanf"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="3_xspac"]
+[ext_resource type="Texture2D" uid="uid://ds57cu7oblra" path="res://assets/2d/sprites/ui/2d_sprites/spritesheet.png" id="4_vmmcm"]
+
+[sub_resource type="Curve" id="Curve_tqn6x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.687879, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m1epd"]
+curve = SubResource("Curve_tqn6x")
+
+[sub_resource type="Curve" id="Curve_w5572"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n2v3e"]
+curve = SubResource("Curve_w5572")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1f7q"]
+particle_flag_disable_z = true
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.2
+scale_max = 0.8
+alpha_curve = SubResource("CurveTexture_m1epd")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+anim_speed_curve = SubResource("CurveTexture_n2v3e")
+
+[sub_resource type="Animation" id="Animation_lytd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../GPUParticles2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../GPUParticles2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Spritesheet:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Spritesheet2:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Spritesheet:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Spritesheet2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aetr0"]
+resource_name = "feedback_message"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.5, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../GPUParticles2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.63333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1), Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../GPUParticles2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.63333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1), Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Spritesheet:frame")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 3, 6]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Spritesheet2:frame")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 3, 6]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Spritesheet:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.166667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Spritesheet2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.166667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lj4rj"]
+_data = {
+"RESET": SubResource("Animation_lytd3"),
+"feedback_message": SubResource("Animation_aetr0")
+}
+
+[node name="DoorUnlockedMessage" type="Node2D"]
+position = Vector2(111, -3)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_krk5y")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(902.556, 363.556)
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_jkanf")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(157.556, 372.556)
+rotation = -3.14159
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_jkanf")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="Spritesheet2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(344.444, 370)
+scale = Vector2(1.09167, 1.11481)
+texture = ExtResource("4_vmmcm")
+flip_h = true
+hframes = 15
+
+[node name="Spritesheet" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(684.445, 372.222)
+scale = Vector2(1.125, 1.10278)
+texture = ExtResource("4_vmmcm")
+hframes = 15
+frame = 14
+
+[node name="ScoreMilestone" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.0980392, 0.133333, 1)
+offset_left = 58.8889
+offset_top = 275.556
+offset_right = 983.893
+offset_bottom = 461.556
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(462, 93)
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.262932, 0.262932, 0.262932, 1)
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_xspac")
+theme_override_font_sizes/font_size = 100
+text = "! Door unlocked !"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ScoreMilestone")
+libraries = {
+"": SubResource("AnimationLibrary_lj4rj")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamInteractive" load_steps=3 format=3 uid="uid://bs1wc40yipurf"]
+
+[ext_resource type="AudioStream" uid="uid://bra6jeuayx7d5" path="res://assets/music/ingame_soundtrack.mp3" id="1_ct21c"]
+[ext_resource type="AudioStream" uid="uid://cus1vfif6pt3y" path="res://assets/music/ingame_soundtrack_part_2.mp3" id="2_7jyfp"]
+
+[resource]
+clip_count = 2
+clip_0/name = &"Ingame Soundtrack"
+clip_0/stream = ExtResource("1_ct21c")
+clip_0/auto_advance = 0
+clip_1/name = &"Ingame Soundtrack Part 2"
+clip_1/stream = ExtResource("2_7jyfp")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 2,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+}
+}

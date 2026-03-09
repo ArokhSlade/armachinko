@@ -1,0 +1,13 @@
+/.godot$
+.~lock
+.DS_Store # macOS files that stores custom attributes folder, such as view options, icon positions, and other visual information
+*.art
+*.tmp
+*.blend
+*.blend1
+
+**/export_presets.cfg
+
+**/extracted_via_save_to_folder/
+**/generated_via_script/
+**/extracted_via_script/

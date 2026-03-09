@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://dcn787m5j4yih"]
+
+[ext_resource type="Shader" uid="uid://csa1ngv86saay" path="res://assets/shader/s_impact_particle.tres" id="1_600g7"]
+[ext_resource type="Script" path="res://features/player/vfx/eagle_impact_vfx.gd" id="1_nqm6b"]
+[ext_resource type="Texture2D" uid="uid://d2ydjg4bskffy" path="res://assets/2d/textures/stun_spin/impact_texture.png" id="2_wnbl5"]
+
+[sub_resource type="Animation" id="Animation_6ag3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImpactParticle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0up2y"]
+resource_name = "eagle_impact"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImpactParticle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6m3qo"]
+_data = {
+"RESET": SubResource("Animation_6ag3t"),
+"eagle_impact": SubResource("Animation_0up2y")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahp0j"]
+render_priority = 2
+shader = ExtResource("1_600g7")
+shader_parameter/ColorParameter = Color(12.365, 0.437, 10.753, 1)
+shader_parameter/Hit_Texture = ExtResource("2_wnbl5")
+
+[sub_resource type="Curve" id="Curve_wnxl3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tafc0"]
+curve = SubResource("Curve_wnxl3")
+
+[sub_resource type="Gradient" id="Gradient_4ws3s"]
+offsets = PackedFloat32Array(0.00464037, 1)
+colors = PackedColorArray(1, 1, 1, 1, 8, 0.8, 0.5, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_scbrq"]
+gradient = SubResource("Gradient_4ws3s")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_clqi7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ga34"]
+curve = SubResource("Curve_clqi7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0r7l3"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 7.5
+scale_max = 10.1
+scale_curve = SubResource("CurveTexture_3ga34")
+color_ramp = SubResource("GradientTexture1D_scbrq")
+alpha_curve = SubResource("CurveTexture_tafc0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hgu77"]
+
+[node name="eagle_impact_vfx" type="Node3D"]
+script = ExtResource("1_nqm6b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6m3qo")
+}
+autoplay = "eagle_impact"
+
+[node name="ImpactParticle" type="GPUParticles3D" parent="."]
+sorting_offset = 3.0
+material_override = SubResource("ShaderMaterial_ahp0j")
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0r7l3")
+draw_pass_1 = SubResource("QuadMesh_hgu77")

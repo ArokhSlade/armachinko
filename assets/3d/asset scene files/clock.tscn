@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dik1jx33fibkt"]
+
+[ext_resource type="PackedScene" uid="uid://bl1tac1j47fus" path="res://assets/3d/clock.glb" id="1_5210r"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_dbu61"]
+
+[node name="clock" instance=ExtResource("1_5210r")]
+
+[node name="clock" parent="." index="0"]
+material_override = ExtResource("2_dbu61")
+
+[node name="clock hand" parent="clock" index="0"]
+material_override = ExtResource("2_dbu61")

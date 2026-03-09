@@ -1,0 +1,249 @@
+[gd_scene load_steps=29 format=3 uid="uid://dyrltqj0lskg3"]
+
+[ext_resource type="Texture2D" uid="uid://d0fusdvhbgffb" path="res://assets/2d/sprites/ui/2d_sprites/ui_name_input_screen.png" id="1_6j0xt"]
+[ext_resource type="Script" path="res://features/ui/menu/enter_name_tab.gd" id="2_6ayhc"]
+[ext_resource type="Texture2D" uid="uid://cufhy3st3fhxu" path="res://assets/2d/sprites/ui/2d_sprites/ui_name_input_screen_line.png" id="3_2os35"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_q26ww"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="4_lmrcj"]
+[ext_resource type="Texture2D" uid="uid://bh7nfua254y5g" path="res://assets/2d/sprites/ui/buttons/ui_name_input_poster_button_hover.png" id="6_ddnew"]
+[ext_resource type="Texture2D" uid="uid://cita5y0sya5go" path="res://assets/2d/sprites/ui/buttons/ui_name_input_poster_button.png" id="7_i6n5o"]
+[ext_resource type="AudioStream" uid="uid://r8aoj28fjt5" path="res://assets/sound/ui/name_key_1.mp3" id="12_d1mrq"]
+[ext_resource type="AudioStream" uid="uid://canocsda5vcfv" path="res://assets/sound/ui/name_key_2.mp3" id="13_8nofh"]
+[ext_resource type="AudioStream" uid="uid://bqlf3f1uwc2hb" path="res://assets/sound/ui/name_key_3.mp3" id="14_bur2m"]
+[ext_resource type="AudioStream" uid="uid://dl1ghobg8w03b" path="res://assets/sound/ui/name_key_4.mp3" id="15_avwyu"]
+[ext_resource type="PackedScene" uid="uid://c5nd45f4xiu1x" path="res://features/ui/name_input/type_writer.tscn" id="16_d8qaf"]
+[ext_resource type="AudioStream" uid="uid://bdkkkryd31f3" path="res://assets/sound/ui/name_key_5.mp3" id="16_j1he7"]
+[ext_resource type="AudioStream" uid="uid://npnilwvlcv7n" path="res://assets/sound/ui/name_key_6.mp3" id="17_rdc76"]
+[ext_resource type="AudioStream" uid="uid://b15s1rmxd4bih" path="res://assets/sound/ui/name_enter.mp3" id="18_kj05v"]
+[ext_resource type="Texture2D" uid="uid://b523fltb30f11" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box_2.png" id="19_0kpqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lpit"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io7hd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcnql"]
+texture = ExtResource("6_ddnew")
+region_rect = Rect2(48.1774, 118.074, 315.552, 172.802)
+modulate_color = Color(0.32549, 0.913725, 0.521569, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl4ol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kuvd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tww82"]
+texture = ExtResource("6_ddnew")
+region_rect = Rect2(48.1774, 118.074, 315.552, 172.802)
+modulate_color = Color(0.32549, 0.913725, 0.521569, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pf0ww"]
+texture = ExtResource("7_i6n5o")
+region_rect = Rect2(48.1774, 118.074, 315.552, 172.802)
+modulate_color = Color(0.454902, 0.454902, 0.454902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7er8n"]
+texture = ExtResource("7_i6n5o")
+region_rect = Rect2(48.1774, 118.074, 315.552, 172.802)
+modulate_color = Color(0.94902, 0.937255, 0.898039, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0s1g"]
+texture = ExtResource("6_ddnew")
+region_rect = Rect2(48.1774, 118.074, 315.552, 172.802)
+modulate_color = Color(0.937255, 0.239216, 0.258824, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2yws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wydn4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_60hms"]
+streams_count = 6
+stream_0/stream = ExtResource("12_d1mrq")
+stream_1/stream = ExtResource("13_8nofh")
+stream_2/stream = ExtResource("14_bur2m")
+stream_3/stream = ExtResource("15_avwyu")
+stream_4/stream = ExtResource("16_j1he7")
+stream_5/stream = ExtResource("17_rdc76")
+
+[node name="EnterNameTab" type="TextureRect" node_paths=PackedStringArray("initial_focus")]
+offset_left = 145.0
+offset_top = -26.0
+offset_right = 1610.0
+offset_bottom = 1774.0
+scale = Vector2(0.385714, 0.38)
+texture = ExtResource("1_6j0xt")
+script = ExtResource("2_6ayhc")
+initial_focus = NodePath("NameEntry")
+
+[node name="UiNameInputScreenLine" type="Sprite2D" parent="."]
+position = Vector2(784.26, 992.107)
+scale = Vector2(3.18123, 2.23286)
+texture = ExtResource("3_2os35")
+
+[node name="NameEntry" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 267.037
+offset_top = 1315.79
+offset_right = 1232.04
+offset_bottom = 1454.79
+focus_neighbor_top = NodePath("../DeclineButton")
+focus_neighbor_bottom = NodePath("../ConfirmButton")
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../DeclineButton")
+theme_override_colors/selection_color = Color(0.337255, 0.298039, 0.247059, 1)
+theme_override_colors/caret_color = Color(0.101961, 0.054902, 0.0705882, 1)
+theme_override_colors/font_placeholder_color = Color(0.1, 0.054, 0.0693333, 0.611765)
+theme_override_colors/font_selected_color = Color(0.913725, 0.878431, 0.8, 1)
+theme_override_colors/font_color = Color(0.101961, 0.054902, 0.0705882, 1)
+theme_override_constants/caret_width = 10
+theme_override_fonts/font = ExtResource("3_q26ww")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7lpit")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_io7hd")
+placeholder_text = "NAME YOUR ARMADILLO."
+alignment = 1
+max_length = 15
+caret_blink = true
+caret_blink_interval = 0.25
+caret_force_displayed = true
+
+[node name="ConfirmButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 362.963
+offset_top = 1506.63
+offset_right = 730.963
+offset_bottom = 1672.63
+focus_neighbor_left = NodePath("../TypeWriter/M")
+focus_neighbor_top = NodePath("../NameEntry")
+focus_neighbor_right = NodePath("../DeclineButton")
+focus_neighbor_bottom = NodePath("../NameEntry")
+focus_next = NodePath("../DeclineButton")
+focus_previous = NodePath("../NameEntry")
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_q26ww")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxTexture_gcnql")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dl4ol")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1kuvd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tww82")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pf0ww")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7er8n")
+text = "Confirm"
+
+[node name="DeclineButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 733.963
+offset_top = 1502.63
+offset_right = 1107.96
+offset_bottom = 1666.63
+rotation = 0.00354413
+focus_neighbor_left = NodePath("../ConfirmButton")
+focus_neighbor_top = NodePath("../NameEntry")
+focus_neighbor_right = NodePath("../TypeWriter/Z")
+focus_neighbor_bottom = NodePath("../NameEntry")
+focus_next = NodePath("../TypeWriter/Z")
+focus_previous = NodePath("../ConfirmButton")
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_q26ww")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxTexture_i0s1g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u2yws")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wydn4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i0s1g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pf0ww")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7er8n")
+text = "Decline"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.852
+offset_top = 181.579
+offset_right = 1298.85
+offset_bottom = 473.579
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("4_lmrcj")
+theme_override_font_sizes/font_size = 110
+text = "Most Wanted !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameKeySound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_60hms")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="NameEnterSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_kj05v")
+bus = &"SFX"
+
+[node name="UiTutorialTextBox2" type="Sprite2D" parent="."]
+position = Vector2(10.3704, 652.632)
+scale = Vector2(1.99907, 2.21933)
+texture = ExtResource("19_0kpqy")
+
+[node name="Tutorialtext" type="Label" parent="UiTutorialTextBox2"]
+offset_left = -118.442
+offset_top = -114.682
+offset_right = 205.558
+offset_bottom = 44.3184
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_q26ww")
+theme_override_font_sizes/font_size = 18
+text = "\"The alligators keep
+making fun of me  
+for having the littlest
+bounty but marking
+today I'm going to be 
+the biggest and fastest"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BountyHunter" type="Label" parent="UiTutorialTextBox2"]
+offset_left = -150.833
+offset_top = 21.8334
+offset_right = 164.167
+offset_bottom = 97.8334
+theme_override_colors/font_outline_color = Color(0.84, 0, 0.0700001, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_lmrcj")
+theme_override_font_sizes/font_size = 30
+text = "\"Bounty Hunter\""
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TypeWriter" parent="." instance=ExtResource("16_d8qaf")]
+layout_mode = 0
+offset_left = 1252.0
+offset_top = 492.0
+offset_right = 2657.0
+offset_bottom = 1463.0
+
+[node name="1" parent="TypeWriter" index="0"]
+focus_neighbor_left = NodePath("../../DeclineButton")
+focus_previous = NodePath("../../DeclineButton")
+
+[node name="Q" parent="TypeWriter" index="10"]
+focus_neighbor_left = NodePath("../../DeclineButton")
+
+[node name="Backspace" parent="TypeWriter" index="20"]
+offset_left = -37.9501
+offset_top = -41.049
+offset_right = 97.0499
+offset_bottom = 39.951
+
+[node name="A" parent="TypeWriter" index="21"]
+focus_neighbor_left = NodePath("../../DeclineButton")
+
+[node name="Z" parent="TypeWriter" index="32"]
+focus_neighbor_left = NodePath("../../DeclineButton")
+
+[node name="M" parent="TypeWriter" index="39"]
+focus_neighbor_right = NodePath("../../ConfirmButton")
+focus_next = NodePath("../../ConfirmButton")
+
+[connection signal="gui_input" from="NameEntry" to="." method="_on_name_entry_gui_input"]
+[connection signal="text_changed" from="NameEntry" to="." method="_on_name_entry_text_changed"]
+[connection signal="gui_input" from="ConfirmButton" to="." method="on_button_gui_input"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="DeclineButton" to="." method="close"]
+
+[editable path="TypeWriter"]

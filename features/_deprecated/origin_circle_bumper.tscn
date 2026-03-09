@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bho1sajdmcpdd"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/bumper.gd" id="1_32l2t"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_oytes"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_px0o3"]
+height = 4.2
+radius = 1.5
+
+[node name="OriginCircleBumper" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -6, 0)
+script = ExtResource("1_32l2t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_px0o3")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_px0o3")
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="OriginBounce" parent="Effects" instance=ExtResource("2_oytes")]
+
+[node name="CSGBlockout" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+radius = 1.5
+height = 1.0
+sides = 16
+
+[node name="SetDressing" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

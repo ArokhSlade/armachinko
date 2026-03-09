@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfxpwcaqe17c7"]
+
+[ext_resource type="PackedScene" uid="uid://bqqjhblcmb533" path="res://assets/3d/turd_cabin.glb" id="1_udoe5"]
+
+[node name="turd_cabin" instance=ExtResource("1_udoe5")]
+
+[node name="cabin_door" parent="turd_cabin" index="0"]
+transform = Transform3D(-0.543643, -0.839316, -3.66877e-08, 0.839316, -0.543643, -6.74748e-08, 3.66877e-08, -6.74748e-08, 1, 4.01377, -2.97619, 8.05255)
+
+[node name="cabin_door_001" parent="turd_cabin" index="1"]
+transform = Transform3D(1, -1.01584e-07, 8.62682e-08, -1.01584e-07, -0.161983, 0.986794, -8.62682e-08, -0.986794, -0.161983, 0.226246, 3.56472, 5.88901)

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgre8nmh2ywnc"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/rectangle_bumper.gd" id="1_db3sa"]
+[ext_resource type="PackedScene" uid="uid://3tx754lla3py" path="res://assets/3d/asset scene files/thin_rectangle_bumper.tscn" id="2_iej2u"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_pwas0"]
+[ext_resource type="AudioStream" uid="uid://fbp14hsdwfc8" path="res://assets/sound/woodrail_collide.mp3" id="4_mo3nv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tv8o"]
+size = Vector3(12, 2.27905, 4.86816)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4tvr"]
+size = Vector3(12.2616, 1.85403, 4.95246)
+
+[node name="RectangleBumper" type="StaticBody3D"]
+script = ExtResource("1_db3sa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.481405, 0)
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0719545, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.0290283, 0.0274903)
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="SetDressing" type="Node3D" parent="."]
+
+[node name="tin_rectangle_bumper" parent="SetDressing" instance=ExtResource("2_iej2u")]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="cow_skin" parent="SetDressing/tin_rectangle_bumper" index="1"]
+"blend_shapes/Key 1" = 0.0
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="OriginBounce" parent="Effects" instance=ExtResource("2_pwas0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133651, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_h4tvr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_mo3nv")
+volume_db = 20.0
+bus = &"SFX"
+
+[connection signal="bounced" from="." to="SetDressing/tin_rectangle_bumper/AnimationPlayer" method="play" binds= [&"thin rectangle bounce"]]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="SetDressing/tin_rectangle_bumper"]

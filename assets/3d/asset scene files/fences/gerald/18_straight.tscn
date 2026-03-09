@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1eapy7nf1228"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmjuuoqhr8eee" path="res://assets/3d/fence/cs/straight/18_straight_cs.obj" id="1_mserk"]
+[ext_resource type="PhysicsMaterial" uid="uid://68vkhki1b6bp" path="res://features/level/fence_material.tres" id="1_o4oub"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_dy7w7"]
+[ext_resource type="ArrayMesh" uid="uid://dsokxyjetcekf" path="res://assets/3d/asset scene files/fences/gerald/18_straight.tres" id="3_b54pj"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pv84r"]
+data = PackedVector3Array(0, 9, 5.9999, 0, 8.9997, 0, 1, 9, 5.9999, 1, 9, 5.9999, 0, 8.9997, 0, 1, 8.9997, 0, 1, 9, 5.9999, 1, 8.9997, 0, 1, -9, 6, 1, -9, 6, 1, 8.9997, 0, 1, -9, 0, 1, -9, 6, 1, -9, 0, 0, -9, 6, 0, -9, 6, 1, -9, 0, 0, -9, 0, 0, -9, 6, 0, -9, 0, 0, 9, 5.9999, 0, 9, 5.9999, 0, -9, 0, 0, 8.9997, 0, 1, -9, 0, 1, 8.9997, 0, 0, -9, 0, 0, -9, 0, 1, 8.9997, 0, 0, 8.9997, 0, 1, 9, 5.9999, 1, -9, 6, 0, 9, 5.9999, 0, 9, 5.9999, 1, -9, 6, 0, -9, 6)
+
+[node name="18_straight" type="StaticBody3D"]
+physics_material_override = ExtResource("1_o4oub")
+
+[node name="18StraightCs" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("1_mserk")
+
+[node name="SetDressing" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_dy7w7")
+mesh = ExtResource("3_b54pj")
+
+[node name="Blockout" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_pv84r")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+depth = 20.0
+polygon = PackedVector2Array(0.377756, 8.73559, 10.4355, 8.54672, 10.6716, -8.83003, 0.424974, -8.68837)

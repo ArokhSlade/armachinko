@@ -1,0 +1,193 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7njypkb0qrow"]
+
+[ext_resource type="Texture2D" uid="uid://bu0fo7i30ygl3" path="res://assets/2d/sprites/ui/icons/ui_timer_icon.png" id="1_2ltll"]
+[ext_resource type="Texture2D" uid="uid://dqdf7kmov7wyg" path="res://assets/2d/sprites/ui/icons/ui_timer_icon_hand.png" id="2_pcqp4"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_nokdj"]
+
+[sub_resource type="Animation" id="Animation_qolrd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiIconTimerGreenGlow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiIconTimerGreenGlow/UiTimerIconHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UiIconTimerGreenGlow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.169688, 0.16875)]
+}
+
+[sub_resource type="Animation" id="Animation_g8eor"]
+resource_name = "fade_green"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiIconTimerGreenGlow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0564, 0.94, 0.174213, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiIconTimerGreenGlow:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.666667, 1.23333, 2.5),
+"transitions": PackedFloat32Array(13.9288, 1, 1, 1, 0.241484),
+"update": 0,
+"values": [Vector2(0.169688, 0.16875), Vector2(0.465, 0.462), Vector2(0.36105, 0.358776), Vector2(0.36105, 0.358776), Vector2(0.169688, 0.16875)]
+}
+
+[sub_resource type="Animation" id="Animation_vkr0u"]
+resource_name = "fade_red"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiIconTimerGreenGlow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.98551, 0.0910719, 0.0607874, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiIconTimerGreenGlow:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.666667, 1.23333, 2.5),
+"transitions": PackedFloat32Array(13.9288, 1, 1, 1, 0.241484),
+"update": 0,
+"values": [Vector2(0.169688, 0.16875), Vector2(0.465, 0.462), Vector2(0.36105, 0.358776), Vector2(0.36105, 0.358776), Vector2(0.169688, 0.16875)]
+}
+
+[sub_resource type="Animation" id="Animation_xvtk3"]
+resource_name = "hand_turning_loop"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiIconTimerGreenGlow/UiTimerIconHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiIconTimerGreenGlow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.22, 0.219), Vector2(0.169688, 0.16875)]
+}
+
+[sub_resource type="Animation" id="Animation_xl21s"]
+resource_name = "timer_pop_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiIconTimerGreenGlow:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.497), Vector2(0.5, 0.498), Vector2(0.169688, 0.16875)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cay8i"]
+_data = {
+"RESET": SubResource("Animation_qolrd"),
+"fade_green": SubResource("Animation_g8eor"),
+"fade_red": SubResource("Animation_vkr0u"),
+"hand_turning_loop": SubResource("Animation_xvtk3"),
+"timer_pop_up": SubResource("Animation_xl21s")
+}
+
+[sub_resource type="Environment" id="Environment_wjbnh"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 1.4
+glow_blend_mode = 0
+
+[node name="Timer" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cay8i")
+}
+autoplay = "timer_pop_up"
+
+[node name="UiIconTimerGreenGlow" type="Sprite2D" parent="."]
+position = Vector2(590, 305)
+scale = Vector2(0.169688, 0.16875)
+texture = ExtResource("1_2ltll")
+
+[node name="UiTimerIconHand" type="Sprite2D" parent="UiIconTimerGreenGlow"]
+texture = ExtResource("2_pcqp4")
+
+[node name="Time" type="Label" parent="UiIconTimerGreenGlow"]
+offset_left = 163.412
+offset_top = -119.852
+offset_right = 611.412
+offset_bottom = 153.148
+pivot_offset = Vector2(224, 136)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_nokdj")
+theme_override_font_sizes/font_size = 200
+text = "189s"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wjbnh")

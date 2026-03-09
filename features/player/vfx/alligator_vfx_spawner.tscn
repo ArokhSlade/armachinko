@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c130m7eh1s378"]
+
+[ext_resource type="Script" path="res://features/player/vfx/impact_vfx_spawner.gd" id="1_3bj6c"]
+[ext_resource type="PackedScene" uid="uid://by5x5mof5c8kt" path="res://features/player/vfx/alligator_impact_vfx.tscn" id="2_isruf"]
+
+[node name="AlligatorVFXSpawner" type="Node3D"]
+script = ExtResource("1_3bj6c")
+impact_vfx_scene = ExtResource("2_isruf")

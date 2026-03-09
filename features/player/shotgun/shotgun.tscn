@@ -1,0 +1,173 @@
+[gd_scene load_steps=12 format=3 uid="uid://yk21jkon3epe"]
+
+[ext_resource type="Script" path="res://features/player/shotgun/shotgun.gd" id="1_3yauq"]
+[ext_resource type="AudioStream" uid="uid://cn4r80vg1i8fo" path="res://assets/sound/player/protagonist_reloads_dummy_250122_1.mp3" id="1_jqqyp"]
+[ext_resource type="AudioStream" uid="uid://7g3nkjkcn8sn" path="res://assets/sound/player/protagonist_fires.mp3" id="2_1dedd"]
+[ext_resource type="PackedScene" uid="uid://bamo15vd252o8" path="res://features/player/shotgun/shotgun_blast.tscn" id="2_51w7m"]
+[ext_resource type="Texture2D" uid="uid://ignnns1rajfk" path="res://assets/2d/sprites/gun/shotgun_1.png" id="3_q7bn4"]
+[ext_resource type="Texture2D" uid="uid://jeymo86sxbjt" path="res://assets/2d/spritesheets/shotgun/reload_gun_spritesheet.png" id="4_tql5x"]
+[ext_resource type="Material" uid="uid://clqblnsitvmh8" path="res://assets/2d/materials/shotgun/xray_material.tres" id="5_1cf4w"]
+[ext_resource type="Texture2D" uid="uid://pt2bvgangjs8" path="res://assets/2d/sprites/gun/stun_spin.png" id="8_hy4ne"]
+
+[sub_resource type="Animation" id="Animation_6j3r2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReloadVfx2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReloadVfx:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yc2js"]
+resource_name = "reload"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReloadVfx:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReloadVfx2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReloadVfx:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ReloadVfx:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ReloadVfx2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qioqg"]
+_data = {
+"RESET": SubResource("Animation_6j3r2"),
+"reload": SubResource("Animation_yc2js")
+}
+
+[node name="Shotgun" type="Node3D"]
+top_level = true
+script = ExtResource("1_3yauq")
+blast_scene = ExtResource("2_51w7m")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Reload" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("1_jqqyp")
+attenuation_model = 3
+volume_db = -5.0
+bus = &"Player"
+attenuation_filter_db = 0.0
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("2_1dedd")
+attenuation_model = 3
+volume_db = -0.676
+bus = &"Player"
+emission_angle_degrees = 77.5
+emission_angle_filter_attenuation_db = 0.0
+attenuation_filter_db = 0.0
+
+[node name="AmmoChargeTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qioqg")
+}
+
+[node name="Gun" type="Sprite3D" parent="."]
+transform = Transform3D(0.138918, -0.787846, 0, 0.787846, 0.138918, 0, 0, 0, 0.8, 0.4384, -0.289587, 0)
+sorting_offset = 1.0
+material_override = ExtResource("5_1cf4w")
+cast_shadow = 0
+texture = ExtResource("3_q7bn4")
+
+[node name="ReloadVfx" type="Sprite3D" parent="."]
+transform = Transform3D(0.138918, -0.787846, 0, 0.787846, 0.138918, 0, 0, 0, 0.8, 0.438, -0.29, 0.01)
+visible = false
+sorting_offset = 3.0
+modulate = Color(1, 1, 1, 0)
+texture_filter = 0
+texture = ExtResource("4_tql5x")
+hframes = 6
+frame = 1
+
+[node name="ReloadVfx2" type="Sprite3D" parent="."]
+transform = Transform3D(0.138918, -0.787846, 0, 0.787846, 0.138918, 0, 0, 0, 0.8, 0.438, -0.29, 0.01)
+visible = false
+sorting_offset = 2.0
+texture = ExtResource("4_tql5x")
+hframes = 6
+frame = 5
+
+[node name="StunSpin" type="Sprite3D" parent="."]
+transform = Transform3D(0.110101, -0.610146, 0, 0.610146, 0.110101, 0, 0, 0, 0.62, 0.15, 0.983, 0.001)
+visible = false
+sorting_offset = 2.0
+texture = ExtResource("8_hy4ne")
+
+[node name="ShotgunSpawner" type="Marker3D" parent="."]
+transform = Transform3D(0.109734, 0.993961, 0, -0.993961, 0.109734, 0, 0, 0, 1, 0.346143, -2.19241, 0)
+
+[connection signal="timeout" from="AmmoChargeTimer" to="." method="_on_ammo_charge_timer_timeout"]

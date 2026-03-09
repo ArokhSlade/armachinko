@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gpovx5kxl1mw"
+path="res://.godot/imported/1-1_inner_circle.obj-15a2672700b1383bdad709a028a71e16.mesh"
+
+[deps]
+
+files=["res://.godot/imported/1-1_inner_circle.obj-15a2672700b1383bdad709a028a71e16.mesh"]
+
+source_file="res://features/_experimental/gerald/collisionshapes/1-1_inner_circle.obj"
+dest_files=["res://.godot/imported/1-1_inner_circle.obj-15a2672700b1383bdad709a028a71e16.mesh", "res://.godot/imported/1-1_inner_circle.obj-15a2672700b1383bdad709a028a71e16.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

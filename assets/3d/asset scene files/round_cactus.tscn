@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo64tack8j2qa"]
+
+[ext_resource type="PackedScene" uid="uid://cp1rt81c65073" path="res://assets/3d/round_cactus.glb" id="1_wcivu"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_s7pw1"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_vpu3u"]
+
+[node name="round_cactus" instance=ExtResource("1_wcivu")]
+
+[node name="round_cactus_pink" parent="." index="0"]
+material_override = ExtResource("2_s7pw1")
+material_overlay = ExtResource("3_vpu3u")
+blend_shapes/idle = 0.877003
+blend_shapes/spike_expansion = 0.332833
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "cactus_idle"

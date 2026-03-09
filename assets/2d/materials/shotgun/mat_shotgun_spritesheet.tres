@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://nj432ifbbu0k"]
+
+[ext_resource type="Texture2D" uid="uid://jeymo86sxbjt" path="res://assets/2d/spritesheets/shotgun/reload_gun_spritesheet.png" id="1_ydqsh"]
+[ext_resource type="Texture2D" uid="uid://dd06ombul7bwi" path="res://assets/2d/spritesheets/armadillo/armadillo_spritesheet_n.png" id="2_de7wx"]
+[ext_resource type="Material" uid="uid://k0bkfks0pnlq" path="res://assets/2d/materials/shotgun/mat_shotgun_spritesheet_xray.tres" id="2_gtn1n"]
+
+[resource]
+render_priority = -1
+next_pass = ExtResource("2_gtn1n")
+transparency = 4
+albedo_texture = ExtResource("1_ydqsh")
+normal_texture = ExtResource("2_de7wx")
+backlight = Color(0.466181, 0.466181, 0.466181, 1)

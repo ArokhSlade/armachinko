@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://boe7d8pudkb8v"]
+
+[ext_resource type="Script" path="res://features/special/milestone_counters/tumbleweed_counter.gd" id="1_iomc1"]
+[ext_resource type="Texture2D" uid="uid://cbew2a6w05i7i" path="res://assets/2d/sprites/ui/icons/ui_tumbleweed_icon.png" id="1_to8d0"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="2_vexwy"]
+
+[sub_resource type="Animation" id="Animation_b30f0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiTumbleweedIcon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(427.75, 348.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiTumbleweedIcon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_evc6x"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiTumbleweedIcon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(14.42, 0.176777),
+"update": 0,
+"values": [Vector2(550, 595), Vector2(550, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiTumbleweedIcon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4xgwy"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiTumbleweedIcon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 10),
+"update": 0,
+"values": [Vector2(550, 700), Vector2(550, 595)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiTumbleweedIcon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mciin"]
+_data = {
+"RESET": SubResource("Animation_b30f0"),
+"hide": SubResource("Animation_evc6x"),
+"show": SubResource("Animation_4xgwy")
+}
+
+[node name="TumbleweedCounter" type="Node2D"]
+script = ExtResource("1_iomc1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mciin")
+}
+next/show = &"hide"
+
+[node name="UiTumbleweedIcon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(427.75, 348.75)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_to8d0")
+
+[node name="Label" type="Label" parent="UiTumbleweedIcon"]
+offset_left = 161.39
+offset_top = -64.0927
+offset_right = 709.39
+offset_bottom = 86.9073
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_vexwy")
+theme_override_font_sizes/font_size = 90
+text = "0/5"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

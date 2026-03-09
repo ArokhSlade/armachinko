@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ypsr7884otl8"]
+
+[ext_resource type="ArrayMesh" uid="uid://bu1ta6hgtwr3r" path="res://assets/3d/meshes/gold_coin_mesh.res" id="1_6xnrb"]
+
+[node name="CoinParticleTest" type="CPUParticles3D"]
+emitting = false
+one_shot = true
+mesh = ExtResource("1_6xnrb")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5jejnmlji66c"]
+
+[ext_resource type="PackedScene" uid="uid://djecjyecwdjju" path="res://assets/3d/grass_big.glb" id="1_p1f0t"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_vylt3"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_an8qi"]
+
+[node name="grass_big" instance=ExtResource("1_p1f0t")]
+
+[node name="big_grass" parent="." index="0"]
+material_override = ExtResource("2_vylt3")
+material_overlay = ExtResource("3_an8qi")

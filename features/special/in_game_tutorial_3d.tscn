@@ -1,0 +1,184 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnx7013sdxlpr"]
+
+[ext_resource type="Script" path="res://features/special/in_game_tutorial_3d.gd" id="1_xe0im"]
+[ext_resource type="Texture2D" uid="uid://d3e6vxgwc7vrw" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box.png" id="1_xqkpp"]
+[ext_resource type="Texture2D" uid="uid://b523fltb30f11" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box_2.png" id="2_7xds8"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="2_n4n3s"]
+
+[sub_resource type="Animation" id="Animation_31v30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlsRotating:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlsRotating:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ControlsShoot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ControlsShoot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5vb34"]
+resource_name = "tutorial_box"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlsRotating:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlsRotating:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ControlsShoot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 2.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ControlsShoot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.4, 2.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.2, 1.2, 1.2), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hp1j1"]
+_data = {
+"RESET": SubResource("Animation_31v30"),
+"tutorial_box": SubResource("Animation_5vb34")
+}
+
+[node name="InGameTutorial3D" type="Node3D"]
+script = ExtResource("1_xe0im")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hp1j1")
+}
+
+[node name="ControlsRotating" type="Sprite3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 2.21656, -0.26154, 0.0472966)
+double_sided = false
+texture = ExtResource("1_xqkpp")
+
+[node name="Label3D" type="Label3D" parent="ControlsRotating"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0519948, 0.190065, 0.010445)
+modulate = Color(0, 0, 0, 1)
+text = "Try rotating 
+with A/D!"
+font = ExtResource("2_n4n3s")
+font_size = 100
+outline_size = 30
+
+[node name="ControlsShoot" type="Sprite3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, -2.58738, -0.0521175, -0.0472966)
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_7xds8")
+
+[node name="Label3D" type="Label3D" parent="ControlsShoot"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.161668, 0.0422232)
+modulate = Color(0, 0, 0, 1)
+text = "And shoot 
+with Space!"
+font = ExtResource("2_n4n3s")
+font_size = 100
+
+[node name="CopyForVisualization" type="Node3D" parent="."]
+
+[node name="ControlsRotating" type="Sprite3D" parent="CopyForVisualization"]
+transform = Transform3D(0.910535, 0, 0, 0, 0.886565, 0, 0, 0, 1, 2.21656, -1.12468, 0.0472966)
+double_sided = false
+texture = ExtResource("1_xqkpp")
+
+[node name="Label3D" type="Label3D" parent="CopyForVisualization/ControlsRotating"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0519948, 0.190065, 0.010445)
+modulate = Color(0, 0, 0, 1)
+text = "And SHOOT
+with space!"
+font = ExtResource("2_n4n3s")
+font_size = 100
+outline_size = 30
+
+[node name="ControlsShoot" type="Sprite3D" parent="CopyForVisualization"]
+transform = Transform3D(0.932564, 0, 0, 0, 0.823197, 0, 0, 0, 1, -2.58738, -0.915259, -0.0472966)
+texture = ExtResource("2_7xds8")
+
+[node name="Label3D" type="Label3D" parent="CopyForVisualization/ControlsShoot"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.161668, 0.0422232)
+modulate = Color(0, 0, 0, 1)
+text = "Try ROTATING 
+with A/D!"
+font = ExtResource("2_n4n3s")
+font_size = 100
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="hide"]

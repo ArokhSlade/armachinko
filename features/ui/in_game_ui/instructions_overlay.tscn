@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbehmh1rx18gm"]
+
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="1_3ix8n"]
+
+[node name="InstructionsOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 488.0
+offset_right = 259.0
+offset_bottom = 607.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.403922)
+
+[node name="Instructions" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3ix8n")
+theme_override_font_sizes/font_size = 24
+text = "A/D     - Rotate
+Space - Dash
+Esc      - Menu"

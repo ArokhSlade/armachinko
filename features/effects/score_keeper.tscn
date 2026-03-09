@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do27uuxrbj736"]
+
+[ext_resource type="Script" path="res://features/effects/score_keeper.gd" id="1_l06ac"]
+
+[node name="ScoreKeeper" type="Node3D"]
+script = ExtResource("1_l06ac")

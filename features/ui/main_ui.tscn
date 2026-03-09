@@ -1,0 +1,246 @@
+[gd_scene load_steps=25 format=3 uid="uid://cxv3gyu60pnyq"]
+
+[ext_resource type="Script" path="res://features/ui/main_ui.gd" id="1_ajqhr"]
+[ext_resource type="PackedScene" uid="uid://bi0n8bhybxesp" path="res://features/ui/highscore_popup/game_over_screen.tscn" id="2_87r3u"]
+[ext_resource type="PackedScene" uid="uid://c3xk8purr5vxr" path="res://assets/shader/vignette.tscn" id="2_efqj2"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_647mw"]
+[ext_resource type="PackedScene" uid="uid://bedg02kxwpq2u" path="res://features/ui/tutorial/tutorial_overlay_responsive.tscn" id="5_g4nle"]
+[ext_resource type="PackedScene" uid="uid://cbgfx04wplni4" path="res://features/ui/pause_menu/pause_menu.tscn" id="5_w5ntm"]
+[ext_resource type="PackedScene" uid="uid://dueogh572li8k" path="res://features/audio/audio_state_handler.tscn" id="18_0m4am"]
+[ext_resource type="AudioStream" uid="uid://bs1wc40yipurf" path="res://features/ui/sound/in_game_music_interactive.tres" id="18_66mss"]
+[ext_resource type="Texture2D" uid="uid://djeqho4k562mg" path="res://assets/2d/sprites/ui/2d_sprites/ui_score_banner.png" id="21_1smnn"]
+[ext_resource type="AudioStream" uid="uid://weeywjlxefvf" path="res://assets/music/tutorial_soundtrack.mp3" id="22_g2m33"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="22_ox4en"]
+[ext_resource type="Texture2D" uid="uid://bu0fo7i30ygl3" path="res://assets/2d/sprites/ui/icons/ui_timer_icon.png" id="23_2sm44"]
+[ext_resource type="Texture2D" uid="uid://dqdf7kmov7wyg" path="res://assets/2d/sprites/ui/icons/ui_timer_icon_hand.png" id="24_bdvrg"]
+[ext_resource type="PackedScene" uid="uid://b7njypkb0qrow" path="res://features/ui/in_game_ui/timer.tscn" id="25_gj4gj"]
+[ext_resource type="PackedScene" uid="uid://2nauafwfu4ye" path="res://features/ui/sound/button_sound_installer.tscn" id="26_tb380"]
+[ext_resource type="PackedScene" uid="uid://boe7d8pudkb8v" path="res://features/special/milestone_counters/tumbleweed_counter.tscn" id="28_4yrni"]
+[ext_resource type="PackedScene" uid="uid://cgbk42fyo5f7p" path="res://features/special/milestone_counters/explosion_pin_counter.tscn" id="29_vnqiu"]
+[ext_resource type="PackedScene" uid="uid://cn7cykyssom5k" path="res://features/special/milestone_counters/coin_counter.tscn" id="30_hrymd"]
+[ext_resource type="PackedScene" uid="uid://d1ga2uat7lxy1" path="res://features/special/milestone_counters/enemy_counter.tscn" id="36_sgyig"]
+[ext_resource type="PackedScene" uid="uid://ws86se7safiq" path="res://features/special/milestone_counters/catus_pin_counter.tscn" id="37_aorp8"]
+
+[sub_resource type="Animation" id="Animation_xap8h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -656)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOverScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3ts62"]
+resource_name = "sliding_game_over_board"
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverScreen/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("slide_down"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOverScreen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(124, -17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameOverScreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pov2r"]
+_data = {
+"RESET": SubResource("Animation_xap8h"),
+"sliding_game_over_board": SubResource("Animation_3ts62")
+}
+
+[sub_resource type="GDScript" id="GDScript_mymm8"]
+script/source = "extends AudioStreamPlayer
+
+@onready var music: AudioStreamPlaybackInteractive = self.get_stream_playback()
+
+func _on_ui_time_zone_changed_to(new_time_zone: Variant) -> void:
+	if new_time_zone == \"UNSAFE\":
+		music.switch_to_clip_by_name(&\"ingame_soundtrack_part_2\")
+"
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ajqhr")
+
+[node name="Backround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.129412, 0.109804, 0.901961)
+
+[node name="Vignette" parent="." instance=ExtResource("2_efqj2")]
+visible = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource("2_87r3u")]
+visible = false
+offset_left = 0.0
+offset_top = -656.0
+offset_right = 0.0
+offset_bottom = -656.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_w5ntm")]
+
+[node name="TutorialOverlay" parent="." instance=ExtResource("5_g4nle")]
+visible = false
+
+[node name="HUD" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreDisplay" type="Control" parent="HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UiScoreBanner" type="Sprite2D" parent="HUD/ScoreDisplay"]
+position = Vector2(581, 50)
+scale = Vector2(0.633333, 0.52)
+texture = ExtResource("21_1smnn")
+
+[node name="ScoreLabel" type="Label" parent="HUD/ScoreDisplay"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 499.0
+offset_top = 28.0
+offset_right = 645.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("22_ox4en")
+theme_override_font_sizes/font_size = 40
+text = "Bounty: 0$"
+
+[node name="Countdown" type="Control" parent="HUD"]
+anchors_preset = 0
+offset_left = 528.0
+offset_top = 95.0
+offset_right = 697.0
+offset_bottom = 126.0
+
+[node name="CountdownTimer" type="Timer" parent="HUD/Countdown"]
+one_shot = true
+
+[node name="UiIconTimerGreenGlow" type="Sprite2D" parent="HUD/Countdown"]
+visible = false
+position = Vector2(20, 22)
+scale = Vector2(0.169688, 0.16875)
+texture = ExtResource("23_2sm44")
+
+[node name="UiTimerIconHand" type="Sprite2D" parent="HUD/Countdown/UiIconTimerGreenGlow"]
+texture = ExtResource("24_bdvrg")
+
+[node name="CountdownLabel" type="Label" parent="HUD/Countdown/UiIconTimerGreenGlow"]
+offset_left = 163.412
+offset_top = -119.852
+offset_right = 611.412
+offset_bottom = 153.148
+pivot_offset = Vector2(224, 136)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_647mw")
+theme_override_font_sizes/font_size = 200
+text = "189s"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" parent="HUD/Countdown" instance=ExtResource("25_gj4gj")]
+
+[node name="UiIconTimerGreenGlow" parent="HUD/Countdown/Timer" index="1"]
+position = Vector2(22, 26)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pov2r")
+}
+
+[node name="ButtonSoundInstaller" parent="." node_paths=PackedStringArray("root_node") instance=ExtResource("26_tb380")]
+root_node = NodePath("..")
+
+[node name="ExplosionPinCounter" parent="." instance=ExtResource("29_vnqiu")]
+visible = false
+
+[node name="CoinCounter" parent="." instance=ExtResource("30_hrymd")]
+visible = false
+
+[node name="EnemyCounter" parent="." instance=ExtResource("36_sgyig")]
+visible = false
+
+[node name="CactusPinCounter" parent="." instance=ExtResource("37_aorp8")]
+visible = false
+
+[node name="TumbleweedCounter" parent="." instance=ExtResource("28_4yrni")]
+visible = false
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_66mss")
+volume_db = -6.5
+bus = &"Music"
+script = SubResource("GDScript_mymm8")
+
+[node name="TutorialMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_g2m33")
+bus = &"Music"
+
+[node name="Audio_state_handler" parent="." node_paths=PackedStringArray("music_player") instance=ExtResource("18_0m4am")]
+music_player = NodePath("../BackgroundMusicPlayer")
+
+[connection signal="time_zone_changed_to" from="." to="Audio_state_handler" method="_on_ui_time_zone_changed_to"]
+[connection signal="back_requested" from="GameOverScreen" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="retry_requested" from="GameOverScreen" to="." method="retry_game"]
+[connection signal="continue_requested" from="PauseMenu" to="." method="_on_continue_button_pressed"]
+[connection signal="quit_to_menu_requested" from="PauseMenu" to="." method="quit_to_menu"]
+[connection signal="retry_requested" from="PauseMenu" to="." method="retry_game"]
+[connection signal="tutorial_dismissed" from="TutorialOverlay" to="." method="on_tutorial_dismissed"]
+[connection signal="timeout" from="HUD/Countdown/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+
+[editable path="HUD/Countdown/Timer"]

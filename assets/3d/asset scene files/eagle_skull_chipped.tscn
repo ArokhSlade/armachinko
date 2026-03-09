@@ -1,0 +1,728 @@
+[gd_scene load_steps=39 format=3 uid="uid://lkathxuw7m4"]
+
+[ext_resource type="PackedScene" uid="uid://5y1xahm6bi25" path="res://assets/3d/eagle_skull_chipped.glb" id="1_gqwif"]
+[ext_resource type="Script" path="res://assets/3d/asset scene files/eagle_skull_chipped.gd" id="2_1fiil"]
+[ext_resource type="Material" uid="uid://fa7q7oooo0aj" path="res://assets/2d/materials/vfx/m_fire.tres" id="2_qwh6w"]
+[ext_resource type="Shader" uid="uid://rdx7oy52564p" path="res://assets/shader/s_fire_no_billboard.tres" id="4_04f3l"]
+[ext_resource type="Shader" uid="uid://bnc8hog0vda1l" path="res://assets/shader/s_smoke_cloud.tres" id="5_if0i0"]
+[ext_resource type="Texture2D" uid="uid://cs22ng3hjwws2" path="res://assets/2d/spritesheets/vfx/smoke_1.png" id="6_sonbr"]
+[ext_resource type="Texture2D" uid="uid://c3irtmpys88lc" path="res://assets/2d/textures/noise/noise_5.png" id="7_xprug"]
+[ext_resource type="Shader" uid="uid://d3rbr5hjnr3do" path="res://assets/shader/s_alpha_particle.tres" id="8_jlj1k"]
+[ext_resource type="Texture2D" uid="uid://qtulcxqtc806" path="res://assets/2d/textures/fire/Ashe_Circular.png" id="9_ln432"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3wbf8"]
+size = Vector2(2, 2)
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_osnv0"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_se8vi"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4vj8h"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_j0fmo"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0j6s"]
+animation = &"scream head"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6g5f7"]
+animation = &"scream jar "
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8gu4v"]
+animation = &"scream tongue"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dhybm"]
+animation = &"scream tongue sk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_786cf"]
+animation = &"scream eye sk"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_i1dlt"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_30y3m"]
+graph_offset = Vector2(-607.938, 61.0343)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_j0fmo")
+nodes/Add2/position = Vector2(-320, 140)
+"nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_osnv0")
+"nodes/Add2 2/position" = Vector2(-160, 140)
+"nodes/Add2 3/node" = SubResource("AnimationNodeAdd2_se8vi")
+"nodes/Add2 3/position" = Vector2(0, 140)
+"nodes/Add2 4/node" = SubResource("AnimationNodeAdd2_4vj8h")
+"nodes/Add2 4/position" = Vector2(160, 140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_786cf")
+nodes/Animation/position = Vector2(-500, 160)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_v0j6s")
+"nodes/Animation 2/position" = Vector2(-460, 300)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_6g5f7")
+"nodes/Animation 3/position" = Vector2(-320, 380)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_8gu4v")
+"nodes/Animation 4/position" = Vector2(-160, 380)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_dhybm")
+"nodes/Animation 5/position" = Vector2(20, 380)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_i1dlt")
+nodes/TimeSeek/position = Vector2(340, 160)
+nodes/output/position = Vector2(520, 180)
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Animation 3", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Animation 4", &"Add2 4", 0, &"Add2 3", &"Add2 4", 1, &"Animation 5", &"TimeSeek", 0, &"Add2 4", &"output", 0, &"TimeSeek"]
+
+[sub_resource type="Animation" id="Animation_jjshb"]
+resource_name = "ChippedScreamVfx"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eagle head state 1/eagle eye right/FireR:scale_amount_min")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.8, 1.4, 0.8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eagle head state 1/eagle eye right/FireR:scale_amount_max")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.8, 1.4, 0.8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("eagle head state 1/eagle eye left/VfxFire/FireL:scale_amount_min")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.8, 1.4, 0.8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("eagle head state 1/eagle eye left/VfxFire/FireL:scale_amount_max")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.8, 1.4, 0.8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireWall:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f6j4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles3D:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles3D:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+
+[sub_resource type="Animation" id="Animation_hs8qk"]
+resource_name = "StageSwap"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FireWall:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireWall:mesh:top_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.733333, 1.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 15.0, 13.0, 4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireWall:material_override:shader_parameter/ColorParameter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(8.06275, 0.654902, 0.156863, 1), Color(8.06275, 0.278431, 0.290196, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireWall:mesh:bottom_radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, 4.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireWall:mesh:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.53333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1.5, 1),
+"update": 0,
+"values": [4.0, 15.0, 15.0, 4.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireWall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.53333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1.5, 1),
+"update": 0,
+"values": [Vector3(0.185901, 1.75504, -0.8482), Vector3(0.186, 6.685, -0.848), Vector3(0.186, 6.685, -0.848), Vector3(0.185901, 1.75504, -0.8482)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FireWall:material_override:shader_parameter/Speed_Flame")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.02, 1), Vector2(0.02, 0.76), Vector2(0.02, 0.51)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MultiMeshInstance3D/Smoke1:instance_shader_parameters/Frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MultiMeshInstance3D/Smoke1:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MultiMeshInstance3D/Smoke1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(0.39669, -1.03326, 0), Vector3(0.397, 8.255, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MultiMeshInstance3D/Smoke1:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.16208, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MultiMeshInstance3D/Smoke1:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.8),
+"transitions": PackedFloat32Array(6.06286, 0.466516, 1),
+"update": 0,
+"values": [Vector3(0.04, 0.04, 0.04), Vector3(1, 1, 1), Vector3(3.16, 3.16, 3.16)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MultiMeshInstance3D/Smoke1:material_override:shader_parameter/Emission")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 1.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("MultiMeshInstance3D/Smoke2:instance_shader_parameters/Frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.70625, 0.80625, 0.90625, 1.00625, 1.10625, 1.20625, 1.30625, 1.40625, 1.50625, 1.60625, 1.70625, 1.80625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MultiMeshInstance3D/Smoke2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.70625, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("MultiMeshInstance3D/Smoke2:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.70625, 1.90625),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(-2.31052, 0, 0), Vector3(-4.62473, 5.12127, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("MultiMeshInstance3D/Smoke2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1.90625),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.3999, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("MultiMeshInstance3D/Smoke2:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.70625, 0.772917, 1.50625, 1.90625),
+"transitions": PackedFloat32Array(6.06286, 0.466516, 1, 1),
+"update": 0,
+"values": [Vector3(0.04, 0.04, 0.04), Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(1.5, 1.5, 1.5)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("MultiMeshInstance3D/Smoke2:material_override:shader_parameter/Emission")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.7, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 1.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("MultiMeshInstance3D/Smoke3:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0.272917, 1.57292),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("MultiMeshInstance3D/Smoke3:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.47292),
+"transitions": PackedFloat32Array(1, 0.378929, 1),
+"update": 0,
+"values": [Vector3(-0.655203, -0.352051, -2.18991), Vector3(-1.191, 0, 0), Vector3(-2.155, 3.731, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("MultiMeshInstance3D/Smoke3:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(1.47292),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.3999, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("MultiMeshInstance3D/Smoke3:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.272917, 0.339583, 1.07292, 1.47292),
+"transitions": PackedFloat32Array(6.06286, 0.466516, 1, 1),
+"update": 0,
+"values": [Vector3(0.04, 0.04, 0.04), Vector3(0.4, 0.4, 0.4), Vector3(0.6, 0.6, 0.6), Vector3(0.65, 0.65, 0.65)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("MultiMeshInstance3D/Smoke3:material_override:shader_parameter/Emission")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.266667, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 1.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("MultiMeshInstance3D/Smoke3:instance_shader_parameters/Frame")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.272916, 0.372917, 0.472916, 0.572917, 0.672917, 0.772916, 0.872917, 0.972916, 1.07292, 1.17292, 1.27292, 1.37292),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("FireWall:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00595857, 1.76139, 0.0855002)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("CPUParticles3D:speed_scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 2.33333),
+"transitions": PackedFloat32Array(1.51572, 1),
+"update": 0,
+"values": [3.0, 1.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CPUParticles3D:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("CPUParticles3D:amount")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0opcm"]
+_data = {
+"ChippedScreamVfx": SubResource("Animation_jjshb"),
+"RESET": SubResource("Animation_f6j4q"),
+"StageSwap": SubResource("Animation_hs8qk")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8a2i"]
+render_priority = 0
+shader = ExtResource("4_04f3l")
+shader_parameter/Speed_Flame = Vector2(0.02, 0.51)
+shader_parameter/ColorParameter = Color(8.06275, 0.278431, 0.290196, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pofh7"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 4.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ncypk"]
+render_priority = 0
+shader = ExtResource("5_if0i0")
+shader_parameter/Shape_Distortion_Speed = Vector2(0.17, 0)
+shader_parameter/Shape_Distortion_Intensity = 0.61
+shader_parameter/Albedo = Color(0.106816, 0.0594257, 0.0470164, 1)
+shader_parameter/Spritesheet_Frames = Vector2(12, 1)
+shader_parameter/Roughness = null
+shader_parameter/Emission_Color = Color(0.769778, 0.131736, 0.0457421, 1)
+shader_parameter/Emission = 1.0
+shader_parameter/EmissionPanningSpeed = null
+shader_parameter/Shape_Distortion_Texture = ExtResource("7_xprug")
+shader_parameter/Alpha_Texture = ExtResource("6_sonbr")
+shader_parameter/Emission_Texture = ExtResource("7_xprug")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6gag5"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5mhs"]
+render_priority = 0
+shader = ExtResource("5_if0i0")
+shader_parameter/Shape_Distortion_Speed = Vector2(0.17, 0)
+shader_parameter/Shape_Distortion_Intensity = 0.61
+shader_parameter/Albedo = Color(0.106816, 0.0594257, 0.0470164, 1)
+shader_parameter/Spritesheet_Frames = Vector2(12, 1)
+shader_parameter/Roughness = null
+shader_parameter/Emission_Color = Color(0.769778, 0.131736, 0.0457421, 1)
+shader_parameter/Emission = 1.0
+shader_parameter/EmissionPanningSpeed = null
+shader_parameter/Shape_Distortion_Texture = ExtResource("7_xprug")
+shader_parameter/Alpha_Texture = ExtResource("6_sonbr")
+shader_parameter/Emission_Texture = ExtResource("7_xprug")
+
+[sub_resource type="SphereMesh" id="SphereMesh_a546t"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jw1b"]
+render_priority = 0
+shader = ExtResource("5_if0i0")
+shader_parameter/Shape_Distortion_Speed = Vector2(0.17, 0)
+shader_parameter/Shape_Distortion_Intensity = 0.61
+shader_parameter/Albedo = Color(0.106816, 0.0594257, 0.0470164, 1)
+shader_parameter/Spritesheet_Frames = Vector2(12, 1)
+shader_parameter/Roughness = null
+shader_parameter/Emission_Color = Color(0.769778, 0.131736, 0.0457421, 1)
+shader_parameter/Emission = 1.0
+shader_parameter/EmissionPanningSpeed = null
+shader_parameter/Shape_Distortion_Texture = ExtResource("7_xprug")
+shader_parameter/Alpha_Texture = ExtResource("6_sonbr")
+shader_parameter/Emission_Texture = ExtResource("7_xprug")
+
+[sub_resource type="SphereMesh" id="SphereMesh_y6760"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="Gradient" id="Gradient_eq181"]
+offsets = PackedFloat32Array(0.336117, 1)
+colors = PackedColorArray(0.0262955, 0.000534663, 0.000129015, 1, 2, 0.5, 0.1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3225g"]
+gradient = SubResource("Gradient_eq181")
+fill = 1
+fill_from = Vector2(0.491453, 0.517094)
+fill_to = Vector2(1, 0.0042735)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72ygq"]
+render_priority = 0
+shader = ExtResource("8_jlj1k")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_3225g")
+shader_parameter/SmokeTexture = ExtResource("9_ln432")
+
+[sub_resource type="QuadMesh" id="QuadMesh_l336b"]
+
+[sub_resource type="Curve" id="Curve_fuwqh"]
+_data = [Vector2(0.569983, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00512099), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EagleSkullChipped" instance=ExtResource("1_gqwif")]
+script = ExtResource("2_1fiil")
+
+[node name="VfxFire" type="Node3D" parent="eagle head state 1/eagle eye left" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335313, 0.067698, -0.101778)
+
+[node name="FireL" type="CPUParticles3D" parent="eagle head state 1/eagle eye left/VfxFire" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.983309, -0.181944, 0, 0.181944, 0.983309, -0.758619, 0.387966, -0.17351)
+material_override = ExtResource("2_qwh6w")
+cast_shadow = 0
+amount = 1
+lifetime = 0.01
+local_coords = true
+mesh = SubResource("QuadMesh_3wbf8")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color = Color(19.892, 0, 0.1, 1)
+
+[node name="FireR" type="CPUParticles3D" parent="eagle head state 1/eagle eye right" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.983309, -0.181944, 0, 0.181944, 0.983309, 0.338399, 0.392614, -0.241758)
+material_override = ExtResource("2_qwh6w")
+cast_shadow = 0
+amount = 1
+lifetime = 0.01
+local_coords = true
+mesh = SubResource("QuadMesh_3wbf8")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color = Color(19.892, 0, 0.1, 1)
+
+[node name="eagle tongue" parent="eagle head state 1" index="3"]
+"blend_shapes/Key 1" = 1.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_30y3m")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Add2/add_amount = 1.0
+"parameters/Add2 2/add_amount" = 1.0
+"parameters/Add2 3/add_amount" = 1.0
+"parameters/Add2 4/add_amount" = 1.0
+parameters/TimeSeek/seek_request = -1.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_0opcm")
+}
+
+[node name="FireWall" type="CPUParticles3D" parent="." index="4"]
+transform = Transform3D(-0.18825, 0.0220068, 0.981875, 0.0853946, 0.996329, -0.00595852, -0.978402, 0.082725, -0.189438, 0.185901, 1.75504, -0.8482)
+material_override = SubResource("ShaderMaterial_t8a2i")
+cast_shadow = 0
+amount = 1
+local_coords = true
+mesh = SubResource("CylinderMesh_pofh7")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color = Color(19.892, 0, 0.1, 1)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62354, 0)
+
+[node name="Smoke1" type="MeshInstance3D" parent="MultiMeshInstance3D" index="0"]
+transform = Transform3D(-1.76147, 0, 2.62351, 0, 3.16, 0, -2.62351, 0, -1.76147, 0.397, 8.255, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_ncypk")
+instance_shader_parameters/Frame = 11
+mesh = SubResource("SphereMesh_6gag5")
+
+[node name="Smoke2" type="MeshInstance3D" parent="MultiMeshInstance3D" index="1"]
+transform = Transform3D(-1.45024, 0, -0.383167, 0, 1.5, 0, 0.383167, 0, -1.45024, -4.62473, 5.12127, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_d5mhs")
+instance_shader_parameters/Frame = 11
+mesh = SubResource("SphereMesh_a546t")
+
+[node name="Smoke3" type="MeshInstance3D" parent="MultiMeshInstance3D" index="2"]
+transform = Transform3D(-0.628435, 0, -0.166039, 0, 0.65, 0, 0.166039, 0, -0.628435, -2.155, 3.731, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_6jw1b")
+instance_shader_parameters/Frame = 11
+mesh = SubResource("SphereMesh_y6760")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9279, -0.930078)
+material_override = SubResource("ShaderMaterial_72ygq")
+emitting = false
+amount = 30
+lifetime = 2.4
+lifetime_randomness = 0.5
+mesh = SubResource("QuadMesh_l336b")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 4.0
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 2, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+radial_accel_max = 5.0
+tangential_accel_min = 10.0
+tangential_accel_max = 10.0
+damping_max = 2.0
+scale_amount_min = 0.8
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_fuwqh")

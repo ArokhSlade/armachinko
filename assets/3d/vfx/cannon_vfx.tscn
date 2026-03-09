@@ -1,0 +1,646 @@
+[gd_scene load_steps=19 format=3 uid="uid://dmjc24803ht4n"]
+
+[ext_resource type="Texture2D" uid="uid://b4yxagcijpy7k" path="res://assets/2d/spritesheets/vfx/ember.png" id="1_onhei"]
+[ext_resource type="Material" uid="uid://cc63xephxbevb" path="res://assets/2d/materials/vfx/m_smokecloud_1.tres" id="2_l4ner"]
+[ext_resource type="Shader" uid="uid://cls7wvxxajqx7" path="res://assets/shader/s_cone.tres" id="6_11bk1"]
+[ext_resource type="ArrayMesh" uid="uid://b48jodci8mphx" path="res://assets/3d/vfx/cone.obj" id="7_ng45x"]
+[ext_resource type="Material" uid="uid://5cje5nqo10ov" path="res://assets/2d/materials/vfx/m_smokecloud_2.tres" id="8_brp3l"]
+[ext_resource type="Texture2D" uid="uid://dkdmtxm7muols" path="res://assets/2d/textures/sand_texture.jpg" id="8_ceu6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odmcw"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.5, 0.5, 1, 1)
+albedo_texture = ExtResource("1_onhei")
+emission_enabled = true
+emission_energy_multiplier = 16.0
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_cr2jy"]
+material = SubResource("StandardMaterial3D_odmcw")
+
+[sub_resource type="Curve" id="Curve_asy6e"]
+max_value = 4.1
+_data = [Vector2(0.36526, 4.1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_f8fq5"]
+offsets = PackedFloat32Array(0, 0.396135, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.861994, 0.118162, 9.62615e-08, 1, 0.35315, 0.0505803, 0.0238715, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8jnj"]
+render_priority = 0
+shader = ExtResource("6_11bk1")
+shader_parameter/VertextDistortionPanning = null
+shader_parameter/Dissolve = Vector2(0, 4.4)
+shader_parameter/Transparancy = 1.0
+
+[sub_resource type="Animation" id="Animation_j4o2w"]
+resource_name = "MuzzleFlash"
+length = 0.833337
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cone:material_override:shader_parameter/Dissolve")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 5.47), Vector2(1, 5.47)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cone:material_override:shader_parameter/NoiseScale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.17, 2.03), Vector2(0.17, 2.05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ember:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_negative")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SmokeCloud:instance_shader_parameters/Frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0666668, 0.133334, 0.2, 0.266667, 0.333334, 0.400001, 0.466668, 0.533333, 0.600001, 0.666668, 0.733335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SmokeCloud:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.266667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(10, 10, 10), Vector3(11, 11, 11), Vector3(12, 12, 12), Vector3(14, 14, 14)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SmokeCloud:material_override:shader_parameter/Emission_Dissolve")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.0, 0.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SmokeCloud:material_override:shader_parameter/Albedo")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.650001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.312049, 0.0892225, 0.096382, 1), Color(0, 0, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cone:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Ember:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OmniLight3D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SmokeCloud:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SmokeCloudSmall:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SmokeCloudSmall:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.0500001, 0.600001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(5, 5, 5), Vector3(9, 9, 9)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SmokeCloudSmall:instance_shader_parameters/Frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.0666668, 0.133334, 0.2, 0.266667, 0.333334, 0.400001, 0.466668, 0.533334, 0.600001, 0.666668, 0.733335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Emission_Dissolve")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.283333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.0, 0.0, 1.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Albedo")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.650001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.312049, 0.0892225, 0.096382, 1), Color(0, 0, 0, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SmokeCloud:material_override:shader_parameter/Emission")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.283333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.0, 1.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Emission")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.283333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_sbw6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cone:material_override:shader_parameter/Dissolve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cone:material_override:shader_parameter/NoiseScale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.17, 2.05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ember:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_negative")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SmokeCloud:instance_shader_parameters/Frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SmokeCloud:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SmokeCloud:material_override:shader_parameter/Emission_Dissolve")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SmokeCloud:material_override:shader_parameter/Albedo")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Ember:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SmokeCloud:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cone:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OmniLight3D:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SmokeCloudSmall:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SmokeCloudSmall:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SmokeCloudSmall:instance_shader_parameters/Frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Emission_Dissolve")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Albedo")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.784459, 0.677205, 0.871992, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SmokeCloud:material_override:shader_parameter/Emission")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SmokeCloudSmall:material_override:shader_parameter/Emission")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_y18hm"]
+resource_name = "Smoke"
+length = 1.00001
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SmokeCloud:instance_shader_parameters/Frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sum1g"]
+_data = {
+"Cannon_Muzzle": SubResource("Animation_j4o2w"),
+"RESET": SubResource("Animation_sbw6a"),
+"Smoke": SubResource("Animation_y18hm")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_1kgji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bb2o"]
+albedo_color = Color(0.678056, 0.619391, 0.628517, 1)
+albedo_texture = ExtResource("8_ceu6s")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(0.49, 0.36, 0.32)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_h3ycc"]
+
+[node name="CannonVfx" type="Node3D"]
+
+[node name="Ember" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.024816, -0.999692, 0, 0.999692, 0.024816, 0, 0, 0, 1, -0.00605345, -0.972203, 0)
+visible = false
+cast_shadow = 0
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+local_coords = true
+mesh = SubResource("QuadMesh_cr2jy")
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(150, 0, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_asy6e")
+color = Color(0.8, 0.6, 1.5, 1)
+color_ramp = SubResource("Gradient_f8fq5")
+hue_variation_max = 0.05
+anim_speed_min = 1.0
+anim_speed_max = 4.0
+anim_offset_max = 1.0
+
+[node name="Cone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.68947, 0.00278538, 0, -0.0015614, 3.0138, 0, 0, 0, 1.43, 0.059001, 25.0294, -0.261779)
+visible = false
+material_override = SubResource("ShaderMaterial_g8jnj")
+cast_shadow = 0
+mesh = ExtResource("7_ng45x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sum1g")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.162586, -0.986694, 0, 0.986694, 0.162586, 0, 0, 0, 1, 1.62817, 5.9456, 0)
+light_color = Color(4.032, 1, 0.2, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 3.453
+light_bake_mode = 0
+omni_range = 100.0
+omni_shadow_mode = 0
+
+[node name="SmokeCloud" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0329174, -0.221173, -0.974679, -0.456905, 0.870668, -0.18214, 0.888906, 0.43934, -0.129715, -0.215077, 8.87301, -1.95423)
+visible = false
+material_override = ExtResource("2_l4ner")
+cast_shadow = 0
+instance_shader_parameters/Frame = 11
+mesh = SubResource("SphereMesh_1kgji")
+
+[node name="SmokeCloudSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0455273, -0.0815927, 0.0356355, 0.00507233, -0.0375822, -0.0925303, 0.0888906, 0.0439341, -0.0129715, 0.095365, 5.44958, -0.297659)
+visible = false
+material_override = ExtResource("8_brp3l")
+cast_shadow = 0
+instance_shader_parameters/Frame = 0
+mesh = SubResource("SphereMesh_1kgji")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(162.586, -9.86694, 0, 986.694, 1.62586, 0, 0, 0, 1000, 17.2657, 3.01939, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_1bb2o")
+mesh = SubResource("BoxMesh_h3ycc")

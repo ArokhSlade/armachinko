@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfm4ab6e4hwyl"]
+
+[ext_resource type="PackedScene" uid="uid://l6byscs5qhxn" path="res://assets/3d/cactus_sign.glb" id="1_lue1d"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_gfscg"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_6k38j"]
+[ext_resource type="PackedScene" uid="uid://6c8akiqpsuhb" path="res://assets/3d/asset scene files/setdressing/baby_cactus_red_yellow.tscn" id="3_cx7gr"]
+
+[node name="cactus_sign_yellow" instance=ExtResource("1_lue1d")]
+
+[node name="cactus_sign" parent="." index="0"]
+material_override = ExtResource("2_gfscg")
+material_overlay = ExtResource("3_6k38j")
+
+[node name="arrow_sign" parent="cactus_sign" index="0"]
+transform = Transform3D(0.970097, 0, 0.242718, 0, 1, 0, -0.242718, 0, 0.970097, 1.01258, -1.90115, 4.31454)
+material_override = ExtResource("2_gfscg")
+material_overlay = ExtResource("3_6k38j")
+
+[node name="baby_cactus_red_yellow" parent="cactus_sign" index="1" instance=ExtResource("3_cx7gr")]

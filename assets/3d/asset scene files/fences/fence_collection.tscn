@@ -1,0 +1,179 @@
+[gd_scene load_steps=44 format=3 uid="uid://b2u78kjgqpokc"]
+
+[ext_resource type="PackedScene" uid="uid://mi0376x2qskk" path="res://assets/3d/asset scene files/fences/gerald/6_24_left_long_circle.tscn" id="1_ice77"]
+[ext_resource type="PackedScene" uid="uid://bj5n8gsiq4pxd" path="res://assets/3d/asset scene files/fences/gerald/6_24_left_long_inner_circle.tscn" id="2_vs7nu"]
+[ext_resource type="PackedScene" uid="uid://d2mmgddeh777" path="res://assets/3d/asset scene files/fences/gerald/9_36_left_long_inner_circle.tscn" id="4_duuyx"]
+[ext_resource type="PackedScene" uid="uid://cwfd1fx7yka5y" path="res://assets/3d/asset scene files/fences/gerald/9_36_left_long_circle.tscn" id="5_psgvt"]
+[ext_resource type="PackedScene" uid="uid://mqcutvslmkna" path="res://assets/3d/asset scene files/fences/gerald/18_36_left_circle.tscn" id="7_gcr8f"]
+[ext_resource type="PackedScene" uid="uid://dmhyvjntd5mvw" path="res://assets/3d/asset scene files/fences/gerald/12_48_left_long_inner_circle.tscn" id="7_iwnkj"]
+[ext_resource type="PackedScene" uid="uid://dxofcgkakgq6j" path="res://assets/3d/asset scene files/fences/gerald/18_36_left_inner_circle.tscn" id="8_iaw6l"]
+[ext_resource type="PackedScene" uid="uid://h5u5f4sdhwfb" path="res://assets/3d/asset scene files/fences/gerald/12_48_left_long_circle.tscn" id="10_3piv1"]
+[ext_resource type="PackedScene" uid="uid://b0q4ftb14axb3" path="res://assets/3d/asset scene files/fences/gerald/9_18_left_long_inner_circle.tscn" id="10_ljtfu"]
+[ext_resource type="PackedScene" uid="uid://dh1t75830805n" path="res://assets/3d/asset scene files/fences/gerald/9_18_left_long_circle.tscn" id="12_hmtwr"]
+[ext_resource type="PackedScene" uid="uid://8mqmpgs4jrv8" path="res://assets/3d/asset scene files/fences/gerald/6_12_left_long_circle.tscn" id="13_paxou"]
+[ext_resource type="PackedScene" uid="uid://b5tg4tmnxk8tc" path="res://assets/3d/asset scene files/fences/gerald/6_12_left_long_inner_circle.tscn" id="14_mvlc0"]
+[ext_resource type="PackedScene" uid="uid://ybl7nhq562tc" path="res://assets/3d/asset scene files/fences/gerald/12_24_left_inner_circle.tscn" id="15_yjiwc"]
+[ext_resource type="PackedScene" uid="uid://b8llma8ybl62c" path="res://assets/3d/asset scene files/fences/gerald/12_24_left_circle.tscn" id="16_j0o6r"]
+[ext_resource type="PackedScene" uid="uid://dxy1asjnnmky3" path="res://assets/3d/asset scene files/fences/gerald/9_18_left_circle.tscn" id="18_5gm1q"]
+[ext_resource type="PackedScene" uid="uid://d1ll72xfdwrff" path="res://assets/3d/asset scene files/fences/gerald/9_18_left_inner_circle.tscn" id="18_stskg"]
+[ext_resource type="PackedScene" uid="uid://b40pmmw1xtrhr" path="res://assets/3d/asset scene files/fences/gerald/24_28_left_curve.tscn" id="20_8j6xp"]
+[ext_resource type="PackedScene" uid="uid://de3qmb1cxhj40" path="res://assets/3d/asset scene files/fences/gerald/12_24_left_curve.tscn" id="20_32fmo"]
+[ext_resource type="PackedScene" uid="uid://bjci8eh7vfct5" path="res://assets/3d/asset scene files/fences/gerald/18_36_left_curve.tscn" id="22_fu2b1"]
+[ext_resource type="PackedScene" uid="uid://cbjiu8ckvt07f" path="res://assets/3d/asset scene files/fences/gerald/6_12_left_curve.tscn" id="22_groy2"]
+[ext_resource type="PackedScene" uid="uid://b1ys4usx01tf5" path="res://assets/3d/asset scene files/fences/gerald/12_outer_circle.tscn" id="23_xx557"]
+[ext_resource type="PackedScene" uid="uid://biq5yxevc7vg1" path="res://assets/3d/asset scene files/fences/gerald/6_24_right_long_inner_circle.tscn" id="24_563j1"]
+[ext_resource type="PackedScene" uid="uid://cdip0r1yjwoo1" path="res://assets/3d/asset scene files/fences/gerald/12_inner_circle.tscn" id="24_dn2yy"]
+[ext_resource type="PackedScene" uid="uid://dv6ul3myu5dqw" path="res://assets/3d/asset scene files/fences/gerald/18_36_right_inner_circle.tscn" id="25_3pxhl"]
+[ext_resource type="PackedScene" uid="uid://b3gx1m40t7kth" path="res://assets/3d/asset scene files/fences/gerald/18_36_right_circle.tscn" id="25_daois"]
+[ext_resource type="PackedScene" uid="uid://bl7o363wuqsc6" path="res://assets/3d/asset scene files/fences/gerald/9_36_right_long_circle.tscn" id="25_lpfsb"]
+[ext_resource type="PackedScene" uid="uid://qc8lkd8e3bap" path="res://assets/3d/asset scene files/fences/gerald/6_24_right_long_circle.tscn" id="25_tm8lx"]
+[ext_resource type="PackedScene" uid="uid://cl8bwdb6o3orj" path="res://assets/3d/asset scene files/fences/gerald/12_24_right_inner_circle.tscn" id="25_x4wa5"]
+[ext_resource type="PackedScene" uid="uid://dy750kdf4wk0t" path="res://assets/3d/asset scene files/fences/gerald/9_18_right_inner_circle.tscn" id="25_xmudo"]
+[ext_resource type="PackedScene" uid="uid://bngoe4jqfeti6" path="res://assets/3d/asset scene files/fences/gerald/9_36_right_long_inner_circle.tscn" id="26_3ifpy"]
+[ext_resource type="PackedScene" uid="uid://cmojd1qranq0a" path="res://assets/3d/asset scene files/fences/gerald/12_48_right_long_circle.tscn" id="27_qgiod"]
+[ext_resource type="PackedScene" uid="uid://bvaxhofpoorln" path="res://assets/3d/asset scene files/fences/gerald/12_24_right_circle.tscn" id="28_tpkvv"]
+[ext_resource type="PackedScene" uid="uid://diypmoev6wtj2" path="res://assets/3d/asset scene files/fences/gerald/9_18_right_circle.tscn" id="29_ppemo"]
+[ext_resource type="PackedScene" uid="uid://3ogb2h1y7505" path="res://assets/3d/asset scene files/fences/gerald/12_48_right_long_inner_circle.tscn" id="29_ubfso"]
+[ext_resource type="PackedScene" uid="uid://b5vof2nkgbiqs" path="res://assets/3d/asset scene files/fences/gerald/12_24_right_curve.tscn" id="31_0kyxo"]
+[ext_resource type="PackedScene" uid="uid://cwpqn1o77x8ow" path="res://assets/3d/asset scene files/fences/gerald/24_48_right_curve.tscn" id="31_esbg8"]
+[ext_resource type="PackedScene" uid="uid://dw5fhqos3fmev" path="res://assets/3d/asset scene files/fences/gerald/18_36_right_curve.tscn" id="32_qkcu2"]
+[ext_resource type="PackedScene" uid="uid://b520caffnf0ef" path="res://assets/3d/asset scene files/fences/gerald/6_12_right_long_circle.tscn" id="33_c6ja1"]
+[ext_resource type="PackedScene" uid="uid://bcipcwo070a1q" path="res://assets/3d/asset scene files/fences/gerald/9_18_right_long_circle.tscn" id="33_qi3os"]
+[ext_resource type="PackedScene" uid="uid://cpkkqx8bt6d4r" path="res://assets/3d/asset scene files/fences/gerald/9_18_right_long_inner_circle.tscn" id="34_k1244"]
+[ext_resource type="PackedScene" uid="uid://ilokhocxxt5d" path="res://assets/3d/asset scene files/fences/gerald/6_12_right_curve.tscn" id="34_mj885"]
+[ext_resource type="PackedScene" uid="uid://bdw0p3k86wam6" path="res://assets/3d/asset scene files/fences/gerald/6_12_right_long_inner_circle.tscn" id="35_45gkk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_44l0s"]
+
+[node name="Fences" type="Node3D"]
+
+[node name="LeftFences" type="Node3D" parent="."]
+
+[node name="6_24LeftLongCircle" parent="LeftFences" instance=ExtResource("1_ice77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 85, 0)
+
+[node name="6_24LeftLongInnerCircle" parent="LeftFences" instance=ExtResource("2_vs7nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74, 86, 0)
+
+[node name="9_36LeftLongCircle" parent="LeftFences" instance=ExtResource("5_psgvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 49, 0)
+
+[node name="9_36LeftLongInnerCircle" parent="LeftFences" instance=ExtResource("4_duuyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74, 49, 0)
+
+[node name="18_36LeftCircle" parent="LeftFences" instance=ExtResource("7_gcr8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
+
+[node name="18_36LeftInnerCircle" parent="LeftFences" instance=ExtResource("8_iaw6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 1, 0)
+
+[node name="12_48LeftLongInnerCircle" parent="LeftFences" instance=ExtResource("7_iwnkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74, 0, 0)
+
+[node name="12_48LeftLongCircle" parent="LeftFences" instance=ExtResource("10_3piv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0)
+
+[node name="9_18LeftLongCircle" parent="LeftFences" instance=ExtResource("12_hmtwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0)
+
+[node name="9_18LeftLongInnerCircle" parent="LeftFences" instance=ExtResource("10_ljtfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124, 1, 0)
+
+[node name="6_12LeftLongCircle" parent="LeftFences" instance=ExtResource("13_paxou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 19, 0)
+
+[node name="6_12LeftLongInnerCircle" parent="LeftFences" instance=ExtResource("14_mvlc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124, 20, 0)
+
+[node name="12_24LeftInnerCircle" parent="LeftFences" instance=ExtResource("15_yjiwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 38, 0)
+
+[node name="12_24LeftCircle" parent="LeftFences" instance=ExtResource("16_j0o6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 37, 0)
+
+[node name="9_18LeftCircle" parent="LeftFences" instance=ExtResource("18_5gm1q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 62, 0)
+
+[node name="9_18LeftInnerCircle" parent="LeftFences" instance=ExtResource("18_stskg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 63, 0)
+
+[node name="12_24LeftCurve" parent="LeftFences" instance=ExtResource("20_32fmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 86, 0)
+
+[node name="24_28LeftCurve" parent="LeftFences" instance=ExtResource("20_8j6xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="18_36LeftCurve" parent="LeftFences" instance=ExtResource("22_fu2b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 49, 0)
+
+[node name="6_12LeftCurve" parent="LeftFences" instance=ExtResource("22_groy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 110, 0)
+
+[node name="12Circle" parent="LeftFences" instance=ExtResource("23_xx557")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 82, 0)
+
+[node name="12InnerCircle" parent="LeftFences" instance=ExtResource("24_dn2yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 82, 0)
+physics_material_override = SubResource("PhysicsMaterial_44l0s")
+
+[node name="RightFences" type="Node3D" parent="."]
+
+[node name="6_24RightLongCircle" parent="RightFences" instance=ExtResource("25_tm8lx")]
+transform = Transform3D(-1, -6.3573e-08, 1.50996e-07, -6.3573e-08, 1, 0, -1.50996e-07, -9.59926e-15, -1, -42, 85, 6)
+
+[node name="6_24RightLongInnerCircle" parent="RightFences" instance=ExtResource("24_563j1")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -72, 86, 6)
+
+[node name="9_36RightLongCircle" parent="RightFences" instance=ExtResource("25_lpfsb")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -42, 49, 6)
+
+[node name="9_36RightLongInnerCircle" parent="RightFences" instance=ExtResource("26_3ifpy")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -72, 49, 6)
+
+[node name="18_36RightCircle" parent="RightFences" instance=ExtResource("25_daois")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 48, 0, 6)
+
+[node name="18_36RightInnerCircle" parent="RightFences" instance=ExtResource("25_3pxhl")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 90, 1, 6)
+
+[node name="12_48RightLongInnerCircle" parent="RightFences" instance=ExtResource("29_ubfso")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -72, 0, 6)
+
+[node name="12_48RightLongCircle" parent="RightFences" instance=ExtResource("27_qgiod")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -42, 0, 6)
+
+[node name="9_18RightLongCircle" parent="RightFences" instance=ExtResource("33_qi3os")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -99, 0, 6)
+
+[node name="9_18RightLongInnerCircle" parent="RightFences" instance=ExtResource("34_k1244")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -122, 1, 6)
+
+[node name="6_12RightLongCircle" parent="RightFences" instance=ExtResource("33_c6ja1")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -99, 19, 6)
+
+[node name="6_12RightLongInnerCircle" parent="RightFences" instance=ExtResource("35_45gkk")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -122, 20, 6)
+
+[node name="12_24RightInnerCircle" parent="RightFences" instance=ExtResource("25_x4wa5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 90, 38, 6)
+
+[node name="12_24RightCircle" parent="RightFences" instance=ExtResource("28_tpkvv")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 48, 37, 6)
+
+[node name="9_18RightCircle" parent="RightFences" instance=ExtResource("29_ppemo")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 48, 62, 6)
+
+[node name="9_18RightInnerCircle2" parent="RightFences" instance=ExtResource("25_xmudo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 90, 63, 12)
+
+[node name="12_24RightCurve" parent="RightFences" instance=ExtResource("31_0kyxo")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1, 86, 6)
+
+[node name="24_48RightCurve" parent="RightFences" instance=ExtResource("31_esbg8")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1, 0, 6)
+
+[node name="18_36RightCurve" parent="RightFences" instance=ExtResource("32_qkcu2")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1, 49, 6)
+
+[node name="6_12RightCurve" parent="RightFences" instance=ExtResource("34_mj885")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1, 110, 6)

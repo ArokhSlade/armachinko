@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpd5vi8ibtmsr"]
+
+[ext_resource type="PackedScene" uid="uid://b1qdk72l6uxy6" path="res://assets/3d/cannon.glb" id="1_v7hyg"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_xjuku"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_kva8c"]
+[ext_resource type="PackedScene" uid="uid://dmjc24803ht4n" path="res://assets/3d/vfx/cannon_vfx.tscn" id="4_gncw3"]
+
+[node name="cannon" instance=ExtResource("1_v7hyg")]
+
+[node name="cannon" parent="." index="0"]
+material_override = ExtResource("2_xjuku")
+material_overlay = ExtResource("3_kva8c")
+"blend_shapes/Key 2" = 1.0
+
+[node name="CannonVfx" parent="." index="2" instance=ExtResource("4_gncw3")]
+transform = Transform3D(1, 0, 0, 0, 0.962725, -0.270483, 0, 0.270483, 0.962725, 0, 6.33752, 6.88221)

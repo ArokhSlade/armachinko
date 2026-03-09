@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5tdkuf7qce1a"]
+
+[ext_resource type="Theme" uid="uid://d2wm3pdu4looo" path="res://features/ui/highscore_popup/game_over_screen_theme.tres" id="1_t5sff"]
+[ext_resource type="Script" path="res://features/save_and_load/score_table_entry.gd" id="2_wu8kl"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_l7ttp"]
+
+[node name="Entry" type="HBoxContainer"]
+offset_left = 379.0
+offset_top = 294.0
+offset_right = 717.0
+offset_bottom = 377.0
+theme = ExtResource("1_t5sff")
+theme_override_constants/separation = 20
+script = ExtResource("2_wu8kl")
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_t5sff")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7ttp")
+theme_override_font_sizes/font_size = 40
+text = "Rank"
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7ttp")
+theme_override_font_sizes/font_size = 40
+text = "Name"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_t5sff")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_l7ttp")
+theme_override_font_sizes/font_size = 40
+text = "Score"

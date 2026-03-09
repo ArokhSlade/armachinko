@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbw5gcly4w175"]
+
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="1_1dcik"]
+[ext_resource type="Texture2D" uid="uid://ix3axch2i8ym" path="res://assets/2d/sprites/2d_art/main_menu_background_screen.png" id="1_gt0lv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 651.0
+texture = ExtResource("1_gt0lv")
+expand_mode = 3
+
+[node name="PressAnyButton" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 526.0
+offset_right = 805.0
+offset_bottom = 592.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_1dcik")
+theme_override_font_sizes/font_size = 25
+text = "Press any Button"
+horizontal_alignment = 1
+vertical_alignment = 1

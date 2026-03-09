@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxrdlyxbxuj3"]
+
+[ext_resource type="Script" path="res://features/player/player_debug_hud.gd" id="1_56i37"]
+
+[node name="PlayerDebugHUD" type="CanvasLayer"]
+script = ExtResource("1_56i37")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TotalGravityScale" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TotalGravityScale" type="Label" parent="VBoxContainer/TotalGravityScale"]
+layout_mode = 2
+text = "Total Gravity Scale"
+
+[node name="Value" type="Label" parent="VBoxContainer/TotalGravityScale"]
+layout_mode = 2
+
+[node name="GravityFromSpeed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GravityFromSpeed" type="Label" parent="VBoxContainer/GravityFromSpeed"]
+layout_mode = 2
+text = "Gravity from Speed:"
+
+[node name="Value" type="Label" parent="VBoxContainer/GravityFromSpeed"]
+layout_mode = 2
+
+[node name="GravityFromDirection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GravityFromDirection" type="Label" parent="VBoxContainer/GravityFromDirection"]
+layout_mode = 2
+text = "Gravity from Direction:"
+
+[node name="Value" type="Label" parent="VBoxContainer/GravityFromDirection"]
+layout_mode = 2
+
+[node name="Speed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="VBoxContainer/Speed"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="Value" type="Label" parent="VBoxContainer/Speed"]
+layout_mode = 2
+
+[node name="SpeedThreshold" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedThreshold" type="Label" parent="VBoxContainer/SpeedThreshold"]
+layout_mode = 2
+text = "Dash Speed:"
+
+[node name="Value" type="Label" parent="VBoxContainer/SpeedThreshold"]
+layout_mode = 2
+
+[node name="Angle" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Angle" type="Label" parent="VBoxContainer/Angle"]
+layout_mode = 2
+text = "Angle:"
+
+[node name="Value" type="Label" parent="VBoxContainer/Angle"]
+layout_mode = 2
+
+[node name="Direction" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Direction" type="Label" parent="VBoxContainer/Direction"]
+layout_mode = 2
+text = "Direction:"
+
+[node name="Value" type="Label" parent="VBoxContainer/Direction"]
+layout_mode = 2

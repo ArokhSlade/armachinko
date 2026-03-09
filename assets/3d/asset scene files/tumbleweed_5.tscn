@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkbd6abgxgafv"]
+
+[ext_resource type="PackedScene" uid="uid://c7bg7gb8vqfc7" path="res://assets/3d/tumbleweed_5.glb" id="1_jumxs"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_o854u"]
+[ext_resource type="PlaneMesh" uid="uid://bqmnfycr17t7x" path="res://assets/3d/assets/tumbleweed_particle.tres" id="3_e4w5p"]
+
+[sub_resource type="Curve" id="Curve_0xa2f"]
+min_value = -662.39
+max_value = 360.0
+_data = [Vector2(0, 346.704), 0.0, 0.0, 0, 0, Vector2(0.451049, -65.4545), 0.0, 0.0, 0, 0, Vector2(0.947552, 313.466), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="tumbleweed_5" instance=ExtResource("1_jumxs")]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="tumbleweed 5" parent="." index="0"]
+material_override = ExtResource("2_o854u")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "tumbleweed roll"
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="2"]
+transform = Transform3D(1.34111e-07, 0.499452, -0.0234135, 0.00863017, -0.02341, -0.499377, -0.499926, -0.00040399, -0.0086207, -9.95266e-08, 1.81806, -0.151195)
+amount = 10
+lifetime = 0.2
+speed_scale = 0.3
+explosiveness = 0.5
+randomness = 1.0
+lifetime_randomness = 0.5
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("3_e4w5p")
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_max = 150.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+angular_velocity_curve = SubResource("Curve_0xa2f")
+angle_min = 1.07288e-05
+angle_max = 480.0
+scale_amount_min = 0.3
+scale_amount_max = 0.6

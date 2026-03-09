@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c5c2sd5b5w1i7"
+path="res://.godot/imported/1-1_block.obj-79791c5d42b85ccfa27ae1d8bce12761.mesh"
+
+[deps]
+
+files=["res://.godot/imported/1-1_block.obj-79791c5d42b85ccfa27ae1d8bce12761.mesh"]
+
+source_file="res://features/_experimental/gerald/collisionshapes/1-1_block.obj"
+dest_files=["res://.godot/imported/1-1_block.obj-79791c5d42b85ccfa27ae1d8bce12761.mesh", "res://.godot/imported/1-1_block.obj-79791c5d42b85ccfa27ae1d8bce12761.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

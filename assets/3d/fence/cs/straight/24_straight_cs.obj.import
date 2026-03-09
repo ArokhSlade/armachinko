@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ca8crp3l6pwfx"
+path="res://.godot/imported/24_straight_cs.obj-4ff3ff0cf01d82adadbe8c01b86db231.mesh"
+
+[deps]
+
+files=["res://.godot/imported/24_straight_cs.obj-4ff3ff0cf01d82adadbe8c01b86db231.mesh"]
+
+source_file="res://assets/3d/fence/cs/straight/24_straight_cs.obj"
+dest_files=["res://.godot/imported/24_straight_cs.obj-4ff3ff0cf01d82adadbe8c01b86db231.mesh", "res://.godot/imported/24_straight_cs.obj-4ff3ff0cf01d82adadbe8c01b86db231.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

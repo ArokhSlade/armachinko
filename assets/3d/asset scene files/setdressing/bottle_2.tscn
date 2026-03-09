@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5qxx83bwt5q"]
+
+[ext_resource type="PackedScene" uid="uid://cr1x5cau0hcjt" path="res://assets/3d/bottle_2.glb" id="1_m40tf"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_x80tw"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="5_v14o4"]
+
+[node name="bottle_2" instance=ExtResource("1_m40tf")]
+
+[node name="bottle_2" parent="." index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+material_override = ExtResource("2_x80tw")
+material_overlay = ExtResource("5_v14o4")

@@ -1,0 +1,3 @@
+problem: 
+- dash doesn't work as expected when falling and dashing up
+ - how to set rigid body 2d linear velocity directly?

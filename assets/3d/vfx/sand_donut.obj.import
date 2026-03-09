@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3ccy5dwh76up"
+path="res://.godot/imported/sand_donut.obj-4028a79491dc917656b55a7c7eb2a031.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sand_donut.obj-4028a79491dc917656b55a7c7eb2a031.mesh"]
+
+source_file="res://assets/3d/vfx/sand_donut.obj"
+dest_files=["res://.godot/imported/sand_donut.obj-4028a79491dc917656b55a7c7eb2a031.mesh", "res://.godot/imported/sand_donut.obj-4028a79491dc917656b55a7c7eb2a031.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

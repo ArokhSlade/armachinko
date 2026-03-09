@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://fa7q7oooo0aj"]
+
+[ext_resource type="Shader" uid="uid://cqnp50k8hbriu" path="res://assets/shader/s_fire.tres" id="1_fxgcm"]
+[ext_resource type="Texture2D" uid="uid://7rxqogne8qt6" path="res://assets/2d/textures/fire/t_fire_1_flipped_h.png" id="2_6pxsj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fxgcm")
+shader_parameter/Speed_Flame = Vector2(-0.2, 0.56)
+shader_parameter/ColorParameter = Color(8.06275, 0.654902, 0.156863, 1)
+shader_parameter/Flame_Texture = ExtResource("2_6pxsj")

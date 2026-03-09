@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://2nauafwfu4ye"]
+
+[ext_resource type="Script" path="res://features/ui/sound/button_sound_installer.gd" id="1_m1ymr"]
+[ext_resource type="AudioStream" uid="uid://wx1v2fo1mh4i" path="res://assets/sound/ui/menu_click.mp3" id="2_anmrl"]
+[ext_resource type="AudioStream" uid="uid://c3rbcsdyrd70p" path="res://assets/sound/ui/menu_highlight.mp3" id="3_n1pv6"]
+
+[node name="ButtonSoundInstaller" type="Node" node_paths=PackedStringArray("highlight_sound", "menu_click")]
+script = ExtResource("1_m1ymr")
+highlight_sound = NodePath("ButtonHighlight")
+menu_click = NodePath("ButtonClick")
+
+[node name="ButtonHighlight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n1pv6")
+bus = &"SFX"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_anmrl")
+bus = &"SFX"

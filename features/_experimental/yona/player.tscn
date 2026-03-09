@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wr6ddsop5on"]
+
+[ext_resource type="PackedScene" uid="uid://da83k310qw2pn" path="res://features/player/player.tscn" id="1_6oxmt"]
+
+[node name="Player" instance=ExtResource("1_6oxmt")]
+
+[node name="Hand" parent="Armadillo" index="1"]
+transform = Transform3D(1.41701, -0.181347, 0, 0.181347, 1.41701, 0, 0, 0, 1.42857, 0.997142, -0.130342, 0.00999999)
+
+[node name="Shotgun" parent="." index="2"]
+transform = Transform3D(1.05013, -0.101227, 0, 0.101227, 1.05013, 0, 0, 0, 1.055, 0.668281, 0.356259, 1.09097)

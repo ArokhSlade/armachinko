@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://q6lqiceb7w3y"]
+
+[ext_resource type="Script" path="res://features/player/vfx/impact_vfx.gd" id="1_hrfov"]
+[ext_resource type="Texture2D" uid="uid://c6sty2s858cd0" path="res://assets/2d/spritesheets/vfx/vfx_sand_spritesheet.png" id="1_qm10h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsmhj"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crs6t"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1gkh"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y25m"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(1200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csrdu"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(1600, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfdtb"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(2000, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mehmo"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(2400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrfwf"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(2800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lkkf"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(3200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uctou"]
+atlas = ExtResource("1_qm10h")
+region = Rect2(3600, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5j3g8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsmhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crs6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1gkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y25m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csrdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfdtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mehmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrfwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lkkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uctou")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ImpactVFX" type="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00317, 0)
+pixel_size = 0.03
+sprite_frames = SubResource("SpriteFrames_5j3g8")
+autoplay = "default"
+script = ExtResource("1_hrfov")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

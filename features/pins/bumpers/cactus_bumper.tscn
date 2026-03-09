@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmckhrlvylkfb"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/cactus_bumper.gd" id="1_s3vtw"]
+[ext_resource type="PackedScene" uid="uid://qvl7l4mssxfq" path="res://assets/3d/asset scene files/round_cactus_pink_model.tscn" id="2_pngyi"]
+[ext_resource type="AudioStream" uid="uid://c1wepi3j2mcc0" path="res://assets/sound/cactus_collide_dummy_250122.mp3" id="3_16ted"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="4_kyi3m"]
+[ext_resource type="Animation" uid="uid://yvwwruor3p12" path="res://assets/animations/round_cactus_idle_ani.res" id="7_ww0po"]
+[ext_resource type="Animation" uid="uid://d2uakkn5cgkhi" path="res://assets/animations/round_cactus_attack_ani.res" id="8_2l6ru"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h0kjh"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mbsq8"]
+height = 4.0
+radius = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nb5cw"]
+height = 4.0
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_gevv5"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85w1u"]
+_data = {
+"RESET": SubResource("Animation_gevv5"),
+"bounce_animation": ExtResource("8_2l6ru"),
+"idle": ExtResource("7_ww0po")
+}
+
+[node name="Bumper" type="StaticBody3D" node_paths=PackedStringArray("bounceable_collision_shape", "explodable_collision_shape", "shootable_collision_shape") groups=["CactusBumpers"]]
+physics_material_override = SubResource("PhysicsMaterial_h0kjh")
+script = ExtResource("1_s3vtw")
+explodable = false
+bounceable_collision_shape = NodePath("CollisionShape3D")
+explodable_collision_shape = NodePath("Area3D/CollisionShape3D")
+shootable_collision_shape = NodePath("Area3D/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mbsq8")
+
+[node name="Model" parent="." instance=ExtResource("2_pngyi")]
+blend_shapes/idle = 0.0
+blend_shapes/spike_expansion = 0.5
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_nb5cw")
+
+[node name="BouncedAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_16ted")
+attenuation_model = 3
+volume_db = 11.496
+bus = &"Objects"
+attenuation_filter_db = -4.2
+
+[node name="OriginBounce" parent="." instance=ExtResource("4_kyi3m")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_85w1u")
+}
+autoplay = "idle"
+next/bounce_animation = &"idle"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_entered"]

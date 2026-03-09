@@ -1,0 +1,4 @@
+[gd_resource type="CameraAttributesPractical" format=3 uid="uid://bx1wvqvoxxrkn"]
+
+[resource]
+dof_blur_amount = 0.0

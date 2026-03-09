@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://xtheafrnhrt6"]
+
+[ext_resource type="Texture2D" uid="uid://ccemkeprn0wwn" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_return.png" id="1_nb6bj"]
+[ext_resource type="Texture2D" uid="uid://ckfhbs0wage5y" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_return_pressed.png" id="2_wxcnh"]
+[ext_resource type="Script" path="res://features/ui/name_input/keycode_key.gd" id="2_ywowf"]
+[ext_resource type="Texture2D" uid="uid://dgangjovxpeiy" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_return_hover.png" id="3_h4pd8"]
+
+[node name="BackspaceKey" type="TextureButton"]
+offset_left = 504.0
+offset_top = 248.0
+offset_right = 632.0
+offset_bottom = 337.0
+texture_normal = ExtResource("1_nb6bj")
+texture_pressed = ExtResource("2_wxcnh")
+texture_focused = ExtResource("3_h4pd8")
+ignore_texture_size = true
+script = ExtResource("2_ywowf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="renamed" from="." to="." method="_on_renamed"]

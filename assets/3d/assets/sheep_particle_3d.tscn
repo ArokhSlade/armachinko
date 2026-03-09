@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj0datr4urqdo"]
+
+[ext_resource type="PlaneMesh" uid="uid://cp7fkuhhxbsjy" path="res://assets/3d/assets/sheep_particle_3d.tres" id="1_8cmde"]
+
+[node name="sheep_particle_3d" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -1.74046e-05, -1.82423e-07, 6.89152e-11, 0.0104718, -0.999945, 1.73673e-05, -0.999945, -0.0104718, 0, 0, 0)
+mesh = ExtResource("1_8cmde")

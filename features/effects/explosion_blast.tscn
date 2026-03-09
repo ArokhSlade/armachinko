@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://wy07ktvjl8k1"]
+
+[ext_resource type="Script" path="res://features/effects/explosion_blast.gd" id="1_k7080"]
+[ext_resource type="Texture2D" uid="uid://gunw6m64qah1" path="res://assets/2d/spritesheets/vfx/explosion_spritesheet_lq.png" id="2_4d58r"]
+[ext_resource type="AudioStream" uid="uid://cl3q3oysyby42" path="res://assets/sound/medium-explosion-40472.mp3" id="3_n0jpi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uvuah"]
+height = 9.99054
+radius = 16.7938
+
+[sub_resource type="Animation" id="Animation_ibale"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlastShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7n2d5"]
+resource_name = "explode"
+length = 1.5833
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 0.338553, 0.421883, 0.505223, 0.588553, 0.671873, 0.755213, 0.833333, 0.916663, 0.999993),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.6171,
+"start_offset": 0.0,
+"stream": ExtResource("3_n0jpi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlastShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.583333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.583333, 1.58333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"activate"
+}, {
+"args": [],
+"method": &"deactivate"
+}, {
+"args": [],
+"method": &"despawn"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70ak5"]
+_data = {
+"RESET": SubResource("Animation_ibale"),
+"explode": SubResource("Animation_7n2d5")
+}
+
+[node name="ExplosionBlast" type="Area3D"]
+collision_layer = 5
+collision_mask = 32
+script = ExtResource("1_k7080")
+
+[node name="BlastShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_uvuah")
+disabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.190809, -0.981627, -8.74228e-08, -0.981627, -0.190809, 0, -1.66811e-08, 8.58166e-08, -1, -1.875, 7.621, 6.665)
+pixel_size = 0.0644
+texture = ExtResource("2_4d58r")
+hframes = 15
+frame = 3
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+attenuation_model = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_70ak5")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

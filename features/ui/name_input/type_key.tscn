@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cel50c4ihosgs"]
+
+[ext_resource type="Texture2D" uid="uid://c8jiii7tnh0fd" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_.png" id="1_c8tyu"]
+[ext_resource type="Script" path="res://features/ui/name_input/type_key.gd" id="2_gcltb"]
+[ext_resource type="Texture2D" uid="uid://jotb7de58oxm" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_pressed.png" id="2_tun0o"]
+[ext_resource type="Texture2D" uid="uid://d3n2bun1g5ybi" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_key_hover.png" id="3_esjgv"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="5_gy8sf"]
+
+[node name="TypeKey" type="TextureButton"]
+offset_left = 531.0
+offset_top = 283.0
+offset_right = 604.0
+offset_bottom = 364.0
+texture_normal = ExtResource("1_c8tyu")
+texture_pressed = ExtResource("2_tun0o")
+texture_focused = ExtResource("3_esjgv")
+ignore_texture_size = true
+script = ExtResource("2_gcltb")
+
+[node name="KeyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.456
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -33.024
+offset_right = 26.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_gy8sf")
+theme_override_font_sizes/font_size = 40
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="grab_focus" flags=3]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="renamed" from="." to="." method="_on_renamed"]

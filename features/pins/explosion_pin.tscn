@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=3 uid="uid://ci5foahxc6vqn"]
+
+[ext_resource type="Script" path="res://features/pins/explosion_pin.gd" id="1_vlj1i"]
+[ext_resource type="Texture2D" uid="uid://ok8istqbqice" path="res://assets/3d/textures/crossed bones sign.png" id="3_2ikpk"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="3_3m2ku"]
+[ext_resource type="Texture2D" uid="uid://gunw6m64qah1" path="res://assets/2d/spritesheets/vfx/explosion_spritesheet_lq.png" id="3_5heec"]
+[ext_resource type="Material" uid="uid://bdbiw27jqcwvu" path="res://assets/3d/materials/mat_glow_barrel.tres" id="3_bhbt7"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="4_qh6du"]
+[ext_resource type="PackedScene" uid="uid://880ywwoxw5lx" path="res://features/effects/score_donor.tscn" id="5_dqkiy"]
+[ext_resource type="PackedScene" uid="uid://cvv1virv4q8jq" path="res://features/effects/exploder.tscn" id="7_dkr3p"]
+[ext_resource type="PackedScene" uid="uid://dixer5ergph0w" path="res://assets/3d/asset scene files/explosion_barrel.tscn" id="10_g44y1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h0kjh"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nb5cw"]
+height = 6.0
+radius = 2.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0x6t"]
+albedo_texture = ExtResource("3_2ikpk")
+roughness = 0.75
+
+[sub_resource type="Animation" id="Animation_q6l3b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionBarrel/explosion_barrel:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_3m2ku")]
+}
+
+[sub_resource type="Animation" id="Animation_vnmtv"]
+resource_name = "flash"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionBarrel/explosion_barrel:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.266667, 0.4, 0.533333, 0.7, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("3_bhbt7"), ExtResource("3_3m2ku"), ExtResource("3_bhbt7"), ExtResource("3_3m2ku"), ExtResource("3_bhbt7"), ExtResource("3_3m2ku"), ExtResource("3_bhbt7"), ExtResource("3_3m2ku")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Exploder")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.733333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0g4b"]
+_data = {
+"RESET": SubResource("Animation_q6l3b"),
+"flash": SubResource("Animation_vnmtv")
+}
+
+[node name="ExplosionPin" type="StaticBody3D" node_paths=PackedStringArray("bounceable_collision_shape", "explodable_collision_shape", "shootable_collision_shape") groups=["ExplosionPins"]]
+collision_layer = 33
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_h0kjh")
+script = ExtResource("1_vlj1i")
+bounceable_collision_shape = NodePath("CollisionShape3D")
+explodable_collision_shape = NodePath("Area3D/CollisionShape3D")
+shootable_collision_shape = NodePath("Area3D/CollisionShape3D")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, 2)
+shape = SubResource("CylinderShape3D_nb5cw")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, 2)
+shape = SubResource("CylinderShape3D_nb5cw")
+
+[node name="ExplosionBarrel" parent="." instance=ExtResource("10_g44y1")]
+
+[node name="crossed_bones_sign" parent="ExplosionBarrel" index="1"]
+material_override = SubResource("StandardMaterial3D_o0x6t")
+material_overlay = ExtResource("4_qh6du")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.21736e-07, 2.785, 6.48754e-15, -2.785, -1.21736e-07, -4.08194e-07, -4.08194e-07, -2.43303e-14, 2.785, 0, 2, 5)
+texture = ExtResource("3_5heec")
+hframes = 15
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r0g4b")
+}
+
+[node name="Exploder" parent="." instance=ExtResource("7_dkr3p")]
+
+[node name="ScoreDonor" parent="." instance=ExtResource("5_dqkiy")]
+score_bonus = 1000
+active_on_bounce = false
+active_on_blast = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="exploded" from="Exploder" to="." method="_on_exploder_exploded"]
+[connection signal="ignited" from="Exploder" to="." method="_on_exploder_ignited"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+
+[editable path="ExplosionBarrel"]

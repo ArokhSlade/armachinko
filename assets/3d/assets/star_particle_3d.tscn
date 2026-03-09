@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl72f4gtw2y60"]
+
+[ext_resource type="Texture2D" uid="uid://da6v58vq0c8s6" path="res://assets/2d/sprites/vfx_particle/star_particle_rotated.png" id="1_shyiy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u3bf"]
+transparency = 1
+albedo_texture = ExtResource("1_shyiy")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cifeq"]
+material = SubResource("StandardMaterial3D_8u3bf")
+size = Vector2(1, 1.5)
+
+[node name="star_particle_3d" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.994359, 0)
+mesh = SubResource("PlaneMesh_cifeq")

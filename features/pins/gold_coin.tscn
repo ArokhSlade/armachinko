@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://4s6lre3ye66l"]
+
+[ext_resource type="PackedScene" uid="uid://c3pkh0trnbvks" path="res://features/pins/coin_pin.tscn" id="1_fuqg7"]
+[ext_resource type="ArrayMesh" uid="uid://bu1ta6hgtwr3r" path="res://assets/3d/meshes/gold_coin_mesh.res" id="2_eg7xb"]
+
+[node name="GoldCoinPin" instance=ExtResource("1_fuqg7")]
+
+[node name="Model" parent="." index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+mesh = ExtResource("2_eg7xb")

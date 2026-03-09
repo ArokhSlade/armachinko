@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhbvbubxsfjw"]
+
+[ext_resource type="PackedScene" uid="uid://l6byscs5qhxn" path="res://assets/3d/cactus_sign.glb" id="1_eqyft"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_cbycu"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_6rnd3"]
+[ext_resource type="PackedScene" uid="uid://bq8x4n5xuurky" path="res://assets/3d/asset scene files/setdressing/baby_cactus_dark_blue.tscn" id="3_jd4xy"]
+
+[node name="cactus_sign" instance=ExtResource("1_eqyft")]
+
+[node name="cactus_sign" parent="." index="0"]
+material_override = ExtResource("2_cbycu")
+material_overlay = ExtResource("3_6rnd3")
+
+[node name="arrow_sign" parent="cactus_sign" index="0"]
+material_override = ExtResource("2_cbycu")
+material_overlay = ExtResource("3_6rnd3")
+
+[node name="baby_cactus_dark_blue" parent="cactus_sign" index="1" instance=ExtResource("3_jd4xy")]

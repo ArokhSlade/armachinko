@@ -1,0 +1,331 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs2mpntwx3cli"]
+
+[ext_resource type="Script" path="res://features/special/tumbleweed_avalanche_message.gd" id="1_y8vga"]
+[ext_resource type="Texture2D" uid="uid://cbew2a6w05i7i" path="res://assets/2d/sprites/ui/icons/ui_tumbleweed_icon.png" id="2_vhhld"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="3_2ed07"]
+[ext_resource type="AudioStream" uid="uid://dle8pm0covso6" path="res://assets/sound/avalanche_start.mp3" id="4_7ih35"]
+
+[sub_resource type="Curve" id="Curve_tqn6x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.798851, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m1epd"]
+curve = SubResource("Curve_tqn6x")
+
+[sub_resource type="Curve" id="Curve_w5572"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n2v3e"]
+curve = SubResource("Curve_w5572")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1f7q"]
+particle_flag_disable_z = true
+angle_min = -300.0
+angle_max = 300.0
+initial_velocity_min = 200.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.3
+scale_max = 0.4
+alpha_curve = SubResource("CurveTexture_m1epd")
+anim_speed_curve = SubResource("CurveTexture_n2v3e")
+
+[sub_resource type="Animation" id="Animation_lytd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../GPUParticles2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../GPUParticles2D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../GPUParticles2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../UiTumbleweedIcon:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../UiTumbleweedIcon:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../UiTumbleweedIcon:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-35.5555, 172.222)]
+}
+
+[sub_resource type="Animation" id="Animation_aetr0"]
+resource_name = "feedback_message"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 1.63333, 2, 2.0001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.8, 0.8), Vector2(0.6, 0.6), Vector2(0.6, 0.6), Vector2(0, 0), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../GPUParticles2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1), Color(0.9, 0.9, 0.9, 1), Color(0.9, 0.9, 0.9, 1), Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../GPUParticles2D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../GPUParticles2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9, 0.9, 0.9, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../UiTumbleweedIcon:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../UiTumbleweedIcon:rotation")
+tracks/7/interp = 4
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, 0.698132, 1.0472, 1.39626, 1.74533, 2.0944, 2.44346, 2.79253, 3.14159, 3.49066, 3.83972, 4.18879]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../UiTumbleweedIcon:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-35.5555, 172.222), Vector2(197.778, 266.667), Vector2(417.778, 192.222), Vector2(660, 277.778), Vector2(822.222, 177.778), Vector2(1007.78, 275.556), Vector2(1125.56, 141.111)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lj4rj"]
+_data = {
+"RESET": SubResource("Animation_lytd3"),
+"feedback_message": SubResource("Animation_aetr0")
+}
+
+[node name="TumbleweedAvalancheMessage" type="Node2D"]
+position = Vector2(111, -3)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_y8vga")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(922.222, 375.889)
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_vhhld")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
+modulate = Color(0.9, 0.9, 0.9, 0)
+position = Vector2(122.222, 380.334)
+rotation = 3.10522
+scale = Vector2(0.9, 0.9)
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_vhhld")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="TumbleweedAvalanche" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.905276, 0.798112, 0.468082, 1)
+offset_left = -130.557
+offset_top = 11.8556
+offset_right = 1162.44
+offset_bottom = 197.856
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(646, 93)
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.262932, 0.262932, 0.262932, 1)
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_2ed07")
+theme_override_font_sizes/font_size = 100
+text = "Tumbleweed Avalanche"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TumbleweedAvalanche")
+libraries = {
+"": SubResource("AnimationLibrary_lj4rj")
+}
+
+[node name="UiTumbleweedIcon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-35.5555, 172.222)
+scale = Vector2(0.386111, 0.391667)
+texture = ExtResource("2_vhhld")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ih35")
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

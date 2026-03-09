@@ -1,0 +1,369 @@
+[gd_scene load_steps=22 format=3 uid="uid://kuqlje75g3p6"]
+
+[ext_resource type="Script" path="res://features/special/score_multiplier_event.gd" id="1_hyxfq"]
+[ext_resource type="Texture2D" uid="uid://l1t6hmutjmw" path="res://assets/2d/sprites/vfx_particle/star_particle_green.png" id="2_ry417"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="3_8nx7n"]
+
+[sub_resource type="Curve" id="Curve_ibx4s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.633333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4uqta"]
+curve = SubResource("Curve_ibx4s")
+
+[sub_resource type="Curve" id="Curve_w5572"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s6ueo"]
+curve = SubResource("Curve_w5572")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1f7q"]
+particle_flag_disable_z = true
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+radial_velocity_min = -200.0
+radial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+damping_max = 69.672
+scale_min = 0.2
+scale_max = 0.8
+alpha_curve = SubResource("CurveTexture_4uqta")
+anim_speed_curve = SubResource("CurveTexture_s6ueo")
+
+[sub_resource type="Curve" id="Curve_c055n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.633333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5skhl"]
+curve = SubResource("Curve_c055n")
+
+[sub_resource type="Curve" id="Curve_rso27"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6j3v6"]
+curve = SubResource("Curve_rso27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4x6lm"]
+particle_flag_disable_z = true
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+radial_velocity_min = -200.0
+radial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+damping_max = 69.672
+scale_min = 0.2
+scale_max = 0.8
+alpha_curve = SubResource("CurveTexture_5skhl")
+anim_speed_curve = SubResource("CurveTexture_6j3v6")
+
+[sub_resource type="Curve" id="Curve_1pv4n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.633333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wsrf7"]
+curve = SubResource("Curve_1pv4n")
+
+[sub_resource type="Curve" id="Curve_qp2n4"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e21bk"]
+curve = SubResource("Curve_qp2n4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r36b2"]
+particle_flag_disable_z = true
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+radial_velocity_min = -200.0
+radial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+damping_max = 69.672
+scale_min = 0.2
+scale_max = 0.8
+alpha_curve = SubResource("CurveTexture_wsrf7")
+anim_speed_curve = SubResource("CurveTexture_e21bk")
+
+[sub_resource type="Animation" id="Animation_gc63j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sx5xc"]
+resource_name = "activate"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreMilestoneMessage2/ScoreMultiplier:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.633333, 0.666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(0.906401, 0.906401)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreMilestoneMessage2/ScoreMultiplier:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreMilestoneMessage2/ScoreMultiplier:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.633333, 0.733333, 0.8, 0.9, 1, 1.1, 1.2, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.809535, 0, 0.169763, 1), Color(0.993109, 0.850138, 0.910858, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoreMilestoneMessage2/ScoreMultiplier:theme_override_colors/font_shadow_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [null, Color(0.262932, 0.262932, 0.262932, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScoreMilestoneMessage2/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.633333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScoreMilestoneMessage2/GPUParticles2D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.633333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScoreMilestoneMessage/Message:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ScoreMilestoneMessage/Message:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ScoreMilestoneMessage/Message:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.433333, 0.5, 0.6, 0.7, 0.8, 0.9, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.809535, 0, 0.169763, 1), Color(0.993109, 0.850138, 0.910858, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1), Color(0.807843, 0, 0.168627, 1), Color(0.992157, 0.85098, 0.909804, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ScoreMilestoneMessage/Message:theme_override_colors/font_shadow_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [null, Color(0.262932, 0.262932, 0.262932, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ScoreMilestoneMessage/GPUParticles2D:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ScoreMilestoneMessage/GPUParticles2D2:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0oh8"]
+_data = {
+"RESET": SubResource("Animation_gc63j"),
+"activate": SubResource("Animation_sx5xc")
+}
+
+[node name="ScoreMultiplierEvent" type="Node2D"]
+visible = false
+script = ExtResource("1_hyxfq")
+
+[node name="ScoreMilestoneMessage" type="Node2D" parent="."]
+position = Vector2(90, 25)
+scale = Vector2(0.9, 0.9)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ScoreMilestoneMessage"]
+position = Vector2(902.556, 363.556)
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_ry417")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="ScoreMilestoneMessage"]
+position = Vector2(157.556, 372.556)
+rotation = -3.13962
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_g1f7q")
+texture = ExtResource("2_ry417")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="Message" type="Label" parent="ScoreMilestoneMessage"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 75.5556
+offset_top = 275.556
+offset_right = 977.556
+offset_bottom = 455.556
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(462, 93)
+size_flags_horizontal = 4
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_8nx7n")
+theme_override_font_sizes/font_size = 150
+text = "Score Multiplier"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreMilestoneMessage2" type="Node2D" parent="."]
+position = Vector2(90, 165)
+scale = Vector2(0.9, 0.9)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ScoreMilestoneMessage2"]
+position = Vector2(614.444, 368.889)
+scale = Vector2(0.9, 0.9)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_4x6lm")
+texture = ExtResource("2_ry417")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="ScoreMilestoneMessage2"]
+position = Vector2(446.667, 380)
+rotation = -3.13962
+scale = Vector2(0.81, 0.81)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_r36b2")
+texture = ExtResource("2_ry417")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="ScoreMultiplier" type="Label" parent="ScoreMilestoneMessage2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 74.4445
+offset_top = 261.111
+offset_right = 999.449
+offset_bottom = 447.111
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(462, 93)
+size_flags_horizontal = 4
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_8nx7n")
+theme_override_font_sizes/font_size = 150
+text = "2x"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l0oh8")
+}

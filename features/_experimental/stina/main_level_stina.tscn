@@ -1,0 +1,1696 @@
+[gd_scene load_steps=31 format=3 uid="uid://dyeit0j4ai835"]
+
+[ext_resource type="PackedScene" uid="uid://b0p5bxtr7wbld" path="res://features/_experimental/calais/level_calais.tscn" id="1_5hcum"]
+[ext_resource type="PackedScene" uid="uid://bnx7013sdxlpr" path="res://features/special/in_game_tutorial_3d.tscn" id="2_uidj2"]
+[ext_resource type="PackedScene" uid="uid://ci5foahxc6vqn" path="res://features/pins/explosion_pin.tscn" id="3_flts2"]
+[ext_resource type="PackedScene" uid="uid://desp22rsq3u2c" path="res://features/pins/gold_coin_barrel_pin.tscn" id="4_jr6ii"]
+[ext_resource type="PackedScene" path="res://features/pins/static_pin.tscn" id="5_4eovd"]
+[ext_resource type="PackedScene" uid="uid://cirg2cmfv1x7k" path="res://features/pins/copper_coin_barrel_pin.tscn" id="6_rds8n"]
+[ext_resource type="PackedScene" uid="uid://bgre8nmh2ywnc" path="res://features/pins/bumpers/onesided_bumper.tscn" id="7_t1lg5"]
+[ext_resource type="PackedScene" uid="uid://4s6lre3ye66l" path="res://features/pins/gold_coin.tscn" id="8_e7rtl"]
+[ext_resource type="PackedScene" uid="uid://th08rymc6c2o" path="res://assets/3d/rock_1.glb" id="9_6417l"]
+[ext_resource type="PackedScene" uid="uid://b6alfja3mayd3" path="res://assets/3d/rock_2.glb" id="10_lf55w"]
+[ext_resource type="PackedScene" uid="uid://128616kj60pi" path="res://assets/3d/rock_formation.glb" id="11_da5uh"]
+[ext_resource type="PackedScene" uid="uid://cl8hduluxdrs" path="res://assets/3d/rock_large.glb" id="12_hgf4t"]
+[ext_resource type="PackedScene" uid="uid://cma6r35hf7ndq" path="res://assets/3d/rock_medium.glb" id="13_2om4r"]
+[ext_resource type="PackedScene" uid="uid://17h3uy7okpcd" path="res://assets/3d/rock_plate.glb" id="14_eesff"]
+[ext_resource type="PackedScene" uid="uid://brnspqe6w3dv5" path="res://assets/3d/rock_small.glb" id="15_5thln"]
+[ext_resource type="PackedScene" uid="uid://cs2mpntwx3cli" path="res://features/special/tumbleweed_avalanche_message.tscn" id="16_knada"]
+[ext_resource type="PackedScene" uid="uid://cy1m2cpucvbro" path="res://features/special/score_multiplier_feedback_message.tscn" id="17_7ocqo"]
+[ext_resource type="PackedScene" uid="uid://5adyfrssvibx" path="res://features/special/door_unlocked_message.tscn" id="18_ou8qc"]
+[ext_resource type="Script" path="res://features/special/group_milestone.gd" id="19_m7n2y"]
+[ext_resource type="PackedScene" uid="uid://cjvgrdjh46mnw" path="res://features/special/bonus_time_message.tscn" id="20_hsc2x"]
+[ext_resource type="PackedScene" uid="uid://qhg8b3qghrnq" path="res://assets/3d/asset scene files/setdressing/long_cactus.tscn" id="21_fqqmy"]
+[ext_resource type="PackedScene" uid="uid://y6higvoxq8vc" path="res://assets/3d/asset scene files/setdressing/box_2.tscn" id="22_6whyf"]
+[ext_resource type="PackedScene" uid="uid://bkpvi727r75qw" path="res://assets/3d/asset scene files/setdressing/box_1.tscn" id="23_010cs"]
+[ext_resource type="PackedScene" uid="uid://c5qxx83bwt5q" path="res://assets/3d/asset scene files/setdressing/bottle_2.tscn" id="24_vo1du"]
+[ext_resource type="PackedScene" uid="uid://xuisio2ctiar" path="res://assets/3d/asset scene files/setdressing/box_3.tscn" id="25_udvv2"]
+[ext_resource type="PackedScene" uid="uid://y2ck8cuc1v5o" path="res://assets/3d/asset scene files/setdressing/bottle_1.tscn" id="26_nvre5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkjqa"]
+size = Vector3(22, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5xml"]
+size = Vector3(14, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkrcu"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkqgc"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 3)
+
+[node name="Level3D" node_paths=PackedStringArray("tutorial") instance=ExtResource("1_5hcum")]
+tutorial = NodePath("SpritePlane/TutorialPivot/InGameTutorial3D")
+
+[node name="MeshPlane_SetDressing#rock_12" parent="." index="0" instance=ExtResource("9_6417l")]
+transform = Transform3D(7.30336, -2.4872, 0, 2.57264, 7.06083, 0, 0, 0, 5.11091, -118.593, -359.067, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_13" parent="." index="1" instance=ExtResource("9_6417l")]
+transform = Transform3D(3.84373, 6.49863, 0, -6.72186, 3.71608, 0, 0, 0, 5.11091, -115.101, -510.446, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_22" parent="." index="2" instance=ExtResource("10_lf55w")]
+transform = Transform3D(0.67287, 3.39633, 0, -3.15073, 0.725321, 0, 0, 0, 3.30575, -124.291, -329.846, 1.18236)
+
+[node name="MeshPlane_SetDressing#rock_23" parent="." index="3" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.59198, 0.942714, 0.464306, -1.1259, -3.09342, 0.0415934, 0.732355, -0.132, 2.34122, -87.4645, -360.63, 1.18236)
+
+[node name="MeshPlane_SetDressing#rock_25" parent="." index="4" instance=ExtResource("10_lf55w")]
+transform = Transform3D(0.443715, -3.26797, -0.0806002, 3.37697, 0.455823, -0.224244, 0.662645, -0.134684, 1.19676, -28.9068, -566.462, 1.18236)
+
+[node name="MeshPlane_SetDressing#rock_28" parent="." index="5" instance=ExtResource("10_lf55w")]
+transform = Transform3D(5.12283, 0.111333, -0.207798, -0.146447, 3.04715, 0.0515094, 0.997068, -0.124461, 1.07521, 16.516, -610.892, 1.18236)
+
+[node name="Events" type="Node3D" parent="." index="6"]
+
+[node name="TumbleweedAvalancheMessage" parent="Events" index="0" instance=ExtResource("16_knada")]
+
+[node name="ScoreMilestoneMessage" parent="Events" index="1" node_paths=PackedStringArray("player") instance=ExtResource("17_7ocqo")]
+player = NodePath("../../SpritePlane/Player")
+
+[node name="DoorUnlockedMessage" parent="Events" index="2" instance=ExtResource("18_ou8qc")]
+
+[node name="CoinMilestone" type="Node3D" parent="Events" index="3"]
+script = ExtResource("19_m7n2y")
+group_name = &"Coins"
+counted_signal = &"despawned"
+threshold = 160
+
+[node name="ExplosionPinMilestone" type="Node3D" parent="Events" index="4"]
+script = ExtResource("19_m7n2y")
+group_name = &"ExplosionPins"
+counted_signal = &"despawned"
+threshold = 6
+
+[node name="CactusBumperMilestone" type="Node3D" parent="Events" index="5"]
+script = ExtResource("19_m7n2y")
+group_name = &"CactusBumpers"
+counted_signal = &"bounced"
+threshold = 12
+
+[node name="EnemyMilestone" type="Node3D" parent="Events" index="6"]
+script = ExtResource("19_m7n2y")
+group_name = &"Enemies"
+counted_signal = &"died"
+threshold = 6
+
+[node name="BonusTime" parent="Events" index="7" instance=ExtResource("20_hsc2x")]
+
+[node name="long_cactus" parent="." index="7" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(1.18361, -0.793833, 0, 0.727224, 1.29202, 0, 0, 0, 2.02223, -21.989, 91.6475, -1.70286)
+
+[node name="long_cactus6" parent="." index="8" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.4511, 1.43423, 0, -1.31389, 0.492418, 0, 0, 0, 2.02223, -2.90648, 57.7397, -2.49021)
+
+[node name="long_cactus7" parent="." index="9" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.639404, 1.34623, 0, -1.23327, 0.697968, 0, 0, 0, 2.02223, -35.5855, 42.0292, -2.49021)
+
+[node name="long_cactus8" parent="." index="10" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.0927472, -1.76065, 0, 1.85846, 0.0878661, 0, 0, 0, 2.68495, -38.7148, 58.5397, -2.49021)
+
+[node name="long_cactus2" parent="." index="11" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.914399, -1.13818, 0.117293, 1.03378, 1.00141, 0.203331, -0.158049, -0.0349093, 2.00856, 6.28579, 86.3191, -1.70286)
+
+[node name="long_cactus3" parent="." index="12" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.959241, -1.16886, 0, 1.32203, -0.848104, 0, 0, 0, 1.83126, -70.8243, 125.607, -1.70286)
+
+[node name="box_2" parent="." index="13" instance=ExtResource("22_6whyf")]
+transform = Transform3D(0.998559, 0.880996, 0, -0.916133, 0.96026, 0, 0, 0, 1.32334, -65.6892, 121.574, -0.27984)
+
+[node name="box_1" parent="." index="14" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.949179, -0.314738, 0, 0.314738, 0.949179, 0, 0, 0, 1, -64.518, 123.013, 4.62665)
+
+[node name="bottle_2" parent="." index="15" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.42158, 0.69904, -0.218894, -0.661798, -0.445303, 0.13944, 5.07717e-09, 0.243198, 0.8845, -62.0885, 118.853, -0.0391331)
+
+[node name="long_cactus14" parent="." index="16" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.959241, -1.16886, 0, 1.32203, -0.848104, 0, 0, 0, 1.83126, -70.8243, 125.607, -1.70286)
+
+[node name="box_19" parent="." index="17" instance=ExtResource("22_6whyf")]
+transform = Transform3D(0.998559, 0.880996, 0, -0.916133, 0.96026, 0, 0, 0, 1.32334, -65.6892, 121.574, -0.27984)
+
+[node name="box_20" parent="." index="18" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.949179, -0.314738, 0, 0.314738, 0.949179, 0, 0, 0, 1, -64.518, 123.013, 4.62665)
+
+[node name="box_21" parent="." index="19" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-0.326324, -1.26482, 0, 1.31527, -0.313808, 0, 0, 0, 1.32334, 94.6211, -130.179, 0.453791)
+
+[node name="bottle_13" parent="." index="20" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.716993, -0.33673, 0.105442, 0.318791, 0.75734, -0.23715, 2.53051e-08, 0.243198, 0.8845, 93.1228, -125.921, 0.694498)
+
+[node name="long_cactus15" parent="." index="21" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.0693382, 1.44283, 0, -1.6319, 0.0613051, 0, 0, 0, 1.83126, 96.674, -136.377, -0.969233)
+
+[node name="box_22" parent="." index="22" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.965081, -0.261953, 0, 0.261953, -0.965081, 0, 0, 0, 1, 92.8502, -130.731, 5.36028)
+
+[node name="box_39" parent="." index="23" instance=ExtResource("22_6whyf")]
+transform = Transform3D(0.848347, 1.01622, 0, -1.05675, 0.815809, 0, 0, 0, 1.32334, 139.254, -307.578, -0.0677185)
+
+[node name="bottle_19" parent="." index="24" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.516915, 0.623563, -0.19526, -0.590343, -0.546004, 0.170973, 1.91832e-08, 0.243198, 0.8845, 142.401, -310.813, 0.172989)
+
+[node name="long_cactus27" parent="." index="25" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.74803, -1.28379, 0, 1.45202, -0.661364, 0, 0, 0, 1.83126, 134.788, -302.814, -1.49074)
+
+[node name="box_40" parent="." index="26" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.985888, -0.167405, 0, 0.167405, 0.985888, 0, 0, 0, 1, 140.629, -306.333, 4.83877)
+
+[node name="bottle_12" parent="." index="27" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.42158, 0.69904, -0.218894, -0.661798, -0.445303, 0.13944, 5.07717e-09, 0.243198, 0.8845, -62.0885, 118.853, -0.0391331)
+
+[node name="box_9" parent="." index="28" instance=ExtResource("22_6whyf")]
+transform = Transform3D(1.20985, -0.587062, 0, 0.610477, 1.16345, 0, 0, 0, 1.32334, 9.79608, 26.6938, -0.32456)
+
+[node name="box_10" parent="." index="29" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.0409165, -0.999163, 0, 0.999163, 0.0409165, 0, 0, 0, 1, 8.86425, 28.2978, 4.58193)
+
+[node name="bottle_6" parent="." index="30" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.470167, 0.663563, -0.207785, -0.628211, 0.496625, -0.155511, 2.12208e-08, 0.243198, 0.8845, 13.4917, 29.1009, -0.222466)
+
+[node name="box_13" parent="." index="31" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-1.08801, 0.776891, 0, -0.807877, -1.04628, 0, 0, 0, 1.32334, -11.6927, -34.8852, 1.16876)
+
+[node name="box_14" parent="." index="32" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.130094, 0.991502, 0, -0.991502, 0.130094, 0, 0, 0, 1, -10.5009, -36.3066, 6.28018)
+
+[node name="bottle_9" parent="." index="33" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.570422, -0.569139, 0.178217, 0.538818, -0.602522, 0.188671, 2.156e-08, 0.243198, 0.8845, -14.9236, -37.8872, 1.47578)
+
+[node name="long_cactus4" parent="." index="34" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.899442, -1.41716, 0, 1.19044, -1.07074, 0, 0, 0, 1.83934, 44.6736, 164.491, -0.70556)
+
+[node name="long_cactus5" parent="." index="35" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.274731, 0.961521, 0, -0.961521, 0.274731, 0, 0, 0, 1, 44.1354, 158.086, 1.86848)
+
+[node name="box_3" parent="." index="36" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.63833, -0.611099, 0, 0.719791, 1.39094, 0, 0, 0, 1, 33.8545, 110.201, 4.36816)
+
+[node name="bottle_1" parent="." index="37" instance=ExtResource("26_nvre5")]
+transform = Transform3D(1, 0, 0, 0, 0.966935, -0.255024, 0, 0.255024, 0.966935, 35.0896, 116.164, 2.80895)
+
+[node name="box_4" parent="." index="38" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.16077, -1.15627, 0, 1.36193, 0.985491, 0, 0, 0, 1, 21.5767, 389.823, -0.504908)
+
+[node name="bottle_3" parent="." index="39" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.900007, -0.421463, 0.111158, 0.435875, 0.870248, -0.229523, -3.19846e-09, 0.255024, 0.966935, 20.0884, 395.728, -0.802112)
+
+[node name="box_5" parent="." index="40" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.279578, -0.960123, 0, 0.960123, -0.279578, 0, 0, 0, 1, 22.9446, 390.233, 2.53896)
+
+[node name="bottle_4" parent="." index="41" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.705101, 0.450318, 0.250123, -0.544364, -0.598616, -0.284189, 0.0252838, -0.330063, 0.856672, 41.306, 161.211, -0.106579)
+
+[node name="long_cactus39" parent="." index="42" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.82331, 1.48129, 0, -1.24431, 0.980109, 0, 0, 0, 1.83934, 20.9933, 260.326, -0.70556)
+
+[node name="long_cactus40" parent="." index="43" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.214121, -0.976807, 0, 0.976807, -0.214121, 0, 0, 0, 1, 18.3325, 286.359, 1.27053)
+
+[node name="box_55" parent="." index="44" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.887751, -1.31913, 0, 1.55375, -0.753697, 0, 0, 0, 1, 25.2852, 251.342, 0.215181)
+
+[node name="bottle_26" parent="." index="45" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.104945, -0.961595, 0.253616, 0.994479, -0.101475, 0.0267634, -1.90695e-08, 0.255024, 0.966935, 19.2254, 251.944, -0.0820227)
+
+[node name="box_56" parent="." index="46" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.998046, -0.0624771, 0, 0.0624771, -0.998046, 0, 0, 0, 1, 25.3635, 252.768, 3.25905)
+
+[node name="bottle_27" parent="." index="47" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.737734, -0.412039, -0.231879, 0.499248, 0.625581, 0.299261, 0.0252838, -0.330063, 0.856672, 27.5855, 243.188, -0.106579)
+
+[node name="box_23" parent="." index="48" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.876964, 1.32431, 0, -1.55986, -0.744539, 0, 0, 0, 1, -40.107, -125.78, -0.0320635)
+
+[node name="bottle_14" parent="." index="49" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.807329, -0.325037, -0.137625, 0.376456, -0.674892, -0.352682, 0.0252838, -0.330063, 0.856672, -34.2959, -119.693, -0.353826)
+
+[node name="long_cactus12" parent="." index="50" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(1.47266, 0.285264, 0, -0.239627, 1.75312, 0, 0, 0, 1.83935, -4.79775, -117.772, -0.499741)
+
+[node name="long_cactus13" parent="." index="51" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.232359, -0.97263, 0, 0.97263, -0.232359, 0, 0, 0, 1, -8.52927, -104.411, 2.0743)
+
+[node name="box_17" parent="." index="52" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-1.74368, -0.341526, 0, 0.402271, -1.48037, 0, 0, 0, 1, 6.52309, -115.247, -0.540736)
+
+[node name="box_18" parent="." index="53" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.723148, 0.690693, 0, -0.690693, -0.723148, 0, 0, 0, 1, 5.52884, -114.222, 2.66166)
+
+[node name="bottle_11" parent="." index="54" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.133904, -0.739107, -0.377164, 0.880664, 0.121856, 0.0327522, 0.0252838, -0.330063, 0.856673, 14.0729, -119.09, -0.0592909)
+
+[node name="long_cactus34" parent="." index="55" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-1.46746, 0.321, 0, -0.269647, -1.74693, 0, 0, 0, 1.83934, -5.3789, -573.831, -0.165718)
+
+[node name="box_51" parent="." index="56" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.20349, 1.12435, 0, -1.32433, 1.02175, 0, 0, 0, 1, -13.9873, -565.143, -0.206714)
+
+[node name="box_52" parent="." index="57" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.987854, -0.155383, 0, 0.155383, 0.987854, 0, 0, 0, 1, -13.7546, -566.552, 2.99569)
+
+[node name="bottle_24" parent="." index="58" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.611952, 0.537864, 0.291244, -0.647313, -0.521374, -0.241872, 0.0252838, -0.330062, 0.856673, -18.0005, -557.682, 0.274732)
+
+[node name="long_cactus22" parent="." index="59" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.925831, -1.39287, 0, 1.17004, 1.10215, 0, 0, 0, 1.83934, -84.8335, -226.67, -0.499744)
+
+[node name="box_29" parent="." index="60" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-1.19978, 1.1272, 0, -1.32769, -1.01861, 0, 0, 0, 1, -81.532, -215.551, -0.382209)
+
+[node name="box_30" parent="." index="61" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.251613, 0.967828, 0, -0.967828, 0.251613, 0, 0, 0, 1, -82.9113, -215.921, 2.66166)
+
+[node name="bottle_15" parent="." index="62" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.704263, -0.466051, -0.212112, 0.545447, -0.58645, -0.313582, 0.0252838, -0.330063, 0.856673, -74.5012, -210.825, 0.0992365)
+
+[node name="box_11" parent="." index="63" instance=ExtResource("25_udvv2")]
+transform = Transform3D(0.98309, 1.26946, 0, -1.49525, 0.834639, 0, 0, 0, 1, -36.4079, 50.4262, 0.338099)
+
+[node name="bottle_7" parent="." index="64" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.166872, 0.953377, -0.251448, -0.985979, 0.161354, -0.0425563, -6.99787e-09, 0.255024, 0.966935, -30.3223, 50.2035, -1.22111)
+
+[node name="box_12" parent="." index="65" instance=ExtResource("23_010cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.397, 48.9981, 3.38197)
+
+[node name="long_cactus9" parent="." index="66" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.669196, -1.32886, 0, 1.21736, -0.730489, 0, 0, 0, 2.02223, 62.7294, -33.7424, -0.814034)
+
+[node name="long_cactus10" parent="." index="67" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.0475407, 1.76227, 0, -1.86016, -0.0450388, 0, 0, 0, 2.68495, 66.2591, -50.1026, -0.963068)
+
+[node name="long_cactus11" parent="." index="68" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.487905, 1.70116, 0, -1.79566, -0.462228, 0, 0, 0, 2.68495, -18.5003, -30.0854, -1.20218)
+
+[node name="box_34" parent="." index="69" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-0.890786, 0.982066, 0, -1.02123, -0.85662, 0, 0, 0, 1.32334, -0.418406, -319.656, -0.245808)
+
+[node name="box_35" parent="." index="70" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.338459, 0.940981, 0, -0.940981, 0.338459, 0, 0, 0, 1, 1.04895, -320.791, 4.86561)
+
+[node name="bottle_17" parent="." index="71" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.67217, -0.42762, 0.133903, 0.404839, -0.709995, 0.222324, 2.9589e-08, 0.243198, 0.8845, -2.93514, -323.278, 0.0612144)
+
+[node name="long_cactus23" parent="." index="72" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.513959, 1.69426, 0, -1.78838, 0.48691, 0, 0, 0, 2.68495, -6.72315, -316.356, -4.78519)
+
+[node name="box_59" parent="." index="73" instance=ExtResource("22_6whyf")]
+transform = Transform3D(1.04535, -0.829287, 0, 0.862357, 1.00525, 0, 0, 0, 1.32334, -92.2007, 248.719, 0.6743)
+
+[node name="box_60" parent="." index="74" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.180537, -0.983568, 0, 0.983568, -0.180537, 0, 0, 0, 1, -93.4634, 250.078, 5.78572)
+
+[node name="bottle_29" parent="." index="75" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.597183, 0.53764, -0.168354, -0.508998, 0.630789, -0.197522, 2.35564e-08, 0.243198, 0.8845, -89.1272, 251.882, 0.981322)
+
+[node name="long_cactus43" parent="." index="76" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.215549, -1.75097, 0, 1.84824, -0.204205, 0, 0, 0, 2.68495, -86.5183, 244.435, -3.86508)
+
+[node name="box_15" parent="." index="77" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-1.01915, -1.24879, 0, 1.47091, -0.865253, 0, 0, 0, 1, 63.7556, -42.1169, 2.01428)
+
+[node name="bottle_10" parent="." index="78" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.190792, -0.949173, 0.250339, 0.981631, -0.184483, 0.0486565, -6.99787e-09, 0.255024, 0.966935, 57.6664, -41.973, 0.306033)
+
+[node name="box_16" parent="." index="79" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.999704, 0.02431, 0, -0.02431, -0.999704, 0, 0, 0, 1, 63.71, -40.6896, 4.90911)
+
+[node name="long_cactus46" parent="." index="80" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-1.15977, -0.834706, 0, 0.764669, -1.266, 0, 0, 0, 2.02223, 16.2191, 442.464, -1.34388)
+
+[node name="long_cactus47" parent="." index="81" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.825617, 1.57982, 0, -1.66758, 0.782169, 0, 0, 0, 2.68495, 26.9724, 429.639, -1.49291)
+
+[node name="box_61" parent="." index="82" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-1.58759, -0.701019, 0, 0.82571, -1.34785, 0, 0, 0, 1, 21.033, 435.536, 1.48443)
+
+[node name="bottle_30" parent="." index="83" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.626645, -0.753538, 0.198741, 0.779305, -0.605924, 0.159809, -6.99787e-09, 0.255024, 0.966935, 15.5797, 432.822, -0.223809)
+
+[node name="box_62" parent="." index="84" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.872947, 0.487814, 0, -0.487814, -0.872947, 0, 0, 0, 1, 20.327, 436.777, 4.37927)
+
+[node name="long_cactus41" parent="." index="85" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.57018, 1.38279, 0, -1.26676, -0.622404, 0, 0, 0, 2.02223, -69.6965, 165.716, -2.08581)
+
+[node name="long_cactus42" parent="." index="86" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.561092, -1.68079, 0, 1.77416, -0.531565, 0, 0, 0, 2.68495, -67.7764, 202.047, -2.08582)
+
+[node name="box_57" parent="." index="87" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.44277, 0.898756, 0, -1.05862, 1.2249, 0, 0, 0, 1, -62.8078, 195.313, 0.742494)
+
+[node name="bottle_28" parent="." index="88" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.500197, 0.837281, -0.220828, -0.865912, 0.483657, -0.127562, -6.99787e-09, 0.255024, 0.966935, -57.004, 197.16, -0.816715)
+
+[node name="box_58" parent="." index="89" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.937239, -0.348686, 0, 0.348686, 0.937239, 0, 0, 0, 1, -62.2997, 193.978, 3.78636)
+
+[node name="long_cactus28" parent="." index="90" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.636259, -1.348, 0, 1.2349, -0.694535, 0, 0, 0, 2.02223, 107.808, -390.772, 0.942333)
+
+[node name="long_cactus29" parent="." index="91" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.0334489, 1.76256, 0, -1.86047, 0.0316882, 0, 0, 0, 2.68495, 136.248, -443.132, -1.88044)
+
+[node name="long_cactus35" parent="." index="92" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(1.77008, 0.543636, 0, -0.573836, 1.67692, 0, 0, 0, 2.68495, 35.8794, -414.812, -1.88044)
+
+[node name="box_41" parent="." index="93" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.159012, -1.51325, 0, 1.7824, -0.135, 0, 0, 0, 1, 108.443, -401.996, 0.518887)
+
+[node name="bottle_20" parent="." index="94" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.31929, -0.916322, 0.241675, 0.947657, 0.308733, -0.0814267, -1.43452e-08, 0.255024, 0.966935, 108.609, -394.889, -1.04032)
+
+[node name="box_42" parent="." index="95" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.881089, -0.472951, 0, 0.472951, -0.881089, 0, 0, 0, 1, 109.108, -400.812, 3.56276)
+
+[node name="long_cactus50" parent="." index="96" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.636259, -1.348, 0, 1.2349, -0.694535, 0, 0, 0, 2.02223, 39.6325, 12.3763, 0.214432)
+
+[node name="box_69" parent="." index="97" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.159012, -1.51325, 0, 1.7824, -0.135, 0, 0, 0, 1, 40.2675, 1.15234, -0.209014)
+
+[node name="bottle_32" parent="." index="98" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.31929, -0.916322, 0.241675, 0.947657, 0.308733, -0.0814267, -1.43452e-08, 0.255024, 0.966935, 40.4335, 8.25933, -1.76822)
+
+[node name="box_70" parent="." index="99" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.881089, -0.472951, 0, 0.472951, -0.881089, 0, 0, 0, 1, 40.9325, 2.33633, 2.83486)
+
+[node name="long_cactus36" parent="." index="100" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.102442, -1.51228, 0, 1.38539, 0.111825, 0, 0, 0, 2.02223, -81.5804, -393.486, 0.727682)
+
+[node name="box_53" parent="." index="101" instance=ExtResource("25_udvv2")]
+transform = Transform3D(0.795385, -1.36094, 0, 1.603, 0.675278, 0, 0, 0, 1, -86.9016, -403.389, 0.304235)
+
+[node name="bottle_25" parent="." index="102" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.767255, -0.620136, 0.163558, 0.641343, 0.741885, -0.195668, -9.58744e-09, 0.255024, 0.966935, -83.0469, -397.415, -1.25497)
+
+[node name="box_54" parent="." index="103" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.504317, -0.863519, 0, 0.863519, -0.504317, 0, 0, 0, 1, -85.7154, -402.727, 3.34811)
+
+[node name="long_cactus33" parent="." index="104" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.920292, -1.13592, 0, 1.0406, -1.00458, 0, 0, 0, 2.02223, -41.8429, -485.964, 0.260795)
+
+[node name="box_49" parent="." index="105" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.592273, -1.43363, 0, 1.68862, -0.502837, 0, 0, 0, 1, -38.4682, -496.688, -0.162652)
+
+[node name="bottle_23" parent="." index="106" instance=ExtResource("26_nvre5")]
+transform = Transform3D(0.0765451, -0.964098, 0.254276, 0.997066, 0.0740141, -0.0195209, -9.58744e-09, 0.255024, 0.966935, -40.0538, -489.757, -1.72186)
+
+[node name="box_50" parent="." index="107" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.970313, -0.241854, 0, 0.241854, -0.970313, 0, 0, 0, 1, -38.114, -495.376, 2.88122)
+
+[node name="bottle_8" parent="." index="108" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.705101, 0.450318, 0.250123, -0.544364, -0.598616, -0.284189, 0.0252838, -0.330063, 0.856672, -39.2131, 58.42, -2.34155)
+
+[node name="box_6" parent="." index="109" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.0775889, -1.69095, 0, 1.72996, -0.0758394, 0, 0, 0, 1.18327, 26.5138, 61.6159, -0.542246)
+
+[node name="box_7" parent="." index="110" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.680976, -0.732305, 0, 0.732305, -0.680976, 0, 0, 0, 1, 29.86, 54.4666, 0.0929289)
+
+[node name="box_8" parent="." index="111" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-0.998255, -0.0590451, 0, 0.0590451, -0.998255, 0, 0, 0, 1, 27.1863, 61.4312, 3.29852)
+
+[node name="bottle_5" parent="." index="112" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.825425, -0.0465981, 0, 0.0488225, -0.787818, 0, 0, 0, 0.74447, 24.5173, 65.3725, 2.88383)
+
+[node name="box_43" parent="." index="113" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.899083, -1.44664, 0, 1.48001, -0.87881, 0, 0, 0, 1.18327, -84.4449, -463.298, 0.364136)
+
+[node name="box_44" parent="." index="114" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.949041, -0.315152, 0, 0.315152, -0.949041, 0, 0, 0, 1, -78.0758, -467.961, 0.99931)
+
+[node name="box_45" parent="." index="115" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-0.903896, 0.427752, 0, -0.427752, -0.903896, 0, 0, 0, 1, -83.7665, -463.137, 4.2049)
+
+[node name="bottle_21" parent="." index="116" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.747403, 0.33758, 0, -0.353694, -0.71335, 0, 0, 0, 0.74447, -88.0006, -460.962, 3.79021)
+
+[node name="box_31" parent="." index="117" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.58644, -0.678599, 0, 0.694254, 1.55067, 0, 0, 0, 1.18327, -65.3215, -343.692, -0.542246)
+
+[node name="box_32" parent="." index="118" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.438575, -0.898694, 0, 0.898694, 0.438575, 0, 0, 0, 1, -70.7901, -349.384, 0.0929289)
+
+[node name="box_33" parent="." index="119" instance=ExtResource("22_6whyf")]
+transform = Transform3D(-0.303734, -0.952757, 0, 0.952757, -0.303734, 0, 0, 0, 1, -65.2337, -344.432, 3.29852)
+
+[node name="bottle_16" parent="." index="120" instance=ExtResource("26_nvre5")]
+transform = Transform3D(-0.251148, -0.751911, 0, 0.787804, -0.239705, 0, 0, 0, 0.74447, -62.5337, -340.479, 2.88383)
+
+[node name="box_24" parent="." index="121" instance=ExtResource("25_udvv2")]
+transform = Transform3D(0.855355, -0.518042, 0, 0.518042, 0.855355, 0, 0, 0, 1, -37.7671, -133.86, -0.00998688)
+
+[node name="box_25" parent="." index="122" instance=ExtResource("23_010cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4189, -133.166, 0.276285)
+
+[node name="long_cactus16" parent="." index="123" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.431842, -1.47626, 0, 1.1951, 0.533437, 0, 0, 0, 1.50389, -39.9869, -143.283, -0.0227146)
+
+[node name="long_cactus53" parent="." index="124" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.356076, 1.5068, 0, -1.21982, 0.439847, 0, 0, 0, 1.50389, -60.6612, -172.045, -0.0227146)
+
+[node name="long_cactus18" parent="." index="125" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-1.2689, -0.665939, 0, 0.56588, -1.49327, 0, 0, 0, 1.90329, -33.711, -126.751, -0.0227146)
+
+[node name="long_cactus17" parent="." index="126" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.321563, -1.14658, -0.197969, 0.843838, -0.441984, -0.054329, -0.0173994, -0.245149, 1.02387, -34.634, -130.311, 0.80953)
+
+[node name="box_36" parent="." index="127" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-1.40936, 0.936184, 0, -1.1027, -1.19654, 0, 0, 0, 1, 33.104, -358.5, -0.459919)
+
+[node name="bottle_18" parent="." index="128" instance=ExtResource("24_vo1du")]
+transform = Transform3D(-0.600492, -0.559566, -0.262663, 0.657958, -0.49801, -0.272642, 0.0252838, -0.330063, 0.856673, 40.809, -355.115, -0.781681)
+
+[node name="box_37" parent="." index="129" instance=ExtResource("25_udvv2")]
+transform = Transform3D(0.988793, -0.149294, 0, 0.149294, 0.988793, 0, 0, 0, 1, 32.1567, -366.859, -0.437842)
+
+[node name="box_38" parent="." index="130" instance=ExtResource("23_010cs")]
+transform = Transform3D(0.92311, 0.384537, 0, -0.384537, 0.92311, 0, 0, 0, 1, 22.5741, -364.383, -0.15157)
+
+[node name="long_cactus24" parent="." index="131" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.190524, -1.55194, 0, 1.25637, 0.235346, 0, 0, 0, 1.50389, 24.4505, -381.922, -0.45057)
+
+[node name="long_cactus25" parent="." index="132" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.197827, -1.61837, 0, 1.37521, -0.232808, 0, 0, 0, 1.9033, 41.6498, -351.022, -0.45057)
+
+[node name="long_cactus26" parent="." index="133" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.0276493, -1.22838, -0.203639, 0.902608, 0.0329029, 0.0259749, -0.0173994, -0.245149, 1.02387, 37.3796, -363.178, 0.381675)
+
+[node name="box_63" parent="." index="134" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.59537, -0.688168, 0, 0.810572, 1.35446, 0, 0, 0, 1, -51.3263, 437.231, -0.459919)
+
+[node name="bottle_31" parent="." index="135" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.462507, 0.645016, 0.310262, -0.761306, 0.380897, 0.216941, 0.0252838, -0.330063, 0.856673, -59.539, 435.393, -0.781681)
+
+[node name="box_64" parent="." index="136" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.999033, -0.0439679, 0, 0.0439679, -0.999033, 0, 0, 0, 1, -48.7866, 445.251, -0.437842)
+
+[node name="box_65" parent="." index="137" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.831751, -0.555149, 0, 0.555149, -0.831751, 0, 0, 0, 1, -40.0892, 437.015, -0.15157)
+
+[node name="long_cactus48" parent="." index="138" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.730878, 1.39052, 0, -1.18159, -0.860108, 0, 0, 0, 1.9033, -61.3746, 437.547, -0.45057)
+
+[node name="long_cactus49" parent="." index="139" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.508262, 1.01304, 0.180003, -0.746415, 0.695528, 0.0987039, -0.0173994, -0.245149, 1.02387, -43.8001, 443.855, 0.381675)
+
+[node name="long_cactus51" parent="." index="140" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.896801, -0.14879, -0.00437075, 0.105896, 1.21978, 0.205242, -0.0173994, -0.245149, 1.02387, -22.1588, 446.798, 0.25798)
+
+[node name="box_46" parent="." index="141" instance=ExtResource("25_udvv2")]
+transform = Transform3D(1.66989, -0.540175, -0.0526382, 0.635556, 1.41998, -0.0168891, 0.0987851, -0.00445846, 0.998471, 123.721, -548.834, 0.438009)
+
+[node name="bottle_22" parent="." index="142" instance=ExtResource("24_vo1du")]
+transform = Transform3D(0.377463, 0.69814, 0.285929, -0.806637, 0.315402, 0.168089, 0.0315777, -0.288428, 0.875902, 115.389, -549.779, -0.339494)
+
+[node name="box_47" parent="." index="143" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.987395, -0.149267, -0.0526382, 0.150333, -0.988491, -0.0168891, -0.0495114, -0.0245895, 0.998471, 127.09, -541.133, 0.767974)
+
+[node name="box_48" parent="." index="144" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.767247, -0.639188, -0.0526382, 0.640668, -0.767632, -0.0168891, -0.0296114, -0.0466817, 0.998471, 131.735, -545.932, 1.21837)
+
+[node name="long_cactus30" parent="." index="145" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.460263, -1.46263, 0.0353611, 1.18345, -0.566267, 0.0752416, -0.0484619, 0.0628183, 1.50159, 136.777, -530.519, -0.701378)
+
+[node name="long_cactus31" parent="." index="146" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(1.37286, -0.245711, 0.0610996, 0.210672, 1.61445, -0.0856585, -0.0346431, 0.08067, 1.90038, 111.061, -552.425, -0.176757)
+
+[node name="long_cactus32" parent="." index="147" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.291738, 1.17512, 0.132723, -0.853479, -0.391156, -0.10242, -0.0472427, -0.19019, 1.0307, 120.978, -543.115, -0.674441)
+
+[node name="box_71" parent="." index="148" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.308721, -1.49645, 0.00664321, 1.75987, -0.262257, -0.0548807, 0.0987851, -0.00445846, 0.998471, 78.8747, -89.0792, 0.438009)
+
+[node name="box_72" parent="." index="149" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.334119, 0.942507, 0.00664321, -0.94123, -0.333279, -0.0548807, -0.0495114, -0.0245895, 0.998471, 71.9487, -84.3163, 0.767974)
+
+[node name="box_73" parent="." index="150" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.774049, 0.633091, 0.00664321, -0.632433, -0.772668, -0.0548807, -0.0296114, -0.0466817, 0.998471, 77.5386, -80.6613, 1.21837)
+
+[node name="long_cactus54" parent="." index="151" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.783016, 0.606064, 0.125644, -0.447686, 1.08009, 0.11099, -0.0472427, -0.19019, 1.0307, 72.7406, -90.6927, -0.964843)
+
+[node name="box_26" parent="." index="152" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.18469, -1.51114, 0, 1.77992, -0.156801, 0, 0, 0, 1, 112.026, -242.139, -0.654405)
+
+[node name="box_27" parent="." index="153" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.399233, 0.916859, 0, -0.916859, -0.399233, 0, 0, 0, 1.00001, 105.449, -236.893, -0.632328)
+
+[node name="box_28" parent="." index="154" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.81645, 0.577416, 0, -0.577416, -0.81645, 0, 0, 0, 1, 111.281, -233.619, -0.346056)
+
+[node name="long_cactus19" parent="." index="155" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.337493, 1.51331, 0, -1.22509, 0.416891, 0, 0, 0, 1.50389, 101.862, -227.981, -0.645056)
+
+[node name="long_cactus37" parent="." index="156" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.059638, 1.56795, 0, -1.26933, -0.0736684, 0, 0, 0, 1.50388, 97.1249, -173.481, -0.62765)
+
+[node name="long_cactus38" parent="." index="157" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.632738, 1.31249, 0, -0.976306, 0.850613, 0, 0, 0, 1.46843, 90.8522, -187.408, -0.62765)
+
+[node name="long_cactus44" parent="." index="158" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(-0.059638, 1.56795, 0, -1.26933, -0.0736684, 0, 0, 0, 1.50388, -92.4103, 288.225, 0.775861)
+
+[node name="long_cactus45" parent="." index="159" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.632738, 1.31249, 0, -0.976306, 0.850613, 0, 0, 0, 1.46843, -96.4761, 273.516, 0.407527)
+
+[node name="long_cactus20" parent="." index="160" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(1.36274, -0.318531, 0, 0.27067, 1.6037, 0, 0, 0, 1.90329, 106.284, -245.102, -0.645056)
+
+[node name="long_cactus21" parent="." index="161" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.749785, 0.680917, 0.130262, -0.503276, 1.02291, 0.158667, -0.0173994, -0.245149, 1.02387, 104.982, -241.663, 0.187189)
+
+[node name="box_66" parent="." index="162" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.464628, -1.46715, 0, 1.7281, -0.394467, 0, 0, 0, 1, -100.217, 388.475, -0.654405)
+
+[node name="box_67" parent="." index="163" instance=ExtResource("25_udvv2")]
+transform = Transform3D(-0.248777, 0.96857, 0, -0.96857, -0.248777, 0, 0, 0, 1.00001, -107.542, 392.612, -0.632328)
+
+[node name="box_68" parent="." index="164" instance=ExtResource("23_010cs")]
+transform = Transform3D(-0.714546, 0.699589, 0, -0.699589, -0.714546, 0, 0, 0, 1, -102.303, 396.769, -0.346056)
+
+[node name="long_cactus52" parent="." index="165" instance=ExtResource("21_fqqmy")]
+transform = Transform3D(0.578899, 0.910244, 0.180852, -0.951058, 0.558861, 0.0874811, -0.0214525, -0.213089, 1.00198, -106.165, 386.496, 0.187189)
+
+[node name="MeshPlane_SetDressing#rock_formation2" parent="." index="166" instance=ExtResource("11_da5uh")]
+transform = Transform3D(5.85551, -0.998867, 0, 0.974729, 6.00051, 0, 0, 0, 5.1646, -128.364, -417.96, -0.124992)
+
+[node name="MeshPlane_SetDressing#rock_formation18" parent="." index="167" instance=ExtResource("11_da5uh")]
+transform = Transform3D(2.81915, -5.35329, 0, 5.22393, 2.88896, 0, 0, 0, 5.1646, -128.364, -169.704, -0.124992)
+
+[node name="MeshPlane_SetDressing#rock_14" parent="." index="168" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.65892, -1.1016, 0.00450232, 1.13944, -7.40458, 0.0011158, 0.00649816, 0.00258697, 5.11091, 66.516, -604.815, -3.36951)
+
+[node name="MeshPlane_SetDressing#rock_26" parent="." index="169" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.47228, -1.22613, -0.456987, 1.45524, 2.99236, -0.0829949, 0.729243, -0.133233, 2.34156, 79.8466, -588.905, 1.20985)
+
+[node name="MeshPlane_SetDressing#rock_formation5" parent="." index="170" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-5.01561, -3.25365, 0.00468724, 3.17502, -5.13981, 0, 0.00455202, 0.00295292, 5.1646, 120.858, -592.858, -0.159852)
+
+[node name="MeshPlane_SetDressing#rock_large2" parent="." index="171" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-0.170209, 5.571, 0, -6.99448, -0.135568, 0, 0, 0, 6.03618, -125.221, -281.097, -1.56109)
+
+[node name="MeshPlane_SetDressing#rock_18" parent="." index="172" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.66853, 1.03733, 0, -1.07296, -7.41386, 0, 0, 0, 5.11091, 185.263, -94.0229, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_32" parent="." index="173" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-0.567262, -3.41866, 0, 3.17144, -0.611481, 0, 0, 0, 3.30575, 181.802, -119.849, -10.9589)
+
+[node name="MeshPlane_SetDressing#rock_33" parent="." index="174" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.62758, -0.838869, -0.465436, 1.0053, 3.12318, -0.0260626, 0.732355, -0.132, 2.34122, 157.221, -89.3053, -6.79041)
+
+[node name="MeshPlane_SetDressing#rock_large8" parent="." index="175" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(0.403726, -5.56336, 0, 6.98489, 0.321561, 0, 0, 0, 6.03618, 200.779, -156.561, -1.56109)
+
+[node name="MeshPlane_SetDressing#rock_large19" parent="." index="176" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(4.59522, 4.20222, 0, -5.27596, 3.66002, 0, 0, 0, 6.03618, 175.965, -67.3903, -1.56109)
+
+[node name="MeshPlane_SetDressing#rock_15" parent="." index="177" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.70914, 0.701642, 0, -0.725742, -7.45313, 0, 0, 0, 5.11091, 165.181, -490.699, -9.71416)
+
+[node name="MeshPlane_SetDressing#rock_29" parent="." index="178" instance=ExtResource("10_lf55w")]
+transform = Transform3D(0.110865, -3.47086, 0, 3.21987, 0.119507, 0, 0, 0, 3.30576, 136.648, -559.86, -7.63622)
+
+[node name="MeshPlane_SetDressing#rock_30" parent="." index="179" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.75776, -0.164824, -0.460543, 0.221707, 3.22967, 0.0721849, 0.732355, -0.132, 2.34122, 154.577, -505.148, -3.80404)
+
+[node name="MeshPlane_SetDressing#rock_large5" parent="." index="180" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(1.86045, -5.37202, 0, 6.74466, 1.48182, 0, 0, 0, 6.03618, 164.38, -542.037, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_medium2" parent="." index="181" instance=ExtResource("13_2om4r")]
+transform = Transform3D(4.20126, 0.576745, 1.28941, 0.481824, 5.14179, -0.521829, -3.61279, 1.35643, 1.42984, -96.1365, -378.018, 9.29324)
+
+[node name="MeshPlane_SetDressing#rock_medium4" parent="." index="182" instance=ExtResource("13_2om4r")]
+transform = Transform3D(-0.504029, 2.7558, 0.421332, -3.36847, -0.308315, -0.258627, -0.431354, -0.812436, 1.52731, -84.5838, -379.45, 3.89045)
+
+[node name="MeshPlane_SetDressing#rock_plate2" parent="." index="183" instance=ExtResource("14_eesff")]
+transform = Transform3D(4.34899, 6.95303, 0, -8.61178, 3.51131, 0, 0, 0, 6.89716, -119.617, -459.296, 5.40834)
+
+[node name="MeshPlane_SetDressing#rock_31" parent="." index="184" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.93003, -6.17658, 0.33219, 2.71829, -8.78008, -0.35567, 0.929675, -0.438181, 2.44422, 180.958, -303.91, 1.18237)
+
+[node name="MeshPlane_SetDressing#rock_formation7" parent="." index="185" instance=ExtResource("11_da5uh")]
+transform = Transform3D(5.7817, 1.37833, 0, -1.34502, 5.92487, 0, 0, 0, 5.1646, 204.106, -225.392, -0.124977)
+
+[node name="MeshPlane_SetDressing#rock_formation12" parent="." index="186" instance=ExtResource("11_da5uh")]
+transform = Transform3D(5.7817, 1.37833, 0, -1.34502, 5.92487, 0, 0, 0, 5.1646, 204.106, -225.392, -0.124977)
+
+[node name="MeshPlane_SetDressing#rock_formation13" parent="." index="187" instance=ExtResource("11_da5uh")]
+transform = Transform3D(5.7817, 1.37833, 0, -1.34502, 5.92487, 0, 0, 0, 5.1646, 130.876, -62.9161, -0.124977)
+
+[node name="MeshPlane_SetDressing#rock_medium3" parent="." index="188" instance=ExtResource("13_2om4r")]
+transform = Transform3D(2.94995, -2.80464, 1.32886, 3.02994, 4.34795, 0.411111, -3.61279, 1.35643, 1.42984, 184.3, -187.636, 5.60381)
+
+[node name="MeshPlane_SetDressing#rock_large28" parent="." index="189" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(0.403726, -5.56336, 0, 6.98489, 0.321561, 0, 0, 0, 6.03618, 209.017, -348, -1.56109)
+
+[node name="MeshPlane_SetDressing#rock_medium5" parent="." index="190" instance=ExtResource("13_2om4r")]
+transform = Transform3D(2.94995, -2.80464, 1.32886, 3.02994, 4.34795, 0.411111, -3.61279, 1.35643, 1.42984, 192.538, -379.075, 5.60381)
+
+[node name="MeshPlane_SetDressing#rock_plate4" parent="." index="191" instance=ExtResource("14_eesff")]
+transform = Transform3D(0.714467, 7.76796, 0, -9.62112, 0.576851, 0, 0, 0, 6.89716, 196.335, -266.923, 5.40835)
+
+[node name="MeshPlane_SetDressing#rock_small2" parent="." index="192" instance=ExtResource("15_5thln")]
+transform = Transform3D(-10.6256, 6.66178, 0, -4.77886, -12.8277, -1.70831, -1.87965, -5.04545, 4.34325, -95.4626, -485.895, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_small3" parent="." index="193" instance=ExtResource("15_5thln")]
+transform = Transform3D(-4.79381, 20.1875, -1.00317, -10.9037, -9.07684, -1.7487, -3.46029, 0.63461, 6.90009, -3.09816, -615.965, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large3" parent="." index="194" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(3.32091, -0.914124, 0.542307, 0.926213, 3.60889, -0.33283, -0.519562, 0.590638, 2.87296, -68.4014, -497.291, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_16" parent="." index="195" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.02458, 3.14954, 0, -3.25772, -6.79131, 0, 0, 0, 5.11091, 189.765, -463.45, -6.21631)
+
+[node name="MeshPlane_SetDressing#rock_43" parent="." index="196" instance=ExtResource("9_6417l")]
+transform = Transform3D(-6.25302, 4.41531, 0, -4.56697, -6.04537, 0, 0, 0, 5.11091, 54.5657, 200.874, -9.71416)
+
+[node name="MeshPlane_SetDressing#rock_44" parent="." index="197" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.11554, -1.79366, -0.432656, 2.11267, 2.69086, -0.173549, 0.732355, -0.132, 2.34122, 48.2933, 183.87, -3.80404)
+
+[node name="MeshPlane_SetDressing#rock_large15" parent="." index="198" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-1.85138, -5.37401, 0, 6.74716, -1.4746, 0, 0, 0, 6.03619, 80.1376, 156.351, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_45" parent="." index="199" instance=ExtResource("9_6417l")]
+transform = Transform3D(-4.36965, 6.18019, 0, -6.39247, -4.22454, 0, 0, 0, 5.11091, 69.9956, 129.052, -6.21631)
+
+[node name="MeshPlane_SetDressing#rock_plate3" parent="." index="200" instance=ExtResource("14_eesff")]
+transform = Transform3D(2.82858, 6.55755, -0.240851, -12.8211, 1.2569, -2.03951, -3.86792, 0.629199, 6.58431, 163.468, -411.191, 3.22311)
+
+[node name="MeshPlane_SetDressing#rock_small4" parent="." index="201" instance=ExtResource("15_5thln")]
+transform = Transform3D(-5.49157, -12.3441, -1.70434, 10.2754, -7.52012, -0.11637, -1.87965, -5.04545, 4.34325, 166.98, -440.915, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large6" parent="." index="202" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(1.07282, 3.56472, -0.308411, -3.27649, 1.07353, -0.556556, -0.519562, 0.590638, 2.87296, 156.09, -463.708, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_plate8" parent="." index="203" instance=ExtResource("14_eesff")]
+transform = Transform3D(-3.72879, -6.45216, 0.0959187, 12.5888, -1.7178, 2.05144, -3.86792, 0.629199, 6.58431, 189.701, -461.218, 3.22311)
+
+[node name="MeshPlane_SetDressing#rock_large22" parent="." index="204" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-1.302, -3.47981, 0.268252, 3.19236, -1.3231, 0.576986, -0.519562, 0.590638, 2.87296, 193.345, -408.311, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_19" parent="." index="205" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.47886, -1.93943, 0, 2.00605, -7.23049, 0, 0, 0, 5.11091, -118.157, -239.034, -8.77412)
+
+[node name="MeshPlane_SetDressing#rock_plate5" parent="." index="206" instance=ExtResource("14_eesff")]
+transform = Transform3D(-0.0867815, 6.67297, -0.687389, -13.1292, -0.229484, -1.93523, -3.86792, 0.629199, 6.58431, -85.4984, -166.309, 4.16316)
+
+[node name="MeshPlane_SetDressing#rock_large9" parent="." index="207" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-0.857516, 3.5827, -0.559318, -3.33931, -1.01191, -0.303373, -0.519562, 0.590638, 2.87296, -106.32, -208.789, 0.642876)
+
+[node name="MeshPlane_SetDressing#rock_large4" parent="." index="208" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(1.31274, 3.86865, -0.432433, -2.66609, 1.79125, -1.13197, -0.447843, 0.676367, 5.47127, -53.8146, -571.289, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation3" parent="." index="209" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-6.10808, -0.623919, 0, 0.716346, -5.31997, 0, 0, 0, 4.25846, -72.5368, -529.988, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_20" parent="." index="210" instance=ExtResource("9_6417l")]
+transform = Transform3D(-7.57292, 1.56143, 0, -1.61506, -7.32143, 0, 0, 0, 5.11091, -50.1353, -79.2298, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_small5" parent="." index="211" instance=ExtResource("15_5thln")]
+transform = Transform3D(-1.31746, -14.2468, -1.62723, 11.576, -2.44067, 0.520037, -1.87965, -5.04545, 4.34325, -51.337, -105.776, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large10" parent="." index="212" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-0.128682, 3.71588, -0.48212, -3.44525, -0.227862, -0.41525, -0.519562, 0.590638, 2.87296, -65.5652, -130.609, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_large31" parent="." index="213" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(3.29261, -1.01853, 0.551743, 1.02226, 3.58082, -0.316942, -0.519562, 0.590638, 2.87296, -84.0867, -155.878, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation8" parent="." index="214" instance=ExtResource("11_da5uh")]
+transform = Transform3D(2.54174, -4.87755, 0, 5.60012, 2.21379, 0, 0, 0, 4.25846, -100.316, -114.191, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_formation21" parent="." index="215" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-1.59763, 5.85862, 0, -5.71705, -1.63719, 0, 0, 0, 5.1646, 238.848, -140.832, -0.124992)
+
+[node name="MeshPlane_SetDressing#rock_large30" parent="." index="216" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(0.0999357, -3.71765, 0.478639, 3.44621, 0.19685, 0.419257, -0.519562, 0.590638, 2.87296, 208.727, -107.571, 0.642876)
+
+[node name="MeshPlane_SetDressing#rock_formation22" parent="." index="217" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-1.24408, 5.24569, 0, -6.02279, -1.08356, 0, 0, 0, 4.25846, 223.734, -201.164, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_plate7" parent="." index="218" instance=ExtResource("14_eesff")]
+transform = Transform3D(12.662, -1.06797, 2.3777, 2.48623, 6.59111, -0.230764, -4.5644, 0.627534, 6.47025, -47.2288, 471.633, 4.16316)
+
+[node name="MeshPlane_SetDressing#rock_large20" parent="." index="219" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-0.406478, 3.68534, -0.514079, -3.4236, -0.527191, -0.37496, -0.519562, 0.590638, 2.87296, -128.558, 419.883, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation16" parent="." index="220" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-6.08298, -0.788315, 0, 0.905088, -5.2981, 0, 0, 0, 4.25846, -103.075, 454.47, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_17" parent="." index="221" instance=ExtResource("9_6417l")]
+transform = Transform3D(-3.51824, 6.66872, 0, -6.89779, -3.4014, 0, 0, 0, 5.11091, 168.09, -330.989, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_large7" parent="." index="222" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(2.59399, 2.51858, 0.0186025, -2.27103, 2.74162, -0.636024, -0.519562, 0.590638, 2.87296, 157.159, -345.812, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation6" parent="." index="223" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-2.74649, -4.79261, 0, 5.5026, -2.39212, 0, 0, 0, 4.25846, 178.81, -367.097, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_34" parent="." index="224" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-4.69237, -2.11294, 0.447382, 0.903308, -10.525, -0.191573, 0.929675, -0.438181, 2.44422, 74.4145, 39.9317, 7.80623)
+
+[node name="MeshPlane_SetDressing#rock_plate6" parent="." index="225" instance=ExtResource("14_eesff")]
+transform = Transform3D(3.67801, 6.45903, -0.104189, -12.6038, 1.69177, -2.05104, -3.86793, 0.629199, 6.58431, 97.4412, -61.0668, 9.84697)
+
+[node name="MeshPlane_SetDressing#rock_21" parent="." index="226" instance=ExtResource("9_6417l")]
+transform = Transform3D(-0.438984, 7.47404, 0, -7.73077, -0.424407, 0, 0, 0, 5.11091, 66.9726, 10.4956, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_35" parent="." index="227" instance=ExtResource("9_6417l")]
+transform = Transform3D(4.18161, -6.30061, 0, 6.51703, 4.04274, 0, 0, 0, 5.11091, -43.9526, -26.1405, -9.71416)
+
+[node name="MeshPlane_SetDressing#rock_36" parent="." index="228" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.34344, 1.46299, 0.450138, -1.72956, -2.88402, 0.121187, 0.732355, -0.132, 2.34122, -53.7868, -8.62939, -3.80404)
+
+[node name="MeshPlane_SetDressing#rock_large11" parent="." index="229" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(1.5005, 5.44299, 0, -6.83376, 1.19513, 0, 0, 0, 6.03618, -57.2327, 1.15207, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_37" parent="." index="230" instance=ExtResource("9_6417l")]
+transform = Transform3D(5.09468, -5.63746, 0, 5.8311, 4.9255, 0, 0, 0, 5.11091, -68.995, -61.0281, -6.21631)
+
+[node name="MeshPlane_SetDressing#rock_large12" parent="." index="231" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-2.31167, -2.82091, 0.0556414, 2.55784, -2.42944, 0.633859, -0.519562, 0.590638, 2.87296, -29.8079, -57.4953, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_38" parent="." index="232" instance=ExtResource("9_6417l")]
+transform = Transform3D(-2.74032, -7.00161, 0, 7.24211, -2.64932, 0, 0, 0, 5.11091, 205.658, -305.056, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_70" parent="." index="233" instance=ExtResource("9_6417l")]
+transform = Transform3D(-2.74032, -7.00161, 0, 7.24211, -2.64932, 0, 0, 0, 5.11091, 190.984, -282.271, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_plate9" parent="." index="234" instance=ExtResource("14_eesff")]
+transform = Transform3D(-7.50597, -4.89364, 0, 6.06109, -6.06022, 0, 0, 0, 6.89716, -56.5851, -596.52, 5.40835)
+
+[node name="MeshPlane_SetDressing#rock_63" parent="." index="235" instance=ExtResource("9_6417l")]
+transform = Transform3D(-2.62394, -7.04315, 0, 7.28508, -2.5368, 0, 0, 0, 5.11091, -83.9882, -532.089, -3.37688)
+
+[node name="MeshPlane_SetDressing#rock_64" parent="." index="236" instance=ExtResource("9_6417l")]
+transform = Transform3D(7.1568, 2.8578, 0, -2.95596, 6.91914, 0, 0, 0, 5.11091, -81.4943, -571.508, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_formation9" parent="." index="237" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-4.7317, -3.42159, 0, 3.92847, -4.12118, 0, 0, 0, 4.25846, 97.9216, -18.7588, 4.4336)
+
+[node name="MeshPlane_SetDressing#rock_41" parent="." index="238" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.85477, -6.41272, 0.32241, 2.824, -8.60912, -0.364559, 0.929675, -0.43818, 2.44422, -88.6039, 169.757, -0.621155)
+
+[node name="MeshPlane_SetDressing#rock_42" parent="." index="239" instance=ExtResource("9_6417l")]
+transform = Transform3D(-3.65216, 6.60109, 0, -6.82783, -3.53087, 0, 0, 0, 5.11091, -96.8023, 193.031, 3.24696)
+
+[node name="MeshPlane_SetDressing#rock_formation11" parent="." index="240" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-2.63861, -4.83838, 0, 5.55514, -2.29815, 0, 0, 0, 4.25846, -101.947, 108.063, 4.43358)
+
+[node name="MeshPlane_SetDressing#rock_formation4" parent="." index="241" instance=ExtResource("11_da5uh")]
+transform = Transform3D(4.55539, -0.875746, 0, 0.892825, 4.46826, 0, 0, 0, 2.83896, -33.6827, -596.554, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_small11" parent="." index="242" instance=ExtResource("15_5thln")]
+transform = Transform3D(-11.015, -8.5923, -1.77215, 4.53213, -20.3984, 0.961136, -3.46029, 0.63461, 6.90009, 163.233, -565.054, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large29" parent="." index="243" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-2.63399, 1.8831, -1.14197, -1.37602, -3.82478, 0.405285, -0.447843, 0.676367, 5.47127, 206.685, -513.285, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation20" parent="." index="244" instance=ExtResource("11_da5uh")]
+transform = Transform3D(1.00133, 4.44608, 0, -4.53278, 0.982171, 0, 0, 0, 2.83896, 181.908, -534.015, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_24" parent="." index="245" instance=ExtResource("10_lf55w")]
+transform = Transform3D(2.95556, -2.35968, 0.562358, 2.13257, 4.78289, 0, -2.01003, 1.60478, 0.826894, -37.2448, -553.124, 10.1587)
+
+[node name="MeshPlane_SetDressing#rock_large17" parent="." index="246" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(0.939062, 4.07583, -0.581947, -2.81948, 1.25007, -1.06287, -0.447843, 0.676367, 5.47126, -117.87, 211.113, -0.297173)
+
+[node name="MeshPlane_SetDressing#rock_formation14" parent="." index="247" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-6.13009, -0.430047, 0, 0.493754, -5.33914, 0, 0, 0, 4.25846, -133.033, 254.571, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_formation15" parent="." index="248" instance=ExtResource("11_da5uh")]
+transform = Transform3D(4.63439, -0.261707, 0, 0.266812, 4.54574, 0, 0, 0, 2.83896, -101.35, 183.351, -2.19026)
+
+[node name="MeshPlane_SetDressing#rock_46" parent="." index="249" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.21746, -1.68926, 0.557162, 1.71206, 5.0587, -0.0762624, -2.01003, 1.60478, 0.826894, -98.9898, 226.863, 10.1587)
+
+[node name="MeshPlane_SetDressing#rock_27" parent="." index="250" instance=ExtResource("10_lf55w")]
+transform = Transform3D(0.604489, 8.69449, 0.0770934, -3.93115, 1.26609, 0.187889, 0.460704, -0.604605, 1.50209, 38.0428, -612.84, 5.53313)
+
+[node name="MeshPlane_SetDressing#rock_39" parent="." index="251" instance=ExtResource("9_6417l")]
+transform = Transform3D(-2.23149, 2.76645, 0.000953676, -3.27874, -1.88283, 0.00454202, 0.00332835, 0.00115641, 5.11371, 35.0149, 93.2555, -19.9042)
+
+[node name="MeshPlane_SetDressing#rock_69" parent="." index="252" instance=ExtResource("9_6417l")]
+transform = Transform3D(3.60951, 1.38671, -0.00463794, -1.6435, 3.04554, 0.000170064, 0.00332835, 0.00115641, 5.11371, 37.4465, 78.7867, -19.9042)
+
+[node name="MeshPlane_SetDressing#rock_68" parent="." index="253" instance=ExtResource("9_6417l")]
+transform = Transform3D(-2.74184, -2.41791, 0.00424363, 2.86566, -2.31344, -0.0018791, 0.00332835, 0.00115641, 5.11371, -110.752, 372.814, -19.9042)
+
+[node name="MeshPlane_SetDressing#rock_formation10" parent="." index="254" instance=ExtResource("11_da5uh")]
+transform = Transform3D(-5.7161, 1.64067, 0.00313747, -1.60102, -5.85766, 0.00348231, 0.00455202, 0.00295292, 5.1646, 66.5103, 232.737, -2.17252)
+
+[node name="MeshPlane_SetDressing#rock_small6" parent="." index="255" instance=ExtResource("15_5thln")]
+transform = Transform3D(11.0865, 8.26295, 1.78739, -4.3543, 20.5341, -0.932497, -3.46029, 0.634609, 6.90009, 53.7372, 54.6607, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large13" parent="." index="256" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-2.79578, -5.06102, -0.751935, 6.40407, -2.24428, 0, -0.351008, -0.635407, 5.98916, -67.6193, 57.9113, -1.42698)
+
+[node name="MeshPlane_SetDressing#rock_large16" parent="." index="257" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-2.81773, -5.10075, 0, 6.40407, -2.24428, 0, 0, 0, 6.03618, 74.7888, 86.1414, -0.000564575)
+
+[node name="MeshPlane_SetDressing#rock_large24" parent="." index="258" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(4.89453, 3.98205, 0, -4.99953, 3.89842, 0, 0, 0, 6.03619, 142.82, -60.7922, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_57" parent="." index="259" instance=ExtResource("9_6417l")]
+transform = Transform3D(0.716192, -7.454, 0, 7.71003, 0.692407, 0, 0, 0, 5.11091, 138.432, -32.0027, -6.21631)
+
+[node name="MeshPlane_SetDressing#rock_58" parent="." index="260" instance=ExtResource("10_lf55w")]
+transform = Transform3D(4.54073, -3.26317, -0.484124, 1.48866, 10.227, -0.0497471, 0.929675, -0.438181, 2.44422, 91.2971, 43.7619, 7.80623)
+
+[node name="MeshPlane_SetDressing#rock_59" parent="." index="261" instance=ExtResource("9_6417l")]
+transform = Transform3D(-3.36985, -6.73997, 0, 6.97149, -3.25794, 0, 0, 0, 5.11091, 83.5105, 73.1087, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_61" parent="." index="262" instance=ExtResource("9_6417l")]
+transform = Transform3D(-1.64004, 7.31625, 0, -7.56755, -1.58557, 0, 0, 0, 5.11091, -152.988, 225.055, -6.21631)
+
+[node name="MeshPlane_SetDressing#rock_small10" parent="." index="263" instance=ExtResource("15_5thln")]
+transform = Transform3D(11.9101, -0.079998, 2.00699, 0.14224, 22.1341, -0.19058, -3.46029, 0.634609, 6.90009, -140.029, 150.019, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large27" parent="." index="264" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-5.02237, -3.87975, 0, 4.87109, -4.00024, 0, 0, 0, 6.03618, -132.385, 187.111, -0.000564575)
+
+[node name="MeshPlane_SetDressing#rock_62" parent="." index="265" instance=ExtResource("9_6417l")]
+transform = Transform3D(-5.74755, -5.01644, 0, 5.18876, -5.55668, 0, 0, 0, 5.11091, -119.397, 178.323, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_small9" parent="." index="266" instance=ExtResource("15_5thln")]
+transform = Transform3D(-11.8062, 2.74659, -2.01533, -1.57638, -21.9632, -0.0526516, -3.46029, 0.634609, 6.90009, 116.525, 40.9253, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_65" parent="." index="267" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.18495, 8.05943, -0.239753, -3.56236, 7.09124, 0.423521, 0.929675, -0.438181, 2.44422, -153.208, -231.762, 7.80623)
+
+[node name="MeshPlane_SetDressing#rock_66" parent="." index="268" instance=ExtResource("9_6417l")]
+transform = Transform3D(5.03447, -5.68779, 0, 5.88316, 4.86728, 0, 0, 0, 5.11091, -129.448, -212.858, 3.24698)
+
+[node name="MeshPlane_SetDressing#rock_small12" parent="." index="269" instance=ExtResource("15_5thln")]
+transform = Transform3D(-6.17947, -19.0174, -0.856579, 10.1826, -11.3254, 1.82499, -3.46029, 0.634609, 6.90009, -145.687, -256.009, 1.07465)
+
+[node name="MeshPlane_SetDressing#rock_large25" parent="." index="270" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(5.57274, 3.36945, 0, -4.2304, 4.43861, 0, 0, 0, 6.03618, 113.407, 3.18302, -0.000564575)
+
+[node name="MeshPlane_SetDressing#rock_56" parent="." index="271" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-4.69237, -2.11294, 0.447382, 0.903308, -10.525, -0.191573, 0.929675, -0.438181, 2.44422, -73.8923, -31.863, 0.259019)
+
+[node name="MeshPlane_SetDressing#rock_small8" parent="." index="272" instance=ExtResource("15_5thln")]
+transform = Transform3D(11.0865, 8.26295, 1.78739, -4.3543, 20.5341, -0.932497, -3.46029, 0.634609, 6.90009, -94.5696, -17.134, -6.47256)
+
+[node name="MeshPlane_SetDressing#rock_large23" parent="." index="273" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-2.81773, -5.10075, 0, 6.40407, -2.24428, 0, 0, 0, 6.03618, -73.518, 14.3467, -7.54778)
+
+[node name="MeshPlane_SetDressing#rock_large14" parent="." index="274" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(4.84023, 4.02393, 0, -5.05211, 3.85518, 0, 0, 0, 6.03618, -112.686, 144.499, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_60" parent="." index="275" instance=ExtResource("9_6417l")]
+transform = Transform3D(2.60473, -7.04982, 0, 7.29197, 2.51823, 0, 0, 0, 5.11091, 75.0095, 273.405, 3.24696)
+
+[node name="MeshPlane_SetDressing#rock_formation19" parent="." index="276" instance=ExtResource("11_da5uh")]
+transform = Transform3D(3.42939, 4.44633, 0, -5.10501, 2.9869, 0, 0, 0, 4.25846, 67.5608, 358.202, 4.43358)
+
+[node name="MeshPlane_SetDressing#rock_large26" parent="." index="277" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-5.53269, -3.41105, 0, 4.28263, -4.40672, 0, 0, 0, 6.03618, 83.5584, 323.749, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_54" parent="." index="278" instance=ExtResource("10_lf55w")]
+transform = Transform3D(4.71692, -1.63387, -0.485973, 0.76478, 10.6099, 0.0261065, 0.929675, -0.43818, 2.44422, 50.2486, 438.106, -0.62114)
+
+[node name="MeshPlane_SetDressing#rock_55" parent="." index="279" instance=ExtResource("9_6417l")]
+transform = Transform3D(-5.34887, -5.41291, 0, 5.59885, -5.17125, 0, 0, 0, 5.11091, 52.8775, 401.556, 3.24697)
+
+[node name="MeshPlane_SetDressing#rock_formation17" parent="." index="280" instance=ExtResource("11_da5uh")]
+transform = Transform3D(6.13499, 0.373372, 0, -0.428674, 5.34341, 0, 0, 0, 4.25846, 1.82177, 481.675, 4.4336)
+
+[node name="MeshPlane_SetDressing#rock_large21" parent="." index="281" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-6.77768, 1.38295, 0, -1.7363, -5.39832, 0, 0, 0, 6.03618, 42.0025, 474.091, -6.69793)
+
+[node name="MeshPlane_SetDressing#rock_51" parent="." index="282" instance=ExtResource("10_lf55w")]
+transform = Transform3D(4.11225, 5.54088, -0.356486, -2.43386, 9.19449, 0.331314, 0.929675, -0.43818, 2.44422, -134.331, 325.463, -0.621155)
+
+[node name="MeshPlane_SetDressing#rock_52" parent="." index="283" instance=ExtResource("9_6417l")]
+transform = Transform3D(2.96757, -6.91449, 0, 7.152, 2.86902, 0, 0, 0, 5.11091, -119.555, 297.685, 3.24696)
+
+[node name="MeshPlane_SetDressing#rock_53" parent="." index="284" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.44918, 2.60193, 0.308222, -2.01823, -4.86945, 0.0214601, 1.16334, -0.733355, 0.951072, -122.289, 325.861, 10.1587)
+
+[node name="MeshPlane_SetDressing#rock_large18" parent="." index="285" instance=ExtResource("12_hgf4t")]
+transform = Transform3D(-5.31069, -3.62801, 0, 4.55503, -4.22989, 0, 0, 0, 6.03618, -129.944, 379.898, -6.54749)
+
+[node name="MeshPlane_SetDressing#rock_40" parent="." index="286" instance=ExtResource("10_lf55w")]
+transform = Transform3D(3.97147, 0.547535, -0.168038, -0.216211, 8.76911, 0.114057, 0.460704, -0.604605, 1.50209, 44.5649, 77.7496, 5.53313)
+
+[node name="MeshPlane_SetDressing#rock_47" parent="." index="287" instance=ExtResource("10_lf55w")]
+transform = Transform3D(4.67282, 2.3599, -0.434382, -0.873373, 10.3013, 0.54894, 1.04906, -1.93559, 2.39187, 40.4773, 322.267, 5.54034)
+
+[node name="MeshPlane_SetDressing#rock_48" parent="." index="288" instance=ExtResource("9_6417l")]
+transform = Transform3D(1.72936, -7.29474, 0.123597, 7.46659, 1.68061, 0.718768, -1.10317, -0.0605621, 5.05861, 35.7233, 366.691, -3.17273)
+
+[node name="MeshPlane_SetDressing#rock_67" parent="." index="289" instance=ExtResource("9_6417l")]
+transform = Transform3D(3.39228, 2.0796, 0.51755, -1.64907, 4.29062, -0.21588, -0.542912, -0.0385745, 3.88955, -107.724, 360.389, -3.17273)
+
+[node name="MeshPlane_SetDressing#rock_49" parent="." index="290" instance=ExtResource("9_6417l")]
+transform = Transform3D(3.43551, -1.65892, 0.319436, 1.92644, 2.89391, 0.651081, -0.464575, -0.267532, 5.06203, 54.2766, 241.693, -14.2773)
+
+[node name="MeshPlane_SetDressing#rock_small7" parent="." index="291" instance=ExtResource("15_5thln")]
+transform = Transform3D(-8.26142, -16.3494, -0.761149, 8.31998, -14.5039, 2.50086, -4.04623, 3.55829, 6.69641, 55.6721, 286.92, 0.979451)
+
+[node name="MeshPlane_SetDressing#rock_50" parent="." index="292" instance=ExtResource("10_lf55w")]
+transform = Transform3D(-3.43962, -4.36256, 0.195569, 2.00497, -7.62262, 0.0168114, 0.425136, 0.652917, 1.50299, 54.0895, 262.937, 8.68705)
+
+[node name="MeshPlane_LevelParts_Door_TopRoomTopWall2_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="." index="293"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00305939, 0.00335693, 0)
+shape = SubResource("BoxShape3D_dkjqa")
+
+[node name="MeshPlane_LevelParts_Door_TopRoomTopWall2#StaticBody3D" type="StaticBody3D" parent="." index="294"]
+
+[node name="MeshPlane_LevelParts_Door_TopRoomTopWall_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="." index="295"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00305939, 0.00335693, 0)
+shape = SubResource("BoxShape3D_d5xml")
+
+[node name="MeshPlane_LevelParts_Door_TopRoomTopWall#StaticBody3D" type="StaticBody3D" parent="." index="296"]
+
+[node name="PinkSunChanged" parent="Light_" index="0"]
+light_energy = 0.8
+
+[node name="YellowSunChanged" parent="Light_" index="1"]
+light_color = Color(0.949191, 0.824925, 0.741651, 1)
+light_energy = 1.4
+
+[node name="Enemies" parent="SpritePlane" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.58)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D" index="0"]
+transform = Transform3D(1.62958e-07, -0.729109, -0.684397, 2.98023e-08, 0.684397, -0.729109, 1, 9.84174e-08, 1.33257e-07, 3.90831, 2.57068, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D2" index="0"]
+transform = Transform3D(4.82558e-08, -0.674692, -0.7381, 2.98023e-08, 0.7381, -0.674692, 1, 1.05607e-08, 5.5725e-08, -0.0852203, 0.0198364, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D4" index="0"]
+transform = Transform3D(-4.37114e-08, -0.480832, -0.876812, 0, 0.876812, -0.480832, 1, -2.10178e-08, -3.83267e-08, -0.10244, -0.0540161, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D6" index="0"]
+transform = Transform3D(-4.37114e-08, -0.883462, -0.468504, 0, 0.468504, -0.883462, 1, -3.86173e-08, -2.0479e-08, -0.270947, 0.0247288, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D7" index="0"]
+transform = Transform3D(-1.62921e-07, 0.238789, 0.971072, 0, 0.971072, -0.238789, -1, -3.89036e-08, -1.58208e-07, 3.86935, 0.145554, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D3" index="0"]
+transform = Transform3D(-4.37114e-08, -0.838775, 0.544477, 0, 0.544477, 0.838775, -1, 3.6664e-08, -2.37998e-08, -90.0059, 413.417, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D8" index="0"]
+transform = Transform3D(7.54979e-08, 0.511808, -0.8591, 0, 0.8591, 0.511808, 1, -3.86404e-08, 6.48602e-08, -74.6147, 421.022, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D9" index="0"]
+transform = Transform3D(-4.37114e-08, -0.0134995, -0.999909, 0, 0.999909, -0.0134995, 1, -5.90082e-10, -4.37074e-08, -54.4474, 337.712, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D11" index="0"]
+transform = Transform3D(-4.37114e-08, 0.485634, 0.874162, 0, 0.874162, -0.485634, -1, -2.12277e-08, -3.82108e-08, 129.629, -489.851, -0.01)
+
+[node name="TutorialPivot" type="Marker3D" parent="SpritePlane" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.75471, 0, 0.75471, 0.656059, -67.1413, -366.347, 1.49998)
+
+[node name="InGameTutorial3D" parent="SpritePlane/TutorialPivot" index="0" instance=ExtResource("2_uidj2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.585108, -0.221413, 0, 0.132848, 0.97518, 0.165, 0, 105.53)
+
+[node name="TutorialRemote" type="RemoteTransform3D" parent="SpritePlane/Player" index="9"]
+remote_path = NodePath("../../TutorialPivot")
+update_rotation = false
+update_scale = false
+
+[node name="MeshPlane_LevelParts_Door#TopRoomTopWall2" type="CSGBox3D" parent="." index="299"]
+transform = Transform3D(1.70475, 1.04586, 0, -1.04586, 1.70475, 0, 0, 0, 2, 4.83044, 379.649, -7.62939e-06)
+size = Vector3(22, 1, 1)
+
+[node name="Pins" type="Node3D" parent="MeshPlane" index="0"]
+transform = Transform3D(0.998194, 0.0600732, 0, -0.0600732, 0.998194, 0, 0, 0, 1, 2.3567, 414.854, -3.8147e-06)
+
+[node name="DarianLevelPart#ExplosionPin7" parent="MeshPlane/Pins" index="0" instance=ExtResource("3_flts2")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.76722, 0.223892, 0)
+
+[node name="DarianLevelPart#ExplosionPin11" parent="MeshPlane/Pins" index="1" instance=ExtResource("3_flts2")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3864, 0.131866, 0)
+
+[node name="DarianLevelPart#ExplosionPin13" parent="MeshPlane/Pins" index="2" instance=ExtResource("3_flts2")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 3.74048, -11.6371, 0)
+
+[node name="DarianLevelPart#ExplosionPin14" parent="MeshPlane/Pins" index="3" instance=ExtResource("3_flts2")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 3.74047, 12.1889, 0)
+
+[node name="DarianLevelPart#GoldBarrelPin" parent="MeshPlane/Pins" index="4" instance=ExtResource("4_jr6ii")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 3.80013, 2.16586, 0)
+
+[node name="DarianLevelPart#GoldBarrelPin28" parent="MeshPlane/Pins" index="5" instance=ExtResource("4_jr6ii")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 1.93886, -1.1841, 0)
+
+[node name="DarianLevelPart#GoldBarrelPin29" parent="MeshPlane/Pins" index="6" instance=ExtResource("4_jr6ii")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.8475, -1.18414, 0)
+
+[node name="DarianLevelPart#SilverBarrelPin" parent="MeshPlane/Pins" index="7" instance=ExtResource("5_4eovd")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 3.88721, -4.48813, 0)
+
+[node name="DarianLevelPart#SilverBarrelPin2" parent="MeshPlane/Pins" index="8" instance=ExtResource("5_4eovd")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 7.75775, 2.23587, 0)
+
+[node name="DarianLevelPart#SilverBarrelPin3" parent="MeshPlane/Pins" index="9" instance=ExtResource("5_4eovd")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.178864, 2.14987, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin" parent="MeshPlane/Pins" index="10" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 1.79869, 5.50586, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin2" parent="MeshPlane/Pins" index="11" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.79916, 5.50589, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin3" parent="MeshPlane/Pins" index="12" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -2.06762, -1.26811, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin7" parent="MeshPlane/Pins" index="13" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -2.06762, -1.26811, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin4" parent="MeshPlane/Pins" index="14" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 9.77251, -1.14911, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin5" parent="MeshPlane/Pins" index="15" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 7.92341, -4.60808, 0)
+
+[node name="DarianLevelPart#CopperBarrelPin6" parent="MeshPlane/Pins" index="16" instance=ExtResource("6_rds8n")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.0748291, -4.65512, 0)
+
+[node name="DarianLevelPart#OnesidedBumper10" parent="MeshPlane/Pins" index="17" instance=ExtResource("7_t1lg5")]
+transform = Transform3D(0.989095, 0.147274, 0, -0.147274, 0.989095, 0, 0, 0, 1, -63.4616, -71.4401, 0)
+
+[node name="DarianLevelPart#Coins" type="Node3D" parent="MeshPlane" index="1"]
+transform = Transform3D(0.998194, 0.0600732, 0, -0.0600732, 0.998194, 0, 0, 0, 1, 2.3567, 414.854, -3.8147e-06)
+
+[node name="DarianLevelPart#Coin32" parent="MeshPlane/DarianLevelPart#Coins" index="0" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -33.5544, -13.5341, 0)
+
+[node name="DarianLevelPart#Coin33" parent="MeshPlane/DarianLevelPart#Coins" index="1" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -32.8483, -10.5541, 0)
+
+[node name="DarianLevelPart#Coin42" parent="MeshPlane/DarianLevelPart#Coins" index="2" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -31.4137, -7.92708, 0)
+
+[node name="DarianLevelPart#Coin43" parent="MeshPlane/DarianLevelPart#Coins" index="3" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -29.8352, -5.29309, 0)
+
+[node name="DarianLevelPart#Coin44" parent="MeshPlane/DarianLevelPart#Coins" index="4" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -27.8253, -2.99712, 0)
+
+[node name="DarianLevelPart#Coin45" parent="MeshPlane/DarianLevelPart#Coins" index="5" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -25.3744, -1.36014, 0)
+
+[node name="DarianLevelPart#Coin51" parent="MeshPlane/DarianLevelPart#Coins" index="6" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -22.5149, -0.407104, 0)
+
+[node name="DarianLevelPart#Coin181" parent="MeshPlane/DarianLevelPart#Coins" index="7" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -19.6553, 0.367874, 0)
+
+[node name="DarianLevelPart#Coin182" parent="MeshPlane/DarianLevelPart#Coins" index="8" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -16.6767, 0.784912, 0)
+
+[node name="DarianLevelPart#Coin183" parent="MeshPlane/DarianLevelPart#Coins" index="9" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(0.908785, 0.417264, 0, -0.417264, 0.908785, 0, 0, 0, 1, -13.6384, 0.241898, 0)
+
+[node name="DarianLevelPart#Coin46" parent="MeshPlane/DarianLevelPart#Coins" index="10" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, 12.0959, 0)
+
+[node name="DarianLevelPart#Coin47" parent="MeshPlane/DarianLevelPart#Coins" index="11" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, 12.0959, 0)
+
+[node name="DarianLevelPart#Coin48" parent="MeshPlane/DarianLevelPart#Coins" index="12" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, 9.08792, 0)
+
+[node name="DarianLevelPart#Coin49" parent="MeshPlane/DarianLevelPart#Coins" index="13" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, 9.08789, 0)
+
+[node name="DarianLevelPart#Coin50" parent="MeshPlane/DarianLevelPart#Coins" index="14" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, 12.0959, 0)
+
+[node name="DarianLevelPart#Coin52" parent="MeshPlane/DarianLevelPart#Coins" index="15" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, 9.08791, 0)
+
+[node name="DarianLevelPart#Coin53" parent="MeshPlane/DarianLevelPart#Coins" index="16" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, 9.08788, 0)
+
+[node name="DarianLevelPart#Coin54" parent="MeshPlane/DarianLevelPart#Coins" index="17" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.38471, 12.0959, 0)
+
+[node name="DarianLevelPart#Coin55" parent="MeshPlane/DarianLevelPart#Coins" index="18" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38971, 12.0959, 0)
+
+[node name="DarianLevelPart#Coin56" parent="MeshPlane/DarianLevelPart#Coins" index="19" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.3847, 9.08794, 0)
+
+[node name="DarianLevelPart#Coin57" parent="MeshPlane/DarianLevelPart#Coins" index="20" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, 9.08791, 0)
+
+[node name="DarianLevelPart#Coin58" parent="MeshPlane/DarianLevelPart#Coins" index="21" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, 6.1089, 0)
+
+[node name="DarianLevelPart#Coin59" parent="MeshPlane/DarianLevelPart#Coins" index="22" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, 6.10893, 0)
+
+[node name="DarianLevelPart#Coin60" parent="MeshPlane/DarianLevelPart#Coins" index="23" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, 3.10092, 0)
+
+[node name="DarianLevelPart#Coin61" parent="MeshPlane/DarianLevelPart#Coins" index="24" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, 3.10094, 0)
+
+[node name="DarianLevelPart#Coin62" parent="MeshPlane/DarianLevelPart#Coins" index="25" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, 6.10892, 0)
+
+[node name="DarianLevelPart#Coin63" parent="MeshPlane/DarianLevelPart#Coins" index="26" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3617, 6.10892, 0)
+
+[node name="DarianLevelPart#Coin64" parent="MeshPlane/DarianLevelPart#Coins" index="27" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, 3.10094, 0)
+
+[node name="DarianLevelPart#Coin65" parent="MeshPlane/DarianLevelPart#Coins" index="28" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, 3.10092, 0)
+
+[node name="DarianLevelPart#Coin115" parent="MeshPlane/DarianLevelPart#Coins" index="29" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.3847, 6.10887, 0)
+
+[node name="DarianLevelPart#Coin116" parent="MeshPlane/DarianLevelPart#Coins" index="30" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38971, 6.1089, 0)
+
+[node name="DarianLevelPart#Coin117" parent="MeshPlane/DarianLevelPart#Coins" index="31" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.38472, 3.10085, 0)
+
+[node name="DarianLevelPart#Coin118" parent="MeshPlane/DarianLevelPart#Coins" index="32" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, 3.10086, 0)
+
+[node name="DarianLevelPart#Coin119" parent="MeshPlane/DarianLevelPart#Coins" index="33" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, 0.101868, 0)
+
+[node name="DarianLevelPart#Coin120" parent="MeshPlane/DarianLevelPart#Coins" index="34" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, 0.101837, 0)
+
+[node name="DarianLevelPart#Coin121" parent="MeshPlane/DarianLevelPart#Coins" index="35" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, -2.90611, 0)
+
+[node name="DarianLevelPart#Coin122" parent="MeshPlane/DarianLevelPart#Coins" index="36" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, -2.9061, 0)
+
+[node name="DarianLevelPart#Coin123" parent="MeshPlane/DarianLevelPart#Coins" index="37" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, 0.101837, 0)
+
+[node name="DarianLevelPart#Coin124" parent="MeshPlane/DarianLevelPart#Coins" index="38" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, 0.101822, 0)
+
+[node name="DarianLevelPart#Coin125" parent="MeshPlane/DarianLevelPart#Coins" index="39" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, -2.9061, 0)
+
+[node name="DarianLevelPart#Coin126" parent="MeshPlane/DarianLevelPart#Coins" index="40" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, -2.90611, 0)
+
+[node name="DarianLevelPart#Coin127" parent="MeshPlane/DarianLevelPart#Coins" index="41" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.3847, 0.101913, 0)
+
+[node name="DarianLevelPart#Coin128" parent="MeshPlane/DarianLevelPart#Coins" index="42" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, 0.101868, 0)
+
+[node name="DarianLevelPart#Coin129" parent="MeshPlane/DarianLevelPart#Coins" index="43" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.3847, -2.90611, 0)
+
+[node name="DarianLevelPart#Coin130" parent="MeshPlane/DarianLevelPart#Coins" index="44" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, -2.90613, 0)
+
+[node name="DarianLevelPart#Coin131" parent="MeshPlane/DarianLevelPart#Coins" index="45" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.37171, -5.88608, 0)
+
+[node name="DarianLevelPart#Coin132" parent="MeshPlane/DarianLevelPart#Coins" index="46" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, -5.88606, 0)
+
+[node name="DarianLevelPart#Coin133" parent="MeshPlane/DarianLevelPart#Coins" index="47" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.3717, -8.89307, 0)
+
+[node name="DarianLevelPart#Coin134" parent="MeshPlane/DarianLevelPart#Coins" index="48" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, -8.89311, 0)
+
+[node name="DarianLevelPart#Coin135" parent="MeshPlane/DarianLevelPart#Coins" index="49" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, -5.88606, 0)
+
+[node name="DarianLevelPart#Coin136" parent="MeshPlane/DarianLevelPart#Coins" index="50" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, -5.88608, 0)
+
+[node name="DarianLevelPart#Coin137" parent="MeshPlane/DarianLevelPart#Coins" index="51" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, -8.8931, 0)
+
+[node name="DarianLevelPart#Coin138" parent="MeshPlane/DarianLevelPart#Coins" index="52" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 17.3618, -8.89311, 0)
+
+[node name="DarianLevelPart#Coin139" parent="MeshPlane/DarianLevelPart#Coins" index="53" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.38471, -5.88611, 0)
+
+[node name="DarianLevelPart#Coin140" parent="MeshPlane/DarianLevelPart#Coins" index="54" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, -5.88612, 0)
+
+[node name="DarianLevelPart#Coin141" parent="MeshPlane/DarianLevelPart#Coins" index="55" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.38471, -8.89311, 0)
+
+[node name="DarianLevelPart#Coin142" parent="MeshPlane/DarianLevelPart#Coins" index="56" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38971, -8.89307, 0)
+
+[node name="DarianLevelPart#Coin143" parent="MeshPlane/DarianLevelPart#Coins" index="57" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60171, 0.101868, 0)
+
+[node name="DarianLevelPart#Coin144" parent="MeshPlane/DarianLevelPart#Coins" index="58" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60672, -2.90613, 0)
+
+[node name="DarianLevelPart#Coin145" parent="MeshPlane/DarianLevelPart#Coins" index="59" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, -2.9061, 0)
+
+[node name="DarianLevelPart#Coin146" parent="MeshPlane/DarianLevelPart#Coins" index="60" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62177, 0.101852, 0)
+
+[node name="DarianLevelPart#Coin147" parent="MeshPlane/DarianLevelPart#Coins" index="61" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616791, 0.101913, 0)
+
+[node name="DarianLevelPart#Coin148" parent="MeshPlane/DarianLevelPart#Coins" index="62" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62177, -2.90611, 0)
+
+[node name="DarianLevelPart#Coin149" parent="MeshPlane/DarianLevelPart#Coins" index="63" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616791, -2.90608, 0)
+
+[node name="DarianLevelPart#Coin150" parent="MeshPlane/DarianLevelPart#Coins" index="64" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60672, -5.88611, 0)
+
+[node name="DarianLevelPart#Coin151" parent="MeshPlane/DarianLevelPart#Coins" index="65" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, -5.88608, 0)
+
+[node name="DarianLevelPart#Coin152" parent="MeshPlane/DarianLevelPart#Coins" index="66" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60674, -8.89308, 0)
+
+[node name="DarianLevelPart#Coin153" parent="MeshPlane/DarianLevelPart#Coins" index="67" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, -8.89311, 0)
+
+[node name="DarianLevelPart#Coin154" parent="MeshPlane/DarianLevelPart#Coins" index="68" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62176, -5.88609, 0)
+
+[node name="DarianLevelPart#Coin155" parent="MeshPlane/DarianLevelPart#Coins" index="69" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616783, -5.88605, 0)
+
+[node name="DarianLevelPart#Coin156" parent="MeshPlane/DarianLevelPart#Coins" index="70" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62176, -8.89313, 0)
+
+[node name="DarianLevelPart#Coin157" parent="MeshPlane/DarianLevelPart#Coins" index="71" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616776, -8.8931, 0)
+
+[node name="DarianLevelPart#Coin158" parent="MeshPlane/DarianLevelPart#Coins" index="72" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60175, 12.0299, 0)
+
+[node name="DarianLevelPart#Coin159" parent="MeshPlane/DarianLevelPart#Coins" index="73" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60673, 9.0229, 0)
+
+[node name="DarianLevelPart#Coin160" parent="MeshPlane/DarianLevelPart#Coins" index="74" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, 9.02292, 0)
+
+[node name="DarianLevelPart#Coin161" parent="MeshPlane/DarianLevelPart#Coins" index="75" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62178, 12.0299, 0)
+
+[node name="DarianLevelPart#Coin162" parent="MeshPlane/DarianLevelPart#Coins" index="76" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616783, 12.0299, 0)
+
+[node name="DarianLevelPart#Coin163" parent="MeshPlane/DarianLevelPart#Coins" index="77" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.37171, -11.9121, 0)
+
+[node name="DarianLevelPart#Coin164" parent="MeshPlane/DarianLevelPart#Coins" index="78" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 11.3767, -11.9121, 0)
+
+[node name="DarianLevelPart#Coin165" parent="MeshPlane/DarianLevelPart#Coins" index="79" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 14.3567, -11.9121, 0)
+
+[node name="DarianLevelPart#Coin166" parent="MeshPlane/DarianLevelPart#Coins" index="80" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 2.38473, -11.9121, 0)
+
+[node name="DarianLevelPart#Coin167" parent="MeshPlane/DarianLevelPart#Coins" index="81" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 5.38972, -11.9121, 0)
+
+[node name="DarianLevelPart#Coin168" parent="MeshPlane/DarianLevelPart#Coins" index="82" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, -11.9771, 0)
+
+[node name="DarianLevelPart#Coin169" parent="MeshPlane/DarianLevelPart#Coins" index="83" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62177, -11.9771, 0)
+
+[node name="DarianLevelPart#Coin170" parent="MeshPlane/DarianLevelPart#Coins" index="84" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616783, -11.9771, 0)
+
+[node name="DarianLevelPart#Coin171" parent="MeshPlane/DarianLevelPart#Coins" index="85" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62177, 9.0229, 0)
+
+[node name="DarianLevelPart#Coin172" parent="MeshPlane/DarianLevelPart#Coins" index="86" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616791, 9.0229, 0)
+
+[node name="DarianLevelPart#Coin173" parent="MeshPlane/DarianLevelPart#Coins" index="87" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60673, 6.04289, 0)
+
+[node name="DarianLevelPart#Coin174" parent="MeshPlane/DarianLevelPart#Coins" index="88" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.6017, 6.04288, 0)
+
+[node name="DarianLevelPart#Coin175" parent="MeshPlane/DarianLevelPart#Coins" index="89" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -9.60674, 3.03593, 0)
+
+[node name="DarianLevelPart#Coin176" parent="MeshPlane/DarianLevelPart#Coins" index="90" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -6.60172, 3.0359, 0)
+
+[node name="DarianLevelPart#Coin177" parent="MeshPlane/DarianLevelPart#Coins" index="91" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62176, 6.04285, 0)
+
+[node name="DarianLevelPart#Coin178" parent="MeshPlane/DarianLevelPart#Coins" index="92" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616783, 6.04294, 0)
+
+[node name="DarianLevelPart#Coin179" parent="MeshPlane/DarianLevelPart#Coins" index="93" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -3.62177, 3.03589, 0)
+
+[node name="DarianLevelPart#Coin180" parent="MeshPlane/DarianLevelPart#Coins" index="94" instance=ExtResource("8_e7rtl")]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, -0.616776, 3.03589, 0)
+
+[node name="CoinArea" parent="MeshPlane/LevelParts/DarianLevelPart/TopPart" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CoinArrow" parent="MeshPlane/LevelParts/DarianLevelPart/BottomPart" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CoinRightCurve" parent="MeshPlane/LevelParts/DarianLevelPart/BottomPart" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CoinLeftCurve" parent="MeshPlane/LevelParts/DarianLevelPart/BottomPart" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CoinArrow" parent="MeshPlane/LevelParts/GuidingWagonPart" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, 8, 0.75)
+
+[node name="SilverCoins" parent="MeshPlane/LevelParts/KaktusPart" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="MamaEagle_" parent="MeshPlane/LevelParts/BossPinPart" index="0"]
+transform = Transform3D(0.768686, 0.621481, -0.151271, -0.639627, 0.74688, -0.181793, 2.16067e-07, 0.236499, 0.971632, 139.126, -260.838, 27.0826)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/TopFenceKeyBumper" index="3"]
+transform = Transform3D(0.997053, 0.0767191, 0, -0.0767191, 0.997053, 0, 0, 0, 1, -49, 416, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/TopFenceKeyBumper" index="4"]
+transform = Transform3D(0.993171, -0.116671, 0, 0.116671, 0.993171, 0, 0, 0, 1, -31, 416, 0)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/TopDoorWings" index="0"]
+transform = Transform3D(0.135716, 0.990748, 0, -0.990748, 0.135716, 0, 0, 0, 1, 94.0856, -109.822, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/TopDoorWings" index="1"]
+transform = Transform3D(-0.078463, 0.996917, 0, -0.996917, -0.078463, 0, 0, 0, 1, 93.0949, -127.822, 0)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/BottomDoorWings" index="0"]
+transform = Transform3D(0.996345, -0.0854169, 0, 0.0854169, 0.996345, 0, 0, 0, 1, 153, -277, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/BottomDoorWings" index="1"]
+transform = Transform3D(0.989272, 0.146083, 0, -0.146083, 0.989272, 0, 0, 0, 1, 171, -277, 0)
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37" index="0"]
+shape = SubResource("BoxShape3D_dkqgc")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37/Area3D" index="0"]
+shape = SubResource("BoxShape3D_dkqgc")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mkrcu")
+
+[node name="MeshPlane_LevelParts_Door#TopRoomTopWall" type="CSGBox3D" parent="." index="301"]
+transform = Transform3D(0.222278, 1.98761, 0, -1.98761, 0.222278, 0, 0, 0, 2, -17.3861, 426.236, 0)
+size = Vector3(14, 1, 1)
+
+[node name="Background" parent="." index="302"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.1595, -67.4562, -1)
+size = Vector3(507.563, 1209.03, 1.968)
+
+[node name="UI" parent="." index="303"]
+countdown_time = 100
+
+[connection signal="threshold_hit" from="Events/CoinMilestone" to="Events/ScoreMilestoneMessage" method="tigger_reward"]
+[connection signal="threshold_hit" from="Events/ExplosionPinMilestone" to="Events/ScoreMilestoneMessage" method="tigger_reward"]
+[connection signal="threshold_hit" from="Events/CactusBumperMilestone" to="Events/ScoreMilestoneMessage" method="tigger_reward"]
+[connection signal="threshold_hit" from="Events/EnemyMilestone" to="Events/ScoreMilestoneMessage" method="tigger_reward"]
+[connection signal="bonus_time_received" from="SpritePlane/Player" to="." method="_on_player_bonus_time_received"]
+[connection signal="bonus_time_received" from="SpritePlane/Player" to="Events/BonusTime" method="show_bonus_time"]
+
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25"]

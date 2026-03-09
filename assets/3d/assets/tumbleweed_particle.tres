@@ -1,0 +1,11 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://bqmnfycr17t7x"]
+
+[ext_resource type="Texture2D" uid="uid://d0f1vhu4f0il8" path="res://assets/2d/sprites/vfx_particle/tumbleweed_vfx.png" id="1_l20bv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47fxk"]
+transparency = 1
+albedo_texture = ExtResource("1_l20bv")
+
+[resource]
+material = SubResource("StandardMaterial3D_47fxk")
+size = Vector2(5, 5.5)

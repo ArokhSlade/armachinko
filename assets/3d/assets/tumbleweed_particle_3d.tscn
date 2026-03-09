@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctsoxh5ejp3rs"]
+
+[ext_resource type="PlaneMesh" uid="uid://de7xg1cix5oyv" path="res://assets/3d/assets/sheep_particle.tres" id="1_k0yt4"]
+
+[node name="tumbleweed_particle_3d" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999925, -1.45685e-10, -0.0122169, 0.0122169, -1.1924e-08, -0.999925, 0, -1, 1.19249e-08, 0, 0.994359, 0)
+mesh = ExtResource("1_k0yt4")
+skeleton = NodePath("")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0cyn1fd5nnv8"
+path="res://.godot/imported/0.5-2_right_circle.obj-fccef6b20af124542a3192891dddf53e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/0.5-2_right_circle.obj-fccef6b20af124542a3192891dddf53e.mesh"]
+
+source_file="res://features/_experimental/calais/collisionshape/0.5-2_right_circle.obj"
+dest_files=["res://.godot/imported/0.5-2_right_circle.obj-fccef6b20af124542a3192891dddf53e.mesh", "res://.godot/imported/0.5-2_right_circle.obj-fccef6b20af124542a3192891dddf53e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

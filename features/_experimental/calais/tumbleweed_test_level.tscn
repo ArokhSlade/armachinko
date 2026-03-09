@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy4vbc57nggr4"]
+
+[ext_resource type="PackedScene" uid="uid://da83k310qw2pn" path="res://features/player/player.tscn" id="1_5s5kd"]
+[ext_resource type="PackedScene" uid="uid://b5yt85k6a7ds3" path="res://features/pins/tumbleweed/tumbleweed_pin.tscn" id="3_8usrp"]
+
+[sub_resource type="Environment" id="Environment_0odc5"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5v3c8"]
+
+[sub_resource type="Compositor" id="Compositor_4rt8n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2htpa"]
+size = Vector3(1, 32, 1)
+
+[node name="ScorePopupTestLevel" type="WorldEnvironment"]
+environment = SubResource("Environment_0odc5")
+camera_attributes = SubResource("CameraAttributesPractical_5v3c8")
+compositor = SubResource("Compositor_4rt8n")
+
+[node name="TumbleWeedPin" parent="." instance=ExtResource("3_8usrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_5s5kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0)
+physics_material_override = null
+
+[node name="Frame" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+size = Vector3(1, 32, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Frame/CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_2htpa")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.99382e-07, -16, 0)
+size = Vector3(1, 32, 1)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Frame/CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/CSGBox3D4/StaticBody3D4"]
+shape = SubResource("BoxShape3D_2htpa")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+size = Vector3(1, 32, 1)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Frame/CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/CSGBox3D2/StaticBody3D2"]
+shape = SubResource("BoxShape3D_2htpa")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6.99382e-07, 16, 0)
+size = Vector3(1, 32, 1)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Frame/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/CSGBox3D3/StaticBody3D3"]
+shape = SubResource("BoxShape3D_2htpa")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, -9, 21)
+
+[node name="TextPanel3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21335, 1.93174, 0)
+
+[node name="Control" type="Control" parent="TextPanel3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="TextPanel3D/Control"]
+layout_mode = 0
+offset_right = 553.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 60
+text = "123456"
+
+[node name="SubViewport" type="SubViewport" parent="TextPanel3D"]
+disable_3d = true

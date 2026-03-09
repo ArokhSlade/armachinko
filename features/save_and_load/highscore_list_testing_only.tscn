@@ -1,0 +1,412 @@
+[gd_scene load_steps=20 format=3 uid="uid://cio1j7rtae2y1"]
+
+[ext_resource type="Script" path="res://features/save_and_load/saver_loader.gd" id="1_52qdl"]
+[ext_resource type="Texture2D" uid="uid://cheysn63qd6vt" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list.png" id="1_d6fpp"]
+[ext_resource type="Texture2D" uid="uid://b2rheu6k3hvb7" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_sign.png" id="2_kcmpe"]
+[ext_resource type="Texture2D" uid="uid://do5g25rcv57kg" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_tags.png" id="3_2dvsm"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="4_njstk"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="5_j8l3c"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="6_kwp2h"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="7_jopaf"]
+[ext_resource type="Texture2D" uid="uid://buyc2lbqmq821" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_sign_icon.png" id="8_mpek1"]
+[ext_resource type="Script" path="res://features/save_and_load/score_table_entry.gd" id="9_732pf"]
+[ext_resource type="Script" path="res://features/save_and_load/highscore_table.gd" id="10_kegku"]
+[ext_resource type="Script" path="res://features/save_and_load/saved_score.gd" id="12_ob7ig"]
+
+[sub_resource type="Theme" id="Theme_djgky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g85gh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gaas5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_scvud"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("5_j8l3c")
+region_rect = Rect2(296.212, 248.915, 1211.4, 550.638)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0spr"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("6_kwp2h")
+region_rect = Rect2(296.212, 248.915, 1211.4, 550.638)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdpdh"]
+content_margin_left = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("7_jopaf")
+region_rect = Rect2(296.212, 248.915, 1211.4, 550.638)
+
+[sub_resource type="Resource" id="Resource_rgegx"]
+script = ExtResource("12_ob7ig")
+name = "Phuc"
+rank = 1
+score = 12345
+
+[node name="HighscoreListTestingOnly" type="CanvasLayer"]
+script = ExtResource("1_52qdl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.619608, 0.541176, 0.458824, 0.392157)
+
+[node name="HighscorePopup" type="TextureRect" parent="."]
+offset_left = 78.0
+offset_top = 31.0
+offset_right = 1136.0
+offset_bottom = 658.0
+scale = Vector2(0.940845, 0.98343)
+texture = ExtResource("1_d6fpp")
+expand_mode = 1
+
+[node name="UiHighscoreListSign" type="Sprite2D" parent="HighscorePopup"]
+position = Vector2(501.677, 41.1824)
+scale = Vector2(0.221271, 0.151801)
+texture = ExtResource("2_kcmpe")
+
+[node name="Sprite2D" type="Sprite2D" parent="HighscorePopup/UiHighscoreListSign"]
+position = Vector2(919.787, 2163.64)
+scale = Vector2(2.24825, 3.03529)
+texture = ExtResource("3_2dvsm")
+
+[node name="Highscore Board" type="Label" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 365.629
+offset_top = 7.11794
+offset_right = 645.629
+offset_bottom = 81.1179
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+text = "Highscore Board"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerCurrentHighscore" type="Label" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 198.758
+offset_top = 194.218
+offset_right = 474.758
+offset_bottom = 267.218
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 28
+text = "Your current 
+Highscore:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScore" type="Label" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 303.0
+offset_right = 444.0
+offset_bottom = 390.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="HighscorePopup"]
+layout_mode = 2
+offset_left = 584.581
+offset_top = 171.848
+offset_right = 653.581
+offset_bottom = 200.848
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 24
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="HighscorePopup"]
+layout_mode = 2
+offset_left = 658.982
+offset_top = 170.831
+offset_right = 722.982
+offset_bottom = 199.831
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 24
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HighscorePopup"]
+layout_mode = 2
+offset_left = 746.138
+offset_top = 171.848
+offset_right = 825.138
+offset_bottom = 200.848
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 24
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMenuButton" type="Button" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 528.0
+offset_right = 631.0
+offset_bottom = 613.0
+theme = SubResource("Theme_djgky")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85gh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gaas5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_scvud")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0spr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdpdh")
+text = "Back"
+
+[node name="ClearButton" type="Button" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 866.243
+offset_top = 251.162
+offset_right = 1124.24
+offset_bottom = 336.162
+theme = SubResource("Theme_djgky")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85gh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gaas5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_scvud")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0spr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdpdh")
+text = "Create List 1"
+
+[node name="CreateButton" type="Button" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 866.243
+offset_top = 348.779
+offset_right = 1124.24
+offset_bottom = 433.779
+theme = SubResource("Theme_djgky")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85gh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gaas5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_scvud")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0spr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdpdh")
+text = "Create List 2"
+
+[node name="SaveButton" type="Button" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 870.494
+offset_top = 447.414
+offset_right = 1128.49
+offset_bottom = 532.414
+theme = SubResource("Theme_djgky")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85gh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gaas5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_scvud")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0spr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdpdh")
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="HighscorePopup"]
+layout_mode = 0
+offset_left = 870.494
+offset_top = 529.778
+offset_right = 1128.49
+offset_bottom = 614.778
+theme = SubResource("Theme_djgky")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g85gh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gaas5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_scvud")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b0spr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tdpdh")
+text = "Load"
+
+[node name="UiHighscoreListSignIcon2" type="Sprite2D" parent="HighscorePopup"]
+position = Vector2(329.491, 51.8593)
+scale = Vector2(0.851462, 0.775348)
+texture = ExtResource("8_mpek1")
+
+[node name="UiHighscoreListSignIcon" type="Sprite2D" parent="HighscorePopup"]
+position = Vector2(684.491, 49.8256)
+scale = Vector2(0.829461, 0.768458)
+texture = ExtResource("8_mpek1")
+
+[node name="Table" type="Control" parent="HighscorePopup"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 549.506
+offset_top = 236.926
+offset_right = 589.506
+offset_bottom = 276.926
+script = ExtResource("10_kegku")
+
+[node name="Entry" type="Control" parent="HighscorePopup/Table"]
+anchors_preset = 0
+offset_left = 43.5778
+offset_top = 21.3538
+offset_right = 298.578
+offset_bottom = 64.3538
+script = ExtResource("9_732pf")
+data = SubResource("Resource_rgegx")
+
+[node name="Name" type="Label" parent="HighscorePopup/Table/Entry"]
+layout_mode = 0
+offset_left = -10.6289
+offset_top = 1.01691
+offset_right = 72.3711
+offset_bottom = 45.0169
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="HighscorePopup/Table/Entry"]
+layout_mode = 0
+offset_left = 60.584
+offset_top = -1.01715
+offset_right = 160.584
+offset_bottom = 45.9828
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HighscorePopup/Table/Entry"]
+layout_mode = 0
+offset_left = 153.054
+offset_top = 2.03387
+offset_right = 253.054
+offset_bottom = 49.0339
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Entry2" type="Control" parent="HighscorePopup/Table"]
+anchors_preset = 0
+offset_left = 43.5778
+offset_top = 108.803
+offset_right = 298.578
+offset_bottom = 151.803
+script = ExtResource("9_732pf")
+
+[node name="Name" type="Label" parent="HighscorePopup/Table/Entry2"]
+layout_mode = 0
+offset_left = -10.6289
+offset_top = 1.01691
+offset_right = 72.3711
+offset_bottom = 45.0169
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="HighscorePopup/Table/Entry2"]
+layout_mode = 0
+offset_left = 60.584
+offset_top = -1.01715
+offset_right = 160.584
+offset_bottom = 45.9828
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HighscorePopup/Table/Entry2"]
+layout_mode = 0
+offset_left = 153.054
+offset_top = 2.03387
+offset_right = 253.054
+offset_bottom = 49.0339
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Entry3" type="Control" parent="HighscorePopup/Table"]
+anchors_preset = 0
+offset_left = 43.5778
+offset_top = 186.083
+offset_right = 298.578
+offset_bottom = 229.083
+script = ExtResource("9_732pf")
+
+[node name="Name" type="Label" parent="HighscorePopup/Table/Entry3"]
+layout_mode = 0
+offset_left = -10.6289
+offset_top = 1.01691
+offset_right = 72.3711
+offset_bottom = 45.0169
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="HighscorePopup/Table/Entry3"]
+layout_mode = 0
+offset_left = 60.584
+offset_top = -1.01715
+offset_right = 160.584
+offset_bottom = 45.9828
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HighscorePopup/Table/Entry3"]
+layout_mode = 0
+offset_left = 153.054
+offset_top = 2.03387
+offset_right = 253.054
+offset_bottom = 49.0339
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_njstk")
+theme_override_font_sizes/font_size = 20
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 359.0
+offset_top = 677.0
+offset_right = 818.0
+offset_bottom = 834.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HighscorePopup/ClearButton" to="." method="create_fake_data_1"]
+[connection signal="pressed" from="HighscorePopup/CreateButton" to="." method="create_fake_data_2"]
+[connection signal="pressed" from="HighscorePopup/SaveButton" to="." method="save_highscore_list"]
+[connection signal="pressed" from="HighscorePopup/LoadButton" to="." method="load_highscore_list"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ywxjlkutani"]
+
+[ext_resource type="PackedScene" uid="uid://chorslomahs84" path="res://assets/3d/bag_3.glb" id="1_1n67k"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_iolo1"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_ycf1e"]
+
+[node name="bag_3" instance=ExtResource("1_1n67k")]
+
+[node name="bag_3" parent="." index="0"]
+material_override = ExtResource("2_iolo1")
+material_overlay = ExtResource("3_ycf1e")

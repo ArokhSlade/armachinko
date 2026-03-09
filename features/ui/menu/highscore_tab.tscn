@@ -1,0 +1,312 @@
+[gd_scene load_steps=35 format=3 uid="uid://jtei825vb2jh"]
+
+[ext_resource type="Texture2D" uid="uid://cheysn63qd6vt" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list.png" id="1_qkrh3"]
+[ext_resource type="Script" path="res://features/ui/highscore_list/high_score_tab.gd" id="2_odrig"]
+[ext_resource type="Texture2D" uid="uid://b2rheu6k3hvb7" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_sign.png" id="3_v0adq"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="4_ksqn3"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="5_spyng"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="6_vlg3w"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="7_43egh"]
+[ext_resource type="Texture2D" uid="uid://drp1ickf3uh20" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_banner.png" id="7_uvhgr"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="8_qstsl"]
+[ext_resource type="Theme" uid="uid://ji2w7gc4sd70" path="res://features/ui/highscore_list/scrolling.tres" id="10_c6fb1"]
+[ext_resource type="Texture2D" uid="uid://bfaj28q4aiv3j" path="res://assets/2d/sprites/ui/buttons/ui_button_arrow_up_pressed.png" id="11_34cjx"]
+[ext_resource type="Script" path="res://features/ui/menu/highscore_long_list.gd" id="12_5m4ds"]
+[ext_resource type="Texture2D" uid="uid://7jracy654pyw" path="res://assets/2d/sprites/ui/buttons/ui_arrow_up_pressed.png" id="12_e8qrn"]
+[ext_resource type="Texture2D" uid="uid://c8icqcr70veuo" path="res://assets/2d/sprites/ui/buttons/ui_button_arrow_up.png" id="13_ovifc"]
+[ext_resource type="PackedScene" uid="uid://6ef32bkkrmcc" path="res://features/ui/highscore_list/highscore_screen_list_entry.tscn" id="14_atsou"]
+[ext_resource type="Texture2D" uid="uid://c8u1fhfhd8cku" path="res://assets/2d/sprites/ui/buttons/ui_button_arrow_down_pressed.png" id="14_puob4"]
+[ext_resource type="Texture2D" uid="uid://c3m47hiakvqiy" path="res://assets/2d/sprites/ui/buttons/ui_arrow_down_pressed.png" id="15_jfqd3"]
+[ext_resource type="Texture2D" uid="uid://oavl2qqmoc3b" path="res://assets/2d/sprites/ui/buttons/ui_button_arrow_down.png" id="16_q37pk"]
+[ext_resource type="Texture2D" uid="uid://cdqvt1jp8hc0w" path="res://assets/2d/sprites/ui/icons/ui_score_milestone_coin_pin_icon.png" id="19_j8fru"]
+
+[sub_resource type="Theme" id="Theme_3ewnu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4jnv"]
+content_margin_left = 12.0
+content_margin_bottom = 8.0
+texture = ExtResource("6_vlg3w")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc8qi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wuu2"]
+content_margin_left = 12.0
+content_margin_bottom = 8.0
+texture = ExtResource("8_qstsl")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyvno"]
+content_margin_left = 12.0
+content_margin_bottom = 8.0
+texture = ExtResource("7_43egh")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0s8ti"]
+texture = ExtResource("11_34cjx")
+region_rect = Rect2(72, 32, 256, 318)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmn26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjnee"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdarx"]
+texture = ExtResource("13_ovifc")
+region_rect = Rect2(72, 32, 256, 318)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2ur0"]
+texture = ExtResource("12_e8qrn")
+region_rect = Rect2(72, 32, 256, 318)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lxeiq"]
+texture = ExtResource("14_puob4")
+region_rect = Rect2(75, 68, 250, 330)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gb14u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqq4q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5mhi"]
+texture = ExtResource("16_q37pk")
+region_rect = Rect2(75, 68, 250, 330)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rr1t"]
+texture = ExtResource("15_jfqd3")
+region_rect = Rect2(75, 68, 250, 330)
+
+[node name="HighscoreTab" type="TextureRect" node_paths=PackedStringArray("initial_focus")]
+offset_left = 43.0
+offset_top = 31.0
+offset_right = 1109.0
+offset_bottom = 663.0
+scale = Vector2(0.900845, 0.94343)
+texture = ExtResource("1_qkrh3")
+expand_mode = 1
+script = ExtResource("2_odrig")
+list_length = 100
+scroll_speed = 60.0
+initial_focus = NodePath("HighscoreCloseButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 522.686
+offset_top = 237.577
+offset_right = 878.686
+offset_bottom = 496.577
+scale = Vector2(1.08503, 1)
+
+[node name="UiHighscoreListSign" type="Sprite2D" parent="."]
+self_modulate = Color(0.67, 0.857, 1, 1)
+position = Vector2(536.22, 52.9282)
+rotation = 0.00980595
+scale = Vector2(0.499411, 0.353383)
+texture = ExtResource("3_v0adq")
+
+[node name="Highscore Board" type="Label" parent="."]
+layout_mode = 0
+offset_left = 392.745
+offset_top = 16.83
+offset_right = 672.745
+offset_bottom = 90.83
+theme_override_colors/font_shadow_color = Color(0.0571291, 0.105732, 0.14522, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ksqn3")
+theme_override_font_sizes/font_size = 40
+text = "Highscore Board"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiHighscoreListPlayerScoreList" type="Sprite2D" parent="."]
+position = Vector2(333.743, 315.783)
+scale = Vector2(0.488348, 0.454171)
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 2
+offset_left = 179.0
+offset_top = 198.0
+offset_right = 482.0
+offset_bottom = 233.0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 30
+text = "PlayerName's"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Highscore" type="Label" parent="."]
+layout_mode = 2
+offset_left = 179.0
+offset_top = 237.0
+offset_right = 482.0
+offset_bottom = 272.0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 30
+text = "Highscore:"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="PlayerScore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 219.794
+offset_top = 311.629
+offset_right = 452.794
+offset_bottom = 398.629
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 30
+text = "1'000'000'000'000"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="UiHighscoreBanner" type="Sprite2D" parent="."]
+position = Vector2(714.252, 192.236)
+scale = Vector2(0.528485, 0.475377)
+texture = ExtResource("7_uvhgr")
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 0
+offset_left = 569.701
+offset_top = 172.408
+offset_right = 669.701
+offset_bottom = 219.408
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 25
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 670.482
+offset_top = 173.834
+offset_right = 756.482
+offset_bottom = 217.834
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 759.287
+offset_top = 173.834
+offset_right = 859.287
+offset_bottom = 220.834
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 25
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreCloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 535.0
+offset_right = 613.0
+offset_bottom = 616.0
+focus_neighbor_top = NodePath("../ScrollingDownButton")
+focus_neighbor_bottom = NodePath("../ScrollingUpButton")
+focus_next = NodePath("../ScrollingUpButton")
+focus_previous = NodePath("../ScrollingDownButton")
+theme = SubResource("Theme_3ewnu")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_spyng")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_i4jnv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wc8qi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4wuu2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kyvno")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wuu2")
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 244.0
+offset_right = 1241.0
+offset_bottom = 744.0
+scale = Vector2(0.5, 0.5)
+scroll_vertical_custom_step = 1.0
+
+[node name="HighscoreList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("12_5m4ds")
+table_entry_scene = ExtResource("14_atsou")
+
+[node name="TextureRect" parent="ScrollContainer/HighscoreList" instance=ExtResource("14_atsou")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="ScrollContainer/HighscoreList" instance=ExtResource("14_atsou")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="ScrollContainer/HighscoreList" instance=ExtResource("14_atsou")]
+layout_mode = 2
+
+[node name="ScrollingUpButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 972.53
+offset_top = 208.454
+offset_right = 1092.53
+offset_bottom = 324.454
+focus_neighbor_top = NodePath("../HighscoreCloseButton")
+focus_neighbor_bottom = NodePath("../ScrollingDownButton")
+focus_next = NodePath("../ScrollingDownButton")
+focus_previous = NodePath("../HighscoreCloseButton")
+theme = ExtResource("10_c6fb1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0s8ti")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jmn26")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rjnee")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bdarx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i2ur0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bdarx")
+
+[node name="ScrollingDownButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 976.186
+offset_top = 344.115
+offset_right = 1095.19
+offset_bottom = 460.115
+focus_neighbor_top = NodePath("../ScrollingUpButton")
+focus_neighbor_bottom = NodePath("../HighscoreCloseButton")
+focus_next = NodePath("../HighscoreCloseButton")
+focus_previous = NodePath("../ScrollingUpButton")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lxeiq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gb14u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vqq4q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o5mhi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4rr1t")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o5mhi")
+
+[node name="UiScoreMilestoneCoinPinIcon(1)1" type="Sprite2D" parent="."]
+position = Vector2(364.566, 49.8256)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("19_j8fru")
+
+[node name="UiScoreMilestoneCoinPinIcon(1)2" type="Sprite2D" parent="."]
+position = Vector2(696.183, 49.8256)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("19_j8fru")
+
+[connection signal="mouse_entered" from="HighscoreCloseButton" to="HighscoreCloseButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="HighscoreCloseButton" to="." method="close"]
+[connection signal="button_down" from="ScrollingUpButton" to="." method="start_scrolling_up"]
+[connection signal="button_up" from="ScrollingUpButton" to="." method="stop_scrolling"]
+[connection signal="mouse_entered" from="ScrollingUpButton" to="ScrollingUpButton" method="grab_focus" flags=3]
+[connection signal="button_down" from="ScrollingDownButton" to="." method="start_scrolling_down"]
+[connection signal="button_up" from="ScrollingDownButton" to="." method="stop_scrolling"]
+[connection signal="mouse_entered" from="ScrollingDownButton" to="ScrollingDownButton" method="grab_focus" flags=3]

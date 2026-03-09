@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6vsk8ggo1div"
+path="res://.godot/imported/0.5-0.5_block.obj-46620e8c9a014d0b6ebbce76ba4dbc5d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/0.5-0.5_block.obj-46620e8c9a014d0b6ebbce76ba4dbc5d.mesh"]
+
+source_file="res://features/_experimental/calais/collisionshape/0.5-0.5_block.obj"
+dest_files=["res://.godot/imported/0.5-0.5_block.obj-46620e8c9a014d0b6ebbce76ba4dbc5d.mesh", "res://.godot/imported/0.5-0.5_block.obj-46620e8c9a014d0b6ebbce76ba4dbc5d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

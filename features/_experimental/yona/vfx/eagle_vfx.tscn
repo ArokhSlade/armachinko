@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjiu4vguyfjni"]
+
+[ext_resource type="PackedScene" uid="uid://bq18wogyslmty" path="res://features/_deprecated/boss_pin.tscn" id="1_isxef"]
+[ext_resource type="Texture2D" uid="uid://dkdmtxm7muols" path="res://assets/2d/textures/sand_texture.jpg" id="2_ksiy7"]
+[ext_resource type="Material" uid="uid://fa7q7oooo0aj" path="res://assets/2d/materials/vfx/m_fire.tres" id="3_3g8cc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppgyj"]
+albedo_color = Color(0.678056, 0.619391, 0.628517, 1)
+albedo_texture = ExtResource("2_ksiy7")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(0.49, 0.36, 0.32)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_k337j"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7g7ot"]
+size = Vector2(2, 2)
+
+[node name="BossPin" instance=ExtResource("1_isxef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.13123, 0)
+
+[node name="Model" parent="." index="2"]
+transform = Transform3D(1.40684, 0, 1.42155, 0, 2, 0, -1.42155, 0, 1.40684, 0, -5.42069, 0.00164795)
+
+[node name="OmniLight3D" parent="Model" index="2"]
+visible = false
+
+[node name="DirectionalLight3D" parent="Model" index="3"]
+visible = false
+
+[node name="bosspin" parent="Model" index="6"]
+transform = Transform3D(-1.5, -2.26494e-07, -9.90035e-15, -2.18348e-07, 1.44605, 0.398662, -6.01964e-08, 0.398662, -1.44605, 0, 0, 0)
+
+[node name="eagle jar" parent="Model/bosspin/eagle head state 0" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479434, 0.62825)
+
+[node name="Floor" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1000, 0, 0, 0, 10, 0, 0, 0, 1000, -0.344837, -12.0907, 0)
+material_override = SubResource("StandardMaterial3D_ppgyj")
+mesh = SubResource("BoxMesh_k337j")
+
+[node name="VfxFire" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.295364, -2.69884, -0.0864673)
+visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="VfxFire" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.983309, -0.181944, 0, 0.181944, 0.983309, 2.20172, 0.775478, -0.983806)
+material_override = ExtResource("3_3g8cc")
+cast_shadow = 0
+amount = 1
+mesh = SubResource("QuadMesh_7g7ot")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+color = Color(19.892, 0, 0.1, 1)
+
+[editable path="Model"]
+[editable path="Model/bosspin"]

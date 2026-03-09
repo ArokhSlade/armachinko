@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://vhhrawmlqduj"]
+
+[ext_resource type="Script" path="res://features/special/cannon/controllable_cannon.gd" id="1_fg7r1"]
+[ext_resource type="PackedScene" uid="uid://dpd5vi8ibtmsr" path="res://assets/3d/asset scene files/cannon.tscn" id="2_mkymd"]
+[ext_resource type="AudioStream" uid="uid://u2ylnr0n4wrf" path="res://assets/sound/cannon_shoots.mp3" id="3_81lao"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nxlt7"]
+height = 12.0
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_bc1ue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jsd7j"]
+resource_name = "swivel"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.785398), Vector3(0, 0, -0.785398), Vector3(0, 0, 0.785398)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3qdp3"]
+_data = {
+"RESET": SubResource("Animation_bc1ue"),
+"swivel": SubResource("Animation_jsd7j")
+}
+
+[node name="ControllableCannon2" type="AnimatableBody3D"]
+script = ExtResource("1_fg7r1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+shape = SubResource("CylinderShape3D_nxlt7")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+sides = 16
+
+[node name="cannon" parent="." instance=ExtResource("2_mkymd")]
+
+[node name="cannon" parent="cannon" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00715637, 0, 0)
+
+[node name="SmokeCloud" parent="cannon/CannonVfx" index="4"]
+transform = Transform3D(-0.456178, 0.823124, -0.338185, -0.0418067, 0.359788, 0.932097, 0.888906, 0.439341, -0.129715, 1.91116, 6.00676, -1.95423)
+
+[node name="SmokeCloudSmall" parent="cannon/CannonVfx" index="5"]
+transform = Transform3D(0.0124069, -0.050348, -0.0855053, -0.0440968, 0.0743968, -0.0502055, 0.0888906, 0.043934, -0.0129715, -1.41624, 5.14385, -0.297659)
+
+[node name="BlockedTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+shape = SubResource("CylinderShape3D_nxlt7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_81lao")
+attenuation_model = 3
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="PlayerShootPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3qdp3")
+}
+
+[connection signal="timeout" from="BlockedTimer" to="." method="_on_blocked_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+
+[editable path="cannon"]
+[editable path="cannon/CannonVfx"]

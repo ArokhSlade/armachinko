@@ -1,0 +1,494 @@
+[gd_scene load_steps=27 format=3 uid="uid://gifja01es87a"]
+
+[ext_resource type="Texture2D" uid="uid://fs17qf7jr514" path="res://assets/2d/sprites/ui/2d_sprites/ui_settings_salon_background.png" id="1_6vf2c"]
+[ext_resource type="Script" path="res://features/ui/menu/settings_tab.gd" id="1_wo70h"]
+[ext_resource type="Texture2D" uid="uid://bvkk67scdie5r" path="res://assets/2d/sprites/ui/2d_sprites/ui_settings_salon_list.png" id="3_enrrr"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_nh3u2"]
+[ext_resource type="Texture2D" uid="uid://cg0pwab4kec5m" path="res://assets/2d/sprites/ui/2d_sprites/ui_settings_salon_list_3.png" id="5_nbmki"]
+[ext_resource type="Texture2D" uid="uid://drp1ickf3uh20" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_banner.png" id="6_4bmd8"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="7_ikent"]
+[ext_resource type="Texture2D" uid="uid://bj524a0ok73pj" path="res://assets/2d/sprites/ui/2d_sprites/ui_settings_salon_sign.png" id="7_ixsd5"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="8_0al6m"]
+[ext_resource type="PackedScene" uid="uid://copwk2v5tqarm" path="res://features/ui/menu/volume_slider_frame.tscn" id="8_1etw2"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="9_nisan"]
+[ext_resource type="Texture2D" uid="uid://bmi3gn0lqu82" path="res://assets/2d/sprites/ui/2d_sprites/nail.png" id="9_w2qbj"]
+[ext_resource type="Texture2D" uid="uid://7rk45ilgtcyb" path="res://assets/2d/sprites/ui/icons/ui_controlls_2 (2).png" id="10_a4dbx"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="10_kd4no"]
+[ext_resource type="Texture2D" uid="uid://cqstv037mw8i" path="res://assets/2d/sprites/ui/icons/ui_controlls (2).png" id="11_1yy1q"]
+[ext_resource type="Texture2D" uid="uid://c3vxmdf5djit5" path="res://assets/2d/sprites/ui/icons/ui_controls_controller.png" id="13_v5k1w"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="13_w8bpm"]
+[ext_resource type="Texture2D" uid="uid://qenc8dujkdsp" path="res://assets/2d/sprites/ui/icons/ui_controls_controller_2.png" id="14_hdr1y"]
+[ext_resource type="AudioStream" uid="uid://wx1v2fo1mh4i" path="res://assets/sound/ui/menu_click.mp3" id="20_gu7f2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_a4u4e"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_7a4li"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hyf8"]
+content_margin_left = 12.0
+content_margin_bottom = 10.0
+texture = ExtResource("8_0al6m")
+region_rect = Rect2(152.07, 78.7495, 760.974, 342.974)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmn7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2kse"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1yxx"]
+content_margin_left = 12.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_nisan")
+region_rect = Rect2(152.07, 78.7495, 760.974, 342.974)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwnbo"]
+content_margin_left = 12.0
+content_margin_bottom = 10.0
+texture = ExtResource("10_kd4no")
+region_rect = Rect2(152.07, 78.7495, 760.974, 342.974)
+
+[node name="SettingsTab" type="TextureRect" node_paths=PackedStringArray("initial_focus")]
+offset_left = -12.0
+offset_top = 51.0
+offset_right = 1192.0
+offset_bottom = 651.0
+texture = ExtResource("1_6vf2c")
+expand_mode = 1
+script = ExtResource("1_wo70h")
+initial_focus = NodePath("SettingsCloseButton")
+
+[node name="HighscoreBanner" type="Sprite2D" parent="."]
+position = Vector2(392.739, 156.817)
+rotation = -0.0045942
+scale = Vector2(0.475973, 0.424826)
+texture = ExtResource("6_4bmd8")
+
+[node name="GraphicsandAudioLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 276.84
+offset_top = 142.124
+offset_right = 547.84
+offset_bottom = 177.124
+rotation = 0.00672233
+scale = Vector2(0.920001, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 28
+text = "Graphics & Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GraphicsandControls" type="Sprite2D" parent="."]
+position = Vector2(388.35, 354.98)
+rotation = 0.00783582
+scale = Vector2(0.739788, 0.725734)
+texture = ExtResource("3_enrrr")
+flip_h = true
+
+[node name="Nail" type="Sprite2D" parent="GraphicsandControls"]
+position = Vector2(0.686909, -191.218)
+rotation = -0.00445701
+scale = Vector2(0.319668, 0.344725)
+skew = -0.000303626
+texture = ExtResource("9_w2qbj")
+
+[node name="Fullscreen" type="Label" parent="GraphicsandControls"]
+offset_left = -136.988
+offset_top = -151.135
+offset_right = 52.0125
+offset_bottom = -113.135
+scale = Vector2(1.00004, 1.05498)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="GraphicsandControls/Fullscreen"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = -11.0
+offset_right = 256.0
+offset_bottom = 38.0
+focus_neighbor_top = NodePath("../../../SettingsCloseButton")
+focus_neighbor_bottom = NodePath("../../VSync/VSynncCheckbox")
+focus_next = NodePath("../../VSync/VSynncCheckbox")
+focus_previous = NodePath("../../../SettingsCloseButton")
+theme = ExtResource("7_ikent")
+theme_override_icons/checked = SubResource("ImageTexture_a4u4e")
+theme_override_icons/unchecked = SubResource("ImageTexture_7a4li")
+button_pressed = true
+
+[node name="VSync" type="Label" parent="GraphicsandControls"]
+offset_left = -137.116
+offset_top = -95.3611
+offset_right = 15.8834
+offset_bottom = -56.3611
+scale = Vector2(0.99378, 1.06959)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "V-Sync"
+
+[node name="VSynncCheckbox" type="CheckBox" parent="GraphicsandControls/VSync"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -6.0
+offset_right = 184.0
+offset_bottom = 39.0
+focus_neighbor_top = NodePath("../../Fullscreen/FullscreenCheckbox")
+focus_neighbor_bottom = NodePath("../../MainVolume/MainVolumeCheckbox")
+focus_next = NodePath("../../MainVolume/MainVolumeCheckbox")
+focus_previous = NodePath("../../Fullscreen/FullscreenCheckbox")
+theme = ExtResource("7_ikent")
+theme_override_icons/checked = SubResource("ImageTexture_a4u4e")
+theme_override_icons/unchecked = SubResource("ImageTexture_7a4li")
+button_pressed = true
+
+[node name="MainVolume" type="Label" parent="GraphicsandControls"]
+offset_left = -110.121
+offset_top = -32.2052
+offset_right = 96.8793
+offset_bottom = 7.79475
+scale = Vector2(0.972161, 1.04837)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 25
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainVolumeCheckbox" type="CheckBox" parent="GraphicsandControls/MainVolume"]
+layout_mode = 0
+offset_left = 224.129
+offset_top = 43.0683
+offset_right = 271.129
+offset_bottom = 85.0683
+focus_neighbor_left = NodePath("../MainVolumeSliderFrame/MainVolumeSlider")
+focus_neighbor_top = NodePath("../../VSync/VSynncCheckbox")
+focus_neighbor_bottom = NodePath("../../Music/MusicCheckbox")
+focus_next = NodePath("../../Music/MusicCheckbox")
+focus_previous = NodePath("../../VSync/VSynncCheckbox")
+theme = ExtResource("7_ikent")
+theme_override_icons/checked = SubResource("ImageTexture_a4u4e")
+theme_override_icons/unchecked = SubResource("ImageTexture_7a4li")
+button_pressed = true
+
+[node name="MainVolumeSliderFrame" parent="GraphicsandControls/MainVolume" instance=ExtResource("8_1etw2")]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 53.0
+offset_right = 215.0
+offset_bottom = 71.0
+value = 0.65
+
+[node name="Music" type="Label" parent="GraphicsandControls"]
+offset_left = -92.9849
+offset_top = 51.7155
+offset_right = 83.0151
+offset_bottom = 91.7155
+scale = Vector2(0.991551, 1.06445)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 25
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicCheckbox" type="CheckBox" parent="GraphicsandControls/Music"]
+layout_mode = 0
+offset_left = 202.977
+offset_top = 25.7116
+offset_right = 249.977
+offset_bottom = 66.7116
+focus_neighbor_top = NodePath("../../MainVolume/MainVolumeCheckbox")
+focus_neighbor_bottom = NodePath("../../Sounds/SoundsCheckbox")
+focus_next = NodePath("../../Sounds/SoundsCheckbox")
+focus_previous = NodePath("../../MainVolume/MainVolumeCheckbox")
+theme = ExtResource("7_ikent")
+theme_override_icons/checked = SubResource("ImageTexture_a4u4e")
+theme_override_icons/unchecked = SubResource("ImageTexture_7a4li")
+button_pressed = true
+
+[node name="MusicSlider" parent="GraphicsandControls/Music" instance=ExtResource("8_1etw2")]
+layout_mode = 0
+offset_left = -46.4058
+offset_top = 37.9233
+offset_right = 197.594
+offset_bottom = 55.9233
+value = 0.65
+
+[node name="Sounds" type="Label" parent="GraphicsandControls"]
+offset_left = -93.0834
+offset_top = 127.52
+offset_right = 81.9166
+offset_bottom = 166.52
+scale = Vector2(0.992364, 1.03695)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 25
+text = "Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundsCheckbox" type="CheckBox" parent="GraphicsandControls/Sounds"]
+layout_mode = 0
+offset_left = 203.508
+offset_top = 27.7016
+offset_right = 251.508
+offset_bottom = 70.7016
+focus_neighbor_top = NodePath("../../Music/MusicCheckbox")
+focus_neighbor_bottom = NodePath("../../../SettingsCloseButton")
+theme = ExtResource("7_ikent")
+theme_override_icons/checked = SubResource("ImageTexture_a4u4e")
+theme_override_icons/unchecked = SubResource("ImageTexture_7a4li")
+button_pressed = true
+
+[node name="SFXSlider" parent="GraphicsandControls/Sounds" instance=ExtResource("8_1etw2")]
+layout_mode = 0
+offset_left = -45.6709
+offset_top = 40.2372
+offset_right = 198.329
+offset_bottom = 58.2372
+value = 0.65
+
+[node name="HighscoreBanner2" type="Sprite2D" parent="."]
+position = Vector2(768.258, 159.725)
+rotation = -0.00306207
+scale = Vector2(0.436538, 0.386321)
+skew = 0.00170326
+texture = ExtResource("6_4bmd8")
+
+[node name="Controls2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 144.0
+offset_right = 856.0
+offset_bottom = 180.0
+scale = Vector2(0.958348, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Sprite2D" parent="."]
+position = Vector2(745.727, 357.721)
+rotation = -0.0122141
+scale = Vector2(0.751006, 0.731045)
+texture = ExtResource("5_nbmki")
+
+[node name="InputStyleA" type="Label" parent="Controls"]
+offset_left = -58.7571
+offset_top = -179.565
+offset_right = 103.243
+offset_bottom = -96.5646
+rotation = 0.00281427
+scale = Vector2(0.968294, 1.07678)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "Keyboard"
+vertical_alignment = 1
+
+[node name="InputStyleB" type="Label" parent="Controls"]
+offset_left = -78.1965
+offset_top = -0.599583
+offset_right = 117.804
+offset_bottom = 82.4004
+scale = Vector2(0.949278, 1.05485)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "Controller"
+vertical_alignment = 1
+
+[node name="Nail3" type="Sprite2D" parent="Controls"]
+position = Vector2(27.9338, -190.399)
+scale = Vector2(0.354027, 0.391094)
+texture = ExtResource("9_w2qbj")
+
+[node name="UiControlls2(2)" type="Sprite2D" parent="Controls"]
+position = Vector2(114.215, -55.6414)
+rotation = 0.0125476
+scale = Vector2(0.818904, 0.841257)
+skew = -0.000658154
+texture = ExtResource("10_a4dbx")
+
+[node name="UiControlls(2)" type="Sprite2D" parent="Controls"]
+position = Vector2(-96.1049, -62.3846)
+rotation = 0.0125476
+scale = Vector2(0.748998, 0.769443)
+skew = -0.000658154
+texture = ExtResource("11_1yy1q")
+
+[node name="Label" type="Label" parent="Controls/UiControlls(2)"]
+offset_left = -65.6644
+offset_top = -5.25342
+offset_right = -50.6644
+offset_bottom = 13.7466
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "A"
+
+[node name="Label2" type="Label" parent="Controls/UiControlls(2)"]
+offset_left = 56.8888
+offset_top = -7.1111
+offset_right = 79.8888
+offset_bottom = 27.8889
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "D"
+
+[node name="Label3" type="Label" parent="Controls"]
+offset_left = -153.878
+offset_top = -19.3333
+offset_right = -24.878
+offset_bottom = 19.6667
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 20
+text = "Rotate"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Controls"]
+offset_left = -159.905
+offset_top = 151.592
+offset_right = -30.9052
+offset_bottom = 175.592
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 20
+text = "Rotate"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Controls"]
+offset_left = 50.4964
+offset_top = 151.496
+offset_right = 179.497
+offset_bottom = 175.496
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 20
+text = "Shoot"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Controls"]
+offset_left = 48.5188
+offset_top = -18.1616
+offset_right = 177.519
+offset_bottom = 20.8384
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 20
+text = "Shoot"
+horizontal_alignment = 1
+
+[node name="UiControllsController(1)" type="Sprite2D" parent="Controls"]
+position = Vector2(-94.0946, 104.538)
+scale = Vector2(0.554886, 0.560567)
+texture = ExtResource("13_v5k1w")
+
+[node name="Label" type="Label" parent="Controls/UiControllsController(1)"]
+offset_left = -30.2352
+offset_top = -31.5635
+offset_right = 28.7648
+offset_bottom = 25.4365
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+text = "L/R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiControllsController21(1)" type="Sprite2D" parent="Controls"]
+position = Vector2(114.945, 109.931)
+rotation = 0.0124344
+scale = Vector2(0.56087, 0.576405)
+skew = -0.000436664
+texture = ExtResource("14_hdr1y")
+flip_v = true
+
+[node name="Label" type="Label" parent="Controls/UiControllsController21(1)"]
+offset_left = -18.5615
+offset_top = 24.7408
+offset_right = 12.4385
+offset_bottom = 59.7408
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 25
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsSalonSign" type="Sprite2D" parent="."]
+position = Vector2(586.785, 45.9959)
+rotation = -0.00227952
+scale = Vector2(0.482726, 0.464605)
+texture = ExtResource("7_ixsd5")
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 27.0
+offset_right = 768.0
+offset_bottom = 100.0
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("13_w8bpm")
+theme_override_font_sizes/font_size = 55
+text = "Sett            ings "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsCloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 517.0
+offset_right = 676.0
+offset_bottom = 594.0
+focus_neighbor_top = NodePath("../GraphicsandControls/Sounds/SoundsCheckbox")
+focus_neighbor_bottom = NodePath("../GraphicsandControls/Fullscreen/FullscreenCheckbox")
+focus_previous = NodePath("../GraphicsandControls/Sounds/SoundsCheckbox")
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_nh3u2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_8hyf8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gmn7s")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_o2kse")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8hyf8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q1yxx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bwnbo")
+text = "Back"
+
+[node name="SFXSamplePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_gu7f2")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="GraphicsandControls/Fullscreen/FullscreenCheckbox" to="GraphicsandControls/Fullscreen/FullscreenCheckbox" method="grab_focus" flags=3]
+[connection signal="toggled" from="GraphicsandControls/Fullscreen/FullscreenCheckbox" to="." method="_on_fullscreen_checkbox_toggled"]
+[connection signal="mouse_entered" from="GraphicsandControls/VSync/VSynncCheckbox" to="GraphicsandControls/VSync/VSynncCheckbox" method="grab_focus" flags=3]
+[connection signal="toggled" from="GraphicsandControls/VSync/VSynncCheckbox" to="." method="_on_v_synnc_checkbox_toggled"]
+[connection signal="mouse_entered" from="GraphicsandControls/MainVolume/MainVolumeCheckbox" to="GraphicsandControls/MainVolume/MainVolumeCheckbox" method="grab_focus" flags=3]
+[connection signal="toggled" from="GraphicsandControls/MainVolume/MainVolumeCheckbox" to="." method="_on_main_volume_checkbox_toggled"]
+[connection signal="value_changed" from="GraphicsandControls/MainVolume/MainVolumeSliderFrame" to="." method="_on_main_volume_slider_value_changed"]
+[connection signal="mouse_entered" from="GraphicsandControls/Music/MusicCheckbox" to="GraphicsandControls/Music/MusicCheckbox" method="grab_focus" flags=3]
+[connection signal="toggled" from="GraphicsandControls/Music/MusicCheckbox" to="." method="_on_music_checkbox_toggled"]
+[connection signal="value_changed" from="GraphicsandControls/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="mouse_entered" from="GraphicsandControls/Sounds/SoundsCheckbox" to="GraphicsandControls/Sounds/SoundsCheckbox" method="grab_focus" flags=3]
+[connection signal="toggled" from="GraphicsandControls/Sounds/SoundsCheckbox" to="." method="_on_sounds_checkbox_toggled"]
+[connection signal="gui_input" from="GraphicsandControls/Sounds/SFXSlider" to="." method="_on_sfx_slider_gui_input"]
+[connection signal="value_changed" from="GraphicsandControls/Sounds/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="mouse_entered" from="SettingsCloseButton" to="SettingsCloseButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="SettingsCloseButton" to="." method="close"]

@@ -1,0 +1,312 @@
+[gd_scene load_steps=19 format=3 uid="uid://10d4cgmuuu8e"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://404c3ueq1xfu" path="res://features/player/player_settings/phymat_player.tres" id="1_3ekcc"]
+[ext_resource type="Texture2D" uid="uid://bh5o0vx57vwgw" path="res://assets/2d/spritesheets/armadillo/armadillo_spritesheet.png" id="3_ii33p"]
+[ext_resource type="Texture2D" uid="uid://dd06ombul7bwi" path="res://assets/2d/spritesheets/armadillo/armadillo_spritesheet_n.png" id="4_2j37d"]
+[ext_resource type="Texture2D" path="res://assets/2d/sprites/armadillo/armachinko_ball.png" id="4_ykfl0"]
+[ext_resource type="PackedScene" uid="uid://yk21jkon3epe" path="res://features/player/shotgun/shotgun.tscn" id="5_gvyue"]
+[ext_resource type="PackedScene" uid="uid://do27uuxrbj736" path="res://features/effects/score_keeper.tscn" id="6_hpgvr"]
+[ext_resource type="Texture2D" path="res://assets/2d/sprites/armadillo/armachinko_ball_green.png" id="10_lp664"]
+[ext_resource type="Texture2D" path="res://assets/2d/sprites/armadillo/armachinko_ball_red_sand.png" id="11_c5u3e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31y78"]
+transparency = 1
+albedo_texture = ExtResource("3_ii33p")
+normal_enabled = true
+normal_texture = ExtResource("4_2j37d")
+backlight_enabled = true
+backlight = Color(0.466181, 0.466181, 0.466181, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qh6nw"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xnbtt"]
+radius = 1.655
+
+[sub_resource type="Theme" id="Theme_jes2y"]
+
+[sub_resource type="Animation" id="Animation_ru4uy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ykfl0")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteSheet:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_8fkf4"]
+resource_name = "curl"
+length = 0.333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_e03n2"]
+resource_name = "go_green"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_lp664")]
+}
+
+[sub_resource type="Animation" id="Animation_xv3mo"]
+resource_name = "go_red"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_c5u3e"), ExtResource("4_ykfl0")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.25, -0.2, 0, 0.2, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4fmqb"]
+resource_name = "shock"
+length = 0.333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ilvet"]
+_data = {
+"RESET": SubResource("Animation_ru4uy"),
+"curl": SubResource("Animation_8fkf4"),
+"go_green": SubResource("Animation_e03n2"),
+"go_red": SubResource("Animation_xv3mo"),
+"shock": SubResource("Animation_4fmqb")
+}
+
+[node name="Player" type="RigidBody3D" groups=["Players"]]
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+physics_material_override = ExtResource("1_3ekcc")
+can_sleep = false
+continuous_cd = true
+angular_damp = 5.0
+
+[node name="SpriteSheet" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05312e-05, -0.060284, -0.000506163)
+material_override = SubResource("StandardMaterial3D_31y78")
+pixel_size = 0.0113
+texture = ExtResource("3_ii33p")
+vframes = 3
+frame = 2
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05312e-05, -0.060284, -0.000506163)
+visible = false
+pixel_size = 0.0113
+texture = ExtResource("4_ykfl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qh6nw")
+
+[node name="Shotgun" parent="." instance=ExtResource("5_gvyue")]
+
+[node name="ShotgunTransform" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../Shotgun")
+update_rotation = false
+update_scale = false
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="ScoreKeeper" parent="Effects" instance=ExtResource("6_hpgvr")]
+
+[node name="ScoreEffect" type="Node3D" parent="Effects"]
+
+[node name="Area3D" type="Area3D" parent="Effects/ScoreEffect"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Effects/ScoreEffect/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0365295, -0.0655518, 0)
+shape = SubResource("CylinderShape3D_xnbtt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Effects/ScoreEffect"]
+
+[node name="HighscoreBackground" type="Sprite2D" parent="Effects/ScoreEffect/CanvasLayer"]
+position = Vector2(174, 55)
+scale = Vector2(0.515, 0.41)
+
+[node name="ScoreLabel" type="Label" parent="Effects/ScoreEffect/CanvasLayer"]
+offset_left = -69.0
+offset_top = 42.0
+offset_right = 416.0
+offset_bottom = 120.0
+theme = SubResource("Theme_jes2y")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Score: 0000"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ilvet")
+}
+next/curl = &"RESET"
+next/go_green = &"RESET"
+next/go_red = &"RESET"
+next/shock = &"curl"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimationTestDashboard" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/AnimationTestDashboard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -31.0
+offset_right = 103.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GoRed" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer"]
+layout_mode = 2
+text = "Go Red"
+
+[node name="RESET" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer"]
+layout_mode = 2
+text = "RESET"
+
+[node name="GoGreen" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer"]
+layout_mode = 2
+text = "Go Green"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/AnimationTestDashboard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -63.0
+offset_right = 103.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Shock" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer2"]
+layout_mode = 2
+text = "Shock"
+
+[node name="RESET" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer2"]
+layout_mode = 2
+text = "RESET"
+
+[node name="Curl" type="Button" parent="CanvasLayer/AnimationTestDashboard/HBoxContainer2"]
+layout_mode = 2
+text = "Curl"
+
+[node name="Label" type="Label" parent="CanvasLayer/AnimationTestDashboard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_right = 161.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Animation Test Dashboard"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="score_updated" from="Effects/ScoreKeeper" to="." method="_on_score_keeper_score_updated"]
+[connection signal="area_entered" from="Effects/ScoreEffect/Area3D" to="Effects/ScoreEffect" method="muzzle_area_entered"]
+[connection signal="body_entered" from="Effects/ScoreEffect/Area3D" to="Effects/ScoreEffect" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer/GoRed" to="CanvasLayer/AnimationTestDashboard" method="_on_go_red_pressed"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer/RESET" to="CanvasLayer/AnimationTestDashboard" method="_on_reset_pressed"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer/GoGreen" to="CanvasLayer/AnimationTestDashboard" method="_on_go_green_pressed"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer2/Shock" to="CanvasLayer/AnimationTestDashboard" method="_on_shock_pressed"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer2/RESET" to="CanvasLayer/AnimationTestDashboard" method="_on_reset_pressed"]
+[connection signal="pressed" from="CanvasLayer/AnimationTestDashboard/HBoxContainer2/Curl" to="CanvasLayer/AnimationTestDashboard" method="_on_curl_pressed"]

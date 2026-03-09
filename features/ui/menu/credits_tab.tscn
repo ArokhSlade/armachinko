@@ -1,0 +1,254 @@
+[gd_scene load_steps=20 format=3 uid="uid://jbbh1luxo5m5"]
+
+[ext_resource type="Texture2D" uid="uid://bww2m4jftgklk" path="res://assets/2d/sprites/ui/2d_sprites/ui_highscore_list_cactus_sign.png" id="1_crmyi"]
+[ext_resource type="Script" path="res://features/ui/menu/credits_tab.gd" id="1_dgxnv"]
+[ext_resource type="Texture2D" uid="uid://d3x0kmfb7er5t" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_score_screen.png" id="3_kea0x"]
+[ext_resource type="Texture2D" uid="uid://dl48a451o4p2d" path="res://assets/2d/sprites/ui/buttons/ui_button_start_hover_flipped.png" id="4_awaqm"]
+[ext_resource type="Texture2D" uid="uid://crur5r1gwwr8l" path="res://assets/2d/sprites/ui/buttons/ui_button_start_flipped.png" id="4_dbh5v"]
+[ext_resource type="Texture2D" uid="uid://bmi3gn0lqu82" path="res://assets/2d/sprites/ui/2d_sprites/nail.png" id="4_e86d8"]
+[ext_resource type="Texture2D" uid="uid://cc0i3p6k66u82" path="res://assets/2d/sprites/ui/buttons/ui_button_start_pressed_flipped.png" id="5_rm5iv"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="5_xr47r"]
+[ext_resource type="Texture2D" uid="uid://1fnjendcpwqw" path="res://assets/2d/sprites/ui/2d_sprites/ui_credits_sign.png" id="6_ps3vm"]
+[ext_resource type="Texture2D" uid="uid://qkdwn16e23kg" path="res://assets/2d/sprites/ui/2d_sprites/ui_credits_sign_2.png" id="7_7n8md"]
+[ext_resource type="Texture2D" uid="uid://b7ut2y2nnd2iw" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_wooden_post.png" id="7_pkn36"]
+[ext_resource type="Texture2D" uid="uid://7joth1lyti7d" path="res://assets/2d/sprites/ui/2d_sprites/ui_game_over_screen_text.png" id="8_bncdm"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="12_io6fw"]
+[ext_resource type="Texture2D" uid="uid://d0tc0tsrtej0r" path="res://assets/2d/sprites/ui/2d_sprites/ui_credits_sound_sign.png" id="14_cdgay"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8evw"]
+content_margin_left = 12.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_awaqm")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ax4v3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cilfq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pi5ro"]
+content_margin_left = 12.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_rm5iv")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acsnk"]
+content_margin_left = 12.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_dbh5v")
+region_rect = Rect2(143.593, 72.1688, 771.692, 351.549)
+
+[node name="CreditsTab" type="TextureRect" node_paths=PackedStringArray("initial_focus")]
+offset_left = 579.0
+offset_top = 44.0
+offset_right = 1115.0
+offset_bottom = 767.0
+rotation = 0.033119
+texture = ExtResource("1_crmyi")
+expand_mode = 1
+script = ExtResource("1_dgxnv")
+initial_focus = NodePath("CreditsCloseButton")
+
+[node name="CreditsCloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -540.0
+offset_top = 550.0
+offset_right = -386.0
+offset_bottom = 613.0
+rotation = -0.0246922
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxTexture_p8evw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ax4v3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_cilfq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p8evw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pi5ro")
+theme_override_styles/normal = SubResource("StyleBoxTexture_acsnk")
+text = "Back"
+
+[node name="UiPauseWoodenPost" type="Sprite2D" parent="."]
+position = Vector2(434.83, 470.86)
+rotation = 0.0519612
+scale = Vector2(0.381809, 0.491958)
+texture = ExtResource("7_pkn36")
+
+[node name="Art" type="Sprite2D" parent="."]
+position = Vector2(96.6998, 418.168)
+rotation = -0.12596
+scale = Vector2(0.30252, 0.333672)
+texture = ExtResource("3_kea0x")
+
+[node name="Nail" type="Sprite2D" parent="Art"]
+position = Vector2(72.1277, -233.41)
+rotation = 0.0948086
+scale = Vector2(1.0593, 1.05482)
+skew = 0.0224861
+texture = ExtResource("4_e86d8")
+
+[node name="Artists" type="Label" parent="Art"]
+offset_left = -379.481
+offset_top = -80.6165
+offset_right = 464.519
+offset_bottom = 117.383
+scale = Vector2(0.979509, 1.04433)
+theme_override_constants/line_spacing = 15
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 40
+text = "Stina - Lead, 2d ui/ux, concept, vfx
+Thateus - 3d, Animation, vfx
+Yona - 2d Concept,  Animation, VFX"
+horizontal_alignment = 1
+
+[node name="ArtLabel" type="Label" parent="Art"]
+offset_left = -83.3989
+offset_top = -183.374
+offset_right = 126.601
+offset_bottom = -92.3735
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 80
+text = "Art"
+horizontal_alignment = 1
+
+[node name="Design" type="Sprite2D" parent="."]
+position = Vector2(255.699, 217.462)
+rotation = 0.0172329
+scale = Vector2(0.274435, 0.294989)
+texture = ExtResource("6_ps3vm")
+
+[node name="Nail" type="Sprite2D" parent="Design"]
+position = Vector2(27.3165, -193.006)
+rotation = -0.0616604
+scale = Vector2(1.0583, 1.07462)
+skew = 0.0347868
+texture = ExtResource("4_e86d8")
+flip_h = true
+
+[node name="DesignLabel" type="Label" parent="Design"]
+offset_left = -274.451
+offset_top = -125.652
+offset_right = 341.549
+offset_bottom = 42.3483
+rotation = 0.0226809
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 80
+text = "Design"
+horizontal_alignment = 1
+
+[node name="Designer" type="Label" parent="Design"]
+offset_left = -287.329
+offset_top = -26.6143
+offset_right = 328.671
+offset_bottom = 141.385
+rotation = 0.0226809
+theme_override_colors/font_shadow_color = Color(0.168627, 0.109804, 0.0470588, 0.392157)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 40
+text = "Calais - Game, Level
+Darian - Game, Level"
+horizontal_alignment = 1
+
+[node name="Engineering" type="Sprite2D" parent="."]
+position = Vector2(402.734, 501.247)
+rotation = 0.016578
+scale = Vector2(0.249476, 0.283213)
+texture = ExtResource("7_7n8md")
+flip_h = true
+
+[node name="Nail" type="Sprite2D" parent="Engineering"]
+position = Vector2(-43.1415, -134.68)
+rotation = 0.00523916
+scale = Vector2(0.765593, 0.787977)
+skew = 0.0038166
+texture = ExtResource("4_e86d8")
+flip_h = true
+
+[node name="EngineeringLabel" type="Label" parent="Engineering"]
+offset_left = -355.61
+offset_top = -97.685
+offset_right = 343.39
+offset_bottom = -6.68503
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 70
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="Engineers" type="Label" parent="Engineering"]
+offset_left = -380.504
+offset_top = -6.2271
+offset_right = 318.496
+offset_bottom = 110.772
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 45
+text = "Gerald - Producer, lead
+Phuc - Game"
+horizontal_alignment = 1
+
+[node name="UiGameOverScreenText" type="Sprite2D" parent="."]
+position = Vector2(-262.86, 109.173)
+rotation = -0.0832679
+scale = Vector2(0.314064, 0.367212)
+texture = ExtResource("8_bncdm")
+
+[node name="CreditsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -462.671
+offset_top = 138.396
+offset_right = -48.6709
+offset_bottom = 251.396
+rotation = -0.000879163
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("12_io6fw")
+theme_override_font_sizes/font_size = 80
+text = "Credits
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiCreditsSoundSign" type="Sprite2D" parent="."]
+position = Vector2(448.774, 378.347)
+rotation = 0.22598
+scale = Vector2(0.297377, 0.34706)
+texture = ExtResource("14_cdgay")
+flip_h = true
+
+[node name="Label" type="Label" parent="UiCreditsSoundSign"]
+offset_left = -171.37
+offset_top = -40.709
+offset_right = 126.63
+offset_bottom = 6.29101
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 40
+text = "Sound & Music"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UiCreditsSoundSign"]
+offset_left = -157.455
+offset_top = 11.9714
+offset_right = 98.5448
+offset_bottom = 58.9714
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_xr47r")
+theme_override_font_sizes/font_size = 30
+text = "MArkus"
+horizontal_alignment = 1
+
+[node name="Nail" type="Sprite2D" parent="."]
+position = Vector2(443.717, 346.497)
+rotation = 0.155804
+scale = Vector2(0.203089, 0.223419)
+texture = ExtResource("4_e86d8")
+flip_h = true
+
+[connection signal="mouse_entered" from="CreditsCloseButton" to="CreditsCloseButton" method="grab_focus" flags=3]
+[connection signal="pressed" from="CreditsCloseButton" to="." method="close"]

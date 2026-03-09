@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwfp6h4eitwc8"]
+
+[ext_resource type="PackedScene" uid="uid://b48n2cq3cf6qk" path="res://assets/3d/baby_cactus_dark_blue.glb" id="1_d7kjq"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_7vi57"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_ob8pr"]
+
+[node name="baby_cactus_dark_blue" instance=ExtResource("1_d7kjq")]
+
+[node name="baby_cactus_dark_blue" parent="." index="0"]
+material_override = ExtResource("2_7vi57")
+material_overlay = ExtResource("3_ob8pr")
+blend_shapes/spike_expansion = 0.5
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "cactus_idle"

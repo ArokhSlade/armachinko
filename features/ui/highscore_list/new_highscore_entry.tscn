@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://bu4yrscibprrk"]
+
+[ext_resource type="Script" path="res://features/ui/highscore_list/new_highscore_entry.gd" id="1_5x8pq"]
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="1_whg4k"]
+
+[sub_resource type="Animation" id="Animation_1ynvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_nxc6v"]
+resource_name = "new_entry_wiggle"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(200, 200), Vector2(250, 200), Vector2(200, 200), Vector2(250, 200), Vector2(200, 200), Vector2(250, 200), Vector2(200, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6a2j"]
+_data = {
+"RESET": SubResource("Animation_1ynvc"),
+"new_entry_wiggle": SubResource("Animation_nxc6v")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty277"]
+
+[sub_resource type="Theme" id="Theme_efke3"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.94902, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_whg4k")
+Label/styles/normal = SubResource("StyleBoxEmpty_ty277")
+
+[sub_resource type="Environment" id="Environment_itqwr"]
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 2.0
+
+[node name="NewHighscoreEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5x8pq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_j6a2j")
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 832.0
+offset_bottom = 471.0
+theme = SubResource("Theme_efke3")
+theme_override_fonts/font = ExtResource("1_whg4k")
+text = "New Entry!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_itqwr")

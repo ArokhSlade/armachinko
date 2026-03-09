@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://wtx31fa8b33i"]
+
+[ext_resource type="PackedScene" uid="uid://c3pkh0trnbvks" path="res://features/pins/coin_pin.tscn" id="1_6ntu3"]
+[ext_resource type="ArrayMesh" uid="uid://cdnnx7k3k0r1v" path="res://assets/3d/meshes/copper_coin_mesh.res" id="2_2ity2"]
+
+[node name="CopperCoinPin" instance=ExtResource("1_6ntu3")]
+
+[node name="Model" parent="." index="1"]
+transform = Transform3D(2.3, 0, 0, 0, -8.32598e-06, -2.3, 0, 2.3, -8.32598e-06, 0, 0, 1)
+mesh = ExtResource("2_2ity2")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnqxqvw3opdua"]
+
+[ext_resource type="AudioStream" uid="uid://bag17oxc86v2c" path="res://assets/music/main_menu_soundtrack.mp3" id="1_2r6rh"]
+[ext_resource type="Script" path="res://features/ui/menu/fade_out.gd" id="2_8dovj"]
+
+[node name="BackroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_2r6rh")
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_8dovj")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

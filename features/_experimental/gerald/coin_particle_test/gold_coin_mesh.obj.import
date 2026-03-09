@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n0y3swi14ekf"
+path="res://.godot/imported/gold_coin_mesh.obj-495a32ddbcf073f20bef4be0aac5356f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gold_coin_mesh.obj-495a32ddbcf073f20bef4be0aac5356f.mesh"]
+
+source_file="res://features/_experimental/gerald/coin_particle_test/gold_coin_mesh.obj"
+dest_files=["res://.godot/imported/gold_coin_mesh.obj-495a32ddbcf073f20bef4be0aac5356f.mesh", "res://.godot/imported/gold_coin_mesh.obj-495a32ddbcf073f20bef4be0aac5356f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,159 @@
+[gd_scene load_steps=16 format=3 uid="uid://bhcjs4quv2ko3"]
+
+[ext_resource type="Environment" uid="uid://bjeu3ab23vnsx" path="res://assets/resources/level_environment.tres" id="1_1cu1b"]
+[ext_resource type="Script" path="res://features/level/level.gd" id="1_6nyqj"]
+[ext_resource type="PackedScene" uid="uid://da83k310qw2pn" path="res://features/player/player.tscn" id="1_rneit"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bx1wvqvoxxrkn" path="res://assets/resources/level_camera_attributes.tres" id="2_7lc62"]
+[ext_resource type="Texture2D" uid="uid://dkdmtxm7muols" path="res://assets/2d/textures/sand_texture.jpg" id="2_350jh"]
+[ext_resource type="PackedScene" uid="uid://dxofcgkakgq6j" path="res://assets/3d/asset scene files/fences/gerald/18_36_left_inner_circle.tscn" id="3_gxj0w"]
+[ext_resource type="PackedScene" uid="uid://cf2w6s1ltc7oh" path="res://features/player/test_player_gerald.tscn" id="4_268ln"]
+[ext_resource type="PackedScene" uid="uid://dv6ul3myu5dqw" path="res://assets/3d/asset scene files/fences/gerald/18_36_right_inner_circle.tscn" id="4_gev7v"]
+[ext_resource type="PackedScene" uid="uid://dfkdameyioihh" path="res://features/pins/eagle_pin/eagle_pin.tscn" id="6_4t8re"]
+[ext_resource type="PackedScene" uid="uid://b37rq8uc46pko" path="res://features/pins/eagle_pin/mama_eagle_pin.tscn" id="9_3qvat"]
+[ext_resource type="Script" path="res://features/special/boss_event.gd" id="10_aglia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arrv0"]
+albedo_texture = ExtResource("2_350jh")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_5p313"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MamaEaglePin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -23.5743, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tvpqw"]
+resource_name = "SUPERDUPERMEGABOSSSUMMON"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MamaEaglePin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -23.5743, -10), Vector3(0, -23.5743, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpdx2"]
+_data = {
+"RESET": SubResource("Animation_5p313"),
+"SUPERDUPERMEGABOSSSUMMON": SubResource("Animation_tvpqw")
+}
+
+[node name="EagleTestLevel" type="WorldEnvironment"]
+environment = ExtResource("1_1cu1b")
+camera_attributes = ExtResource("2_7lc62")
+script = ExtResource("1_6nyqj")
+
+[node name="PinkSunChanged" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.376642, -0.339161, 0.862038, 0.483744, -0.865619, -0.129212, 0.79002, 0.368339, 0.490096, 0.459306, 3.15608, 23)
+light_color = Color(0.580077, 0.710305, 0.947228, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 3.0
+shadow_opacity = 0.9
+shadow_blur = 1.4
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.536
+directional_shadow_split_2 = 0.0
+directional_shadow_max_distance = 232.0
+
+[node name="YellowSunChanged" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.147238, -0.659084, 0.737516, 0.677669, -0.610357, -0.410158, 0.720476, 0.4394, 0.536509, 0, 0, 0)
+light_color = Color(0.99091, 0.871115, 0.707903, 1)
+light_energy = 1.8
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 3.0
+shadow_opacity = 0.8
+shadow_blur = 1.4
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.536
+directional_shadow_split_2 = 0.0
+directional_shadow_max_distance = 232.2
+
+[node name="Player2" parent="." instance=ExtResource("4_268ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -20.9368, 0)
+dash_style = 1
+
+[node name="CameraRemote" type="RemoteTransform3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.75471, 0, 0.75471, 0.656059, 0, 0, 0)
+remote_path = NodePath("../../CameraPivot")
+update_rotation = false
+update_scale = false
+
+[node name="Player" parent="." instance=ExtResource("1_rneit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -20.9368, 0)
+visible = false
+max_rotation_speed = 360.0
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.754709, 0, 0.754709, 0.656059, 60, -20.9368, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -2.287, 121.858)
+fov = 26.0
+size = 22.707
+
+[node name="Background" type="CSGBox3D" parent="."]
+size = Vector3(546.322, 1529.9, 1.968)
+material = SubResource("StandardMaterial3D_arrv0")
+
+[node name="18_36LeftInnerCircle" parent="." instance=ExtResource("3_gxj0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -38, 0)
+
+[node name="18_36RightInnerCircle" parent="." instance=ExtResource("4_gev7v")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -19, -38, 6)
+
+[node name="18_36LeftInnerCircle2" parent="." instance=ExtResource("3_gxj0w")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -19, 32, 0)
+
+[node name="18_36RightInnerCircle2" parent="." instance=ExtResource("4_gev7v")]
+transform = Transform3D(1, 8.74228e-08, -1.50996e-07, 8.74228e-08, -1, -1.32005e-14, -1.50996e-07, 0, -1, 17, 32, 6)
+
+[node name="EaglePin" parent="." instance=ExtResource("6_4t8re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 14, 0)
+max_health = 3
+chipped_health = 2
+cracked_health = 1
+respawn_time = 1.0
+
+[node name="MamaEaglePin" parent="." instance=ExtResource("9_3qvat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23.5743, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+depth = 20.0
+polygon = PackedVector2Array(-6, -42, -5, -50, 31.3937, -45.0297, 27.8579, 40.1385, -3.4777, 40.2753, -0.740961, 32.6125, 6.51138, 29.8757, 11.5744, 23.4444, 14.7216, 15.7816, 17.0478, 4.83461, 17.5952, -4.47029, 16.09, -15.1436, 13.3532, -24.859, 9.9134, -31.2694, 6.08197, -36.0587, -0.212521, -38.5217, -4.31762, -37.9744)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -9, 0)
+depth = 20.0
+polygon = PackedVector2Array(-6, -42, -5, -50, 31.3937, -45.0297, 27.8579, 40.1385, -3.4777, 40.2753, -0.740961, 32.6125, 6.51138, 29.8757, 11.5744, 23.4444, 14.7216, 15.7816, 17.0478, 4.83461, 17.5952, -4.47029, 16.09, -15.1436, 13.3532, -24.859, 9.9134, -31.2694, 6.08197, -36.0587, -0.212521, -38.5217, -4.31762, -37.9744)
+
+[node name="BossEvent" type="Node3D" parent="." node_paths=PackedStringArray("required_bounced_pins", "boss")]
+script = ExtResource("10_aglia")
+required_bounced_pins = [NodePath("../EaglePin")]
+boss = NodePath("../MamaEaglePin")
+despawn_on_start = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossEvent"]
+libraries = {
+"": SubResource("AnimationLibrary_vpdx2")
+}
+
+[connection signal="condition_fulfilled" from="BossEvent" to="BossEvent" method="_on_condition_fulfilled"]

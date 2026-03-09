@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsmhsisjb7c4s"]
+
+[ext_resource type="PackedScene" uid="uid://c27sahqd5wk5i" path="res://assets/3d/tree_1.glb" id="1_2m0d3"]
+[ext_resource type="Material" uid="uid://bpgtin1uyrb4l" path="res://assets/3d/textures/texture.tres" id="2_xtw50"]
+
+[node name="tree_1" instance=ExtResource("1_2m0d3")]
+
+[node name="tree 1" parent="." index="0"]
+material_override = ExtResource("2_xtw50")

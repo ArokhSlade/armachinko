@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvv1virv4q8jq"]
+
+[ext_resource type="Script" path="res://features/effects/exploder.gd" id="1_ryme6"]
+[ext_resource type="PackedScene" uid="uid://wy07ktvjl8k1" path="res://features/effects/explosion_blast.tscn" id="2_4ywy3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3sv6g"]
+height = 9.99054
+radius = 16.7938
+
+[node name="Exploder" type="Node3D"]
+script = ExtResource("1_ryme6")
+explosion_blast_scene = ExtResource("2_4ywy3")
+active_on_blast = true
+
+[node name="BlastShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3sv6g")
+disabled = true

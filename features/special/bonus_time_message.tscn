@@ -1,0 +1,373 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjvgrdjh46mnw"]
+
+[ext_resource type="FontFile" uid="uid://bvjdx0irlylr6" path="res://assets/2d/sprites/fonts/duality.otf" id="1_dyvnp"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="1_s2m1q"]
+[ext_resource type="Script" path="res://features/special/bonus_time.gd" id="1_sj8l4"]
+[ext_resource type="Texture2D" uid="uid://oeqsuuq4jwej" path="res://assets/2d/sprites/ui/icons/ui_icon_timer_glow.png" id="2_khh1o"]
+[ext_resource type="Texture2D" uid="uid://dtfcsx8pcltxd" path="res://assets/2d/sprites/vfx_particle/timer_particles.png" id="3_skfas"]
+
+[sub_resource type="Animation" id="Animation_r7tfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UiIconTimerGlow:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BonusTime:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BonusTime:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../UiIconTimerGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BonusTimetoScore:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 57)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BonusTimetoScore:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BonusTimetoScore:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BonusTimetoScore:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.513726, 1, 0.364706, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_44l08"]
+resource_name = "time_added_to_timer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BonusTimetoScore:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(538, 50), Vector2(538, 20), Vector2(538, 30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BonusTimetoScore:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BonusTimetoScore:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BonusTimetoScore:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.513726, 1, 0.364706, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ymcw8"]
+resource_name = "timer_wiggling"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UiIconTimerGlow:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.833333, 0.933333, 1.03333, 1.13333, 1.23333, 1.33333, 1.43333, 1.53333, 1.63333, 1.73333, 1.83333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.833333, 0.933333, 1.03333, 1.13333, 1.23333, 1.33333, 1.43333, 1.53333, 1.63333, 1.73333, 1.83333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BonusTime:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.8, 0.8), Vector2(0.6, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BonusTime:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../UiIconTimerGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TimerParticles:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.833333, 0.933333, 1.03333, 1.13333, 1.23333, 1.33333, 1.43333, 1.53333, 1.63333, 1.73333, 1.83333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../UiIconTimerGlow/TimerParticles2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.98023e-07, 0.133333, 0.233333, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.833333, 0.933333, 1.03333, 1.13333, 1.23333, 1.33333, 1.43333, 1.53333, 1.63333, 1.73333, 1.83333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, -0.523599, 0.523599, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xw36j"]
+_data = {
+"RESET": SubResource("Animation_r7tfo"),
+"time_added_to_timer": SubResource("Animation_44l08"),
+"timer_wiggling": SubResource("Animation_ymcw8")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_idtgd"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Environment" id="Environment_gc24s"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.1
+glow_strength = 1.6
+glow_blend_mode = 0
+
+[node name="BonusTime" type="Node2D"]
+script = ExtResource("1_sj8l4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UiIconTimerGlow2")
+libraries = {
+"": SubResource("AnimationLibrary_xw36j")
+}
+
+[node name="BonusTime" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 271.52
+offset_top = 87.8411
+offset_right = 932.52
+offset_bottom = 262.841
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(329, 90)
+theme_override_colors/font_shadow_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_colors/font_outline_color = Color(0.884314, 3.34509e-06, 3.85046e-07, 1)
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_dyvnp")
+theme_override_font_sizes/font_size = 80
+text = "Bonus Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiIconTimerGlow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(447.015, 179.09)
+scale = Vector2(0.244923, 0.24545)
+texture = ExtResource("2_khh1o")
+
+[node name="TimerParticles2" type="Sprite2D" parent="UiIconTimerGlow"]
+position = Vector2(-191.579, -122.28)
+scale = Vector2(1.05263, 1.03627)
+texture = ExtResource("3_skfas")
+flip_h = true
+
+[node name="UiIconTimerGlow2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(757.441, 183)
+scale = Vector2(0.247793, 0.25)
+texture = ExtResource("2_khh1o")
+
+[node name="TimerParticles" type="Sprite2D" parent="UiIconTimerGlow2"]
+position = Vector2(166.316, -145.078)
+scale = Vector2(1.05263, 1.03627)
+texture = ExtResource("3_skfas")
+
+[node name="BonusTimetoScore" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.513726, 1, 0.364706, 1)
+offset_left = 586.0
+offset_top = 57.0
+offset_right = 789.0
+offset_bottom = 149.0
+pivot_offset = Vector2(101, 46)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_s2m1q")
+theme_override_font_sizes/font_size = 25
+text = "+ x time"
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_idtgd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gc24s")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

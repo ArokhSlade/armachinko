@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://tuqng5x82peq"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/rectangle_bumper.gd" id="1_12ohl"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_3mxuv"]
+[ext_resource type="AudioStream" uid="uid://b4744edquf27t" path="res://assets/sound/wall_collide.mp3" id="3_2xipt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tv8o"]
+size = Vector3(12, 2, 3)
+
+[node name="RectangleBumper" type="StaticBody3D"]
+script = ExtResource("1_12ohl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(12, 2, 3)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="SetDressing" type="Node3D" parent="."]
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="OriginBounce" parent="Effects" instance=ExtResource("2_3mxuv")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2xipt")
+volume_db = 20.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

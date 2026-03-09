@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://qhg8b3qghrnq"]
+
+[ext_resource type="PackedScene" uid="uid://k6r1gs8jmvvi" path="res://assets/3d/long_cactus.glb" id="1_qa5ri"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_auy6g"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_q2nda"]
+
+[node name="long_cactus" instance=ExtResource("1_qa5ri")]
+
+[node name="long_cactus" parent="." index="0"]
+material_override = ExtResource("2_auy6g")
+material_overlay = ExtResource("3_q2nda")

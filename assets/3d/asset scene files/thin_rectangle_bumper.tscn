@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://3tx754lla3py"]
+
+[ext_resource type="PackedScene" uid="uid://bx30rpmg03yp2" path="res://assets/3d/thin_rectangle_bumper.glb" id="1_kulch"]
+[ext_resource type="Texture2D" uid="uid://d1ww12kw5cj7q" path="res://assets/3d/textures/gradient_texture.png" id="2_qmwhk"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_e4fdj"]
+[ext_resource type="Texture2D" uid="uid://bmia3qfekar68" path="res://assets/3d/textures/cow_texture.png" id="4_ki3bl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evv14"]
+albedo_texture = ExtResource("2_qmwhk")
+roughness = 0.95
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58wbc"]
+albedo_texture = ExtResource("4_ki3bl")
+
+[node name="tin_rectangle_bumper" instance=ExtResource("1_kulch")]
+
+[node name="thin_rectangle_bumper" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999775, -0.0212391, 0, 0.0212391, 0.999775, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_evv14")
+material_overlay = ExtResource("3_e4fdj")
+
+[node name="cow_skin" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_58wbc")
+material_overlay = ExtResource("3_e4fdj")
+lod_bias = 6.0
+"blend_shapes/Key 1" = 1.0

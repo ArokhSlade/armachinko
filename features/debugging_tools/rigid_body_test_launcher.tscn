@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc2xc4048xxx"]
+
+[ext_resource type="Script" path="res://features/debugging_tools/rigid_body_test_launcher.gd" id="1_jg2cu"]
+
+[node name="RigidBodyTestLauncher" type="Node3D"]
+script = ExtResource("1_jg2cu")
+ignore_gravity_scale = true
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="MotionTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -3, 0)
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bw6rj8nufj7ft"
+path="res://.godot/imported/24-48_right_curve_cs.obj-38009410a171c545825e391c4d0f02f3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/24-48_right_curve_cs.obj-38009410a171c545825e391c4d0f02f3.mesh"]
+
+source_file="res://assets/3d/fence/cs/right/24-48_right_curve_cs.obj"
+dest_files=["res://.godot/imported/24-48_right_curve_cs.obj-38009410a171c545825e391c4d0f02f3.mesh", "res://.godot/imported/24-48_right_curve_cs.obj-38009410a171c545825e391c4d0f02f3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

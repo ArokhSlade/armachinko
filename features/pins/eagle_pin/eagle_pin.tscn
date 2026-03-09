@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfkdameyioihh"]
+
+[ext_resource type="Script" path="res://features/pins/eagle_pin/eagle_pin.gd" id="1_i3k8b"]
+[ext_resource type="PackedScene" uid="uid://cf0lteue7wccy" path="res://assets/3d/asset scene files/eagle_skull_normal.tscn" id="2_yy2m1"]
+[ext_resource type="PackedScene" uid="uid://lkathxuw7m4" path="res://assets/3d/asset scene files/eagle_skull_chipped.tscn" id="3_4t8fu"]
+[ext_resource type="PackedScene" uid="uid://880ywwoxw5lx" path="res://features/effects/score_donor.tscn" id="3_4wh75"]
+[ext_resource type="AudioStream" uid="uid://cpd4xijd6lb8i" path="res://assets/sound/boss_hit.mp3" id="4_codqn"]
+[ext_resource type="PackedScene" uid="uid://bbqwgtvoayxaq" path="res://assets/3d/asset scene files/eagle_skull_cracked.tscn" id="4_pjc8w"]
+[ext_resource type="AudioStream" uid="uid://d0oonehgmwneg" path="res://assets/sound/boss_hit_2.mp3" id="5_5f6vv"]
+[ext_resource type="AudioStream" uid="uid://bv60hqlc1dwr2" path="res://assets/sound/boss_hit_3.mp3" id="6_sxksa"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mwnju"]
+height = 8.27289
+radius = 3.56295
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hix0n"]
+streams_count = 2
+stream_0/stream = ExtResource("4_codqn")
+stream_1/stream = ExtResource("5_5f6vv")
+
+[node name="EaglePin" type="AnimatableBody3D" groups=["Eagle"]]
+collision_mask = 2
+script = ExtResource("1_i3k8b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Eagle"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mwnju")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." groups=["Eagle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.49243)
+depth = 5.0
+polygon = PackedVector2Array(-1.22754, -2.71997, -0.835949, -4.96074, -0.183296, -6.41833, 0.164785, -6.41833, 0.882703, -4.74319, 1.0785, -2.69821)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Eagle"]]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Eagle"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mwnju")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Area3D" groups=["Eagle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.49243)
+depth = 5.0
+polygon = PackedVector2Array(-1.22754, -2.71997, -0.835949, -4.96074, -0.183296, -6.41833, 0.164785, -6.41833, 0.882703, -4.74319, 1.0785, -2.69821)
+
+[node name="EagleSkullNormal" parent="." instance=ExtResource("2_yy2m1")]
+transform = Transform3D(-2, 1.74846e-07, 7.64274e-15, 0, -8.74228e-08, 2, 1.74846e-07, 2, 8.74228e-08, 0, 0, 0)
+
+[node name="EagleSkullChipped" parent="." instance=ExtResource("3_4t8fu")]
+transform = Transform3D(-2, 1.74846e-07, 7.64274e-15, 0, -8.74228e-08, 2, 1.74846e-07, 2, 8.74228e-08, 0, 0, 0)
+visible = false
+
+[node name="EagleSkullCracked" parent="." instance=ExtResource("4_pjc8w")]
+transform = Transform3D(-2, 1.74846e-07, 7.64274e-15, 0, -8.74228e-08, 2, 1.74846e-07, 2, 8.74228e-08, 0, 0, 0)
+visible = false
+
+[node name="ScoreDonor" parent="." instance=ExtResource("3_4wh75")]
+score_bonus = 10000
+active_on_blast = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="BossHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_hix0n")
+attenuation_model = 3
+volume_db = 0.412
+bus = &"Objects"
+attenuation_filter_db = -9.5
+
+[node name="BossDeadSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_sxksa")
+attenuation_model = 3
+volume_db = 5.765
+bus = &"Objects"
+attenuation_filter_db = -4.9
+
+[node name="DespawnDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn"]
+[connection signal="timeout" from="DespawnDelayTimer" to="." method="_on_despawn_delay_timer_timeout"]

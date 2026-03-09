@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr783ao5d05up"]
+
+[ext_resource type="PackedScene" uid="uid://dcmfr28rvpekj" path="res://assets/3d/well.glb" id="1_saefq"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_up16y"]
+[ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_wjb8q"]
+
+[node name="well" instance=ExtResource("1_saefq")]
+
+[node name="well" parent="." index="0"]
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")
+
+[node name="leaver" parent="well" index="0"]
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")
+
+[node name="water" parent="well" index="1"]
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")
+
+[node name="well_cover" parent="well" index="2"]
+transform = Transform3D(0.409407, 0.387487, -0.825978, -0.911798, 0.20532, -0.355624, 0.0317897, 0.89872, 0.437369, 0.535673, -2.81592, 0)
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")
+
+[node name="well_no_roof" parent="well" index="3"]
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")
+
+[node name="well_roof" parent="well" index="4"]
+material_override = ExtResource("2_up16y")
+material_overlay = ExtResource("3_wjb8q")

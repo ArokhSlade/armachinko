@@ -1,0 +1,360 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctiaik8pqla3n"]
+
+[ext_resource type="PackedScene" uid="uid://bwad6smb1avc" path="res://features/level/main_level.tscn" id="1_hxw0e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ocp2"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iqjg"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 3)
+
+[node name="Level3D" instance=ExtResource("1_hxw0e")]
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D" index="0"]
+transform = Transform3D(1.62958e-07, -0.729109, -0.684397, 2.98023e-08, 0.684397, -0.729109, 1, 9.84174e-08, 1.33257e-07, 3.90831, 2.57068, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D2" index="0"]
+transform = Transform3D(4.82558e-08, -0.674692, -0.7381, 2.98023e-08, 0.7381, -0.674692, 1, 1.05607e-08, 5.5725e-08, -0.0852203, 0.0198364, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D4" index="0"]
+transform = Transform3D(-4.37114e-08, -0.480832, -0.876812, 0, 0.876812, -0.480832, 1, -2.10178e-08, -3.83267e-08, -0.10244, -0.0540161, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D6" index="0"]
+transform = Transform3D(-4.37114e-08, -0.883462, -0.468504, 0, 0.468504, -0.883462, 1, -3.86173e-08, -2.0479e-08, -0.270947, 0.0247288, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D7" index="0"]
+transform = Transform3D(-1.62921e-07, 0.238789, 0.971072, 0, 0.971072, -0.238789, -1, -3.89036e-08, -1.58208e-07, 3.86935, 0.145554, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D3" index="0"]
+transform = Transform3D(-4.37114e-08, -0.838775, 0.544477, 0, 0.544477, 0.838775, -1, 3.6664e-08, -2.37998e-08, -90.0059, 413.417, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D8" index="0"]
+transform = Transform3D(7.54979e-08, 0.511808, -0.8591, 0, 0.8591, 0.511808, 1, -3.86404e-08, 6.48602e-08, -74.6147, 421.022, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D9" index="0"]
+transform = Transform3D(-4.37114e-08, -0.0134994, -0.999902, 0, 0.999902, -0.0134994, 1, -5.90077e-10, -4.37071e-08, -54.4474, 337.712, -0.01)
+
+[node name="Enemy" parent="SpritePlane/Enemies/Path3D11" index="0"]
+transform = Transform3D(-4.37114e-08, 0.485634, 0.874163, 0, 0.874163, -0.485634, -1, -2.12277e-08, -3.82109e-08, 129.629, -489.851, -0.01)
+
+[node name="TutorialPivot" parent="SpritePlane" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.75471, 0, 0.75471, 0.656059, -20.4245, 372.696, 1.49998)
+
+[node name="Player" parent="SpritePlane" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4245, 372.696, 1.49998)
+
+[node name="CameraPivot" parent="SpritePlane" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.656059, -0.754709, 0, 0.754709, 0.656059, -20.4245, 372.696, 1.49998)
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="MamaEagle_" parent="MeshPlane/LevelParts/BossPinPart" index="0"]
+transform = Transform3D(0.768686, 0.621481, -0.151271, -0.639627, 0.74688, -0.181793, 2.16067e-07, 0.236499, 0.971632, 139.126, -260.838, 27.0826)
+
+[node name="AcceleratorCannon" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="0"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -24, -239, 0)
+
+[node name="AcceleratorCannon2" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="1"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 56, -239, 0)
+
+[node name="AcceleratorCannon3" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="2"]
+transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 56, -160, 0)
+
+[node name="AcceleratorCannon4" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="3"]
+transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -24, -159, 0)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/TopFenceKeyBumper" index="3"]
+transform = Transform3D(0.997053, 0.0767191, 0, -0.0767191, 0.997053, 0, 0, 0, 1, -49, 416, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/TopFenceKeyBumper" index="4"]
+transform = Transform3D(0.993171, -0.116671, 0, 0.116671, 0.993171, 0, 0, 0, 1, -31, 416, 0)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/TopDoorWings" index="0"]
+transform = Transform3D(0.135716, 0.990747, 0, -0.990747, 0.135716, 0, 0, 0, 1, 95, -108.831, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/TopDoorWings" index="1"]
+transform = Transform3D(-0.078463, 0.996917, 0, -0.996917, -0.078463, 0, 0, 0, 1, 95, -126.831, 0)
+
+[node name="LeftDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/BottomDoorWings" index="0"]
+transform = Transform3D(0.996345, -0.0854169, 0, 0.0854169, 0.996345, 0, 0, 0, 1, 153, -272.199, 0)
+
+[node name="RightDoorWing" parent="MeshPlane/LevelParts/DoorKeys/CoinPathKeyBumper/BottomDoorWings" index="1"]
+transform = Transform3D(0.989272, 0.146083, 0, -0.146083, 0.989272, 0, 0, 0, 1, 171, -272.199, 0)
+
+[node name="ControllableCannon" parent="MeshPlane/LevelParts/BottomPart" index="0"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -70, -382, 0)
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37" index="0"]
+shape = SubResource("BoxShape3D_6iqjg")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37/Area3D" index="0"]
+shape = SubResource("BoxShape3D_6iqjg")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[node name="CollisionShape3D" parent="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25/Area3D" index="0"]
+shape = SubResource("BoxShape3D_7ocp2")
+
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper6"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper7"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper9"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper10"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper11"]
+[editable path="MeshPlane/LevelParts/GuidingWagonPart/Wagon/RectangleBumper12"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper8"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper15"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper13"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper14"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper16"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper17"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper18"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper20"]
+[editable path="MeshPlane/LevelParts/CurvePart/Wagon/RectangleBumper21"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper16"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper35"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper38"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper39"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper36"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper26"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper27"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper28"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper29"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper30"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper37"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper31"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper32"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper33"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper34"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper17"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper18"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper19"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper20"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper21"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper24"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper22"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper23"]
+[editable path="MeshPlane/LevelParts/BottomPart/Wagon/RectangleBumper25"]
+[editable path="easteregg_1"]

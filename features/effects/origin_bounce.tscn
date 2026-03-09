@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv8iafyv8jw0f"]
+
+[ext_resource type="Script" path="res://features/effects/origin_bounce.gd" id="1_xyy3h"]
+
+[node name="OriginBounce" type="Marker3D"]
+gizmo_extents = 1.0
+script = ExtResource("1_xyy3h")
+impulse_strength = 20.0

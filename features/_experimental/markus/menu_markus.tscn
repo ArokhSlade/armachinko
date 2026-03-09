@@ -1,0 +1,293 @@
+[gd_scene load_steps=47 format=3 uid="uid://cfnsviu0l0t3y"]
+
+[ext_resource type="Script" path="res://features/ui/menu/title_screen.gd" id="1_1bb2g"]
+[ext_resource type="Texture2D" uid="uid://p152qf4qtf0a" path="res://assets/2d/sprites/2d_art/main_menu_artwork.png" id="2_0kanq"]
+[ext_resource type="Texture2D" uid="uid://3nqmg8hl804o" path="res://assets/2d/sprites/vfx_particle/particle.png" id="3_xvgri"]
+[ext_resource type="Texture2D" uid="uid://b7ut2y2nnd2iw" path="res://assets/2d/sprites/ui/2d_sprites/ui_pause_wooden_post.png" id="4_lacrd"]
+[ext_resource type="Theme" uid="uid://dwjkcm1x4clvx" path="res://features/ui/menu/menu_theme.tres" id="5_f26hu"]
+[ext_resource type="Texture2D" uid="uid://cwbt8n1oau1l5" path="res://assets/2d/sprites/ui/buttons/ui_button_settings_hover.png" id="6_i4f8w"]
+[ext_resource type="Texture2D" uid="uid://bbq8u76ssvyjk" path="res://assets/2d/sprites/ui/buttons/ui_button_settings_pressed.png" id="7_3afep"]
+[ext_resource type="Texture2D" uid="uid://c8r4k17a5yvf6" path="res://assets/2d/sprites/ui/buttons/ui_button_settings.png" id="8_3rmvp"]
+[ext_resource type="Texture2D" uid="uid://bopue8e4pkxb7" path="res://assets/2d/sprites/ui/buttons/ui_button_highscore_list_hover.png" id="9_3btbq"]
+[ext_resource type="Texture2D" uid="uid://ddrfb5tkpsv5m" path="res://assets/2d/sprites/ui/buttons/ui_button_highscore_list_pressed.png" id="10_equbs"]
+[ext_resource type="Texture2D" uid="uid://bnu8ibwwxan0t" path="res://assets/2d/sprites/ui/buttons/ui_button_highscore_list.png" id="11_dkjea"]
+[ext_resource type="Texture2D" uid="uid://dheet0n0lo63w" path="res://assets/2d/sprites/ui/buttons/ui_button_credits_hover.png" id="12_drken"]
+[ext_resource type="Texture2D" uid="uid://b1gnkqr8svrvw" path="res://assets/2d/sprites/ui/buttons/ui_button_credits_pressed.png" id="13_1w26t"]
+[ext_resource type="Texture2D" uid="uid://i3y0e535uxda" path="res://assets/2d/sprites/ui/buttons/ui_button_credits.png" id="14_kmauh"]
+[ext_resource type="Texture2D" uid="uid://dxd87yma2pjf1" path="res://assets/2d/sprites/ui/buttons/ui_button_quit_hover.png" id="15_4dc5l"]
+[ext_resource type="Texture2D" uid="uid://bll6yhbqk4qwh" path="res://assets/2d/sprites/ui/buttons/ui_button_quit_pressed.png" id="16_i81vw"]
+[ext_resource type="Texture2D" uid="uid://kdcx8h0loojr" path="res://assets/2d/sprites/ui/buttons/ui_button_quit.png" id="17_7m1ms"]
+[ext_resource type="PackedScene" uid="uid://2nauafwfu4ye" path="res://features/ui/sound/button_sound_installer.tscn" id="18_6ts8v"]
+[ext_resource type="PackedScene" uid="uid://gifja01es87a" path="res://features/ui/menu/settings_tab.tscn" id="18_gyn73"]
+[ext_resource type="PackedScene" uid="uid://jtei825vb2jh" path="res://features/ui/menu/highscore_tab.tscn" id="19_4g5ga"]
+[ext_resource type="PackedScene" uid="uid://jbbh1luxo5m5" path="res://features/ui/menu/credits_tab.tscn" id="20_vktpi"]
+[ext_resource type="PackedScene" uid="uid://by8vpiqbqn5k2" path="res://features/ui/menu/are_you_sure_tab.tscn" id="21_x77ww"]
+[ext_resource type="PackedScene" uid="uid://dyrltqj0lskg3" path="res://features/ui/menu/enter_name_tab.tscn" id="22_k7em0"]
+[ext_resource type="Script" path="res://features/ui/menu/name_field.gd" id="23_nqvlv"]
+[ext_resource type="AudioStream" uid="uid://bag17oxc86v2c" path="res://assets/music/main_menu_soundtrack.mp3" id="24_6nq07"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p0rbf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 1, 1)
+direction = Vector3(0.5, -1, 0)
+spread = 20.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjc1x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovgc4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jleq"]
+content_margin_left = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_i4f8w")
+region_rect = Rect2(182.684, 277.242, 1384.05, 470.764)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65a5d"]
+content_margin_left = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("7_3afep")
+region_rect = Rect2(182.684, 277.242, 1384.05, 470.764)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_on0ve"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 5.0
+texture = ExtResource("8_3rmvp")
+region_rect = Rect2(182.684, 277.242, 1384.05, 470.764)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scg85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cja11"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vogc"]
+texture = ExtResource("9_3btbq")
+region_rect = Rect2(284.868, 201.849, 1239.68, 580.609)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7njj"]
+texture = ExtResource("10_equbs")
+region_rect = Rect2(284.868, 201.849, 1239.68, 580.609)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bflxt"]
+texture = ExtResource("11_dkjea")
+region_rect = Rect2(284.868, 201.849, 1239.68, 580.609)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6ytw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqpyf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfmfx"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("12_drken")
+region_rect = Rect2(369.606, 311.694, 988.605, 414.273)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ktih"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("13_1w26t")
+region_rect = Rect2(369.606, 311.694, 988.605, 414.273)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1aqv7"]
+content_margin_left = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("14_kmauh")
+region_rect = Rect2(369.606, 311.694, 988.605, 414.273)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2roba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wq0s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c4mcq"]
+content_margin_left = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("15_4dc5l")
+region_rect = Rect2(259.76, 274.033, 1242.82, 568.056)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4teso"]
+content_margin_left = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("16_i81vw")
+region_rect = Rect2(259.76, 274.033, 1242.82, 568.056)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsyy2"]
+content_margin_left = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("17_7m1ms")
+region_rect = Rect2(259.76, 274.033, 1242.82, 568.056)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1bb2g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuBackground" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1157.33
+offset_bottom = 651.0
+texture = ExtResource("2_0kanq")
+expand_mode = 2
+
+[node name="Particles" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(499, 764)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_p0rbf")
+texture = ExtResource("3_xvgri")
+lifetime = 12.0
+preprocess = 12.0
+visibility_rect = Rect2(0, -500, 200, 200)
+
+[node name="MainButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.0
+offset_right = 27.0
+pivot_offset = Vector2(224, 416)
+
+[node name="UiPauseWoodenPost" type="Sprite2D" parent="CanvasLayer/MainButtons"]
+position = Vector2(215.25, 435)
+scale = Vector2(0.295, 0.334375)
+texture = ExtResource("4_lacrd")
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MainButtons"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 232.0
+offset_right = 323.0
+offset_bottom = 304.0
+rotation = 0.0291929
+pivot_offset = Vector2(115, 45)
+theme = ExtResource("5_f26hu")
+theme_override_font_sizes/font_size = 25
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/MainButtons"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 290.0
+offset_right = 341.0
+offset_bottom = 369.0
+rotation = -0.110913
+pivot_offset = Vector2(124, 41)
+theme = ExtResource("5_f26hu")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wjc1x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ovgc4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1jleq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_65a5d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_on0ve")
+text = "Settings"
+
+[node name="HighScoreButton" type="Button" parent="CanvasLayer/MainButtons"]
+layout_mode = 0
+offset_left = 66.4607
+offset_top = 349.527
+offset_right = 377.461
+offset_bottom = 484.527
+rotation = -0.0319935
+pivot_offset = Vector2(146, 48)
+theme = ExtResource("5_f26hu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_scg85")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cja11")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0vogc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d7njj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bflxt")
+text = "High 
+Score"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainButtons"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 469.0
+offset_right = 333.0
+offset_bottom = 543.0
+rotation = 0.0675426
+pivot_offset = Vector2(130, 46)
+theme = ExtResource("5_f26hu")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k6ytw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hqpyf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qfmfx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5ktih")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1aqv7")
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainButtons"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 526.0
+offset_right = 305.0
+offset_bottom = 591.0
+rotation = -0.0755778
+pivot_offset = Vector2(126, 44)
+theme = ExtResource("5_f26hu")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2roba")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1wq0s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c4mcq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4teso")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rsyy2")
+text = "Quit"
+
+[node name="ButtonSoundInstaller" parent="CanvasLayer/MainButtons" node_paths=PackedStringArray("root_node") instance=ExtResource("18_6ts8v")]
+root_node = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.0699667, 0.066, 0.901961)
+
+[node name="SettingsTab" parent="CanvasLayer" instance=ExtResource("18_gyn73")]
+visible = false
+
+[node name="HighscoreTab" parent="CanvasLayer" instance=ExtResource("19_4g5ga")]
+visible = false
+
+[node name="CreditsTab" parent="CanvasLayer" instance=ExtResource("20_vktpi")]
+
+[node name="AreYouSureTab" parent="CanvasLayer" instance=ExtResource("21_x77ww")]
+visible = false
+
+[node name="EnterNameTab" parent="CanvasLayer" instance=ExtResource("22_k7em0")]
+visible = false
+
+[node name="NameField" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 789.0
+offset_top = 29.0
+offset_right = 1042.0
+offset_bottom = 68.0
+script = ExtResource("23_nqvlv")
+
+[node name="Label" type="Label" parent="CanvasLayer/NameField"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Your Name:"
+
+[node name="Username" type="Label" parent="CanvasLayer/NameField"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="BackroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_6nq07")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainButtons/HighScoreButton" to="." method="_on_high_score_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="username_confirmed" from="CanvasLayer/EnterNameTab" to="CanvasLayer/NameField" method="update"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn7cykyssom5k"]
+
+[ext_resource type="Script" path="res://features/special/milestone_counters/milestone_counter.gd" id="1_rl5bm"]
+[ext_resource type="Texture2D" uid="uid://cdqvt1jp8hc0w" path="res://assets/2d/sprites/ui/icons/ui_score_milestone_coin_pin_icon.png" id="2_6cdjg"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="3_f0r2c"]
+
+[sub_resource type="Animation" id="Animation_pkkt2"]
+resource_name = "hide_counter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 10),
+"update": 0,
+"values": [Vector2(803, 51), Vector2(803, -40)]
+}
+
+[sub_resource type="Animation" id="Animation_3f8di"]
+resource_name = "show_counter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 10),
+"update": 0,
+"values": [Vector2(803, -40), Vector2(803, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7jvg"]
+_data = {
+"hide_counter": SubResource("Animation_pkkt2"),
+"show_counter": SubResource("Animation_3f8di")
+}
+
+[node name="CoinCounter" type="Node2D"]
+script = ExtResource("1_rl5bm")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(803, -40)
+scale = Vector2(0.76, 0.75)
+texture = ExtResource("2_6cdjg")
+
+[node name="Label" type="Label" parent="Icon"]
+offset_left = 44.7368
+offset_top = -21.3333
+offset_right = 82.7368
+offset_bottom = 24.6666
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_f0r2c")
+theme_override_font_sizes/font_size = 35
+text = "x1"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7jvg")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

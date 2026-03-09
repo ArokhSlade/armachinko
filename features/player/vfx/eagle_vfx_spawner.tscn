@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwyr1vyo06ss"]
+
+[ext_resource type="Script" path="res://features/player/vfx/impact_vfx_spawner.gd" id="1_yfx0a"]
+[ext_resource type="PackedScene" uid="uid://dcn787m5j4yih" path="res://features/player/vfx/eagle_impact_vfx.tscn" id="2_mtsmo"]
+
+[node name="EagleVFXSpawner" type="Node3D"]
+script = ExtResource("1_yfx0a")
+impact_vfx_scene = ExtResource("2_mtsmo")

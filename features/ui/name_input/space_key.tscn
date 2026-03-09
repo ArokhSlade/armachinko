@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://df51jcybhcf6h"]
+
+[ext_resource type="Texture2D" uid="uid://c546db0n5ywof" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_space.png" id="1_bhgdk"]
+[ext_resource type="Texture2D" uid="uid://cgln7qac781v6" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_space_pressed.png" id="2_cl5aj"]
+[ext_resource type="Texture2D" uid="uid://k7p6gwssk4y2" path="res://assets/2d/sprites/ui/buttons/ui_name_input_typewriter_space_hover.png" id="3_gpdni"]
+[ext_resource type="Script" path="res://features/ui/name_input/keycode_key.gd" id="4_87xtk"]
+
+[node name="SpaceKey" type="TextureButton"]
+offset_left = 504.0
+offset_top = 264.0
+offset_right = 756.0
+offset_bottom = 360.0
+texture_normal = ExtResource("1_bhgdk")
+texture_pressed = ExtResource("2_cl5aj")
+texture_focused = ExtResource("3_gpdni")
+ignore_texture_size = true
+script = ExtResource("4_87xtk")
+keycode = 32
+
+[connection signal="mouse_entered" from="." to="." method="grab_focus" flags=3]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="renamed" from="." to="." method="_on_renamed"]

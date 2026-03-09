@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdtqsfv2x7w7n"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/cactus_bumper.gd" id="1_tw7lt"]
+[ext_resource type="PackedScene" uid="uid://bo64tack8j2qa" path="res://assets/3d/asset scene files/round_cactus.tscn" id="2_bcym7"]
+[ext_resource type="AudioStream" uid="uid://c1wepi3j2mcc0" path="res://assets/sound/cactus_collide_dummy_250122.mp3" id="3_vb6d1"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="5_0sauh"]
+[ext_resource type="Material" uid="uid://uw25hel574ra" path="res://assets/3d/materials/emission_material.tres" id="5_glwqq"]
+[ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="6_lae7h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h0kjh"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mbsq8"]
+height = 4.0
+radius = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nb5cw"]
+height = 4.0
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_gevv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("round_cactus/round_cactus_pink:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_lae7h")]
+}
+
+[sub_resource type="Animation" id="Animation_hilok"]
+resource_name = "bounce_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("round_cactus/round_cactus_pink:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_glwqq"), ExtResource("6_lae7h")]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("round_cactus/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("cactus_attack"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_msdfm"]
+resource_name = "idle_animation"
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("round_cactus/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("cactus_idle"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85w1u"]
+_data = {
+"RESET": SubResource("Animation_gevv5"),
+"bounce_animation": SubResource("Animation_hilok"),
+"idle_animation": SubResource("Animation_msdfm")
+}
+
+[node name="Bumper" type="StaticBody3D" node_paths=PackedStringArray("bounceable_collision_shape", "explodable_collision_shape", "shootable_collision_shape") groups=["CactusBumpers"]]
+physics_material_override = SubResource("PhysicsMaterial_h0kjh")
+script = ExtResource("1_tw7lt")
+explodable = false
+bounceable_collision_shape = NodePath("CollisionShape3D")
+explodable_collision_shape = NodePath("Area3D/CollisionShape3D")
+shootable_collision_shape = NodePath("Area3D/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mbsq8")
+
+[node name="round_cactus" parent="." instance=ExtResource("2_bcym7")]
+
+[node name="round_cactus_pink" parent="round_cactus" index="0"]
+blend_shapes/idle = 0.0
+blend_shapes/spike_expansion = 0.5
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_nb5cw")
+
+[node name="BouncedAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vb6d1")
+attenuation_model = 3
+volume_db = 11.496
+bus = &"Objects"
+attenuation_filter_db = -4.2
+
+[node name="OriginBounce" parent="." instance=ExtResource("5_0sauh")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_85w1u")
+}
+autoplay = "idle_animation"
+next/bounce_animation = &"idle_animation"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_entered"]
+
+[editable path="round_cactus"]

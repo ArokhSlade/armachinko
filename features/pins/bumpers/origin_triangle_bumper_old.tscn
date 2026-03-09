@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjas815dryfiu"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/bumper.gd" id="1_m6dyj"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_t12pe"]
+[ext_resource type="PackedScene" uid="uid://de2weqwutjnm" path="res://assets/3d/asset scene files/sheep.tscn" id="3_5dkui"]
+[ext_resource type="AudioStream" uid="uid://cmevmhnooga52" path="res://assets/sound/sheep_angry.mp3" id="4_cbbw8"]
+[ext_resource type="AudioStream" uid="uid://b756tidfoi7mk" path="res://assets/sound/sheepfence_hit.mp3" id="5_sjciu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3luds"]
+points = PackedVector3Array(0, 0, 0, 8, 0, 0, 8, 8, 0, 8, 8, 4, 8, 0, 4, 0, 0, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5whr"]
+size = Vector3(8.23054, 0.2, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc1wx"]
+size = Vector3(0.709625, 9.26709, 6.67664)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30url"]
+size = Vector3(8.28638, 1, 6.6543)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_st5xx"]
+random_pitch = 4.12
+streams_count = 1
+stream_0/stream = ExtResource("4_cbbw8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gcpvw"]
+random_pitch = 2.63
+streams_count = 1
+stream_0/stream = ExtResource("5_sjciu")
+
+[node name="OriginTriangleBumper" type="StaticBody3D"]
+script = ExtResource("1_m6dyj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_3luds")
+
+[node name="SheepSide" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00174427, 0.0407672, -0.00974369)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SheepSide"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -4.50402, 4.36948, 2.92746)
+shape = SubResource("BoxShape3D_g5whr")
+
+[node name="FenceSide" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163194, 4.13354, 2.83775)
+shape = SubResource("BoxShape3D_lc1wx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FenceSide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33557, 0, 2.82715)
+shape = SubResource("BoxShape3D_30url")
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="OriginBounce" parent="Effects" instance=ExtResource("2_t12pe")]
+impulse_strength = 35.0
+
+[node name="CSGBlockout" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
+visible = false
+polygon = PackedVector2Array(0, 0, 8, 0, 8, 8)
+depth = 2.0
+
+[node name="SetDressing" type="Node3D" parent="."]
+
+[node name="Sheep" parent="SetDressing" instance=ExtResource("3_5dkui")]
+transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -4, 3, 0)
+
+[node name="sheep" parent="SetDressing/Sheep" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.707107, -0.707107, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_st5xx")
+attenuation_model = 3
+pitch_scale = 0.81
+bus = &"Objects"
+
+[node name="TriangleHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_gcpvw")
+attenuation_model = 3
+pitch_scale = 1.04
+bus = &"Objects"
+
+[connection signal="bounced" from="." to="AudioStreamPlayer3D" method="play"]
+[connection signal="bounced" from="." to="SetDressing/Sheep/AnimationPlayer2" method="play" binds= [&"fuzzy_bounce"]]
+[connection signal="body_entered" from="SheepSide" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="FenceSide" to="." method="_on_fence_side_body_entered"]
+
+[editable path="SetDressing/Sheep"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjoihqgkvktuv"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/wagon_bumper.gd" id="1_612jc"]
+[ext_resource type="PackedScene" uid="uid://8prurgq2qqwb" path="res://assets/3d/asset scene files/generated_via_script/settler_wagon.tscn" id="2_4r7r0"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="3_71ffw"]
+[ext_resource type="AudioStream" uid="uid://bom08oxun4mn4" path="res://assets/sound/wagon_bounce.mp3" id="4_owxpb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tv8o"]
+size = Vector3(12, 6, 3)
+
+[node name="RectangleBumper" type="StaticBody3D" node_paths=PackedStringArray("bounceable_collision_shape")]
+collision_mask = 0
+script = ExtResource("1_612jc")
+explodable = false
+bounceable_collision_shape = NodePath("Area3D/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_0tv8o")
+
+[node name="SettlerWagon" parent="." instance=ExtResource("2_4r7r0")]
+
+[node name="OriginBounce" parent="." instance=ExtResource("3_71ffw")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_owxpb")
+attenuation_model = 3
+volume_db = 20.0
+bus = &"Objects"
+
+[connection signal="bounced" from="." to="AudioStreamPlayer3D" method="play"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

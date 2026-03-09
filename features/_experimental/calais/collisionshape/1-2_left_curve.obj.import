@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhthm3uf20vwm"
+path="res://.godot/imported/1-2_left_curve.obj-38a9b1ca6c5f815ba7f0c75d29537a1e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/1-2_left_curve.obj-38a9b1ca6c5f815ba7f0c75d29537a1e.mesh"]
+
+source_file="res://features/_experimental/calais/collisionshape/1-2_left_curve.obj"
+dest_files=["res://.godot/imported/1-2_left_curve.obj-38a9b1ca6c5f815ba7f0c75d29537a1e.mesh", "res://.godot/imported/1-2_left_curve.obj-38a9b1ca6c5f815ba7f0c75d29537a1e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

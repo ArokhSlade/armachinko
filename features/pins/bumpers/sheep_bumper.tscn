@@ -1,0 +1,182 @@
+[gd_scene load_steps=19 format=3 uid="uid://kmk4i81uayf1"]
+
+[ext_resource type="Script" path="res://features/pins/bumpers/sheep_bumper.gd" id="1_0bgon"]
+[ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_8b0i8"]
+[ext_resource type="PackedScene" uid="uid://k0nnncl7gos8" path="res://assets/3d/asset scene files/generated_via_script/sheep_bouncer.tscn" id="2_s5gly"]
+[ext_resource type="AudioStream" uid="uid://b756tidfoi7mk" path="res://assets/sound/sheepfence_hit.mp3" id="3_vypf4"]
+[ext_resource type="AudioStream" uid="uid://cmevmhnooga52" path="res://assets/sound/sheep_angry.mp3" id="4_30pf1"]
+[ext_resource type="PlaneMesh" uid="uid://cp7fkuhhxbsjy" path="res://assets/3d/assets/sheep_particle_3d.tres" id="4_y1yog"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3luds"]
+points = PackedVector3Array(0, 0, 0, 8, 0, 0, 8, 8, 0, 8, 8, 4, 8, 0, 4, 0, 0, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5whr"]
+size = Vector3(8.23054, 0.2, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc1wx"]
+size = Vector3(0.709625, 9.26709, 6.67664)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30url"]
+size = Vector3(8.28638, 1, 6.6543)
+
+[sub_resource type="Curve" id="Curve_xrant"]
+bake_resolution = 16
+_data = [Vector2(0.729651, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e66qx"]
+curve = SubResource("Curve_xrant")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q37x2"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(-1, -1, -0.66)
+initial_velocity_max = 120.0
+scale_min = 0.5
+scale_max = 0.8
+alpha_curve = SubResource("CurveTexture_e66qx")
+turbulence_enabled = true
+turbulence_noise_strength = 0.2
+turbulence_noise_scale = 1.0
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.061
+turbulence_influence_max = 0.061
+
+[sub_resource type="Animation" id="Animation_h7enm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2yjxt"]
+resource_name = "fuzzy_bounce"
+length = 0.5333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SheepBouncer/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("sheep_bounce"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5s8f"]
+_data = {
+"RESET": SubResource("Animation_h7enm"),
+"fuzzy_bounce": SubResource("Animation_2yjxt")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_st5xx"]
+random_pitch = 4.12
+streams_count = 1
+stream_0/stream = ExtResource("4_30pf1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gcpvw"]
+random_pitch = 2.63
+streams_count = 1
+stream_0/stream = ExtResource("3_vypf4")
+
+[node name="SheepBumper" type="StaticBody3D"]
+script = ExtResource("1_0bgon")
+explodable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_3luds")
+
+[node name="SheepArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00174427, 0.0407672, -0.00974369)
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SheepArea"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -4.50402, 4.36948, 2.92746)
+shape = SubResource("BoxShape3D_g5whr")
+
+[node name="FenceArea" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163194, 4.13354, 2.83775)
+shape = SubResource("BoxShape3D_lc1wx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FenceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33557, 0, 2.82715)
+shape = SubResource("BoxShape3D_30url")
+
+[node name="CSGBlockout" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
+visible = false
+polygon = PackedVector2Array(0, 0, 8, 0, 8, 8)
+depth = 2.0
+
+[node name="SheepBouncer" parent="." instance=ExtResource("2_s5gly")]
+transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -4, 4, 0)
+
+[node name="sheep" parent="SheepBouncer" index="0"]
+"blend_shapes/bounce 2" = 0.3
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.499872, 0.000386848, 0.0113342, 0.000458677, -0.49999, -0.00316384, 0.0113315, 0.00317347, -0.499862, -5.50271, 5.18717, 2.99429)
+cast_shadow = 0
+emitting = false
+amount = 25
+lifetime = 0.76
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 20
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_q37x2")
+draw_pass_1 = ExtResource("4_y1yog")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h5s8f")
+}
+
+[node name="OriginBounce" parent="." instance=ExtResource("2_8b0i8")]
+impulse_strength = 35.0
+
+[node name="SheepHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_st5xx")
+attenuation_model = 3
+pitch_scale = 0.81
+bus = &"Objects"
+
+[node name="FenceHitSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_gcpvw")
+attenuation_model = 3
+pitch_scale = 1.04
+bus = &"Objects"
+
+[connection signal="body_entered" from="SheepArea" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="FenceArea" to="." method="_on_fence_area_body_entered"]
+
+[editable path="SheepBouncer"]

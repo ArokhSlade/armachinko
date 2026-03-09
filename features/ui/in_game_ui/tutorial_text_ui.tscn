@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfk6n5acwlufv"]
+
+[ext_resource type="Texture2D" uid="uid://d3e6vxgwc7vrw" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box.png" id="1_k0cmp"]
+[ext_resource type="FontFile" uid="uid://g78xifj7xv47" path="res://assets/2d/sprites/fonts/January Snack.otf" id="2_yvdyn"]
+[ext_resource type="Texture2D" uid="uid://b523fltb30f11" path="res://assets/2d/sprites/ui/2d_sprites/ui_tutorial_text_box_2.png" id="3_3qf11"]
+
+[sub_resource type="Animation" id="Animation_3jex5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_flcgp"]
+resource_name = "fade_in_and_out"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38yyb"]
+_data = {
+"RESET": SubResource("Animation_3jex5"),
+"fade_in_and_out": SubResource("Animation_flcgp")
+}
+
+[sub_resource type="Animation" id="Animation_cocea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiTutorialTextBox2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiTutorialTextBox2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_by1gu"]
+resource_name = "fade_in_and_out"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UiTutorialTextBox2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UiTutorialTextBox2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4ld4"]
+_data = {
+"RESET": SubResource("Animation_cocea"),
+"fade_in_and_out": SubResource("Animation_by1gu")
+}
+
+[node name="TutorialTextUi" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UiTutorialTextBox/Controls")
+libraries = {
+"": SubResource("AnimationLibrary_38yyb")
+}
+
+[node name="UiTutorialTextBox" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(567, 347)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_k0cmp")
+
+[node name="Controls" type="Label" parent="UiTutorialTextBox"]
+offset_left = -169.0
+offset_top = -91.0
+offset_right = 148.0
+offset_bottom = 62.0
+theme_override_colors/font_outline_color = Color(0.333333, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_yvdyn")
+theme_override_font_sizes/font_size = 35
+text = "Try rotating 
+with A/D!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4ld4")
+}
+
+[node name="UiTutorialTextBox2" type="Sprite2D" parent="."]
+position = Vector2(564, 332)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_3qf11")
+
+[node name="Controls2" type="Label" parent="UiTutorialTextBox2"]
+offset_left = -152.0
+offset_top = -91.0
+offset_right = 165.0
+offset_bottom = 62.0
+theme_override_colors/font_outline_color = Color(0.333333, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_yvdyn")
+theme_override_font_sizes/font_size = 35
+text = "And shoot 
+with Space!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b2i2intldbwnj"]
+
+[ext_resource type="Texture2D" uid="uid://wnip6bbbx3tt" path="res://assets/3d/textures/coin_silver.png" id="1_jphr1"]
+[ext_resource type="Texture2D" uid="uid://qxtfditx4ghl" path="res://assets/3d/textures/coin_metalness.png" id="2_lox0h"]
+[ext_resource type="Texture2D" uid="uid://58ck5rjtufnr" path="res://assets/3d/textures/coin normal.png" id="3_w7r8o"]
+[ext_resource type="Texture2D" uid="uid://dq8gl2carshuw" path="res://assets/3d/textures/coin_roughness.png" id="4_e12f3"]
+
+[resource]
+albedo_texture = ExtResource("1_jphr1")
+metallic = 1.0
+metallic_texture = ExtResource("2_lox0h")
+roughness_texture = ExtResource("4_e12f3")
+normal_enabled = true
+normal_texture = ExtResource("3_w7r8o")

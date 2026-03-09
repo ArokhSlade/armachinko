@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgfmfwkfh1oip"]
+
+[ext_resource type="Script" path="res://features/special/personal_time_stop.gd" id="1_5q4es"]
+
+[node name="PersonalTimeStop" type="Node"]
+script = ExtResource("1_5q4es")
