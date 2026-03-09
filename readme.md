@@ -10,6 +10,14 @@ As a Team of 8 we built a quirky pinball spin-off, where players take direct con
 | **Programming** | Architecture | Movement | Camera | Interactions | UI |
 | **Production/Lead** | Backlog | Meetings | Coordination | 1on1s | Mentoring |
 
+
+I contributed to 107 out of 117 gd files.  
+29 of which I collaborated on with team members.  
+<!-- ... 97 had their last commit was from me.  -->
+<!--31 out of the 117 scripts got contributions from more than 1 person.  -->
+
+
+
 ## Learnings
 
 Working on a team.  
