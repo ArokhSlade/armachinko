@@ -18,4 +18,4 @@ Managing a project and a team.
 
 ## Team
 
-We were 3 Artists, 2 Designers, 2 Coders, 1 Composer
+3 Artists, 2 Designers, 2 Coders, 1 Composer.
