@@ -2,7 +2,7 @@
 ![Armachinko](image/boss_explosion.gif)
 
 My first semester project at S4G Berlin.   
-As a Team of 8 we built a quirky pinball spin-off, where players take direct control of the ball \- in the shape of a shotgun-wielding armadillo chasing the highest ~~score~~ bounty in the wild west.
+As a Team of 8, in 10 weeks, we built a quirky pinball spin-off, where players take direct control of the ball \- in the shape of a shotgun-wielding armadillo chasing the highest ~~score~~ bounty in the wild west.
 
 ## Work
 | | | | | | |
