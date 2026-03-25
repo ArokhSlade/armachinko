@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 0.5-2_left_circle.mtl
 o 0.5-2_left_circle
 v -0.000001 12.000002 0.000001
 v -0.642316 10.962165 0.000000

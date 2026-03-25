@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 1-2_left_curve.mtl
 o 1-2_left_curve
 v -6.000001 -0.000001 0.000000
 v 0.000000 0.000000 0.000000

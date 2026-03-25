@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 1-2_leftt_inner_circle.mtl
 o 1-2_leftt_inner_circle
 v 0.000000 12.000000 1.998000
 v -0.051331 10.433685 1.998000

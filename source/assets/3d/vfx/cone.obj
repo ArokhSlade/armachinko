@@ -1,6 +1,5 @@
 # Blender 4.3.0
 # www.blender.org
-mtllib cone.mtl
 o Cylinder
 v 0.000000 -7.500000 -0.594588
 v 0.000000 7.500000 -7.500000

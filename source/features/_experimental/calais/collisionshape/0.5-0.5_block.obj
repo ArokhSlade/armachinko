@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 0.5-0.5_block.mtl
 o 0.5-0.5_block
 v 3.000000 3.000000 0.000000
 v 0.000000 3.000000 0.000000

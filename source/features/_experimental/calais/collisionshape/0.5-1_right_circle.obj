@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 0.5-1_right_circle.mtl
 o 0.5-1_right_circle
 v 0.000002 6.000001 0.000000
 v 0.642317 5.481082 0.000000

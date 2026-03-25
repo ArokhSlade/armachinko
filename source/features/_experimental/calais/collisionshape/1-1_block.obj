@@ -1,6 +1,5 @@
 # Blender 4.2.1 LTS
 # www.blender.org
-mtllib 1-1_block.mtl
 o 1-1_block
 v 6.000000 6.000000 0.000000
 v 0.000000 6.000000 0.000000
