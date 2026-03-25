@@ -1,4 +1,4 @@
-/.godot$
+**/.godot/
 .~lock
 .DS_Store # macOS files that stores custom attributes folder, such as view options, icon positions, and other visual information
 *.art
