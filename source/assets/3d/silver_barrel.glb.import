@@ -42,7 +42,7 @@ _subresources={
 "material_name": "",
 "save_to_file/enabled": false,
 "save_to_file/path": "res://assets/3d/meshes/extracted_via_save_to_folder/silver_barrel_mesh.res",
-"unique_material": true,
+"unique_material": false,
 "uv1_offset": Vector3(0, 0, 0)
 }
 }
