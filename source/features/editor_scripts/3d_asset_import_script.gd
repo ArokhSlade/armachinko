@@ -4,31 +4,33 @@ extends EditorScenePostImport
 var gradient_material : Material = preload("res://assets/3d/textures/gradient_texture.tres")
 var outline_material : Material = preload("res://assets/3d/materials/outline_9mm.tres")
 
+var _filename = ""
 func _post_import(scene) -> Node:	
 	print_rich("[color=yellow]_post_import(%s)[/color]" % scene)
 	extract_meshes(scene)	
 	extract_animations(scene)
 	
-	var file_name = get_file_name()	
-	scene.name = file_name.to_pascal_case()		
-	save_asset_scene(scene, file_name)
+	var _filename = get_filename()	
+	scene.name = _filename.to_pascal_case()		
+	save_asset_scene(scene, _filename)
 	
 	return scene
 
-func get_file_name():
-	var file_name : String = get_source_file()
+func get_filename():
+	if _filename == "":
+		_filename = get_source_file()
+				
+		for index in range(_filename.length()-1, 0, -1):
+			if _filename[index] == '.':
+				_filename = _filename.substr(0,index)
+				break
+				
+		for index in range(_filename.length()-1, 0, -1):
+			if _filename[index] == '/':
+				_filename = _filename.substr(index+1)
+				break
 			
-	for index in range(file_name.length()-1, 0, -1):
-		if file_name[index] == '.':
-			file_name = file_name.substr(0,index)
-			break
-			
-	for index in range(file_name.length()-1, 0, -1):
-		if file_name[index] == '/':
-			file_name = file_name.substr(index+1)
-			break
-			
-	return file_name
+	return _filename
 
 func extract_meshes(scene):
 	var meshes = iterate_meshes(scene)
@@ -42,9 +44,9 @@ func extract_meshes(scene):
 		
 		clean_up_meta_data(mesh_instance)
 		
-		save_resource_mesh(mesh_instance.mesh, mesh_instance.name)
+		save_mesh(mesh_instance.mesh, mesh_instance.name)
 		# by loading we make sure the resource is linked to a file
-		mesh_instance.mesh = load_resource_mesh(mesh_instance.name)
+		mesh_instance.mesh = load_mesh(mesh_instance.name)
 
 func iterate_meshes(node):
 	var result = []
@@ -75,24 +77,22 @@ func clean_up_meta_data(node):
 		print("removing metadata:  %s" % data)
 		node.remove_meta(data)
 
-func save_resource_mesh(resource, mesh_name):
-	var resource_path = build_mesh_resource_path(mesh_name)
-	ResourceSaver.save(resource, resource_path, ResourceSaver.FLAG_NONE)
-	print("saving resource mesh: %s at %s" % [resource, resource_path] )
-
-func load_resource_mesh(mesh_name):
-	var resource_path = build_mesh_resource_path(mesh_name)
-	var loaded = load(resource_path)
-	return loaded
-
-func build_mesh_resource_path(mesh_name):
-	var file_name : String = get_file_name()
-	var dir_path = "res://assets/3d/meshes/extracted_via_script/"
-	if not DirAccess.dir_exists_absolute(dir_path):
-		DirAccess.make_dir_absolute(dir_path)	
+var mesh_directory = "res://assets/3d/meshes/extracted_via_script/"
+func save_mesh(resource, mesh_name):
+	if not DirAccess.dir_exists_absolute(mesh_directory):
+		DirAccess.make_dir_absolute(mesh_directory)
+	var mesh_path = mesh_directory + get_filename() + "_" + mesh_name + "_mesh.res"
 	
-	var resource_path = dir_path + file_name + "_" + mesh_name + "_mesh.res"		
-	return resource_path
+	ResourceSaver.save(resource, mesh_path, ResourceSaver.FLAG_NONE)
+	print("saving resource mesh: %s at %s" % [resource, mesh_path] )
+
+func load_mesh(mesh_name):
+	if not DirAccess.dir_exists_absolute(mesh_directory):
+		DirAccess.make_dir_absolute(mesh_directory)
+	var mesh_path = mesh_directory + get_filename() + "_" + mesh_name + "_mesh.res"	
+	
+	var loaded = load(mesh_path)
+	return loaded
 
 func iterate_animation_players(node):
 	var result = []
@@ -117,26 +117,28 @@ func extract_animations(scene):
 	for anim_name in anim_player.get_animation_list():
 		var anim = anim_player.get_animation(anim_name)
 		
-		save_animation_resource(anim_name, anim)
+		save_animation(anim_name, anim)
 		anim_lib.remove_animation(anim_name)
-		var loaded = load_animation_resource(anim_name)
+		var loaded = load_animation(anim_name)
 		anim_lib.add_animation(anim_name, loaded)
+		
+var anim_directory = "res://assets/animations/extracted_via_script/"
+func save_animation(anim_name, anim):
+	if not DirAccess.dir_exists_absolute(anim_directory):
+		DirAccess.make_dir_absolute(anim_directory)
+	var anim_path = anim_directory + _filename + "_" + anim_name + ".res"
+	
+	ResourceSaver.save(anim, anim_path,ResourceSaver.FLAG_NONE)
 
-func save_animation_resource(anim_name, anim):
-	var resource_path = build_resource_path_for_animation(anim_name)		
-	ResourceSaver.save(anim, resource_path,ResourceSaver.FLAG_NONE)
-
-func load_animation_resource(anim_name):
-	var resource_path = build_resource_path_for_animation(anim_name)		
-	var loaded = load(resource_path)
+func load_animation(anim_name):
+	if not DirAccess.dir_exists_absolute(anim_directory):
+		DirAccess.make_dir_absolute(anim_directory)
+	var anim_path = anim_directory + _filename + "_" + anim_name + ".res"
+	
+	var loaded = load(anim_path)
 	return loaded
 
-func build_resource_path_for_animation(anim_name):
-	var file_name = get_file_name()
-	var dir_path = "res://assets/animations/extracted_via_script/"
-	var resource_path = dir_path + file_name + "_" + anim_name + ".res"	
-	return resource_path
-
+#TODO: delete?
 func setup_animation_player(anim_player, anim_dict, anim_player_name = "AnimationPlayer"):
 	anim_player.name = anim_player_name
 	anim_player.add_animation_library("", AnimationLibrary.new())
@@ -144,10 +146,15 @@ func setup_animation_player(anim_player, anim_dict, anim_player_name = "Animatio
 	for anim_name in anim_dict.keys():
 		anim_lib.add_animation(anim_name, anim_dict[anim_name])
 
-func save_asset_scene(result, file_name):
-	print("saving asset scene: %s at %s" % [result, file_name])
+var asset_scene_directory = "res://assets/3d/asset scene files/generated_via_script/"
+func save_asset_scene(result, _filename):
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(result)
-	var save_path = "res://assets/3d/asset scene files/generated_via_script/" + file_name + ".tscn"
-	ResourceSaver.save(packed_scene, save_path)
+	
+	if not DirAccess.dir_exists_absolute(asset_scene_directory):
+		DirAccess.make_dir_absolute(asset_scene_directory)
+	var asset_scene_path = asset_scene_directory + _filename + ".tscn"
+	
+	print("saving asset scene: %s from %s to %s" % [result, _filename, asset_scene_path])
+	ResourceSaver.save(packed_scene, asset_scene_path)
 	
