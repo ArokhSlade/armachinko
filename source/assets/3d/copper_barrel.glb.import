@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/copper_barrel.glb-0fd8d755f4cbc4977220ecf0a7c
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=1.6
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -30,8 +30,14 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
-_subresources={}
+import_script/path="res://features/editor_scripts/3d_asset_import_script.gd"
+_subresources={
+"nodes": {
+"PATH:copper_barrel": {
+"external_material": ""
+}
+}
+}
 a custom int import option=42
 a general import option (test)="res://assets/3d/textures/gradient_texture.tres"
 gltf/naming_version=1
