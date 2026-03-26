@@ -1,0 +1,6 @@
+# this file is needed so that this folder is checked in to version control.
+# this is so we can have 3d meshes use the import option "save to file" with this path.
+
+# why doesn't a plugin just check if the folder exists and create it if necessary?
+# because plugins kick in only after godot tries to execute "save to file".
+# by that time it's too late, because godot finds the folder does not exist, throws an error, and stops the plugin.
