@@ -1,8 +1,6 @@
 @tool
 extends EditorScenePostImportPlugin
 
-const import_script = preload("res://features/editor_scripts/3d_asset_import_script.gd")
-
 func _init():
 	print_rich("[color=red]hello from asset import plugin")
 	pass
@@ -104,12 +102,13 @@ func _internal_process(category, base_node, node, resource):
 				#mesh_3d.set_surface_override_material(0, load(material_path))
 			
 		INTERNAL_IMPORT_CATEGORY_MESH:
-			print("unique_material: %s" % get_option_value("unique_material"))
+			var unique_material_enabled = get_option_value("unique_material")
+			print("unique_material: %s" % unique_material_enabled)
 			
 			var uv1_offset = get_option_value("uv1_offset")
 			print("setting meta data...")				
 			var mesh_instance = node
-			mesh_instance.set_meta("unique_material", true)
+			mesh_instance.set_meta("unique_material", unique_material_enabled)
 			mesh_instance.set_meta("uv1_offset", uv1_offset)
 			
 			if (get_option_value("unique_material") == true):
