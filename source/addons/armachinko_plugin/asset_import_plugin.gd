@@ -115,7 +115,7 @@ func _internal_process(category, base_node, node, resource):
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
 			var node3d = Node3D.new()
-			node.add_child(node3d)
+			node.add_child(node3d) #TODO(Gerald): why?
 			pass
 			#var mesh_3d = node as MeshInstance3D
 			#var material_path : String = get_option_value("external_material")
@@ -123,29 +123,35 @@ func _internal_process(category, base_node, node, resource):
 				#mesh_3d.set_surface_override_material(0, load(material_path))
 			
 		INTERNAL_IMPORT_CATEGORY_MESH:
-			var make_material_unique_enabled = get_option_value("make_material_unique")
-			print("make_material_unique: %s" % make_material_unique_enabled)
+			var mesh = resource as ImporterMesh
 			
 			if get_option_value("import_plugin/material/use_external_material"):
 				print(resource)
-				var mesh = resource as ImporterMesh
 				mesh.set_surface_material(0, gradient_material)
+				print("setting material.")
 			
-			var uv1_offset = get_option_value("uv1_offset")
-			print("setting meta data...")
-			var mesh_instance = node
-			mesh_instance.set_meta("make_material_unique", make_material_unique_enabled)
-			mesh_instance.set_meta("uv1_offset", uv1_offset)
-			
-			if (get_option_value("make_material_unique") == true):
-				print("material_name: %s" % get_option_value("material_name"))
-				print("uv1_offset: %s" % uv1_offset)
+			if (get_option_value("make_material_unique")):
+				var material : BaseMaterial3D = mesh.get_surface_material(0).duplicate()
+				print(material.albedo_texture.resource_path)
+				material.uv1_offset = get_option_value("uv1_offset")
+				mesh.set_surface_material(0, material)
 				
 	return null
 	
 	pass
-	
 
+func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInstance3D):
+	# NOTE(Gerald, 2025 05 28)
+	# we know the mesh instance has a valid mesh with material loaded from disk
+	# if make_material_unique==true then we make a local copy (aka make unique)
+	# of that material and set up custom values
+	if (mesh_instance.get_meta("make_material_unique", false)):
+		print("found make material unique settings. applying ...")
+		var material : BaseMaterial3D = mesh_instance.mesh.surface_get_material(0).duplicate()
+		mesh_instance.mesh.surface_set_material(0, material)
+		var uv1_offset = mesh_instance.get_meta("uv1_offset", Vector3.ZERO)
+		print("uv1_offset: %s" % uv1_offset)
+		material.uv1_offset = uv1_offset
 
 
 
@@ -195,8 +201,6 @@ func extract_meshes(scene):
 		
 		#mesh_instance.material_overlay = outline_material
 		
-		apply_make_material_unique_settings_from_metadata(mesh_instance)
-		
 		clean_up_meta_data(mesh_instance)
 		
 		save_mesh(mesh_instance.mesh, mesh_instance.name)
@@ -211,20 +215,6 @@ func iterate_meshes(node):
 			result.append_array(child_meshes)
 			result.append(child)
 	return result
-
-## uses the scene import plugin api
-func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInstance3D):
-	# NOTE(Gerald, 2025 05 28)
-	# we know the mesh instance has a valid mesh with material loaded from disk
-	# if make_material_unique==true then we make a local copy (aka make unique)
-	# of that material and set up custom values
-	if (mesh_instance.get_meta("make_material_unique", false)):
-		print("found make material unique settings. applying ...")
-		var material : BaseMaterial3D = mesh_instance.mesh.surface_get_material(0).duplicate()
-		mesh_instance.mesh.surface_set_material(0, material)
-		var uv1_offset = mesh_instance.get_meta("uv1_offset", Vector3.ZERO)
-		print("uv1_offset: %s" % uv1_offset)
-		material.uv1_offset = uv1_offset
 
 func clean_up_meta_data(node):
 	print("removing metadata...")
@@ -241,8 +231,11 @@ func save_mesh(resource, mesh_name):
 	ResourceSaver.save(resource, mesh_path, ResourceSaver.FLAG_NONE)
 	print("saving resource mesh: %s at %s" % [resource, mesh_path] )
 	
-	#HACK(gerald, 2026 03 27): make godot update mesh in editor
+	#HACK(gerald, 2026 03 27): make godot update mesh in editor, does not always work
 	ResourceLoader.load(mesh_path, "", ResourceLoader.CACHE_MODE_REPLACE)
+	#var fs = EditorInterface.get_resource_filesystem()
+	#fs.reimport_files([mesh_path])
+
 
 
 func load_mesh(mesh_name):
