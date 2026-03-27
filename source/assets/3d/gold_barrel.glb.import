@@ -30,26 +30,22 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="res://features/editor_scripts/3d_asset_import_script.gd"
+import_script/path=""
 _subresources={
 "meshes": {
 "gold_barrel_Cylinder_049": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
+"import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/use_external_material": true,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "make_material_unique": false,
 "material_name": "",
 "save_to_file/enabled": false,
 "save_to_file/path": "",
-"unique_material": false,
 "uv1_offset": Vector3(0, 0, 0)
-}
-},
-"nodes": {
-"PATH:gold_barrel": {
-"external_material": ""
 }
 }
 }
