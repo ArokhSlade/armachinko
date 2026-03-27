@@ -46,6 +46,8 @@ func _get_internal_import_options(category : InternalImportCategory):
 	var category_name = string(category)
 	print("_get_internal_import_options(%s)" % category_name)
 	match category:
+		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
+			add_import_option_advanced(TYPE_STRING, "import_plugin/material/material_overlay", "res://assets/3d/materials/outline_9mm.tres", PROPERTY_HINT_FILE, ".tres,*res")
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			add_import_option("make_material_unique", false)
 			add_import_option("material_name", "")
@@ -87,7 +89,7 @@ func get_mesh_instances(node, result):
 		get_mesh_instances(child, result)
 	return result
 	
-func print_node_tree(node, depth):
+func print_node_tree(node, depth = 0):
 	var string = ""
 	for step in depth:
 		string += "-"
@@ -114,6 +116,11 @@ func _internal_process(category, base_node, node, resource):
 			print(" - ",child)
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
+			var mesh = node as ImporterMeshInstance3D
+			var path_to_material = get_option_value("import_plugin/material/material_overlay")
+			var material_overlay = load(path_to_material)
+			mesh.set_meta("material_overlay",material_overlay)
+			
 			var node3d = Node3D.new()
 			node.add_child(node3d) #TODO(Gerald): why?
 			pass
@@ -159,7 +166,7 @@ func _post_process(scene):
 	print_rich("[color=orange]_post_process(%s)[/color]" % scene)
 	print_node_tree(scene, 0)
 	
-	extract_meshes(scene)	
+	extract_meshes(scene)
 	extract_animations(scene)
 	
 	var _filename = get_filename()	
@@ -187,28 +194,32 @@ func extract_filename(file_path):
 			break
 	return filename
 
-func extract_meshes(scene):
-	var meshes = iterate_meshes(scene)
-	for mesh_instance in meshes:
-		print ("mesh found: %s" % mesh_instance)
-		#mesh_instance.mesh.surface_set_material(0, gradient_material)
-		
-		#mesh_instance.material_overlay = outline_material
-		
-		clean_up_meta_data(mesh_instance)
-		
-		save_mesh(mesh_instance.mesh, mesh_instance.name)
-		# by loading we make sure the resource is linked to a file
-		mesh_instance.mesh = load_mesh(mesh_instance.name)
-
-func iterate_meshes(node):
-	var result = []
+func iterate_nodes(node : Node):
+	if node == null:
+		return []
+	var nodes = [node]
 	for child in node.get_children():
-		if child is MeshInstance3D:
-			var child_meshes = iterate_meshes(child)
-			result.append_array(child_meshes)
-			result.append(child)
-	return result
+		var descendants = iterate_nodes(child)
+		nodes.append_array(descendants)
+	return nodes
+
+func extract_meshes(scene):
+	var nodes = iterate_nodes(scene)
+	print(nodes)
+	
+	for node in nodes:
+		if node.has_meta("material_overlay"):
+			var geometry = node as GeometryInstance3D
+			geometry.material_overlay = node.get_meta("material_overlay")
+		
+		clean_up_meta_data(node)
+		
+		if node is MeshInstance3D:
+			var mesh_instance = node
+			print ("mesh found: %s" % mesh_instance)
+			save_mesh(mesh_instance.mesh, mesh_instance.name)
+			# by loading we make sure the resource is linked to a file
+			mesh_instance.mesh = load_mesh(mesh_instance.name)
 
 func clean_up_meta_data(node):
 	print("removing metadata...")
