@@ -87,18 +87,18 @@ func get_mesh_instances(node, result):
 		get_mesh_instances(child, result)
 	return result
 	
-func iterate(node, depth):
+func print_node_tree(node, depth):
 	var string = ""
 	for step in depth:
 		string += "-"
 	string += node.to_string()
 	print(string)
 	for child in node.get_children():
-		iterate(child, depth+1)
+		print_node_tree(child, depth+1)
 		
 func _pre_process(scene):
 	print_rich("[color=cyan]_pre_process(%s)[/color]" % scene)
-	iterate(scene, 0)
+	print_node_tree(scene, 0)
 	var mesh_instances = []
 	get_mesh_instances(scene, mesh_instances)
 	for mesh_instance in mesh_instances:
@@ -157,13 +157,7 @@ func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInsta
 
 func _post_process(scene):
 	print_rich("[color=orange]_post_process(%s)[/color]" % scene)
-	print("_filename: " + _filename)
-	print(gradient_material)
-	print(outline_material)
-	print(asset_scene_directory)
-	print(anim_directory)
-	print(mesh_directory)
-	iterate(scene, 0)
+	print_node_tree(scene, 0)
 	
 	extract_meshes(scene)	
 	extract_animations(scene)
