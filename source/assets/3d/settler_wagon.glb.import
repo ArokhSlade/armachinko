@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dqsrg0mai73e"
+uid="uid://ubr50uj6nmkx"
 path="res://.godot/imported/settler_wagon.glb-9cebde380bfa53adf8bb209d320a9d52.scn"
 
 [deps]
@@ -31,7 +31,52 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"meshes": {
+"settler_wagon_Cylinder_064": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/use_external_material": true,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"make_material_unique": false,
+"material_name": "",
+"save_to_file/enabled": false,
+"save_to_file/path": "",
+"uv1_offset": Vector3(0, 0, 0)
+},
+"settler_wagon_Cylinder_066": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/use_external_material": true,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"make_material_unique": false,
+"material_name": "",
+"save_to_file/enabled": false,
+"save_to_file/path": "",
+"uv1_offset": Vector3(0, 0, 0)
+},
+"settler_wagon_Cylinder_089": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/use_external_material": true,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"make_material_unique": true,
+"material_name": "",
+"save_to_file/enabled": false,
+"save_to_file/path": "",
+"uv1_offset": Vector3(-0.088, 0.217, 0)
+}
+}
+}
 import_plugin/info/file_path="res://assets/3d/settler_wagon.glb"
 import_plugin/info/filename="settler_wagon"
 gltf/naming_version=1
