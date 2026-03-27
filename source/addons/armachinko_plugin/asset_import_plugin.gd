@@ -118,8 +118,9 @@ func _internal_process(category, base_node, node, resource):
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
 			var mesh = node as ImporterMeshInstance3D
 			var path_to_material = get_option_value("import_plugin/material/material_overlay")
-			var material_overlay = load(path_to_material)
-			mesh.set_meta("material_overlay",material_overlay)
+			if path_to_material != null and path_to_material != "":
+				var material_overlay = load(path_to_material)
+				mesh.set_meta("material_overlay",material_overlay)
 			
 			var node3d = Node3D.new()
 			node.add_child(node3d) #TODO(Gerald): why?
