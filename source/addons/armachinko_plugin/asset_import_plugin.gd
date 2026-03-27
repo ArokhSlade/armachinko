@@ -46,13 +46,12 @@ func _get_internal_import_options(category : InternalImportCategory):
 	var category_name = string(category)
 	print("_get_internal_import_options(%s)" % category_name)
 	match category:
-		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
-			add_import_option("external surface material override", "gradient texture")
-			add_import_option_advanced(TYPE_STRING, "external_material", "res://assets/3d/textures/gradient_texture.tres", PROPERTY_HINT_FILE, ".tres,*res")
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			add_import_option("make_material_unique", false)
 			add_import_option("material_name", "")
 			add_import_option("uv1_offset", Vector3.ZERO)
+			add_import_option("import_plugin/material/use_external_material", false)
+			add_import_option_advanced(TYPE_STRING, "import_plugin/material/external_material", "res://assets/3d/textures/gradient_texture.tres", PROPERTY_HINT_FILE, ".tres,*res")
 
 func _get_option_visibility(path, for_animation, option):
 	print_rich("[color=yellow]_get_option_visibility(%s, %s, %s)[/color]" % [path, for_animation, option])
@@ -66,6 +65,8 @@ func _get_internal_option_visibility(category, for_animation, option):
 			match option:
 				"material_name", "uv1_offset":
 					return get_option_value("make_material_unique") == true
+			if option == "import_plugin/material/external_material":
+				return get_option_value("import_plugin/material/use_external_material")
 	return null
 
 func _get_internal_option_update_view_required(category, option):
@@ -73,9 +74,10 @@ func _get_internal_option_update_view_required(category, option):
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			match option:
-				"make_material_unique":
-					print("make material unique - value changed - update view requested")
+				"import_plugin/material/use_external_material":
 					return true
+		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
+			return true
 	return false
 
 func get_mesh_instances(node, result):
@@ -123,6 +125,11 @@ func _internal_process(category, base_node, node, resource):
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			var make_material_unique_enabled = get_option_value("make_material_unique")
 			print("make_material_unique: %s" % make_material_unique_enabled)
+			
+			if get_option_value("import_plugin/material/use_external_material"):
+				print(resource)
+				var mesh = resource as ImporterMesh
+				mesh.set_surface_material(0, gradient_material)
 			
 			var uv1_offset = get_option_value("uv1_offset")
 			print("setting meta data...")
@@ -184,9 +191,9 @@ func extract_meshes(scene):
 	var meshes = iterate_meshes(scene)
 	for mesh_instance in meshes:
 		print ("mesh found: %s" % mesh_instance)
-		mesh_instance.mesh.surface_set_material(0, gradient_material)
+		#mesh_instance.mesh.surface_set_material(0, gradient_material)
 		
-		mesh_instance.material_overlay = outline_material
+		#mesh_instance.material_overlay = outline_material
 		
 		apply_make_material_unique_settings_from_metadata(mesh_instance)
 		
@@ -233,6 +240,10 @@ func save_mesh(resource, mesh_name):
 	
 	ResourceSaver.save(resource, mesh_path, ResourceSaver.FLAG_NONE)
 	print("saving resource mesh: %s at %s" % [resource, mesh_path] )
+	
+	#HACK(gerald, 2026 03 27): make godot update mesh in editor
+	ResourceLoader.load(mesh_path, "", ResourceLoader.CACHE_MODE_REPLACE)
+
 
 func load_mesh(mesh_name):
 	if not DirAccess.dir_exists_absolute(mesh_directory):
