@@ -1840,6 +1840,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
+"make_material_unique": false,
 "material_name": "",
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/3d/meshes/extracted_via_save_to_folder/round_cactus_red_mesh.res",
@@ -1848,7 +1849,7 @@ _subresources={
 }
 }
 }
-a custom int import option=42
-a general import option (test)="res://assets/3d/textures/gradient_texture.tres"
+import_plugin/info/file_path="res://assets/3d/round_cactus_red.glb"
+import_plugin/info/filename="round_cactus_red"
 gltf/naming_version=1
 gltf/embedded_image_handling=1

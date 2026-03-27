@@ -43,7 +43,7 @@ _subresources={
 }
 }
 }
-a custom int import option=42
-a general import option (test)="res://assets/3d/textures/gradient_texture.tres"
+import_plugin/info/file_path="res://assets/3d/eagle_skull_cracked.glb"
+import_plugin/info/filename="eagle_skull_cracked"
 gltf/naming_version=1
 gltf/embedded_image_handling=1
