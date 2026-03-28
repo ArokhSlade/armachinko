@@ -3643,6 +3643,8 @@ _subresources={
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
+"import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/use_external_material": false,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "make_material_unique": false,
