@@ -38,7 +38,6 @@ func _ready() -> void:
 #_______________________DISPLAY_________________________#
 
 func _on_fullscreen_checkbox_toggled(toggled_on: bool) -> void:
-	var window = get_window()
 	if toggled_on:
 		window.mode = Window.Mode.MODE_EXCLUSIVE_FULLSCREEN
 	else:
