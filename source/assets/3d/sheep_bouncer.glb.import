@@ -48,8 +48,8 @@ _subresources={
 }
 }
 }
-import_plugin/extract_meshes=false
-import_plugin/extract_animations=false
+import_plugin/extract_meshes=true
+import_plugin/extract_animations=true
 import_plugin/generate_asset_scene=true
 import_plugin/info/file_path="res://assets/3d/sheep_bouncer.glb"
 import_plugin/info/filename="sheep_bouncer"
