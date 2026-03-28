@@ -192,8 +192,6 @@ func iterate_nodes(node : Node):
 		nodes.append_array(descendants)
 	return nodes
 
-
-
 func check_extract_meshes(scene):
 	if get_option_value("import_plugin/extract_meshes"):
 		extract_meshes(scene)
@@ -212,7 +210,7 @@ func extract_meshes(scene):
 		if node is MeshInstance3D:
 			var mesh_instance = node
 			print ("mesh found: %s" % mesh_instance)
-			var mesh_name = mesh_instance.name.to_camel_case()
+			var mesh_name = mesh_instance.name.to_snake_case()
 			save_mesh(mesh_instance.mesh, mesh_name)
 			# by loading we make sure the resource is linked to a file
 			mesh_instance.mesh = load_mesh(mesh_name)
