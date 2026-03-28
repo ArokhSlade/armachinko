@@ -44,6 +44,9 @@ _subresources={
 }
 }
 }
+import_plugin/extract_meshes=false
+import_plugin/extract_animations=false
+import_plugin/generate_asset_scene=false
 import_plugin/info/file_path="res://features/_experimental/gerald/coin_particle_test/gold_coin.glb"
 import_plugin/info/filename="gold_coin"
 gltf/naming_version=1

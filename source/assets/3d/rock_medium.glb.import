@@ -38,6 +38,9 @@ _subresources={
 }
 }
 }
+import_plugin/extract_meshes=false
+import_plugin/extract_animations=false
+import_plugin/generate_asset_scene=false
 import_plugin/info/file_path="res://assets/3d/rock_medium.glb"
 import_plugin/info/filename="rock_medium"
 gltf/naming_version=1

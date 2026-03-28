@@ -39,6 +39,9 @@ _subresources={
 }
 }
 }
+import_plugin/extract_meshes=false
+import_plugin/extract_animations=false
+import_plugin/generate_asset_scene=false
 import_plugin/info/file_path="res://assets/3d/eagle_skull_normal.glb"
 import_plugin/info/filename="eagle_skull_normal"
 gltf/naming_version=1

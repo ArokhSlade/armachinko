@@ -1839,7 +1839,9 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/make_material_unique": false,
 "import_plugin/material/use_external_material": false,
+"import_plugin/material/uv1_offset": Vector3(0, 0, 0),
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "make_material_unique": false,
@@ -1851,6 +1853,9 @@ _subresources={
 }
 }
 }
+import_plugin/extract_meshes=false
+import_plugin/extract_animations=false
+import_plugin/generate_asset_scene=false
 import_plugin/info/file_path="res://assets/3d/round_cactus_light_blue.glb"
 import_plugin/info/filename="round_cactus_light_blue"
 gltf/naming_version=1

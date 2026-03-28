@@ -1834,6 +1834,9 @@ _subresources={
 }
 }
 }
+import_plugin/extract_meshes=false
+import_plugin/extract_animations=false
+import_plugin/generate_asset_scene=false
 import_plugin/info/file_path="res://assets/3d/tumbleweed_5.glb"
 import_plugin/info/filename="tumbleweed_5"
 gltf/naming_version=1

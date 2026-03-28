@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ubr50uj6nmkx"
+uid="uid://7q4ppjodk3yi"
 path="res://.godot/imported/settler_wagon.glb-9cebde380bfa53adf8bb209d320a9d52.scn"
 
 [deps]
@@ -64,9 +64,9 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
-"import_plugin/material/make_material_unique": false,
+"import_plugin/material/make_material_unique": true,
 "import_plugin/material/use_external_material": true,
-"import_plugin/material/uv1_offset": Vector3(0, 0, 0),
+"import_plugin/material/uv1_offset": Vector3(-0.088, 0.217, 0),
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": false,
@@ -74,9 +74,9 @@ _subresources={
 }
 }
 }
-import_plugin/extract_meshes=false
-import_plugin/extract_animations=false
-import_plugin/generate_asset_scene=false
+import_plugin/extract_meshes=true
+import_plugin/extract_animations=true
+import_plugin/generate_asset_scene=true
 import_plugin/info/file_path="res://assets/3d/settler_wagon.glb"
 import_plugin/info/filename="settler_wagon"
 gltf/naming_version=1
