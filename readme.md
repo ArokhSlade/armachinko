@@ -29,7 +29,7 @@ Managing a project and a team.
 
 
 ## Setup Info
-The project contains an import plugin, which is WIP.
+The project contains an import plugin, which is WIP.   
 After cloning and opening the project, some extra steps are currently necessary:
 1. reload the project
 2. re-import settler_wagon.glb
