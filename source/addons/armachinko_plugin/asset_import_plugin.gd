@@ -39,7 +39,7 @@ func  _get_import_options(file_path):
 	_filename = extract_filename(file_path)
 	
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/file_path", file_path, PROPERTY_HINT_FILE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
-	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", _filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
+	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", _filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
 	pass
 	
 func _get_internal_import_options(category : InternalImportCategory):
@@ -49,9 +49,8 @@ func _get_internal_import_options(category : InternalImportCategory):
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
 			add_import_option_advanced(TYPE_STRING, "import_plugin/material/material_overlay", "res://assets/3d/materials/outline_9mm.tres", PROPERTY_HINT_FILE, ".tres,*res")
 		INTERNAL_IMPORT_CATEGORY_MESH:
-			add_import_option("make_material_unique", false)
-			add_import_option("material_name", "")
-			add_import_option("uv1_offset", Vector3.ZERO)
+			add_import_option("import_plugin/material/make_material_unique", false)
+			add_import_option("import_plugin/material/uv1_offset", Vector3.ZERO)
 			add_import_option("import_plugin/material/use_external_material", false)
 			add_import_option_advanced(TYPE_STRING, "import_plugin/material/external_material", "res://assets/3d/textures/gradient_texture.tres", PROPERTY_HINT_FILE, ".tres,*res")
 
@@ -65,8 +64,8 @@ func _get_internal_option_visibility(category, for_animation, option):
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			match option:
-				"material_name", "uv1_offset":
-					return get_option_value("make_material_unique") == true
+				"material_name", "import_plugin/material/uv1_offset":
+					return get_option_value("import_plugin/material/make_material_unique") == true
 			if option == "import_plugin/material/external_material":
 				return get_option_value("import_plugin/material/use_external_material")
 	return null
@@ -130,10 +129,10 @@ func _internal_process(category, base_node, node, resource):
 				mesh.set_surface_material(0, gradient_material)
 				print("setting material.")
 			
-			if (get_option_value("make_material_unique")):
+			if (get_option_value("import_plugin/material/make_material_unique")):
 				var material : BaseMaterial3D = mesh.get_surface_material(0).duplicate()
 				print(material.albedo_texture.resource_path)
-				material.uv1_offset = get_option_value("uv1_offset")
+				material.uv1_offset = get_option_value("import_plugin/material/uv1_offset")
 				mesh.set_surface_material(0, material)
 				
 	return null
@@ -145,11 +144,11 @@ func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInsta
 	# we know the mesh instance has a valid mesh with material loaded from disk
 	# if make_material_unique==true then we make a local copy (aka make unique)
 	# of that material and set up custom values
-	if (mesh_instance.get_meta("make_material_unique", false)):
+	if (mesh_instance.get_meta("import_plugin/material/make_material_unique", false)):
 		print("found make material unique settings. applying ...")
 		var material : BaseMaterial3D = mesh_instance.mesh.surface_get_material(0).duplicate()
 		mesh_instance.mesh.surface_set_material(0, material)
-		var uv1_offset = mesh_instance.get_meta("uv1_offset", Vector3.ZERO)
+		var uv1_offset = mesh_instance.get_meta("import_plugin/material/uv1_offset", Vector3.ZERO)
 		print("uv1_offset: %s" % uv1_offset)
 		material.uv1_offset = uv1_offset
 
