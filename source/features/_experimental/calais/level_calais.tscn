@@ -29,7 +29,7 @@
 [ext_resource type="Script" path="res://features/special/tumbleweed_avalanche.gd" id="26_p041p"]
 [ext_resource type="PackedScene" uid="uid://b2s5f51mc5hsd" path="res://features/special/Door/right_door_wing.tscn" id="26_qmejt"]
 [ext_resource type="PackedScene" uid="uid://y2ck8cuc1v5o" path="res://assets/3d/asset scene files/setdressing/bottle_1.tscn" id="27_e3fff"]
-[ext_resource type="PackedScene" uid="uid://8prurgq2qqwb" path="res://assets/3d/asset scene files/generated_via_script/settler_wagon.tscn" id="27_g4mme"]
+[ext_resource type="PackedScene" uid="uid://cxdb6af5bbtxb" path="res://assets/3d/asset scene files/generated_via_script/settler_wagon.tscn" id="27_g4mme"]
 [ext_resource type="ArrayMesh" uid="uid://ov5y0dkqky4v" path="res://features/_experimental/calais/collisionshape/1-1_circle.obj" id="28_d83s5"]
 [ext_resource type="PackedScene" uid="uid://c5qxx83bwt5q" path="res://assets/3d/asset scene files/setdressing/bottle_2.tscn" id="28_mb080"]
 [ext_resource type="ArrayMesh" uid="uid://b8upfx4ywxlag" path="res://features/_experimental/calais/collisionshape/1-2_right_circle.obj" id="29_iu2x0"]

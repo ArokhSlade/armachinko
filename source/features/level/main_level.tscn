@@ -1085,27 +1085,6 @@ transform = Transform3D(0.922262, -0.386566, 0, 0.386566, 0.922262, 0, 0, 0, 1, 
 [node name="Enemies" parent="SpritePlane" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.35)
 
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D" index="0"]
-transform = Transform3D(1.62958e-07, -0.729109, -0.684397, 2.98023e-08, 0.684397, -0.729109, 1, 9.84174e-08, 1.33257e-07, 3.90831, 2.57068, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D2" index="0"]
-transform = Transform3D(4.82558e-08, -0.674692, -0.7381, 2.98023e-08, 0.7381, -0.674692, 1, 1.05607e-08, 5.5725e-08, -0.0852203, 0.0198364, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D4" index="0"]
-transform = Transform3D(-4.37114e-08, -0.480832, -0.876812, 0, 0.876812, -0.480832, 1, -2.10178e-08, -3.83267e-08, -0.10244, -0.0540161, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D6" index="0"]
-transform = Transform3D(-4.37114e-08, -0.883462, -0.468504, 0, 0.468504, -0.883462, 1, -3.86173e-08, -2.0479e-08, -0.270947, 0.0247288, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D7" index="0"]
-transform = Transform3D(-1.62921e-07, 0.238789, 0.971072, 0, 0.971072, -0.238789, -1, -3.89036e-08, -1.58208e-07, 3.86935, 0.145554, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D3" index="0"]
-transform = Transform3D(-4.37114e-08, -0.838775, 0.544477, 0, 0.544477, 0.838775, -1, 3.6664e-08, -2.37998e-08, -90.0059, 413.417, -0.01)
-
-[node name="Enemy" parent="SpritePlane/Enemies/Path3D8" index="0"]
-transform = Transform3D(7.54979e-08, 0.511808, -0.8591, 0, 0.8591, 0.511808, 1, -3.86404e-08, 6.48602e-08, -74.6147, 421.022, -0.01)
-
 [node name="Enemy" parent="SpritePlane/Enemies/Path3D9" index="0"]
 transform = Transform3D(-4.37114e-08, -0.0134994, -0.999901, 0, 0.999901, -0.0134994, 1, -5.90077e-10, -4.37071e-08, -54.4474, 337.712, -0.01)
 
@@ -1503,18 +1482,6 @@ transform = Transform3D(0.771769, 0.635903, 0, -0.635903, 0.771769, 0, 0, 0, 1, 
 
 [node name="MamaEagle_" parent="MeshPlane/LevelParts/BossPinPart" index="0"]
 transform = Transform3D(0.768686, 0.621481, -0.151271, -0.639627, 0.74688, -0.181793, 2.16067e-07, 0.236499, 0.971632, 139.126, -260.838, 27.0826)
-
-[node name="AcceleratorCannon" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="0"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -24, -239, 0)
-
-[node name="AcceleratorCannon2" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="1"]
-transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 56, -239, 0)
-
-[node name="AcceleratorCannon3" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="2"]
-transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 56, -160, 0)
-
-[node name="AcceleratorCannon4" parent="MeshPlane/LevelParts/BossPinPart/Cannons" index="3"]
-transform = Transform3D(-0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, -24, -159, 0)
 
 [node name="Fence" parent="MeshPlane/LevelParts/BottomFencePart/BottomFencePartBlockout" index="0" groups=["Blockout"]]
 

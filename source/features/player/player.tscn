@@ -611,7 +611,7 @@ freeze_frame_time_scale = 0.001
 shape = SubResource("SphereShape3D_fjc8h")
 
 [node name="ArmadilloPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.656057, -0.754707, 0, 0.754707, 0.656057, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.139172, -0.990265, 0, 0.990265, -0.139172, 0, 0, 0)
 script = ExtResource("3_cmwtd")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="ArmadilloPivot"]

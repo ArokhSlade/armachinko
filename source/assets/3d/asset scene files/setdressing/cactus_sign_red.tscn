@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://l6byscs5qhxn" path="res://assets/3d/cactus_sign.glb" id="1_abb4o"]
 [ext_resource type="Material" uid="uid://cspwybnhj6vl2" path="res://assets/3d/textures/gradient_texture.tres" id="2_66bm6"]
-[ext_resource type="PackedScene" uid="uid://bv4f0nirt2bpt" path="res://assets/3d/asset scene files/setdressing/baby_cactus_red.tscn" id="3_rli04"]
+[ext_resource type="PackedScene" uid="uid://bup2m2jx4ktj" path="res://assets/3d/asset scene files/setdressing/baby_cactus_red.tscn" id="3_rli04"]
 [ext_resource type="Material" uid="uid://il0k1v4rf724" path="res://assets/3d/materials/outline_9mm.tres" id="3_sbakj"]
 
 [node name="cactus_sign_red" instance=ExtResource("1_abb4o")]

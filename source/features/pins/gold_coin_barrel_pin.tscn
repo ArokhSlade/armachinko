@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://desp22rsq3u2c"]
 
 [ext_resource type="PackedScene" uid="uid://cy5wmn1orw05" path="res://features/pins/coin_barrel_pin.tscn" id="1_dckls"]
-[ext_resource type="PackedScene" uid="uid://cv74y3cd06gc2" path="res://assets/3d/asset scene files/generated_via_script/gold_barrel.tscn" id="2_x112w"]
+[ext_resource type="PackedScene" uid="uid://cb1rp1oa7ar3w" path="res://assets/3d/asset scene files/generated_via_script/gold_barrel.tscn" id="2_x112w"]
 
 [node name="GoldCoinBarrelPin" instance=ExtResource("1_dckls")]
 

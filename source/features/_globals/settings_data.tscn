@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjneehac0cxkf"]
 
 [ext_resource type="Script" path="res://features/_globals/settings_data.gd" id="1_wkdvq"]
-[ext_resource type="Texture2D" uid="uid://cuquexwujdcf0" path="res://assets/2d/sprites/ui/icons/cursor.png" id="2_lcvdk"]
+[ext_resource type="Texture2D" uid="uid://dswcot5c64607" path="res://assets/2d/sprites/ui/icons/cursor.png" id="2_lcvdk"]
 
 [node name="SettingsData" type="Node"]
 script = ExtResource("1_wkdvq")

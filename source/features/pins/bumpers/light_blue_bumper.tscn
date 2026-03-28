@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qmeihaujh3ts"]
 
 [ext_resource type="PackedScene" uid="uid://cmckhrlvylkfb" path="res://features/pins/bumpers/cactus_bumper.tscn" id="1_1u6ls"]
-[ext_resource type="ArrayMesh" uid="uid://bnehlwrk2l2et" path="res://assets/3d/meshes/extracted_via_save_to_folder/round_cactus_light_blue_mesh.res" id="2_u58ub"]
+[ext_resource type="ArrayMesh" uid="uid://dcn1ndxq4os37" path="res://assets/3d/meshes/extracted_via_save_to_folder/round_cactus_light_blue_mesh.res" id="2_u58ub"]
 
 [node name="Bumper" instance=ExtResource("1_1u6ls")]
 

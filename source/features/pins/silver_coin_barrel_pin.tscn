@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt64owefeldvj"]
 
 [ext_resource type="PackedScene" uid="uid://cy5wmn1orw05" path="res://features/pins/coin_barrel_pin.tscn" id="1_y4x5h"]
-[ext_resource type="ArrayMesh" uid="uid://bajngkesd6rtk" path="res://assets/3d/meshes/extracted_via_save_to_folder/silver_coin_mesh.res" id="2_6iiop"]
-[ext_resource type="PackedScene" uid="uid://cdsx6wxl1eoxx" path="res://assets/3d/asset scene files/generated_via_script/silver_barrel.tscn" id="2_mdbbx"]
+[ext_resource type="ArrayMesh" uid="uid://dmd4l2bxcyff7" path="res://assets/3d/meshes/extracted_via_save_to_folder/silver_coin_mesh.res" id="2_6iiop"]
+[ext_resource type="PackedScene" uid="uid://34sx7xqvofi7" path="res://assets/3d/asset scene files/generated_via_script/silver_barrel.tscn" id="2_mdbbx"]
 
 [node name="SilverCoinBarrelPin" instance=ExtResource("1_y4x5h")]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://features/pins/bumpers/sheep_bumper.gd" id="1_0bgon"]
 [ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="2_8b0i8"]
-[ext_resource type="PackedScene" uid="uid://k0nnncl7gos8" path="res://assets/3d/asset scene files/generated_via_script/sheep_bouncer.tscn" id="2_s5gly"]
+[ext_resource type="PackedScene" uid="uid://bndrh4j1c7ap3" path="res://assets/3d/asset scene files/generated_via_script/sheep_bouncer.tscn" id="2_s5gly"]
 [ext_resource type="AudioStream" uid="uid://b756tidfoi7mk" path="res://assets/sound/sheepfence_hit.mp3" id="3_vypf4"]
 [ext_resource type="AudioStream" uid="uid://cmevmhnooga52" path="res://assets/sound/sheep_angry.mp3" id="4_30pf1"]
 [ext_resource type="PlaneMesh" uid="uid://cp7fkuhhxbsjy" path="res://assets/3d/assets/sheep_particle_3d.tres" id="4_y1yog"]
