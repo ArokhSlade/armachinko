@@ -122,14 +122,6 @@ func _internal_process(category, base_node, node, resource):
 				var material_overlay = load(path_to_material)
 				mesh.set_meta("material_overlay",material_overlay)
 			
-			var node3d = Node3D.new()
-			node.add_child(node3d) #TODO(Gerald): why?
-			pass
-			#var mesh_3d = node as MeshInstance3D
-			#var material_path : String = get_option_value("external_material")
-			#if not material_path.is_empty():
-				#mesh_3d.set_surface_override_material(0, load(material_path))
-			
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			var mesh = resource as ImporterMesh
 			
@@ -218,9 +210,10 @@ func extract_meshes(scene):
 		if node is MeshInstance3D:
 			var mesh_instance = node
 			print ("mesh found: %s" % mesh_instance)
-			save_mesh(mesh_instance.mesh, mesh_instance.name)
+			var mesh_name = mesh_instance.name.to_camel_case()
+			save_mesh(mesh_instance.mesh, mesh_name)
 			# by loading we make sure the resource is linked to a file
-			mesh_instance.mesh = load_mesh(mesh_instance.name)
+			mesh_instance.mesh = load_mesh(mesh_name)
 
 func clean_up_meta_data(node):
 	print("removing metadata...")
