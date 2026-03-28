@@ -29,18 +29,15 @@ func string(category : InternalImportCategory) -> String:
 func  _get_import_options(file_path):
 	print("_get_import_options(%s)" % file_path)
 	
-	print("_filename: " + _filename)	
-	print(gradient_material)
-	print(outline_material)
-	print(asset_scene_directory)
-	print(anim_directory)
-	print(mesh_directory)
-	
 	_filename = extract_filename(file_path)
+	
+	add_import_option("import_plugin/extract_meshes", false)
+	add_import_option("import_plugin/extract_animations", false)
+	add_import_option("import_plugin/generate_asset_scene", false)
 	
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/file_path", file_path, PROPERTY_HINT_FILE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", _filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
-	pass
+	
 	
 func _get_internal_import_options(category : InternalImportCategory):
 	var category_name = string(category)
@@ -158,12 +155,12 @@ func _post_process(scene):
 	print_rich("[color=orange]_post_process(%s)[/color]" % scene)
 	print_node_tree(scene, 0)
 	
-	extract_meshes(scene)
-	extract_animations(scene)
+	check_extract_meshes(scene)
+	check_extract_animations(scene)
 	
 	var _filename = get_filename()	
 	scene.name = _filename.to_pascal_case()		
-	save_asset_scene(scene, _filename)
+	check_generate_asset_scene(scene, _filename)
 	
 	return scene
 
@@ -195,6 +192,12 @@ func iterate_nodes(node : Node):
 		nodes.append_array(descendants)
 	return nodes
 
+
+
+func check_extract_meshes(scene):
+	if get_option_value("import_plugin/extract_meshes"):
+		extract_meshes(scene)
+	
 func extract_meshes(scene):
 	var nodes = iterate_nodes(scene)
 	print(nodes)
@@ -234,8 +237,6 @@ func save_mesh(resource, mesh_name):
 	#var fs = EditorInterface.get_resource_filesystem()
 	#fs.reimport_files([mesh_path])
 
-
-
 func load_mesh(mesh_name):
 	if not DirAccess.dir_exists_absolute(mesh_directory):
 		DirAccess.make_dir_absolute(mesh_directory)
@@ -252,6 +253,10 @@ func iterate_animation_players(node):
 			result.append_array(child_anim_players)
 			result.append(child)
 	return result
+
+func check_extract_animations(scene):
+	if get_option_value("import_plugin/extract_animations"):
+		extract_animations(scene)
 
 func extract_animations(scene):	
 	var anim_players = iterate_animation_players(scene)
@@ -295,6 +300,9 @@ func setup_animation_player(anim_player, anim_dict, anim_player_name = "Animatio
 	for anim_name in anim_dict.keys():
 		anim_lib.add_animation(anim_name, anim_dict[anim_name])
 
+func check_generate_asset_scene(result, _filename):
+	if get_option_value("import_plugin/generate_asset_scene"):
+		save_asset_scene(result, _filename)
 
 func save_asset_scene(result, _filename):
 	var packed_scene = PackedScene.new()
