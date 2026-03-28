@@ -6,7 +6,7 @@ func despawn():
 	get_parent().remove_child.call_deferred(self)
 	queue_free()
 
-func _on_animation_player_animation_finished(sand_swirling) -> void:
+func _on_animation_player_animation_finished(_sand_swirling) -> void:
 	despawn()
 	
 func compute_scale_from_velocity(last_player_velocity):

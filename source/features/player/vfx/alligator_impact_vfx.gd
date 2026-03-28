@@ -6,5 +6,5 @@ func despawn():
 	get_parent().remove_child.call_deferred(self)
 	queue_free()
 
-func _on_animation_player_animation_finished(impact) -> void:
+func _on_animation_player_animation_finished(_impact) -> void:
 	despawn()

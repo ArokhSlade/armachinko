@@ -16,7 +16,8 @@ func delete_from_game():
 func _on_despawn_timer_timeout() -> void:
 	delete_from_game()
 
-func set_despawn_timer(amount):
+#TODO(Gerald): why is this a stub?
+func set_despawn_timer(_amount):
 	pass
 	#$DespawnTimer.stop()
 	#$DespawnTimer.start(amount)

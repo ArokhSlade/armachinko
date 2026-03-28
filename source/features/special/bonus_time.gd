@@ -9,5 +9,5 @@ func show_bonus_time(time_amount):
 func update_time_label(time_amount):
 	$BonusTimetoScore.text = "+ %d time" % time_amount
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	hide()

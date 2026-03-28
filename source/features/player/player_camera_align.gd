@@ -9,7 +9,7 @@ extends Marker3D
 func _ready():
 	rotate(Vector3.RIGHT, deg_to_rad(camera_angle))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta):
 	global_position = global_position
 	global_rotation = Vector3.ZERO
 	$Armadillo.position.z = z_offset

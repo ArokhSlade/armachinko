@@ -4,7 +4,6 @@ extends Node3D
 @export var wielder : Node ## who wields this gun? (the player)
 
 var animation_player1
-var animation_player2
 
 enum ReloadMode {
 	RELOAD_SHELL_EACH, #0
@@ -70,7 +69,8 @@ func _on_ammo_charge_timer_timeout():
 			reload_sfx.play()
 			modify_ammo(ammo_max)
 
-func get_animationplayer_from_player(p_animation_player1, p_animation_player2):
+#TODO(Gerald): replace with signals?
+func get_animationplayer_from_player(p_animation_player1):
 	self.animation_player1 = p_animation_player1
 
 

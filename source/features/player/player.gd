@@ -90,7 +90,7 @@ var requested_revolutions_per_second = 0.0 ## from enemy stun, used in integrate
 
 func _ready() -> void:
 	if $ArmadilloPivot/Armadillo/Arm/Shotgun.has_method("get_animationplayer_from_player"):
-		$ArmadilloPivot/Armadillo/Arm/Shotgun.get_animationplayer_from_player($AnimationPlayer, $AnimationPlayer2)
+		$ArmadilloPivot/Armadillo/Arm/Shotgun.get_animationplayer_from_player($AnimationPlayer)
 	arm_detached = arm_detached ## trigger setter on tree_entered
 	
 func _physics_process(delta: float) -> void:
@@ -166,14 +166,14 @@ func get_gravity_scale_from_speed(speed):
 	speed_threshold = dash_speed
 	var speed_capped = clampf(speed, 0.0, speed_threshold)
 	var sample_point = inverse_lerp(0.0, speed_threshold, speed_capped)
-	var result = gravity_speed_scaling.sample(sample_point)
-	return result
+	var _gravity_scale = gravity_speed_scaling.sample(sample_point)
+	return _gravity_scale
 
 
 func get_gravity_scale_from_direction(direction):
 	var sample_point = inverse_lerp(-1.0, 1.0, direction)
-	var result = gravity_direction_scaling.sample(sample_point)
-	return result
+	var _gravity_scale = gravity_direction_scaling.sample(sample_point)
+	return _gravity_scale
 
 
 func dash_on_input(state : PhysicsDirectBodyState3D):
@@ -243,9 +243,9 @@ func raycast_and_spawn_impact_vfx(state : PhysicsDirectBodyState3D):
 		print("ray hit : ", $RayCast3D.get_collider().name)
 		var ray_normal = $RayCast3D.get_collision_normal()
 		var ray_location = $RayCast3D.get_collision_point()
-		var ray_vector = $RayCast3D.target_position
-		var ray_axis =  ray_vector.cross(ray_normal).normalized()
-		var ray_angle = Vector3.UP.angle_to(ray_normal)
+		#var ray_vector = $RayCast3D.target_position
+		#var ray_axis =  ray_vector.cross(ray_normal).normalized()
+		#var ray_angle = Vector3.UP.angle_to(ray_normal)
 		
 		var xform = Transform3D()
 		xform.basis.y = ray_normal
@@ -269,9 +269,9 @@ func stun(stun_duration):
 	$ArmadilloPivot/SpeedAura/SpeedAuraTip.global_position = global_position
 	var ray_location = global_position
 	var ray_normal = Vector3(1,1,1)
-	var ray_vector = Vector3(0,-1,0)
-	var ray_axis =  ray_vector.cross(ray_normal).normalized()
-	var ray_angle = Vector3.UP.angle_to(ray_normal)
+	#var ray_vector = Vector3(0,-1,0)
+	#var ray_axis =  ray_vector.cross(ray_normal).normalized()
+	#var ray_angle = Vector3.UP.angle_to(ray_normal)
 	
 	var xform = Transform3D()
 	xform.basis.y = ray_normal

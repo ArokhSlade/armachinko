@@ -36,8 +36,8 @@ func spawn():
 	rad_half_angle = deg_to_rad(angle_range)*.5
 	var tumbleweed = tumbleweed_scene.instantiate() as RigidBody3D
 	var tumble_parent = Globals.get_level().get_new_parent_for_spawned_object(self, tumbleweed)
-	tumble_parent.add_child(tumbleweed)
-	tumbleweed.set_despawn_timer(tumbleweed_despawn_time)
+	tumble_parent.add_child(tumbleweed)	
+	tumbleweed.set_despawn_timer(tumbleweed_despawn_time) #TODO(Gerald): this calls a stub
 	tumbleweed.global_position = global_position
 	tumbleweed.global_rotation = global_rotation
 	var angle_variation = randf_range(-rad_half_angle, rad_half_angle)
