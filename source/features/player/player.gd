@@ -124,7 +124,7 @@ func _integrate_forces(physics_state: PhysicsDirectBodyState3D) -> void:
 				requested_revolutions_per_second = 0.0
 				pass
 				
-func _process(delta):
+func _process(_delta):
 	$ArmadilloPivot/SpeedAura.update_from_velocity(linear_velocity)
 
 var current_speed
@@ -166,14 +166,14 @@ func get_gravity_scale_from_speed(speed):
 	speed_threshold = dash_speed
 	var speed_capped = clampf(speed, 0.0, speed_threshold)
 	var sample_point = inverse_lerp(0.0, speed_threshold, speed_capped)
-	var gravity_scale = gravity_speed_scaling.sample(sample_point)
-	return gravity_scale
+	var result = gravity_speed_scaling.sample(sample_point)
+	return result
 
 
 func get_gravity_scale_from_direction(direction):
 	var sample_point = inverse_lerp(-1.0, 1.0, direction)
-	var gravity_scale = gravity_direction_scaling.sample(sample_point)
-	return gravity_scale
+	var result = gravity_direction_scaling.sample(sample_point)
+	return result
 
 
 func dash_on_input(state : PhysicsDirectBodyState3D):

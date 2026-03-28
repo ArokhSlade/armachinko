@@ -1,6 +1,7 @@
 extends Area3D
 class_name ExplosionBlast
 
+@warning_ignore("unused_signal")
 signal exploded # used in animation
 signal activated
 signal deactivated

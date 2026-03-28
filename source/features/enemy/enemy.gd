@@ -79,7 +79,7 @@ func is_alive():
 	return true
 		
 
-func _on_alert_area_body_entered(body):
+func _on_alert_area_body_entered(_body):
 	match state:
 		EnemyState.WALKING:
 			$AlertSound.play()
@@ -118,8 +118,8 @@ func _on_hit_area_body_entered(body):
 	bounced_by.emit(body)
 	bounced.emit()
 	
-	
-func _on_hit_area_area_entered(area):
+#TODO(Gerald): why does this exist?	
+func _on_hit_area_area_entered(_area):
 	#if area.has_method("get_blast_initiator"):
 		#blast_initiator = area.get_blast_initiator()
 	#

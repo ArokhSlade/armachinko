@@ -19,7 +19,8 @@ static func get_combined_line_width(nodes : Array[Control]):
 	for node in nodes:
 		combined_line_width += get_line_width(node)
 	return combined_line_width
-	
+
+#TODO(Gerald): delete? not used anywhere.
 static func scale_multiple_texts(nodes : Array[Control], step_size = 1.0):
 	var outline_size = nodes[0]["theme_override_constants/outline_size"]
 	var combined_size_x = 0.0
@@ -27,7 +28,7 @@ static func scale_multiple_texts(nodes : Array[Control], step_size = 1.0):
 		combined_size_x += node.size.x
 	while get_combined_line_width(nodes) > combined_size_x:
 		for node in nodes:
-			node["theme_override_font_sizes/font_size"] -= 1.0
+			node["theme_override_font_sizes/font_size"] -= step_size
 	var last_pos_x = nodes[0].position.x
 	for node in nodes:
 		node.position.x = last_pos_x
@@ -40,7 +41,7 @@ static func scale_multiple_to_target(nodes : Array[Control], target_width, step_
 	
 	while get_combined_line_width(nodes) > target_width:
 		for node in nodes:
-			node["theme_override_font_sizes/font_size"] -= 1.0
+			node["theme_override_font_sizes/font_size"] -= step_size
 	
 	for node in nodes:
 		node.custom_minimum_size.x = get_line_width(node) + outline_size
