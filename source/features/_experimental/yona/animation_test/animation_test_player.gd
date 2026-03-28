@@ -74,13 +74,9 @@ var last_frame_collider_id : int
 const COLLIDER_LOCKOUT_FRAMES : int = 5 # the amount of frames before we consider the same collider again
 var collider_lockout_count : int = 0
 
-func _ready():
-	
-	GlobalVariables.Player = self
-	
-
-
-
+func _ready():	
+	#GlobalVariables.Player = self
+	pass
 
 
 func _physics_process(_delta: float) -> void:
