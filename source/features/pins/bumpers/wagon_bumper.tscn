@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjoihqgkvktuv"]
 
 [ext_resource type="Script" path="res://features/pins/bumpers/wagon_bumper.gd" id="1_612jc"]
-[ext_resource type="PackedScene" uid="uid://cxdb6af5bbtxb" path="res://assets/3d/asset scene files/generated_via_script/settler_wagon.tscn" id="2_4r7r0"]
+[ext_resource type="PackedScene" uid="uid://dt5vrewgvmbhm" path="res://assets/3d/asset scene files/generated_via_script/settler_wagon.tscn" id="2_4r7r0"]
 [ext_resource type="PackedScene" uid="uid://dv8iafyv8jw0f" path="res://features/effects/origin_bounce.tscn" id="3_71ffw"]
 [ext_resource type="AudioStream" uid="uid://bom08oxun4mn4" path="res://assets/sound/wagon_bounce.mp3" id="4_owxpb"]
 
