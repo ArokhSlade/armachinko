@@ -38,17 +38,19 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "import_plugin/material/external_material": "res://assets/3d/textures/gradient_texture.tres",
+"import_plugin/material/make_material_unique": false,
 "import_plugin/material/use_external_material": true,
+"import_plugin/material/uv1_offset": Vector3(0, 0, 0),
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
-"make_material_unique": false,
-"material_name": "",
 "save_to_file/enabled": false,
-"save_to_file/path": "res://assets/3d/meshes/extracted_via_save_to_folder/silver_barrel_mesh.res",
-"uv1_offset": Vector3(0, 0, 0)
+"save_to_file/path": "res://assets/3d/meshes/extracted_via_save_to_folder/silver_barrel_mesh.res"
 }
 }
 }
+import_plugin/extract_meshes=true
+import_plugin/extract_animations=true
+import_plugin/generate_asset_scene=true
 import_plugin/info/file_path="res://assets/3d/silver_barrel.glb"
 import_plugin/info/filename="silver_barrel"
 gltf/naming_version=1
