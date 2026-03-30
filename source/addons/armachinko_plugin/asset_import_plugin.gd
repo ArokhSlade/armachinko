@@ -8,7 +8,7 @@ var asset_scene_directory = "res://assets/3d/asset scene files/generated_via_scr
 var _filename = ""
 
 func _init():
-	print_rich("[color=red]hello from asset import plugin")
+	print_rich("[color=green]hello from asset import plugin")
 	pass
 
 func string(category : InternalImportCategory) -> String:
