@@ -26,10 +26,3 @@ Managing a project and a team.
 ## Team
 
 3 Artists, 2 Designers, 2 Coders, 1 Composer.
-
-
-## Setup Info
-The project contains an import plugin, which is WIP.   
-After cloning and opening the project, some extra steps are currently necessary:
-1. reload the project
-2. re-import settler_wagon.glb
