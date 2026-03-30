@@ -10,5 +10,3 @@ func _enter_tree():
 	
 func _exit_tree():
 	remove_scene_post_import_plugin(post_import_plugin_instance)
-	post_import_plugin_instance.queue_free()
-	
