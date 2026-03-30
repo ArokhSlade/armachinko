@@ -1,9 +1,6 @@
 @tool 
 extends EditorScenePostImportPlugin
 
-var gradient_material : Material = preload("res://assets/3d/textures/gradient_texture.tres")
-var outline_material : Material = preload("res://assets/3d/materials/outline_9mm.tres")
-
 var mesh_directory = "res://assets/3d/meshes/extracted_via_script/"
 var anim_directory = "res://assets/animations/extracted_via_script/"
 var asset_scene_directory = "res://assets/3d/asset scene files/generated_via_script/"
@@ -121,17 +118,19 @@ func _internal_process(category, base_node, node, resource):
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			var mesh = resource as ImporterMesh
 			
+			
+			
 			if get_option_value("import_plugin/material/use_external_material"):
 				print(resource)
-				mesh.set_surface_material(0, gradient_material)
-				print("setting material.")
-			
+				var external_material_path = get_option_value("import_plugin/material/external_material")
+				var external_material = load(external_material_path)
+				mesh.set_surface_material(0, external_material)
+	
 			if (get_option_value("import_plugin/material/make_material_unique")):
-				var material : BaseMaterial3D = mesh.get_surface_material(0).duplicate()
-				print(material.albedo_texture.resource_path)
+				var material : BaseMaterial3D = mesh.get_surface_material(0)
+				material = material.duplicate()
 				material.uv1_offset = get_option_value("import_plugin/material/uv1_offset")
 				mesh.set_surface_material(0, material)
-				
 	return null
 	
 	pass
