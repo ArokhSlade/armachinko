@@ -23,7 +23,7 @@ var last_used_input_device = InputDevice.Keyboard
 #TODO: add display settings
 #TODO: add control settings
 
-@export var mouse_image : CompressedTexture2D
+@export_file("*.png") var mouse_image_path : String
 
 func _ready():
 	setup()
@@ -33,6 +33,7 @@ func setup():
 	setup_audio()
 	setup_display()
 	@warning_ignore( "integer_division" )
+	var mouse_image = load(mouse_image_path)
 	Input.set_custom_mouse_cursor(mouse_image,Input.CURSOR_ARROW, Vector2(int(mouse_image.get_width()/2), mouse_image.get_height()/2))
 	
 
