@@ -5,11 +5,15 @@ var mesh_directory = "res://assets/3d/meshes/extracted_via_script/"
 var anim_directory = "res://assets/animations/extracted_via_script/"
 var asset_scene_directory = "res://assets/3d/asset scene files/generated_via_script/"
 
-var _filename = ""
+var _filepath_available = false
+var filename = "":
+	get = get_filename
+
 
 func _init():
 	print_rich("[color=green]hello from asset import plugin")
 	pass
+
 
 func string(category : InternalImportCategory) -> String:
 	match category:
@@ -23,17 +27,17 @@ func string(category : InternalImportCategory) -> String:
 		_: return "Unknown"
 	return "Error"
 
+
 func  _get_import_options(file_path):
 	print("_get_import_options(%s)" % file_path)
-	
-	_filename = extract_filename(file_path)
 	
 	add_import_option("import_plugin/extract_meshes", false)
 	add_import_option("import_plugin/extract_animations", false)
 	add_import_option("import_plugin/generate_asset_scene", false)
 	
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/file_path", file_path, PROPERTY_HINT_FILE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
-	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", _filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
+	_filepath_available = true
+	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
 	
 	
 func _get_internal_import_options(category : InternalImportCategory):
@@ -48,9 +52,11 @@ func _get_internal_import_options(category : InternalImportCategory):
 			add_import_option("import_plugin/material/use_external_material", false)
 			add_import_option_advanced(TYPE_STRING, "import_plugin/material/external_material", "res://assets/3d/textures/gradient_texture.tres", PROPERTY_HINT_FILE, ".tres,*res")
 
+
 func _get_option_visibility(path, for_animation, option):
 	print_rich("[color=yellow]_get_option_visibility(%s, %s, %s)[/color]" % [path, for_animation, option])
 	return true
+
 
 #NOTE(ArokhSlade, 2025 05 25): this callback is never called back. may be a bug in godot 4.3.
 func _get_internal_option_visibility(category, for_animation, option):
@@ -64,6 +70,7 @@ func _get_internal_option_visibility(category, for_animation, option):
 				return get_option_value("import_plugin/material/use_external_material")
 	return null
 
+
 func _get_internal_option_update_view_required(category, option):
 	print_rich("[color=green]_get_internal_option_update_view_required(%s, %s)[/color]" % [string(category), option])
 	match category:
@@ -75,13 +82,15 @@ func _get_internal_option_update_view_required(category, option):
 			return true
 	return false
 
+
 func get_mesh_instances(node, result):
 	if node is ImporterMeshInstance3D:
 		result.append(node)
 	for child in node.get_children():
 		get_mesh_instances(child, result)
 	return result
-	
+
+
 func print_node_tree(node, depth = 0):
 	var string = ""
 	for step in depth:
@@ -99,7 +108,8 @@ func _pre_process(scene):
 	for mesh_instance in mesh_instances:
 		print(mesh_instance)
 	pass
-	
+
+
 ## this is called before post import script
 func _internal_process(category, base_node, node, resource):
 	print_rich("[color=green]_internal_process(%s, %s, %s, %s)[/color]" % [string(category), base_node, node, resource])
@@ -118,8 +128,6 @@ func _internal_process(category, base_node, node, resource):
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			var mesh = resource as ImporterMesh
 			
-			
-			
 			if get_option_value("import_plugin/material/use_external_material"):
 				print(resource)
 				var external_material_path = get_option_value("import_plugin/material/external_material")
@@ -135,6 +143,7 @@ func _internal_process(category, base_node, node, resource):
 	
 	pass
 
+
 func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInstance3D):
 	# NOTE(Gerald, 2025 05 28)
 	# we know the mesh instance has a valid mesh with material loaded from disk
@@ -149,7 +158,6 @@ func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInsta
 		material.uv1_offset = uv1_offset
 
 
-
 func _post_process(scene):
 	print_rich("[color=orange]_post_process(%s)[/color]" % scene)
 	print_node_tree(scene, 0)
@@ -157,18 +165,25 @@ func _post_process(scene):
 	check_extract_meshes(scene)
 	check_extract_animations(scene)
 	
-	var _filename = get_filename()	
-	scene.name = _filename.to_pascal_case()		
-	check_generate_asset_scene(scene, _filename)
+	scene.name = filename.to_pascal_case()		
+	check_generate_asset_scene(scene, filename)
 	
 	return scene
 
-func get_filename():
-	var file_path = get_option_value("import_plugin/info/file_path")	
-	if _filename == "":	
-		_filename = extract_filename(file_path)
-	return _filename
 
+func get_filename():
+	if not _filepath_available:
+		push_error("Tried to get filename, but filepath unavailable!")
+		return ""
+		
+	if filename == "":
+		var file_path = get_option_value("import_plugin/info/file_path")	
+		filename = extract_filename(file_path)
+
+	return filename
+
+
+#TODO(Gerald): could live in a utitlity class
 func extract_filename(file_path):
 	var filename = ""
 	for index in range(file_path.length()-1, 0, -1):
@@ -180,7 +195,9 @@ func extract_filename(file_path):
 		if filename[index] == '/':
 			filename = filename.substr(index+1)
 			break
+	
 	return filename
+
 
 func iterate_nodes(node : Node):
 	if node == null:
@@ -191,10 +208,12 @@ func iterate_nodes(node : Node):
 		nodes.append_array(descendants)
 	return nodes
 
+
 func check_extract_meshes(scene):
 	if get_option_value("import_plugin/extract_meshes"):
 		extract_meshes(scene)
 	
+
 func extract_meshes(scene):
 	var nodes = iterate_nodes(scene)
 	print(nodes)
@@ -214,17 +233,19 @@ func extract_meshes(scene):
 			# by loading we make sure the resource is linked to a file
 			mesh_instance.mesh = load_mesh(mesh_name)
 
+
 func clean_up_meta_data(node):
 	print("removing metadata...")
 	for data in node.get_meta_list():
 		print("removing metadata:  %s" % data)
 		node.remove_meta(data)
 
+
 func save_mesh(resource, mesh_name):
 	print("mesh_dir: " + mesh_directory)
 	if not DirAccess.dir_exists_absolute(mesh_directory):
 		DirAccess.make_dir_absolute(mesh_directory)
-	var mesh_path = mesh_directory + get_filename() + "_" + mesh_name + "_mesh.res"
+	var mesh_path = mesh_directory + filename + "_" + mesh_name + "_mesh.res"
 	
 	ResourceSaver.save(resource, mesh_path, ResourceSaver.FLAG_NONE)
 	print("saving resource mesh: %s at %s" % [resource, mesh_path] )
@@ -234,13 +255,15 @@ func save_mesh(resource, mesh_name):
 	#var fs = EditorInterface.get_resource_filesystem()
 	#fs.reimport_files([mesh_path])
 
+
 func load_mesh(mesh_name):
 	if not DirAccess.dir_exists_absolute(mesh_directory):
 		DirAccess.make_dir_absolute(mesh_directory)
-	var mesh_path = mesh_directory + get_filename() + "_" + mesh_name + "_mesh.res"	
+	var mesh_path = mesh_directory + filename + "_" + mesh_name + "_mesh.res"	
 	
 	var loaded = load(mesh_path)
 	return loaded
+
 
 func iterate_animation_players(node):
 	var result = []
@@ -251,9 +274,11 @@ func iterate_animation_players(node):
 			result.append(child)
 	return result
 
+
 func check_extract_animations(scene):
 	if get_option_value("import_plugin/extract_animations"):
 		extract_animations(scene)
+
 
 func extract_animations(scene):	
 	var anim_players = iterate_animation_players(scene)
@@ -274,20 +299,23 @@ func extract_animations(scene):
 		var loaded = load_animation(anim_name)
 		anim_lib.add_animation(anim_name, loaded)
 		
+
 func save_animation(anim_name, anim):
 	if not DirAccess.dir_exists_absolute(anim_directory):
 		DirAccess.make_dir_absolute(anim_directory)
-	var anim_path = anim_directory + _filename + "_" + anim_name + ".res"
+	var anim_path = anim_directory + filename + "_" + anim_name + ".res"
 	
 	ResourceSaver.save(anim, anim_path,ResourceSaver.FLAG_NONE)
+
 
 func load_animation(anim_name):
 	if not DirAccess.dir_exists_absolute(anim_directory):
 		DirAccess.make_dir_absolute(anim_directory)
-	var anim_path = anim_directory + _filename + "_" + anim_name + ".res"
+	var anim_path = anim_directory + filename + "_" + anim_name + ".res"
 	
 	var loaded = load(anim_path)
 	return loaded
+
 
 #TODO: delete?
 func setup_animation_player(anim_player, anim_dict, anim_player_name = "AnimationPlayer"):
@@ -297,25 +325,19 @@ func setup_animation_player(anim_player, anim_dict, anim_player_name = "Animatio
 	for anim_name in anim_dict.keys():
 		anim_lib.add_animation(anim_name, anim_dict[anim_name])
 
-func check_generate_asset_scene(result, _filename):
-	if get_option_value("import_plugin/generate_asset_scene"):
-		save_asset_scene(result, _filename)
 
-func save_asset_scene(result, _filename):
+func check_generate_asset_scene(result, filename):
+	if get_option_value("import_plugin/generate_asset_scene"):
+		save_asset_scene(result, filename)
+
+
+func save_asset_scene(result, filename):
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(result)
 	
 	if not DirAccess.dir_exists_absolute(asset_scene_directory):
 		DirAccess.make_dir_absolute(asset_scene_directory)
-	var asset_scene_path = asset_scene_directory + _filename + ".tscn"
+	var asset_scene_path = asset_scene_directory + filename + ".tscn"
 	
-	print("saving asset scene: %s from %s to %s" % [result, _filename, asset_scene_path])
+	print("saving asset scene: %s from %s to %s" % [result, filename, asset_scene_path])
 	ResourceSaver.save(packed_scene, asset_scene_path)
-
-#
-#func clean_up_meta_data(node):
-	#print("removing meta_data on ", node)
-	#for data in node.get_meta_list():
-		#node.remove_meta(data)
-	#for child in node.get_children():
-		#clean_up_meta_data(child)
