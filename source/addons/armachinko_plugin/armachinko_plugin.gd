@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-var post_import_plugin = preload("res://addons/armachinko_plugin/asset_import_plugin.gd")
+var post_import_plugin = preload("res://addons/armachinko_plugin/import_plugin.gd")
 var post_import_plugin_instance
 
 func _enter_tree():
