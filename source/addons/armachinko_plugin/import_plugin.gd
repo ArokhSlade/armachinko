@@ -27,7 +27,7 @@ func  _get_import_options(file_path):
 	add_import_option("import_plugin/generate_asset_scene", false)
 	
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/file_path", file_path, PROPERTY_HINT_FILE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
-	filename = extract_filename(file_path)
+	filename = extractfilename(file_path)
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
 	
 	
@@ -196,29 +196,29 @@ func load_animation(anim_name):
 	return loaded
 
 
-func save_asset_scene(result, _filename):
+func save_asset_scene(result, filename):
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(result)
 	
 	if not DirAccess.dir_exists_absolute(asset_scene_directory):
 		DirAccess.make_dir_recursive_absolute(asset_scene_directory)
-	var asset_scene_path = asset_scene_directory + _filename + ".tscn"
+	var asset_scene_path = asset_scene_directory + filename + ".tscn"
 	
 	ResourceSaver.save(packed_scene, asset_scene_path)
 
 
 #TODO(Gerald): could live in a utitlity class
-func extract_filename(file_path):
-	var _filename = ""
+func extractfilename(file_path):
+	var filename = ""
 	for index in range(file_path.length()-1, 0, -1):
 		if file_path[index] == '.':
-			_filename = file_path.substr(0,index)
+			filename = file_path.substr(0,index)
 			break
-	for index in range(_filename.length()-1, 0, -1):
-		if _filename[index] == '/':
-			_filename = _filename.substr(index+1)
+	for index in range(filename.length()-1, 0, -1):
+		if filename[index] == '/':
+			filename = filename.substr(index+1)
 			break
-	return _filename
+	return filename
 
 
 func clean_up():
