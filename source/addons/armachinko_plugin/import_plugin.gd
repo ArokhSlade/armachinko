@@ -5,14 +5,7 @@ var mesh_directory = "res://assets/3d/meshes/extracted_via_script/"
 var anim_directory = "res://assets/animations/extracted_via_script/"
 var asset_scene_directory = "res://assets/3d/asset scene files/generated_via_script/"
 
-var _filepath_available = false
-var filename = "":
-	get = get_filename
-
-
-func _init():
-	print_rich("[color=green]hello from asset import plugin")
-	pass
+var filename = ""
 
 
 func string(category : InternalImportCategory) -> String:
@@ -28,21 +21,17 @@ func string(category : InternalImportCategory) -> String:
 	return "Error"
 
 
-func  _get_import_options(file_path):
-	print("_get_import_options(%s)" % file_path)
-	
+func  _get_import_options(file_path):	
 	add_import_option("import_plugin/extract_meshes", false)
 	add_import_option("import_plugin/extract_animations", false)
 	add_import_option("import_plugin/generate_asset_scene", false)
 	
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/file_path", file_path, PROPERTY_HINT_FILE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)
-	_filepath_available = true
+	filename = extract_filename(file_path)
 	add_import_option_advanced(TYPE_STRING, "import_plugin/info/filename", filename, PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY)	
 	
 	
 func _get_internal_import_options(category : InternalImportCategory):
-	var category_name = string(category)
-	print("_get_internal_import_options(%s)" % category_name)
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
 			add_import_option_advanced(TYPE_STRING, "import_plugin/material/material_overlay", "res://assets/3d/materials/outline_9mm.tres", PROPERTY_HINT_FILE, ".tres,*res")
@@ -53,34 +42,14 @@ func _get_internal_import_options(category : InternalImportCategory):
 			add_import_option_advanced(TYPE_STRING, "import_plugin/material/external_material", "res://assets/3d/textures/gradient_texture.tres", PROPERTY_HINT_FILE, ".tres,*res")
 
 
-func _get_option_visibility(path, for_animation, option):
-	print_rich("[color=yellow]_get_option_visibility(%s, %s, %s)[/color]" % [path, for_animation, option])
-	return true
-
-
-#NOTE(ArokhSlade, 2025 05 25): this callback is never called back. may be a bug in godot 4.3.
+#NOTE(ArokhSlade): this callback is never called back. may be a bug in godot.
 func _get_internal_option_visibility(category, for_animation, option):
-	print_rich("[color=red]_get_internal_option_visibility(%s, %s, %s)[/color]" % [category, for_animation, option])
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			match option:
-				"material_name", "import_plugin/material/uv1_offset":
-					return get_option_value("import_plugin/material/make_material_unique") == true
-			if option == "import_plugin/material/external_material":
-				return get_option_value("import_plugin/material/use_external_material")
+				"import_plugin/material/uv1_offset":
+					return get_option_value("import_plugin/material/make_material_unique")
 	return null
-
-
-func _get_internal_option_update_view_required(category, option):
-	print_rich("[color=green]_get_internal_option_update_view_required(%s, %s)[/color]" % [string(category), option])
-	match category:
-		INTERNAL_IMPORT_CATEGORY_MESH:
-			match option:
-				"import_plugin/material/use_external_material":
-					return true
-		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
-			return true
-	return false
 
 
 func get_mesh_instances(node, result):
@@ -91,45 +60,19 @@ func get_mesh_instances(node, result):
 	return result
 
 
-func print_node_tree(node, depth = 0):
-	var string = ""
-	for step in depth:
-		string += "-"
-	string += node.to_string()
-	print(string)
-	for child in node.get_children():
-		print_node_tree(child, depth+1)
-		
-func _pre_process(scene):
-	print_rich("[color=cyan]_pre_process(%s)[/color]" % scene)
-	print_node_tree(scene, 0)
-	var mesh_instances = []
-	get_mesh_instances(scene, mesh_instances)
-	for mesh_instance in mesh_instances:
-		print(mesh_instance)
-	pass
-
-
-## this is called before post import script
 func _internal_process(category, base_node, node, resource):
-	print_rich("[color=green]_internal_process(%s, %s, %s, %s)[/color]" % [string(category), base_node, node, resource])
-	print(node.get_parent())
-	if base_node:
-		for child in base_node.get_children():
-			print(" - ",child)
 	match category:
 		INTERNAL_IMPORT_CATEGORY_MESH_3D_NODE:
 			var mesh = node as ImporterMeshInstance3D
-			var path_to_material = get_option_value("import_plugin/material/material_overlay")
-			if path_to_material != null and path_to_material != "":
-				var material_overlay = load(path_to_material)
+			var material_overlay_path = get_option_value("import_plugin/material/material_overlay")
+			if material_overlay_path != null and material_overlay_path != "":
+				var material_overlay = load(material_overlay_path)
 				mesh.set_meta("material_overlay",material_overlay)
 			
 		INTERNAL_IMPORT_CATEGORY_MESH:
 			var mesh = resource as ImporterMesh
 			
 			if get_option_value("import_plugin/material/use_external_material"):
-				print(resource)
 				var external_material_path = get_option_value("import_plugin/material/external_material")
 				var external_material = load(external_material_path)
 				mesh.set_surface_material(0, external_material)
@@ -140,83 +83,25 @@ func _internal_process(category, base_node, node, resource):
 				material.uv1_offset = get_option_value("import_plugin/material/uv1_offset")
 				mesh.set_surface_material(0, material)
 	return null
-	
-	pass
-
-
-func apply_make_material_unique_settings_from_metadata(mesh_instance : MeshInstance3D):
-	# NOTE(Gerald, 2025 05 28)
-	# we know the mesh instance has a valid mesh with material loaded from disk
-	# if make_material_unique==true then we make a local copy (aka make unique)
-	# of that material and set up custom values
-	if (mesh_instance.get_meta("import_plugin/material/make_material_unique", false)):
-		print("found make material unique settings. applying ...")
-		var material : BaseMaterial3D = mesh_instance.mesh.surface_get_material(0).duplicate()
-		mesh_instance.mesh.surface_set_material(0, material)
-		var uv1_offset = mesh_instance.get_meta("import_plugin/material/uv1_offset", Vector3.ZERO)
-		print("uv1_offset: %s" % uv1_offset)
-		material.uv1_offset = uv1_offset
 
 
 func _post_process(scene):
-	print_rich("[color=orange]_post_process(%s)[/color]" % scene)
-	print_node_tree(scene, 0)
+	if get_option_value("import_plugin/extract_meshes"):
+		extract_meshes(scene)
+	if get_option_value("import_plugin/extract_animations"):
+		extract_animations(scene)
 	
-	check_extract_meshes(scene)
-	check_extract_animations(scene)
+	scene.name = filename.to_pascal_case()
+	if get_option_value("import_plugin/generate_asset_scene"):
+		save_asset_scene(scene, filename)
 	
-	scene.name = filename.to_pascal_case()		
-	check_generate_asset_scene(scene, filename)
+	clean_up()
 	
 	return scene
 
 
-func get_filename():
-	if not _filepath_available:
-		push_error("Tried to get filename, but filepath unavailable!")
-		return ""
-		
-	if filename == "":
-		var file_path = get_option_value("import_plugin/info/file_path")	
-		filename = extract_filename(file_path)
-
-	return filename
-
-
-#TODO(Gerald): could live in a utitlity class
-func extract_filename(file_path):
-	var filename = ""
-	for index in range(file_path.length()-1, 0, -1):
-		if file_path[index] == '.':
-			filename = file_path.substr(0,index)
-			break
-			
-	for index in range(filename.length()-1, 0, -1):
-		if filename[index] == '/':
-			filename = filename.substr(index+1)
-			break
-	
-	return filename
-
-
-func iterate_nodes(node : Node):
-	if node == null:
-		return []
-	var nodes = [node]
-	for child in node.get_children():
-		var descendants = iterate_nodes(child)
-		nodes.append_array(descendants)
-	return nodes
-
-
-func check_extract_meshes(scene):
-	if get_option_value("import_plugin/extract_meshes"):
-		extract_meshes(scene)
-	
-
 func extract_meshes(scene):
-	var nodes = iterate_nodes(scene)
-	print(nodes)
+	var nodes = get_nodes(scene)
 	
 	for node in nodes:
 		if node.has_meta("material_overlay"):
@@ -227,69 +112,62 @@ func extract_meshes(scene):
 		
 		if node is MeshInstance3D:
 			var mesh_instance = node
-			print ("mesh found: %s" % mesh_instance)
 			var mesh_name = mesh_instance.name.to_snake_case()
 			save_mesh(mesh_instance.mesh, mesh_name)
 			# by loading we make sure the resource is linked to a file
 			mesh_instance.mesh = load_mesh(mesh_name)
 
 
-func clean_up_meta_data(node):
-	print("removing metadata...")
-	for data in node.get_meta_list():
-		print("removing metadata:  %s" % data)
-		node.remove_meta(data)
-
-
 func save_mesh(resource, mesh_name):
-	print("mesh_dir: " + mesh_directory)
 	if not DirAccess.dir_exists_absolute(mesh_directory):
-		DirAccess.make_dir_absolute(mesh_directory)
+		DirAccess.make_dir_recursive_absolute(mesh_directory)
 	var mesh_path = mesh_directory + filename + "_" + mesh_name + "_mesh.res"
 	
 	ResourceSaver.save(resource, mesh_path, ResourceSaver.FLAG_NONE)
-	print("saving resource mesh: %s at %s" % [resource, mesh_path] )
 	
-	#HACK(gerald, 2026 03 27): make godot update mesh in editor, does not always work
-	ResourceLoader.load(mesh_path, "", ResourceLoader.CACHE_MODE_REPLACE)
-	#var fs = EditorInterface.get_resource_filesystem()
-	#fs.reimport_files([mesh_path])
 
 
 func load_mesh(mesh_name):
-	if not DirAccess.dir_exists_absolute(mesh_directory):
-		DirAccess.make_dir_absolute(mesh_directory)
 	var mesh_path = mesh_directory + filename + "_" + mesh_name + "_mesh.res"	
+	if not FileAccess.file_exists(mesh_path):
+		push_error("could not load file at %s" % mesh_path)
+		return null
 	
-	var loaded = load(mesh_path)
+	var loaded = ResourceLoader.load(mesh_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 	return loaded
-
-
-func iterate_animation_players(node):
-	var result = []
+	
+	
+func get_nodes(node):
+	if node == null:
+		return []
+	var nodes = [node]
 	for child in node.get_children():
-		if child is AnimationPlayer:
-			var child_anim_players = iterate_animation_players(child)
-			result.append_array(child_anim_players)
-			result.append(child)
-	return result
+		var descendants = get_nodes(child)
+		nodes.append_array(descendants)
+	return nodes
+	
+	
+func clean_up_meta_data(node):
+	for data in node.get_meta_list():
+		node.remove_meta(data)
 
 
-func check_extract_animations(scene):
-	if get_option_value("import_plugin/extract_animations"):
-		extract_animations(scene)
+func get_animation_player(node):
+	if node is AnimationPlayer:
+		return node
+	for child in node.get_children():
+		var anim_player = get_animation_player(child)
+		if anim_player != null:
+			return anim_player
+	return null
 
 
 func extract_animations(scene):	
-	var anim_players = iterate_animation_players(scene)
-	
-	if anim_players.size() == 0:
+	var anim_player = get_animation_player(scene)
+	if anim_player == null:
 		return
-		
-	assert(anim_players.size() <= 1, "ERROR: more than one AnimationPlayer found during 3d asset import")
 	
-	var anim_player = anim_players[0]	
-	var anim_lib = anim_player.get_animation_library("")	
+	var anim_lib = anim_player.get_animation_library("")
 	
 	for anim_name in anim_player.get_animation_list():
 		var anim = anim_player.get_animation(anim_name)
@@ -298,7 +176,7 @@ func extract_animations(scene):
 		anim_lib.remove_animation(anim_name)
 		var loaded = load_animation(anim_name)
 		anim_lib.add_animation(anim_name, loaded)
-		
+
 
 func save_animation(anim_name, anim):
 	if not DirAccess.dir_exists_absolute(anim_directory):
@@ -309,35 +187,39 @@ func save_animation(anim_name, anim):
 
 
 func load_animation(anim_name):
-	if not DirAccess.dir_exists_absolute(anim_directory):
-		DirAccess.make_dir_absolute(anim_directory)
 	var anim_path = anim_directory + filename + "_" + anim_name + ".res"
+	if not FileAccess.file_exists(anim_path):
+		push_error("could not load file at %s" % anim_path)
+		return null
 	
 	var loaded = load(anim_path)
 	return loaded
 
 
-#TODO: delete?
-func setup_animation_player(anim_player, anim_dict, anim_player_name = "AnimationPlayer"):
-	anim_player.name = anim_player_name
-	anim_player.add_animation_library("", AnimationLibrary.new())
-	var anim_lib = anim_player.get_animation_library("")
-	for anim_name in anim_dict.keys():
-		anim_lib.add_animation(anim_name, anim_dict[anim_name])
-
-
-func check_generate_asset_scene(result, filename):
-	if get_option_value("import_plugin/generate_asset_scene"):
-		save_asset_scene(result, filename)
-
-
-func save_asset_scene(result, filename):
+func save_asset_scene(result, _filename):
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(result)
 	
 	if not DirAccess.dir_exists_absolute(asset_scene_directory):
-		DirAccess.make_dir_absolute(asset_scene_directory)
-	var asset_scene_path = asset_scene_directory + filename + ".tscn"
+		DirAccess.make_dir_recursive_absolute(asset_scene_directory)
+	var asset_scene_path = asset_scene_directory + _filename + ".tscn"
 	
-	print("saving asset scene: %s from %s to %s" % [result, filename, asset_scene_path])
 	ResourceSaver.save(packed_scene, asset_scene_path)
+
+
+#TODO(Gerald): could live in a utitlity class
+func extract_filename(file_path):
+	var _filename = ""
+	for index in range(file_path.length()-1, 0, -1):
+		if file_path[index] == '.':
+			_filename = file_path.substr(0,index)
+			break
+	for index in range(_filename.length()-1, 0, -1):
+		if _filename[index] == '/':
+			_filename = _filename.substr(index+1)
+			break
+	return _filename
+
+
+func clean_up():
+	filename = ""
