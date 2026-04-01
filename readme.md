@@ -16,28 +16,6 @@ I contributed to 107 out of 117 gd files.
 <!-- ... 97 had their last commit from me.  -->
 <!--31 out of the 117 scripts got contributions from more than 1 person.  -->
 
-## Engineering
-
-### Architecture
-core mechanic:   
-bounce pins to trigger effects like score, explosion etc.   
-
-went through 3 iterations:   
-1. duck-typing interfaces:    
-![](image/architecture_interface.png)   
-on collision triggers all the effects   
-this proved too inflexible: delayed explosions were awkward to implement   
-2. signals everywhere:   
-![](image/architecture_signals_everywhere.png)   
-promised easy no-code workflow   
-poor readability, signal connections to track.   
-3. signal up, call down:   
-![](image/architecture_signal_up_call_down.png)   
-
-
-### Pins
-
-
 ## Learnings
 
 Working on a team.  
@@ -47,3 +25,32 @@ Managing a project and a team.
 ## Team
 
 3 Artists, 2 Designers, 2 Coders, 1 Composer.
+
+## Engineering
+
+### Architecture
+Our core mechanic is this:   
+
+> *Bounce pins to trigger effects like score, explosion etc.*   
+	
+This went through 3 iterations:   
+#### 1. Duck-typing interfaces:    
+GDScripts's mechanism for interfaces is ducktyping: we try to call a certain function on all "effect" nodes.   
+This proved too inflexible. Effects triggering other effects were awkward to implement.
+![](image/architecture_interface.png)   
+#### 2. Signals wherever possible:   
+This approach promised an accessible workflow with less code.   
+It turned out to be very confusing, because signal connections are hard to track.   
+Also, we started employing inheritance for code re-use and structure.
+![](image/architecture_signals_everywhere.png)   
+#### 3. Signal up, call down:   
+This improved readability: Parent-to-child communication happens explicitly in code.   
+Signal connections are easier to guess, because they usually target the parent.   
+![](image/architecture_explosion_pin.png)   
+Explosion feature was split into 3 classes:   
+- Player interacts with **Explosion Pin**   
+- Explosion Pin has **Exploder** effect  
+- Exploder spawns **Explosion Blast**    
+
+Communication is restricted to parent and child.   
+![](image/architecture_explosion_3_classes.png)   
