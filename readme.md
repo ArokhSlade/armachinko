@@ -13,8 +13,30 @@ As a Team of 8, in 10 weeks, we built a quirky pinball spin-off, where players t
 
 I contributed to 107 out of 117 gd files.  
 29 of which I collaborated on with team members.  
-<!-- ... 97 had their last commit was from me.  -->
+<!-- ... 97 had their last commit from me.  -->
 <!--31 out of the 117 scripts got contributions from more than 1 person.  -->
+
+## Engineering
+
+### Architecture
+core mechanic:   
+bounce pins to trigger effects like score, explosion etc.   
+
+went through 3 iterations:   
+1. duck-typing interfaces:    
+![](image/architecture_interface.png)   
+on collision triggers all the effects   
+this proved too inflexible: delayed explosions were awkward to implement   
+2. signals everywhere:   
+![](image/architecture_signals_everywhere.png)   
+promised easy no-code workflow   
+poor readability, signal connections to track.   
+3. signal up, call down:   
+![](image/architecture_signal_up_call_down.png)   
+<img src="image/architecture_signal_up_call_down.png" width="10"/>
+
+
+### Pins
 
 
 ## Learnings
