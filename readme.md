@@ -40,8 +40,10 @@ This proved too inflexible. Effects triggering other effects were awkward to imp
 ![](image/architecture_interface.png)   
 #### 2. Signals wherever possible:   
 This approach promised an accessible workflow with less code.   
-It turned out to be very confusing, because signal connections are hard to track.   
-Also, we started employing inheritance for code re-use and structure.
+It turned out to be very confusing, because signal connections were hard to track.   
+Also, we started employing inheritance for code re-use and structure.   
+However, all functionality was encapsulated in components, and the parts connected with signals in editor.   
+So the child class ExplosionPin actually had nothing to do!
 ![](image/architecture_signals_everywhere.png)   
 #### 3. Signal up, call down:   
 This improved readability: Parent-to-child communication happens explicitly in code.   
