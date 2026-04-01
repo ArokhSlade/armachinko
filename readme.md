@@ -33,7 +33,6 @@ promised easy no-code workflow
 poor readability, signal connections to track.   
 3. signal up, call down:   
 ![](image/architecture_signal_up_call_down.png)   
-<img src="image/architecture_signal_up_call_down.png" width="50%"/>
 
 
 ### Pins
